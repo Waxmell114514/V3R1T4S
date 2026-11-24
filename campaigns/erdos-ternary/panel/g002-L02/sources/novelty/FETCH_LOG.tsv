@@ -26,3 +26,9 @@
 2026-11-24T12:51:04Z	200	f6e40bc179904566045113d1b3845c03252fa3fce7a389eb36ad78535a9c8d7c	mathscinet_narkiewicz.html	https://mathscinet.ams.org/mathscinet/search/publdoc.html?pg1=MR&s1=MR0624774
 2026-11-24T12:51:22Z	200	2b439122505abe6f70257aabcb51a6d43bffa6cc627dc811b4009fa88f037a27	zbapi_lagarias.json	https://api.zbmath.org/v1/document/_search?search_string=an%3A1193.11008
 2026-11-24T12:51:26Z	200	9eab5c88d8dbd19f4c24b9f5c0c11ffafb4f2643a5c879f3cd925602ba8b8b4c	zbapi_citing_0457.json	https://api.zbmath.org/v1/document/_search?search_string=ci%3A0457.10003&results_per_page=50
+2026-11-24T12:51:55Z	200	a3eef5a7a54ddf7f0759d924f839dcef0874fa937f0d0115940ab8b16009ff2d	schinzel_facm.html	https://doi.org/10.7169/facm/1229696551
+2026-11-24T12:51:56Z	200	b4e93f0ddf540aceff8a4d0845db9edb534a282874e0680ba0f7ab4fb53a5d19	arxiv_api_dimitrov_howe.xml	http://export.arxiv.org/api/query?search_query=au:Dimitrov+AND+au:Howe&max_results=20
+2026-11-24T12:51:57Z	200	2e8229a5055397112c3e8c36f4f1527b40631bb015b364136fb422bf52210043	arxiv_api_abram_lagarias.xml	http://export.arxiv.org/api/query?search_query=au:Abram+AND+au:Lagarias&max_results=20
+2026-11-24T12:51:58Z	200	e4a06ed2be2780be36aea9ecc768cb339fda6f42158e7a75ce056baceb4af35a	arxiv_api_dupuy_weirich.xml	http://export.arxiv.org/api/query?search_query=au:Dupuy+AND+au:Weirich&max_results=20
+2026-11-24T12:52:03Z	400	afe82cfce177197dcc3f4dd749a442f6c9d2cdffde05a8e2c36e564a579edad4	mo_search_ternary_powers2.json	https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=relevance&q=ternary%20powers%20of%202&site=mathoverflow&pagesize=50
+2026-11-24T12:52:03Z	200	872b1b72a0aac3ebf2970b89dfb4e44b0549aa002390e86403a4005b7232ce7b	mo_search_narkiewicz.json	https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=relevance&q=Narkiewicz&site=mathoverflow&pagesize=50

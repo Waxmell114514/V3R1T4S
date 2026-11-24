@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/XGYibofb6pLyUnB/Gadn32oAyrk</id>
+  <title>arXiv Query: search_query=au:Dimitrov AND au:Howe&amp;id_list=&amp;start=0&amp;max_results=20</title>
+  <updated>2026-11-24T12:51:57Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=au:Dimitrov+AND+au:Howe&amp;start=0&amp;max_results=20&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>20</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1001.4133v4</id>
+    <title>Lower bounds on the lengths of double-base representations</title>
+    <updated>2011-02-02T05:26:29Z</updated>
+    <link href="https://arxiv.org/abs/1001.4133v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1001.4133v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A double-base representation of an integer n is an expression n = n_1 + ... + n_r, where the n_i are (positive or negative) integers that are divisible by no primes other than 2 or 3; the length of the representation is the number r of terms. It is known that there is a constant a &gt; 0 such that every integer n has a double-base representation of length at most a log n / log log n. We show that there is a constant c &gt; 0 such that there are infinitely many integers n whose shortest double-base representations have length greater than c log n / (log log n log log log n).
+  Our methods allow us to find the smallest positive integers with no double-base representations of several lengths. In particular, we show that 103 is the smallest positive integer with no double-base representation of length 2, that 4985 is the smallest positive integer with no double-base representation of length 3, that 641687 is the smallest positive integer with no double-base representation of length 4, and that 326552783 is the smallest positive integer with no double-base representation of length 5.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-01-23T07:00:54Z</published>
+    <arxiv:comment>8 pages, LaTeX. Added DOIs for most references; corrected a minor error in arithmetic; made small copy-editing changes. To appear in Proc. Amer. Math. Soc</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Proc. Amer. Math. Soc. 139 (2011), 3423-3430</arxiv:journal_ref>
+    <author>
+      <name>Vassil S. Dimitrov</name>
+    </author>
+    <author>
+      <name>Everett W. Howe</name>
+    </author>
+    <arxiv:doi>10.1090/S0002-9939-2011-10764-0</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1090/S0002-9939-2011-10764-0" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2105.06440v4</id>
+    <title>Powers of 3 with few nonzero bits and a conjecture of Erdős</title>
+    <updated>2023-07-03T13:49:55Z</updated>
+    <link href="https://arxiv.org/abs/2105.06440v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2105.06440v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Using completely elementary methods, we find all powers of 3 that can be written as the sum of at most twenty-two distinct powers of 2, as well as all powers of 2 that can be written as the sum of at most twenty-five distinct powers of 3. The latter result is connected to a conjecture of Erdős, namely, that 1, 4, and 256 are the only powers of 2 that can be written as a sum of distinct powers of 3.
+  We present this work partly as a reminder that for certain exponential Diophantine equations, elementary techniques based on congruences can yield results that would be difficult or impossible to obtain with more advanced techniques involving, for example, linear forms in logarithms.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-05-13T17:33:11Z</published>
+    <arxiv:comment>Corrected typos. Final version, 18 pages. To appear in the Rocky Mountain Journal of Mathematics</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Vassil S. Dimitrov</name>
+    </author>
+    <author>
+      <name>Everett W. Howe</name>
+    </author>
+  </entry>
+</feed>

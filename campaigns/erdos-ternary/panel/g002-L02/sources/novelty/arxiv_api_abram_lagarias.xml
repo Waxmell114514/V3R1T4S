@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/ZJqw9IPQsVookxaC+i3W8K0w54k</id>
+  <title>arXiv Query: search_query=au:Abram AND au:Lagarias&amp;id_list=&amp;start=0&amp;max_results=20</title>
+  <updated>2026-11-24T12:51:58Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=au:Abram+AND+au:Lagarias&amp;start=0&amp;max_results=20&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>20</opensearch:itemsPerPage>
+  <opensearch:totalResults>6</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1308.3133v1</id>
+    <title>Intersections of multiplicative translates of 3-adic Cantor sets</title>
+    <updated>2013-08-14T14:06:33Z</updated>
+    <link href="https://arxiv.org/abs/1308.3133v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1308.3133v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Motivated by a question of Erdős, this paper considers questions concerning the discrete dynamical system on the 3-adic integers given by multiplication by 2. Let the 3-adic Cantor set consist of all 3-adic integers whose expansions use only the digits 0 and 1. The exception set is the set of 3-adic integers whose forward orbits under this action intersects the 3-adic Cantor set infinitely many times. It has been shown that this set has Hausdorff dimension 0. Approaches to upper bounds on the Hausdorff dimensions of these sets leads to study of intersections of multiplicative translates of Cantor sets by powers of 2. More generally, this paper studies the structure of finite intersections of general multiplicative translates of the 3-adic Cantor set by integers 1 &lt; M_1 &lt; M_2 &lt; ...&lt; M_n. These sets are describable as sets of 3-adic integers whose 3-adic expansions have one-sided symbolic dynamics given by a finite automaton. As a consequence, the Hausdorff dimension of such a set is always of the form log(β) for an algebraic integer β. This paper gives a method to determine the automaton for given data (M_1, ..., M_n). Experimental results indicate that the Hausdorff dimension of such sets depends in a very complicated way on the integers M_1,...,M_n.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-08-14T14:06:33Z</published>
+    <arxiv:comment>v1, 31 pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>J. Fractal Geometry 1 (2014), no. 4, 349--390</arxiv:journal_ref>
+    <author>
+      <name>William Abram</name>
+    </author>
+    <author>
+      <name>Jeffrey C. Lagarias</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1207.5004v5</id>
+    <title>Path sets in one-sided symbolic dynamics</title>
+    <updated>2013-12-13T01:08:29Z</updated>
+    <link href="https://arxiv.org/abs/1207.5004v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1207.5004v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Path sets are spaces of one-sided infinite symbol sequences associated to pointed graphs (G_v_0), which are edge-labeled directed graphs G with a distinguished vertex v_0. Such sets arise naturally as address labels in geometric fractal constructions and in other contexts. The resulting set of symbol sequences need not be closed under the one-sided shift. this paper establishes basic properties of the structure and symbolic dynamics of path sets, and shows they are a strict generalization of one-sided sofic shifts.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-07-20T17:09:19Z</published>
+    <arxiv:comment>16 pages, 6 figures; v2, 22pages, 6 figures; title change, adds a new Theorem 1.5, and a second Appendix, v3, 21 pages, revisions to exposition; v4 revised introduction; v5, 22 pages, changed title, revised introduction</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <arxiv:journal_ref>Adv. in Applied Math. 56 (2014), 109--134</arxiv:journal_ref>
+    <author>
+      <name>William Abram</name>
+    </author>
+    <author>
+      <name>Jeffrey C. Lagarias</name>
+    </author>
+    <arxiv:doi>10.1016/j.aam.2013.12.005</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.aam.2013.12.005" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1210.2478v4</id>
+    <title>p-adic path set fractals and arithmetic</title>
+    <updated>2013-12-13T01:48:36Z</updated>
+    <link href="https://arxiv.org/abs/1210.2478v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1210.2478v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper considers a class C(Z_p) of closed sets of the p-adic integers obtained by graph-directed constructions analogous to those of Mauldin and Williams over the real numbers. These sets are characterized as collections of those p-adic integers whose p-adic expansions are describeed by paths in the graph of a finite automaton issuing from a distinguished initial vertex. This paper shows that this class of sets is closed under the arithmetic operations of addition and multiplication by p-integral rational numbers. In addition the Minkowski sum (under p-adic addition) of two set in the class is shown to also belong to this class. These results represent purely p-adic phenomena in that analogous closure properties do not hold over the real numbers. We also show the existence of computable formulas for the Hausdorff dimensions of such sets.</summary>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-10-09T03:31:44Z</published>
+    <arxiv:comment>v1 24 pages; v2 added to title, 28 pages; v3, 30 pages, added concluding section, v.4, incorporate changes requested by reviewer</arxiv:comment>
+    <arxiv:primary_category term="math.MG"/>
+    <arxiv:journal_ref>J. Fract. Geometry 1 (2014), no. 1, 45--81</arxiv:journal_ref>
+    <author>
+      <name>William Abram</name>
+    </author>
+    <author>
+      <name>Jeffrey C. Lagarias</name>
+    </author>
+    <arxiv:doi>10.4171/JFG/2</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.4171/JFG/2" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1508.05967v2</id>
+    <title>Intersections of multiplicative translates of $3$-adic Cantor sets II: two infinite families</title>
+    <updated>2015-12-15T20:30:18Z</updated>
+    <link href="https://arxiv.org/abs/1508.05967v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1508.05967v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper continues the study of the structure of finite intersections of general multiplicative translates $\mathcal{C}(M_1,\ldots,M_n)=\frac{1}{M_1}Σ_{3,\bar{2}}\cap\cdots\cap\frac{1}{M_n}Σ_{3,\bar{2}}$ for integers $1\leq M_1&lt;\cdots&lt;M_n$, where $Σ_{3,\bar{2}}$ denotes the $3$-adic Cantor set. This study was motivated by questions concerning the discrete dynamical system on the $3$-adic integers $\mathbb{Z}_3$ given by multiplication by $2$. The exceptional set $\mathcal{E}(\mathbb{Z}_3)$ is defined to be the set of all elements of $\mathbb{Z}_3$ whose forward orbits under this action intersect the $3$-adic Cantor set $Σ_{3,\bar{2}}$ infinitely many times. It is conjectured that it has Hausdorff dimension $0$. Part I showed that upper bounds on the Hausdorff dimension of the exceptional set can be extracted from knowing Hausdorff dimensions of sets of the kind above, in cases where all $M_i$ are powers of $2$. These intersection sets were shown to be fractals whose points have $3$-adic expansions describable by labeled paths in a finite automaton, whose Hausdorff dimension is exactly computable and is of the form $\log_3(β)$ where $β$ is a real algebraic integer. It gave algorithms for determination of the automaton, and computed examples showing that the dependence of the automaton and the value $β$ on the parameters $(M_1,\ldots,M_n)$ is complicated. The present paper studies two new infinite families of examples, illustrating interesting behavior of the automata and of the Hausdorff dimension of the associated fractals. One family has associated automata whose directed graph has a nested sequence of strongly connected components of arbitrarily large depth. The second family leads to an improved upper bound for the Hausdorff dimension of $\mathcal{E}(\mathbb{Z}_3)$ of $\log_3 φ\approx 0.438018$, where $φ$ denotes the Golden ratio.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-08-24T20:40:41Z</published>
+    <arxiv:comment>v5.8, 33 pages, 3 figures, 5 tables</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Experimental Mathematics 26 (2017), no. 4, 468--489</arxiv:journal_ref>
+    <author>
+      <name>William C. Abram</name>
+    </author>
+    <author>
+      <name>Artem Bolshakov</name>
+    </author>
+    <author>
+      <name>Jeffrey C. Lagarias</name>
+    </author>
+    <arxiv:doi>10.1080/10586458.2016.1205532</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1080/10586458.2016.1205532" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2101.02441v1</id>
+    <title>Interleaving of path sets</title>
+    <updated>2021-01-07T09:20:13Z</updated>
+    <link href="https://arxiv.org/abs/2101.02441v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2101.02441v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Path sets are spaces of one-sided infinite symbol sequences corresponding to the one-sided infinite walks beginning at a fixed initial vertex in a directed labeled graph. Path sets are a generalization of one-sided sofic shifts. This paper studies decimation operations $ψ_{j, n}(\cdot)$ which extract symbol sequences in infinite arithmetic progressions (mod n). starting with the symbol at position j. It also studies a family of n-ary interleaving operations, one for each arity n, which act on an ordered set $(X_0, X_1, ..., X_{n-1})$ of one-sided symbol sequences on a finite alphabet A, to produce a set $X$ of all output sequences obtained by interleaving the symbols of words $x_i$ in each $X_i$ in arithmetic progressions (mod n). It studies a set of closure operations relating interleaving and decimation. It reviews basic algorithmic results on presentations of path sets and existence of a minimal right-resolving presentation. It gives an algorithm for computing presentations of decimations of path sets from presentations of path sets, showing the minimal right-resolving presentation of $ψ_{j,n}(X)$ has at most one more vertex than a minimal right-resolving presentation of X. It shows that a path set has only finitely many distinct decimations. It shows the class of path sets on a fixed alphabet is closed under all interleaving operations, and gives algorithms for computing presentations of n-fold interleavings of given sets $X_i$. It studies interleaving factorizations and classifies path sets that have infinite interleaving factorizations, and gives an algorithm to recognize them. It shows a finiteness of a process of iterated interleaving factorizations, which "freezes" factors that have infinite interleavings.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-01-07T09:20:13Z</published>
+    <arxiv:comment>35 pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>William C. Abram</name>
+    </author>
+    <author>
+      <name>Jeffrey C. Lagarias</name>
+    </author>
+    <author>
+      <name>Daniel Slonim</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2010.15215v2</id>
+    <title>Decimation and Interleaving Operations in One-Sided Symbolic Dynamics</title>
+    <updated>2020-12-14T22:00:42Z</updated>
+    <link href="https://arxiv.org/abs/2010.15215v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2010.15215v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper studies subsets of one-sided shift spaces on a finite alphabet. Such subsets arise in symbolic dynamics, in fractal constructions, and in number theory. We study a family of decimation operations, which extract subsequences of symbol sequences in infinite arithmetic progressions, and show they are closed under composition. We also study a family of $n$-ary interleaving operations, one for each $n \ge 1$. Given subsets $X_0, X_1, ..., X_{n-1}$ of the shift space, the $n$-ary interleaving operator produces a set whose elements combine individual elements ${\bf x}_i$, one from each $X_i$, by interleaving their symbol sequences cyclically in arithmetic progressions $(\bmod\,n)$. We determine algebraic relations between decimation and interleaving operators and the shift operator. We study set-theoretic $n$-fold closure operations $X \mapsto X^{[n]}$, which interleave decimations of $X$ of modulus level $n$. A set is $n$-factorizable if $X=X^{[n]}$. The $n$-fold interleaving operators are closed under composition and are idempotent. To each $X$ we assign the set $\mathcal{N}(X)$ of all values $n \ge 1$ for which $X= X^{[n]}$. We characterize the possible sets $\mathcal{N}(X)$ as nonempty sets of positive integers that form a distributive lattice under the divisibility partial order and are downward closed under divisibility. We show that all sets of this type occur. We introduce a class of weakly shift-stable sets and show that this class is closed under all decimation, interleaving, and shift operations. This class includes all shift-invariant sets. We study two notions of entropy for subsets of the full one-sided shift and show that they coincide for weakly shift-stable $X$, but can be different in general. We give a formula for entropy of interleavings of weakly shift-stable sets in terms of individual entropies.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-10-28T20:26:28Z</published>
+    <arxiv:comment>41 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <arxiv:journal_ref>Advances in Applied Mathematics 126 (2021), no 1, 351--376</arxiv:journal_ref>
+    <author>
+      <name>William C. Abram</name>
+    </author>
+    <author>
+      <name>Jeffrey C. Lagarias</name>
+    </author>
+    <author>
+      <name>Daniel J. Slonim</name>
+    </author>
+    <arxiv:doi>10.1016/j.aam.2020.102160</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.aam.2020.102160" title="doi"/>
+  </entry>
+</feed>
