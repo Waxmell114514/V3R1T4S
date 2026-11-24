@@ -38,3 +38,6 @@
 2026-11-24T12:52:33Z	200	9cdebcbd27a21d9edf2a21615abfba248098fd43f909e0fecb4d1277497a667a	arxiv_1308.3133.pdf	https://arxiv.org/pdf/1308.3133
 2026-11-24T12:52:33Z	200	9adb61fabfc9bff7c02170b261253059ebaf972ba98d4ac7825802c87bc03e87	arxiv_api_omit_digit.xml	http://export.arxiv.org/api/query?search_query=abs:%22omit%22+AND+abs:digit+AND+abs:powers&sortBy=submittedDate&sortOrder=descending&max_results=50
 2026-11-24T12:53:07Z	200	c82fc8386018bf6c7761b28691c5843767b47584ca7ae290d3f1f9be1513f8a2	mathscinet_MR623247.html	https://mathscinet.ams.org/mathscinet-getitem?mr=623247
+2026-11-24T12:53:41Z	429	467622e2f17f01d302d6c790b13078569f17d71cd83910558535019a594e07c1	arxiv_api_narkiewicz.xml	http://export.arxiv.org/api/query?search_query=all:Narkiewicz&sortBy=submittedDate&sortOrder=descending&max_results=50
+2026-11-24T12:54:22Z	429	467622e2f17f01d302d6c790b13078569f17d71cd83910558535019a594e07c1	arxiv_api_ternary_2n.xml	http://export.arxiv.org/api/query?search_query=abs:ternary+AND+abs:Erd*&sortBy=submittedDate&sortOrder=descending&max_results=50
+2026-11-24T12:54:32Z	429	467622e2f17f01d302d6c790b13078569f17d71cd83910558535019a594e07c1	arxiv_api_large_digits.xml	http://export.arxiv.org/api/query?search_query=abs:%22large+digits%22+OR+abs:%22digit+2%22+AND+abs:powers&sortBy=submittedDate&sortOrder=descending&max_results=50
