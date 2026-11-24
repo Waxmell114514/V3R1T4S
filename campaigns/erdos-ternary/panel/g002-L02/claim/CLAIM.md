@@ -24,3 +24,16 @@ L_k(Y) counts r < Y whose 2^r has low k+1 trits free of 2; the case Y = 2·3^k +
 
 How to rerun: `cd campaigns/erdos-ternary/lean && lake build`; from campaigns/erdos-ternary:
 `python3 verify/lean_audit.py ErdosTernary.Counting ErdosTernary.Counting.card_noTwo_le_succ_rpow`.
+
+## Revision 2 (after the CRITERION skeptic, panel/g002-L02/criterion.md) — scope narrowed, nothing widened
+- Sharpness is now formalized (CountingSharp.lean, copy here; written by the orchestrator, needs its own audit):
+  `sharp_at_zero`, `sharp_at_two` (equality at X = 0 and X = 2) and `const_ge_one`: if A(X) ≤ c·(X+1)^{log_3 2}
+  for all X ≥ 0 then c ≥ 1. All tier A by verify/lean_audit.py.
+- Comparison stated precisely: the improvement 1.3 → 1 holds only in the (X+1)^{log_3 2} normalization, where
+  Holdum–Klausen–Rasmussen (2015, Thm 2.13, "s < a") reads A(X) ≤ 1.3 (X+1)^{log_3 2}. In the X^{log_3 2}
+  normalization the new bound gives no improvement over the known 2^{1-log_3 2} ≈ 1.29. The normalization of
+  Narkiewicz's 1.62·T^{log_3 2} is taken from a zbMATH summary and is unverified.
+- Allowed one-sentence scope: "Lean-verified (tier A): for every integer X ≥ 0, the number of n with 0 ≤ n ≤ X such
+  that 2^n has no digit 2 in base 3 is at most (X+1)^{log_3 2}, and the constant 1 cannot be lowered in this
+  (X+1)-normalized form; this compares with the constant 1.3 of Holdum–Klausen–Rasmussen (2015) in the same
+  normalization and says nothing about the Erdős conjecture."
