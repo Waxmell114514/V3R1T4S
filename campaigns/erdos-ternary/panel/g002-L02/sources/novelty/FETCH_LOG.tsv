@@ -2,3 +2,16 @@
 2026-11-24T12:48:49Z	200	8be39ffb28dded5cc6428041fdc82837898272e50b752074ceb17284a9b586c9	zb_narkiewicz.json	https://api.zbmath.org/v1/document/_search?search_string=an%3A0457.10003
 2026-11-24T12:48:50Z	200	565446e1a1ad3a57f5adb20d500997fb45a2716c98b517c34f8f2d354587370c	lagarias_0512006.pdf	https://arxiv.org/pdf/math/0512006
 2026-11-24T12:48:50Z	200	f6c0ac0f12271de016619210c54d0a66088c858c622ff7e1f9665793c803e7ba	erdos406.html	https://www.erdosproblems.com/406
+2026-11-24T12:49:35Z	200	770844b133d3b8a3f846649b1900bb4e578a5664766939845bb4c5836fbb968c	erdos406_forum.html	https://www.erdosproblems.com/forum/thread/406
+2026-11-24T12:49:45Z	200	cda283ed166937058a32bfd202dccfcc09826061349e42f87d114788d9f03859	oeis_A351928.txt	https://oeis.org/search?q=id:A351928&fmt=text
+2026-11-24T12:49:45Z	200	aa587c271de8c3cc22a15b16a61c1b98315e9fab28cbbb6df2c8b3257014b982	oeis_A102483.txt	https://oeis.org/search?q=id:A102483&fmt=text
+2026-11-24T12:49:45Z	200	d96483a7d00557c5719fa8ae6f7c7f6fb131e0af07452217d7aa1946d1ce7cba	oeis_search_ternary_no2.txt	https://oeis.org/search?q=1,4,256+ternary&fmt=text
+2026-11-24T12:49:45Z	200	c46c2984a3ce4d88c2c51c48c781056e10bc38c0662f16b8797a84163b48a5c1	fc_406.lean	https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/406.lean
+2026-11-24T12:49:54Z	200	b0817f3f8c52ef94c22574c61de1bbc4356f438e05cddafafa47cfe3f9b2b284	oeis_search_0_2_8.txt	https://oeis.org/search?q=0%2C2%2C8+2%5En+base+3&fmt=text
+2026-11-24T12:49:55Z	200	1ad5e4ee5f96dc07b9d446936bc8ed1a9a490932403eeffc2e433093c6dccd03	oeis_search_erdos_ternary.txt	https://oeis.org/search?q=Erdos+ternary+powers+of+2+digit+2&fmt=text
+2026-11-24T12:49:55Z	200	0d9a9076b82bba016b91339ec2d2f91c5dfcc578cd0df6c04ab8cca0cf71e6cf	arxiv_2610.03789_abs.html	https://arxiv.org/abs/2610.03789
+2026-11-24T12:50:04Z	200	a53e00f1dbbdfe338643d32a5116ee91f3c3445f11fc193c37b66744751f123f	arxiv_2610.03789.pdf	https://arxiv.org/pdf/2610.03789
+2026-11-24T12:50:04Z	200	6f3a425e743e72d2389af9eebce0b41f93289ff902bd5954f4d19ac57e8926e0	arxiv_api_ternary_powers2.xml	http://export.arxiv.org/api/query?search_query=abs:ternary+AND+abs:%22powers+of+two%22&sortBy=submittedDate&sortOrder=descending&max_results=50
+2026-11-24T12:50:14Z	200	f03402b8a7df1738ecddb300ec4e43c6edc1fca3c1e121f0d1b0f1b8e42e3310	arxiv_api_erdos_ternary.xml	http://export.arxiv.org/api/query?search_query=abs:Erdos+AND+abs:ternary&sortBy=submittedDate&sortOrder=descending&max_results=50
+2026-11-24T12:50:15Z	200	b085578a8961cd43be6440b6db4e3769227b84696d5076454fa519e78ea570f7	arxiv_api_powers2_base3.xml	http://export.arxiv.org/api/query?search_query=abs:%22powers+of+2%22+AND+abs:%22base+3%22&sortBy=submittedDate&sortOrder=descending&max_results=50
+2026-11-24T12:50:15Z	200	8448eef80a6a8e0a0a550ef3cc452da2136d4f30adab231a33130a3c9739432a	arxiv_api_digits_powers.xml	http://export.arxiv.org/api/query?search_query=ti:digits+AND+ti:powers&sortBy=submittedDate&sortOrder=descending&max_results=60

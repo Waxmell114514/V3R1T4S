@@ -1,0 +1,1628 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/XvGWoaRW+dKtP9KvtmEH9F9nAdQ</id>
+  <title>arXiv Query: search_query=ti:digits AND ti:powers&amp;id_list=&amp;start=0&amp;max_results=60</title>
+  <updated>2026-11-24T12:50:15Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=ti:digits+AND+ti:powers&amp;start=0&amp;max_results=60&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>60</opensearch:itemsPerPage>
+  <opensearch:totalResults>165</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2611.23101v2</id>
+    <title>StreamingDPD: A 1.28-GSa/s Instantaneous-Power-Gated Depthwise TCN Accelerator for Real-Time 320-MHz Digital Predistortion</title>
+    <updated>2026-11-21T23:20:56Z</updated>
+    <link href="https://arxiv.org/abs/2611.23101v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2611.23101v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>State feedback between successive samples limits the streaming throughput of recurrent neural networks for digital predistortion (DPD). We present StreamingDPD, an accelerator that processes 320-MHz signals at 1.28 GSa/s. Its 207-parameter instantaneous-power-gated depthwise temporal convolutional network (IPG-DWTCN) uses $|x[n]|^2$ to gate feature channels and causal dilated depthwise convolutions to model power amplifier memory. The network maps to a spatially unrolled fixed-point pipeline with shift-based quadratic activations and layer-wise mixed precision, sustaining one complex sample per cycle per lane. Its algorithmic cost is 554 floating-point operations per complex sample, 30.1% fewer than the recurrent baseline with the best linearization performance. In RF playback measurements on three power amplifiers driven by 40- to 320-MHz Wi-Fi 6/7 and 5G NR waveforms, IPG-DWTCN achieves the lowest mean adjacent-channel power ratio (ACPR) and ranks first or ties for first in mean error vector magnitude (EVM) against five neural baselines of comparable size. Four-lane FPGA hardware-in-the-loop tests on a 320-MHz 4096-QAM Wi-Fi 7 waveform achieve -45.82 dBc ACPR and -42.94 dB EVM at 1.28 GSa/s. At the same sample rate, post-layout evaluation of a single-lane 12-nm FinFET ASIC yields a 0.10 mm$^2$ core, a 52-cycle (40.63 ns) latency, and an estimated typical-corner power of 142.21 mW (111.10 pJ/sample). Relative to the prior 22-nm recurrent DPD ASIC, the design provides 5.1 times the throughput at about one-seventh the energy per sample.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-11-17T17:23:59Z</published>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Yizhuo Wu</name>
+    </author>
+    <author>
+      <name>Xinling Wang</name>
+    </author>
+    <author>
+      <name>Chang Gao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2611.21204v1</id>
+    <title>Digital Twin Enabled Talkative Power Conversion</title>
+    <updated>2026-11-16T14:58:17Z</updated>
+    <link href="https://arxiv.org/abs/2611.21204v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2611.21204v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Talkative Power Conversion (TPC) is a paradigm in which communication is integrated directly into switched-mode power electronic converters (PECs) by modulating their inherent switching ripple. TPC enables simultaneous power transfer and information exchange without dedicated transmitter-side communication hardware, and avoids additional wiring. This paper combines, for the first time, the Digital Twin (DT) concept with the TPC paradigm. By establishing interaction between one or several physical power converters and their virtual counterpart(s), the DT framework enables enhanced modeling, prediction, and optimization of individual or networked PECs. We distinguish three coupling architectures--embedded DT, remote DT, and networked DT--and demonstrate the added value of combining DT and TPC concepts when the DT and PEC are not co-located. The proposed framework is based on state-space modeling in conjunction with Kalman filtering and facilitates joint treatment of data transmission, parameter estimation, and system operation, thereby improving robustness, adaptability, and power efficiency. The presented approach highlights the potential of DT-enhanced TPC as a key enabler for future cyber-physical energy systems with tightly integrated power and communication functionalities.</summary>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-11-16T14:58:17Z</published>
+    <arxiv:primary_category term="eess.SY"/>
+    <author>
+      <name>Peter A. Hoeher</name>
+    </author>
+    <author>
+      <name>Yang Leng</name>
+    </author>
+    <author>
+      <name>Maximilian Mewis-Noll</name>
+    </author>
+    <author>
+      <name>Rongwu Zhu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2611.05910v1</id>
+    <title>Continuous-Discrete Dual-Domain Co-Design for Optimized Digital Control of Power Converters</title>
+    <updated>2026-11-04T04:01:53Z</updated>
+    <link href="https://arxiv.org/abs/2611.05910v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2611.05910v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Optimizing digital control for power converters typically involves designing continuous-time controllers and discretizing them via Euler, Tustin, or Generalized Bilinear Transform (GBT) methods. However, the intrinsic coupling between continuous-domain control parameters and discrete-domain implementation parameters remains underexplored, often leading to suboptimal performance. To bridge this gap, this paper first establishes a Non-Uniqueness Theorem, elucidating the coupling mechanism between dual-domain parameters. Based on this, two co-design methodologies are proposed to derive optimized parameter sets: the Explicit Frequency-Domain Analytical Method (EFDAM) and the Implicit Computer-Aided Search Method (ICASM). The EFDAM derives closed-form solutions by maximizing the crossover frequency and resonant magnitude via logarithmic frequency stability criteria, while minimizing discretization errors using Taylor-series bounds. The ICASM formulates the search for optimized parameters as a constrained multi-objective optimization problem, balancing bandwidth, resonant magnitude, and fundamental magnitude. To solve ICASM efficiently, two algorithms are introduced: the Multi-Start COBYLA (MS-COBYLA), which employs Latin Hypercube Sampling for physics-informed initialization to escape local optima, and the PSO-COBYLA hybrid algorithm, which couples global particle swarm exploration with local refinement. Experimental results on a 5-kW single-phase inverter with a Proportional-Integral-Resonant (PIR) regulator validate that the proposed methods outperform the conventional benchmark, achieving a 43.3\% reduction in the peak-to-peak current ripple measured at the zero-active-power operating point and an 11.7\%--35.9\% decrease in THDi across various harmonic profiles.</summary>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-11-04T04:01:53Z</published>
+    <arxiv:primary_category term="eess.SY"/>
+    <author>
+      <name>Shen Chen</name>
+    </author>
+    <author>
+      <name>Jinjun Liu</name>
+    </author>
+    <author>
+      <name>Xuancai Zhu</name>
+    </author>
+    <author>
+      <name>Yanlong Li</name>
+    </author>
+    <author>
+      <name>Jisong Wang</name>
+    </author>
+    <author>
+      <name>Shuaipo Guo</name>
+    </author>
+    <author>
+      <name>Zhipeng Song</name>
+    </author>
+    <author>
+      <name>Lijun Hang</name>
+    </author>
+    <author>
+      <name>Zeng Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.16770v2</id>
+    <title>Digital-Twin-Referenced Belief-Guided Q-Learning for Jammer Identification and Beam-Power Control in a mmWave Model</title>
+    <updated>2026-10-23T12:46:19Z</updated>
+    <link href="https://arxiv.org/abs/2610.16770v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.16770v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Next-generation wireless networks are expected to support high data rates and reliable connectivity while meeting requirements for energy efficiency, resource management, and communication security. Digital Twin (DT) technology represents expected network behavior and enables the actual network state to be assessed against it. Integrating DT technology with reinforcement learning (RL) supports adaptive resource allocation and security-aware decision-making. This paper presents a simulation-based DT reference and a belief-guided Q-learning (BGQL) method for joint jammer identification and beam-power control in a site-specific 28-GHz network model. Receiver-level residuals between attack-free and attacked configurations are combined with candidate spatial jamming footprints and accumulated into a normalized suspicion vector. BGQL incorporates this vector into its state, reward, and exploratory beam-selection rule. Compared with SARSA, Greedy, and Random across 30 paired Monte Carlo runs per configuration, with known jammer counts, BGQL achieves link-rate scores of 437.4-564.2 Mbit/s, rate-to-device-power scores of 60.37-76.79 Mbit/J, and localization recall of 100% for one jammer and 78%-81% for two jammers. BGQL requires 80-130 s per run versus 5-14 s for SARSA. These findings provide a matched-model simulation proof of concept for DT-referenced belief-guided learning for security-aware beam-power control in 6G networks.</summary>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.GT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-12T13:27:53Z</published>
+    <arxiv:primary_category term="cs.IT"/>
+    <author>
+      <name>Parmida Geranmayeh</name>
+    </author>
+    <author>
+      <name>Onur Günlü</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.23944v1</id>
+    <title>TeleTwin: A Calibrated Digital Twin of Telegram Crisis Discourse as a Ground-Truth Testbed for Detecting LLM-Powered Information Operations</title>
+    <updated>2026-10-08T08:04:22Z</updated>
+    <link href="https://arxiv.org/abs/2610.23944v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.23944v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models make it cheap to run influence operations whose messages never repeat, yet real platforms offer almost no ground truth for testing whether coordination detectors can find them. The problem is sharpest on Telegram, which moderates little and spreads content through broadcast channels and forwarding rather than a follow graph. We introduce TeleTwin, an LLM-powered digital twin of a Telegram crisis-discourse ecosystem in which channels are agents, each instantiated from the history of a real channel, calibrated on 1.07 million messages from 195 public channels on the Israel-Gaza and Iran-Israel conflict (March-August 2025). On a held-out period containing the June 2025 Iran-Israel war, the twin tracks daily dynamics better than statistical baselines (correlation 0.86 against 0.64) and reacts to the war unprompted, but it over-focuses on the conflict, over-amplifies forwarding cascades, underestimates the shock and writes recognisably LLM-like text. We then inject LLM-written campaigns with known membership into the real data and into the twin. In real data, identical-text, co-URL and synchrony detectors fail once a campaign rewords, staggers or drops links; multilingual semantic similarity recovers loud campaigns, including cross-lingual ones, but not quiet ones, and its false positives fall unevenly across political perspectives. Inside the twin all detectors fail, because the simulated background is about 40 times more semantically homogeneous than the real one. Digital twins can supply ground truth for campaigns, but not, without calibrating their diversity, a realistic background for evaluating semantic detectors.</summary>
+    <category term="cs.SI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-08T08:04:22Z</published>
+    <arxiv:primary_category term="cs.SI"/>
+    <author>
+      <name>Despoina Antonakaki</name>
+    </author>
+    <author>
+      <name>Sotiris Ioannidis</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.08502v1</id>
+    <title>X-OPM: Explainable Automatic Digital On-Chip Power Modeling for Enhanced Robustness</title>
+    <updated>2026-10-06T15:09:52Z</updated>
+    <link href="https://arxiv.org/abs/2610.08502v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.08502v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Proactive power management systems reduce processor dynamic power through runtime power prediction and power-aware scheduling. Accurate, stable and low-overhead digital on-chip power meters (OPMs) are crucial for improving the prediction quality. Recent studies have explored various modeling methods, including using linear models, decision trees, and multi-layer perceptrons (MLPs) to construct OPMs. However, most current approaches train models end-to-end without analyzing the physical interpretability of features, affecting their ability to generalize to unseen workloads. Grounded in the design principles of synchronous digital VLSI circuits, X-OPM introduces a robust feature engineering framework that uses tree-based models to capture feature interactions and linear models for prediction. It also incorporates a human-in-the-loop workflow to balance model accuracy against modeling effort. Evaluated on a commercial C906 vector processor, X-OPM consistently achieves $R^2 &gt; 0.93$ across all workloads with sampling window size set below $8$ cycles. In contrast, state-of-the-art methods including APOLLO, COBIT, and standard MLPs fail to generalize across all test cases. Layout with commercial EDA tools shows that X-OPM incurs an area overhead below $0.1\%$, which is on par with lightweight tree-based and linear models, and significantly smaller than MLP-based models.</summary>
+    <category term="cs.AR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-06T15:09:52Z</published>
+    <arxiv:primary_category term="cs.AR"/>
+    <author>
+      <name>Jingbo Jiang</name>
+    </author>
+    <author>
+      <name>Xizi Chen</name>
+    </author>
+    <author>
+      <name>Jian Peng</name>
+    </author>
+    <author>
+      <name>Wei Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.08310v1</id>
+    <title>Perfect powers with few digits and $S$-unit coefficients</title>
+    <updated>2026-10-06T13:15:39Z</updated>
+    <link href="https://arxiv.org/abs/2610.08310v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.08310v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we study two questions concerning perfect powers in $S$-unit equations and sparse representations of perfect powers. Corvaja-Zannier \cite{corvaja2013finiteness} proved that there are only finitely many odd perfect powers in $\N$ having precisely four non-zero digits in their binary expansion. At first, we prove the finiteness of the set of solutions to the equation
+  \begin{equation*} y^d=1+c_1g^{m_1}+c_2g^{m_2}+c_3g^{m_3}, \quad 0&lt;m_1&lt;m_2&lt;m_3, \end{equation*} where $c_i$ are $S$-units for a suitable set $S$. The proof combines consequences of the Subspace Theorem concerning integer values of analytic series at $S$-unit points with Roth's theorem for number fields. As a second result, we extend the work of Bennett and Bugeaud \cite{bennettbugead2013perfect} by proving that, for every fixed integer base $g\geq 2$, there exists a constant $q_0(g)$ such that, for every prime $q&gt;q_0(g)$, no perfect $q$-th power admits a representation with five non-zero digits in base $g$. The proof relies on explicit lower bounds for linear forms in both Archimedean and non-Archimedean logarithms.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-06T13:15:39Z</published>
+    <arxiv:comment>18 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Darsana N</name>
+    </author>
+    <author>
+      <name>Parvathi S Nair</name>
+    </author>
+    <author>
+      <name>Sudhansu Sekhar Rout</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.04485v1</id>
+    <title>Data Colonisation and AI Governance in South Africa: Data Protection, Algorithmic Power, and the Struggle for Digital Sovereignty</title>
+    <updated>2026-10-03T12:42:45Z</updated>
+    <link href="https://arxiv.org/abs/2610.04485v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.04485v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>AI is not only a technological artefact; it is also a new site of political economy, legal struggle, and sovereignty contestation. AI systems depend on the continuous collection, storage, processing, and monetisation of large volumes of data. In South Africa, these datasets increasingly include behavioural, biometric, financial, consumer, health, and public-sector information. Our article uses data colonisation as a theoretical lens to analyse whether South Africa's existing legal and governance framework can regulate AI-specific risks. It argues that South Africa's current laws, including the Protection of Personal Information Act (POPIA), regulate personal information but do not adequately prevent data colonisation. POPIA remains important for privacy, lawful processing, automated decision-making, and cross-border transfers. However, data colonisation cannot solely be reduced to privacy protection. It concerns ownership, dependency, infrastructure, surveillance, regulatory power, value extraction, and the capacity of people and institutions to challenge algorithmic decisions. The article examines South African AI-related risks in various areas (e.g. cloud and digital infrastructure, biometric surveillance, and digital markets). This paper argues that South Africa's legal framework does not yet adequately regulate algorithmic opacity, externally controlled digital infrastructure, biometric surveillance, automated profiling, collective data harms, or the extraction of value from South African data. We argue for the need of a decolonial AI governance framework based on algorithmic impact assessments, public-sector AI registers, independent audits, biometric safeguards, competition-law remedies, public-interest data governance, stronger regulatory capacity, and democratic control to strengthen South Africa's digital future.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-03T12:42:45Z</published>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Takudzwa Musekiwa</name>
+    </author>
+    <author>
+      <name>Kimon Kieslich</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.01841v1</id>
+    <title>Characterization of a low-power 3D photon-to-digital converter readout improved for system integration in meter-scale applications</title>
+    <updated>2026-09-01T20:17:06Z</updated>
+    <link href="https://arxiv.org/abs/2609.01841v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.01841v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Digital silicon photomultipliers (dSiPM) are arrays of single photon avalanche diodes (SPADs) where each SPAD has its own electronic readout. To maximize the photodetection area, we developed a readout integrated circuit (ROIC) 3D-integrated to a custom-designed SPAD layer fabricated at Teledyne Dalsa (Bromont, Canada) to form a photon-to-digital converter (PDC). This paper presents an improved version of a previously demonstrated ROIC, fabricated in TSMC 180 nm technology to manage a 64 x 64 pixel architecture. This ROIC has different outputs, such as a flag output that produces a pulse whenever one of the pixels triggers and a digital sum that samples the amount of triggered SPADs. Improvements lead to a reduction of the timing jitter on the flag output from 72.0 ps RMS to 22.6 ps RMS through optimized H-tree design. A tunable hold-off circuit provides adjustable dead time from 32 ns to 18 μs, addressing both afterpulsing mitigation and SPAD-to-SPAD variations due to process defects. Power consumption is lowered by 30% at trigger rates exceeding 10 kHz through digital logic optimization and clock gating. These measurements validated that the ROIC is ready for 3D integration into a PDC for systems in medical imaging, particle physics, and quantum sciences.</summary>
+    <category term="physics.ins-det" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-01T20:17:06Z</published>
+    <arxiv:comment>To be published in Journal of Instrumentation (Jinst)</arxiv:comment>
+    <arxiv:primary_category term="physics.ins-det"/>
+    <author>
+      <name>Olivier Lepage</name>
+    </author>
+    <author>
+      <name>Tommy Rossignol</name>
+    </author>
+    <author>
+      <name>Nicolas Roy</name>
+    </author>
+    <author>
+      <name>Gabriel Lessard</name>
+    </author>
+    <author>
+      <name>Frédéric Vachon</name>
+    </author>
+    <author>
+      <name>Lorenzo Fabris</name>
+    </author>
+    <author>
+      <name>Serge A. Charlebois</name>
+    </author>
+    <author>
+      <name>Jean-François Pratte</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.20728v1</id>
+    <title>Channel Modeling of Single Wire Earth Return Networks for Narrowband Power Line Communication and Sensing: A Field-Validated High-Frequency Digital Twin</title>
+    <updated>2026-08-21T04:20:46Z</updated>
+    <link href="https://arxiv.org/abs/2608.20728v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.20728v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Upgrading Single-Wire Earth Return (SWER) networks for smart grid capabilities requires a reliable communications technology. Narrowband Power Line Communication (NB-PLC) is a potential low cost solution. Real-world deployment is challenging due to the severe, frequency-dependent attenuation caused by complex earth-return paths and heterogeneous network infrastructure. To accurately characterize the communication channel, this paper develops a high-frequency (up to 300 kHz) digital twin of an operational SWER network. The digital twin integrates a segment-by-segment transmission line model with Vector Network Analyzer (VNA) measurements of physical grid hardware, replacing standard uniform assumptions with empirical component responses. Parametric sensitivity analysis demonstrates that distributed environmental factors, such as soil moisture and line sag, act as uniform magnitude offsets. Conversely, the conductor's magnetic permeability and local injection-transformer impedances dictate the channel's resonant spectral shape. Furthermore, cross-brand analysis proves that utilizing generic transformer models introduces significant prediction errors, confirming that accurate simulation requires manufacturer- and tap-specific data. Validated against in-situ field measurements from three transmitters, this digital twin replicates the path loss and dominant frequency-selective fading of the physical grid. Yielding a Root Mean Square Error (RMSE) between 4.65 dB and 9.73 dB across the three transmit paths, the model provides a practically reliable framework for deploying NB-PLC across rural SWER infrastructure.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-21T04:20:46Z</published>
+    <arxiv:comment>14 pages, 16 figures, 4 tables</arxiv:comment>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Wania Anoosh</name>
+    </author>
+    <author>
+      <name>Cagil Ozansoy</name>
+    </author>
+    <author>
+      <name>Douglas Gomes</name>
+    </author>
+    <author>
+      <name>Mike Faulkner</name>
+    </author>
+    <author>
+      <name>Kristi Beqirllari</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.20666v1</id>
+    <title>Amplifying the imaging power of digital sky surveys with space telescopes data and generative AI</title>
+    <updated>2026-08-21T01:58:22Z</updated>
+    <link href="https://arxiv.org/abs/2608.20666v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.20666v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>While Digital sky surveys provide excellent throughput of image data and can cover a large footprint, their imaging power is normally inferior to that of space-based telescopes. Space-based telescopes, on the other hand, provide excellent imaging power and can image the deep Universe, but cannot provide the same throughput as advanced ground-based sky surveys. Here, we utilize generative AI to elevate the quality of galaxy images taken by ground-based telescopes to the level of details enabled by space telescopes. The solution is based on the nature of galaxy shapes, allowing generative AI trained on space-based images to convert weak signal into detailed and clear galaxy images. The method allows for combining the high throughput of ground-based sky surveys with the image quality of space-based telescopes. The source code for the method is available, as well as paired training data and a catalog of 63,202 galaxy images enhanced by the proposed method. We also provide a software tool that encapsulates the entire pipeline and the custom generative AI model to generate galaxy images with enhanced quality.</summary>
+    <category term="astro-ph.IM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.GA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-21T01:58:22Z</published>
+    <arxiv:comment>MNRAS, accepted</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.IM"/>
+    <author>
+      <name>Sai Teja Erukude</name>
+    </author>
+    <author>
+      <name>Lior Shamir</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.10312v1</id>
+    <title>Commensurate Structure of Quark and Lepton Mixing: Eighteenth Powers of One Parameter and a Digital-Clock Quantization of the Unitarity Triangles</title>
+    <updated>2026-08-10T23:36:04Z</updated>
+    <link href="https://arxiv.org/abs/2608.10312v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.10312v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We identify two commensurate structures in the measured quark and lepton mixing data, one multiplicative and one angular, and their exact relation. With the hierarchy parameter $\varepsilon\equiv|V_{ub}|^{3/10}=0.1869\pm0.0018$, the measured Fritzsch--Xing (FX) angles satisfy $\sinθ_u=\varepsilon^{26/18}$, $\sinθ_d=\varepsilon^{17/18}$, and $\sinθ=\varepsilon^{34/18}$ with coefficients within $2.5\%$ of unity, and the phase is maximal, $φ_{\rm FX}=92.3^\circ\pm2.7^\circ$ against $π/2$. Unit coefficients reproduce the remaining moduli at the percent level and fix the derived Jarlskog invariant, $J=\varepsilon^{111/18}\sinφ_{\rm FX}$, matching the measured $3.08(14)\times10^{-5}$. The rephasing-invariant image of this structure is a unitarity triangle quantized on the $π/24$ lattice, a digital clock, $(α,β,γ)=(12,3,9)\times7.5^\circ$, consistent with data at $1σ$ through $α\simeqφ_{\rm FX}$ and the theorem $\tanβ\simeq\sqrt{\varepsilon}$; degree-level $γ$ confronts $67.5^\circ$--$68^\circ$. For the leptons, where only the angular structure can act, its PMNS analog, formed from columns $1$ and $3$, free of Majorana phases, on the same lattice requires $δ_{\rm CP}\simeq296^\circ$ in the upper octant or $244^\circ$ in the lower, testable at DUNE and Hyper-Kamiokande. The quark and lepton triangles share $β=22.5^\circ$, measured for quarks, predicted for leptons, and differ by a transfer of two lattice units, with corollary $δ_{\rm CP}\simeq-δ\simeq295^\circ$. The same $\varepsilon$ sets the neutrino mass ratio, $r\equiv m_2/m_3=\varepsilon^{19/18}$, and the PMNS first row follows in powers of $r$, $(r^{1/9},\,r^{1/3},\,\tfrac{\sqrt{3}}{2}r)$, both relations at $0.2σ$ and testable at JUNO. The analysis is confined to the parameterization level; no dynamics is assumed.</summary>
+    <category term="hep-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-ex" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-10T23:36:04Z</published>
+    <arxiv:primary_category term="hep-ph"/>
+    <author>
+      <name>Vernon Barger</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.06322v2</id>
+    <title>From Precision Medicine to Precision Education: A Vision for AI-Powered Student Digital Twins, Preventive Student Success, and Career-Aligned Academic Pathways</title>
+    <updated>2026-08-07T22:02:51Z</updated>
+    <link href="https://arxiv.org/abs/2608.06322v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.06322v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Higher education remains largely reactive in its approach to student success. Institutions frequently identify academic problems only after students have failed courses, fallen behind in degree progression, accumulated excessive debt, or departed without a credential. Healthcare faced a similar challenge decades ago. It responded by shifting from reactive treatment to preventive care powered by predictive models, risk stratification, electronic health records, and artificial intelligence (AI). This paper argues that higher education stands at an analogous inflection point. Drawing on advances in learning analytics, educational data mining, machine learning, workforce analytics, and digital twin technologies, we propose a paradigm we call Precision Education. Under this framework, AI continuously analyzes academic, behavioral, financial, and career data to identify emerging risks, recommend personalized interventions, optimize educational pathways, and align academic decisions with long-term career success. Central to the model is the Student Digital Twin, a continuously updated representation of a learner that can simulate multiple educational futures and intervention scenarios. We ground the vision in evidence from early deployments such as Course Signals at Purdue and GPS Advising at Georgia State University. We also argue that prediction alone is insufficient. The central methodological challenge is the move from prediction to causal, actionable intervention. The paper presents a conceptual framework, examines enabling technologies, reviews the empirical record and its limits, analyzes ethical and governance implications, and outlines a research agenda for the next decade of AI-enabled higher education.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-06T17:36:56Z</published>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Kaushik Dutta</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.25817v1</id>
+    <title>Performance Evaluation of RF-powered IoT in Rural Areas: The Wireless Power Digital Divide</title>
+    <updated>2026-07-28T15:00:14Z</updated>
+    <link href="https://arxiv.org/abs/2607.25817v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.25817v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Bridging the digital divide is one of the goals of mobile networks in the future, and further building IoT networks in rural areas is a feasible solution. This paper studies the downlink performance of rural wireless networks, where IoT devices we consider are battery-less and powered only by ambient radio-frequency (RF) signals. We model a rural area as a finite area that is far from the city center. The base stations (BSs) in the whole city and the access points (APs) in the finite network both act as sources of wireless RF signals harvested by IoT devices. We assume that BSs follow an inhomogeneous Poisson Point Process (PPP) with a 2D-Gaussian density, and a fixed number of APs are uniformly distributed inside the finite area following a Binomial Point Process (BPP). The IoT devices we consider can harvest energy and receive downlink signals in each time slot, which is divided into two parts: (1) a charging sub-slot, where the RF signals from BSs and APs are harvested by IoT devices, and (2) a transmission sub-slot, where each IoT device uses the harvested energy to receive and process downlink signals. We consider two main system requirements: minimum energy requirement and signal-to-interference-plus-noise ratio (SINR). Using these two parameters, we investigate the overall coverage probability (OCP) related to them. We first study the effect of remoteness in rural areas on energy harvesting performance. Then we analyze the influence of IoT device's location and the number of APs on coverage probability when the effect of BSs can be ignored. This paper shows that the IoT devices located inside the rural area can obtain about twice the ECP and OCP of IoT devices located near the edge. For the average downlink performance in rural areas with radii less than 100 m, more than 80% of the RF-powered IoT devices can be supported when there are 100 APs deployed.</summary>
+    <category term="cs.NI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-28T15:00:14Z</published>
+    <arxiv:comment>14 pages, 11 figures. Published in IEEE Transactions on Green Communications and Networking</arxiv:comment>
+    <arxiv:primary_category term="cs.NI"/>
+    <arxiv:journal_ref>H. Lin, M. A. Kishk and M. -S. Alouini, IEEE Transactions on Green Communications and Networking, vol. 8, no. 2, pp. 716-729, 2024</arxiv:journal_ref>
+    <author>
+      <name>Hao Lin</name>
+    </author>
+    <author>
+      <name>Mustafa A. Kishk</name>
+    </author>
+    <author>
+      <name>Mohamed-Slim Alouini</name>
+    </author>
+    <arxiv:doi>10.1109/TGCN.2024.3350787</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/TGCN.2024.3350787" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.15441v1</id>
+    <title>Low Complexity Neural Network Digital Predistortion of Wideband Power Amplifiers through Feature Selection</title>
+    <updated>2026-07-16T20:25:05Z</updated>
+    <link href="https://arxiv.org/abs/2607.15441v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.15441v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Due to the continuous increase in communication bandwidth and the use of highly efficient yet nonlinear power amplifiers, Digital Predistortion (DPD) algorithms are becoming increasingly complex. In particular, neural network (NN) based DPD approaches using Phase-Normalized NN architectures often incur substantially higher computational costs than widely deployed polynomial-based methods, such as the Memory Polynomial (MP) and Generalized Memory Polynomial (GMP) models. To bridge this gap between research performance and practical implementation, we propose a low-complexity Feature Selection NN DPD architecture. The proposed method employs an offline feature-engineering pipeline based on the Least Absolute Shrinkage and Selection Operator (LASSO) and the Minimum Redundancy Maximum Relevance (MRMR) algorithm to construct a compact and informative input representation. Using measured wideband FR3 power amplifier datasets that are publicly released with this work, we demonstrate up to 30% reduction in computational complexity while maintaining comparable linearization performance.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-16T20:25:05Z</published>
+    <arxiv:comment>Submitted to 2026 IEEE Workshop on Signal Processing Systems (SiPS)</arxiv:comment>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Cel Thys</name>
+    </author>
+    <author>
+      <name>Rodney Martinez Alonso</name>
+    </author>
+    <author>
+      <name>Ali H Alsarraf</name>
+    </author>
+    <author>
+      <name>Dominique Schreurs</name>
+    </author>
+    <author>
+      <name>Sofie Pollin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.09330v1</id>
+    <title>Communication-Efficient Digital-Twin Coordination for Heterogeneous LLM Embodied Agents over Computing Power Networks</title>
+    <updated>2026-07-10T12:10:31Z</updated>
+    <link href="https://arxiv.org/abs/2607.09330v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.09330v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Embodied agent teams powered by heterogeneous large language models (LLMs) are being widely deployed in physical artificial intelligence such as smart factories, warehouses, and service robotics. To enable collaboration among such an agent team, efficient coordination mechanisms that operate reliably under limited network resources are required. However, existing heterogeneous LLM-agent coordination frameworks that rely on multi-round natural-language-based conversations introduce three coupled challenges. First, inter-agent dialogue incurs communication overhead that grows rapidly with team size. Second, the quality of coordination is constrained by the heterogeneous capabilities of the agent team's LLMs. Third, agents may suffer from action delays due to iterative negotiation. To address these challenges, we propose LDT-Coord, a networked coordination framework built upon a lightweight digital twin (DT). Specifically, each agent independently selects its intended action and reports both the action decision and a structured temporal constraint over shared resources to the DT server, thereby decoupling coordination performance from natural-language reasoning ability. Then, DT executes a training-free, rule-based orchestrator algorithm to resolve cross-agent conflicts and returns coordination instructions to prevent such conflicts. To further reduce communication overhead, we formulate agent reporting control as a constrained partially observable Markov decision process (C-POMDP) and solve it with the PPO-Lagrangian algorithm. Simulation results show that LDT-Coord achieves a task success rate comparable to conventional coordination methods while reducing communication overhead by more than 70x and maintaining robustness under LLM heterogeneity.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-10T12:10:31Z</published>
+    <arxiv:comment>14 pages, 6 figures, 5 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Nuocheng Yang</name>
+    </author>
+    <author>
+      <name>Sihua Wang</name>
+    </author>
+    <author>
+      <name>Zihan Chen</name>
+    </author>
+    <author>
+      <name>Tony Q. S. Quek</name>
+    </author>
+    <author>
+      <name>Changchuan Yin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.26883v2</id>
+    <title>EconSimulacra: A Digital Twin Platform of Socio-Economic Systems Powered by LLM Agents</title>
+    <updated>2026-06-30T10:53:38Z</updated>
+    <link href="https://arxiv.org/abs/2606.26883v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.26883v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Real-world social behavior emerges from tightly coupled domains: economic conditions shape mobility and social interactions, while online attention and offline activity feed back into local popularity and consumer behavior. Capturing these feedback loops requires artificial societies in which agents carry experiences from one domain into decisions in another. Large language models (LLMs) provide a promising foundation for such societies. However, existing LLM-based simulators typically model domains in isolation or merely place them side by side. To enable such cross-domain interactions, we present EconSimulacra, a multi-agent social simulator that couples consumer economy, mobility, and social networks through a shared internal-state mechanism. In EconSimulacra, experiences accumulated across different domains are stored in memory and transformed into shared internal states (i.e., stress level) connecting heterogeneous domains through individual decision making. This design allows agents to reconcile competing demands arising from multiple domains and generate coherent cross-domain behaviors. As a case study, we show that the shared internal state mechanisms reproduce a nonlinear relationship between online social attention and offline local popularity, illustrating how realistic cross-domain dynamics can emerge within a unified artificial society.</summary>
+    <category term="cs.DL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-25T11:13:13Z</published>
+    <arxiv:primary_category term="cs.DL"/>
+    <author>
+      <name>Ryuji Hashimoto</name>
+    </author>
+    <author>
+      <name>Masahiro Kaneko</name>
+    </author>
+    <author>
+      <name>Kentaro Ueda</name>
+    </author>
+    <author>
+      <name>Takehiro Takayanagi</name>
+    </author>
+    <author>
+      <name>Kiyoshi Izumi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.31138v1</id>
+    <title>Developing an AI-Powered UX Research Point of View for Digital Health in A Regulatory Context: An Exemplar Case from MSM and Transgender HIV Care in Nigeria</title>
+    <updated>2026-05-29T10:47:44Z</updated>
+    <link href="https://arxiv.org/abs/2605.31138v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.31138v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>User Experience Research (UXR) in a legal and regulatory contexts presents unique challenges that require specialised approaches to protect vulnerable populations whilst generating actionable insights. Digital consultation, appointment booking, and medication delivery platforms show promise for extending care access; however, their real-world effectiveness is curtailed by an absence of theoretically grounded user experience research (UXR) methodologies that adequately account for the psychosocial conditions of these populations. This paper introduces a Generative AI-augmented UXR methodology, grounded in the UXR Point of View (PoV) Playbook, to guide the design of psychologically safe, low-cognitive-load digital health interventions for MSM and transgender individuals living with HIV/AIDS in Nigeria. Drawing from empirical research involving co-design workshops, thematic analysis, and requirements engineering, the methodology is operationalised through a four-stage UXR process encompassing AI-supported hypothesis generation, foundational planning, insight generation via Building Blocks, and the construction of stakeholder-specific PoV narratives. This process results in ten theory-informed UXR Play Cards that translate psychological mechanisms and empirical findings into actionable design guidance. Each play contains actionable tasks, AI-augmented approaches, and ethical guardrails tailored for research with marginalised populations. The output is a set of ten theory-informed UXR Play Cards translating psychological insight and empirical evidence into actionable design guidance. The core contribution is a replicable, stigma-aware, and privacy-centred framework for responsible GenAI use in UXR practice, advancing human-centred digital health design for marginalised communities.</summary>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-29T10:47:44Z</published>
+    <arxiv:primary_category term="cs.HC"/>
+    <author>
+      <name>Emmanuel Oluwatosin Oluokun</name>
+    </author>
+    <author>
+      <name>Festus Fatai Adedoyin</name>
+    </author>
+    <author>
+      <name>Huseyin Dogan</name>
+    </author>
+    <author>
+      <name>Nan Jiang</name>
+    </author>
+    <author>
+      <name>Melike Akca</name>
+    </author>
+    <author>
+      <name>Abiodun Adedeji</name>
+    </author>
+    <author>
+      <name>Olumuyiwa Ayorinde</name>
+    </author>
+    <author>
+      <name>Fatima Ahmad Muazu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.28252v1</id>
+    <title>Digital-Based Potentiostat and Mesoporous Microelectrode Co-Design for Non-Enzymatic Glucose Detection at 0.3V-VDD and 1.65nW-Power</title>
+    <updated>2026-05-27T10:01:03Z</updated>
+    <link href="https://arxiv.org/abs/2605.28252v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.28252v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper presents a proof-of-concept ultra-low voltage and ultra-low power chronoamperometric electrochemical sensor for non-enzymatic glucose readout integrated circuit (IC) in 130nm CMOS detection featuring a reconfigurable Digital-Based (DB) Potentiostat. The signal transfer and noise characteristics of the new digital-based architecture are analytically described in the frequency domain for the first time by an equivalent linearized model that is validated by simulations and experiments. Based on experiments, the proposed DB potentiostat enables the detection of a wide electrochemical current range, spanning from 600pA to 650nA, with R2=0.991 linearity and consumes only 1.65nW (53.5nW) at V dd = 300mV (V dd = 500mV). The proposed DB readout is tested in a proof of-concept platform for non-enzymatic glucose detection with nanostructured microelectrodes, demonstrating successful non enzymatic glucose detection at physiological levels at the lowest reported voltage and power, even in the presence of an interferent (ascorbic acid) and under aerobic conditions, thus revealing a strong potential for emerging Point of Care (PoC) diagnostics applications.</summary>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-27T10:01:03Z</published>
+    <arxiv:primary_category term="eess.SY"/>
+    <author>
+      <name>Andrea De Gregorio</name>
+    </author>
+    <author>
+      <name>Mara Serrapede</name>
+    </author>
+    <author>
+      <name>Danilo Kaddouri</name>
+    </author>
+    <author>
+      <name>Paolo Angelini</name>
+    </author>
+    <author>
+      <name>Giuseppe Bruno</name>
+    </author>
+    <author>
+      <name>Simone Luigi Marasso</name>
+    </author>
+    <author>
+      <name>Salvatore Guastella</name>
+    </author>
+    <author>
+      <name>Andrea Lamberti</name>
+    </author>
+    <author>
+      <name>Paolo Crovetti</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.05952v1</id>
+    <title>Foundation Twins: A New Generation of Power Systems Digital Twins using Foundation AI Models</title>
+    <updated>2026-05-07T09:58:43Z</updated>
+    <link href="https://arxiv.org/abs/2605.05952v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.05952v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Power systems are inherently multi-timescale systems, with different physical phenomena and decision-making processes spanning multiple timescales, time horizons, and geographic scopes. I envision power systems digital twins (DTs) as powerful modeling and simulation tools that can accelerate and improve decision-making across different time scales and geographic scopes. However, until now, research has not delivered such a vision, and power systems DTs remain a concept distant from implementation. This is not a regular research paper. This is a position paper that outlines my vision for developing a new generation of power systems DTs that leverage recent advances in artificial intelligence (AI) and machine learning (ML). I call these Foundation Twins. Foundation Twins combines the generalization features of foundation models with the decision-making capabilities of reinforcement learning (RL) architectures to deliver the envisioned power systems DTs.</summary>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-07T09:58:43Z</published>
+    <arxiv:comment>6 pages</arxiv:comment>
+    <arxiv:primary_category term="eess.SY"/>
+    <author>
+      <name>Pedro P. Vergara</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.04351v1</id>
+    <title>Cognibit: From Digital Exhaustion to Real-World Connection Through Gamified Territory Control and LLM-Powered Twin Networking</title>
+    <updated>2026-04-06T01:56:20Z</updated>
+    <link href="https://arxiv.org/abs/2604.04351v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.04351v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present an LLM-powered social discovery platform that uses digital twins to autonomously evaluate interpersonal compatibility through behavioral simulation. The platform unifies three key pillars: (1) digital twins that engage in autonomous multi-turn conversations on behalf of users to estimate compatibility, (2) gamified territory conquest mechanics that incentivize real-world exploration and create organic settings for in-person encounters, and (3) AI companions that preserve persistent shared memory across devices. Built upon CogniPair's cognitive architecture (Ye et al., 2026), validated on the Columbia Speed Dating dataset (551 participants), our system extends prior simulation-only matching into a fully deployed social discovery environment. Through deployment, we derive empirical cost-quality baselines and identify fundamental scaling bottlenecks that remain hidden in component-level testing alone.</summary>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-06T01:56:20Z</published>
+    <arxiv:comment>9 pages main body, 155 pages total with appendices</arxiv:comment>
+    <arxiv:primary_category term="cs.HC"/>
+    <author>
+      <name>Wanghao Ye</name>
+    </author>
+    <author>
+      <name>Sihan Chen</name>
+    </author>
+    <author>
+      <name>Yiting Wang</name>
+    </author>
+    <author>
+      <name>Shwai He</name>
+    </author>
+    <author>
+      <name>Bowei Tian</name>
+    </author>
+    <author>
+      <name>Guoheng Sun</name>
+    </author>
+    <author>
+      <name>Ziyi Wang</name>
+    </author>
+    <author>
+      <name>Ziyao Wang</name>
+    </author>
+    <author>
+      <name>Yexiao He</name>
+    </author>
+    <author>
+      <name>Zheyu Shen</name>
+    </author>
+    <author>
+      <name>Meng Liu</name>
+    </author>
+    <author>
+      <name>Yuning Zhang</name>
+    </author>
+    <author>
+      <name>Meng Feng</name>
+    </author>
+    <author>
+      <name>Yifei Dong</name>
+    </author>
+    <author>
+      <name>Yanhong Qian</name>
+    </author>
+    <author>
+      <name>Yang Wang</name>
+    </author>
+    <author>
+      <name>Siyuan Peng</name>
+    </author>
+    <author>
+      <name>Yilong Dai</name>
+    </author>
+    <author>
+      <name>Zhenle Duan</name>
+    </author>
+    <author>
+      <name>Joshua Liu</name>
+    </author>
+    <author>
+      <name>Lang Xiong</name>
+    </author>
+    <author>
+      <name>Hanzhang Qin</name>
+    </author>
+    <author>
+      <name>Ang Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.03123v1</id>
+    <title>Distributed Snitch Digital Twin-Based Anomaly Detection for Smart Voltage Source Converter-Enabled Wind Power Systems</title>
+    <updated>2026-04-03T15:47:42Z</updated>
+    <link href="https://arxiv.org/abs/2604.03123v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.03123v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Existing cyberattack detection methods for smart grids such as Artificial Neural Networks (ANNs) and Deep Reinforcement Learning (DRL) often suffer from limited adaptability, delayed response, and inadequate coordination in distributed energy systems. These techniques may struggle to detect stealthy or coordinated attacks, especially under communication delays or system uncertainties. This paper proposes a novel Snitch Digital Twin (Snitch-DT) architecture for cyber-physical anomaly detection in grid-connected wind farms using Smart Voltage Source Converters (VSCs). Each wind generator is equipped with a local Snitch-DT that compares real-time operational data with high-fidelity digital models and generates trust scores for measured signals. These trust scores are coordinated across nodes to detect distributed or stealthy cyberattacks. The performance of the Snitch-DT system is benchmarked against previously published Artificial Neural Network (ANN) and Deep Reinforcement Learning (DRL)-based detection frameworks. Simulation results using an IEEE 39-bus wind-integrated test system demonstrate improved attack detection accuracy, faster response time, and higher robustness under various cyberattack scenarios.</summary>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-03T15:47:42Z</published>
+    <arxiv:primary_category term="eess.SY"/>
+    <author>
+      <name>Mohammad Ashraf Hossain Sadi</name>
+    </author>
+    <author>
+      <name>Soham Ghosh</name>
+    </author>
+    <author>
+      <name>Siby Plathottam</name>
+    </author>
+    <author>
+      <name>Mohd. Hasan Ali</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.01262v1</id>
+    <title>Transforming OPACs into Intelligent Discovery Systems: An AI-Powered, Knowledge Graph-Driven Smart OPAC for Digital Libraries</title>
+    <updated>2026-04-01T12:48:36Z</updated>
+    <link href="https://arxiv.org/abs/2604.01262v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.01262v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Traditional Online Public Access Catalogues (OPACs) are becoming less effective due to the rapid growth of scholarly literature. Conventional search methods, such as keyword indexing and Boolean queries, often fail to support efficient knowledge discovery. This paper proposes a Smart OPAC framework that transforms traditional OPACs into intelligent discovery systems using artificial intelligence and knowledge graph techniques. The framework enables semantic search, thematic filtering, and knowledge graph-based visualization to enhance user interaction and exploration. It integrates multiple open scholarly data sources and applies semantic embeddings to improve relevance and contextual understanding. The system supports exploratory search, semantic navigation, and refined result filtering based on user-defined themes. Quantitative evaluation demonstrates improvements in retrieval efficiency, relevance, and reduction of information overload. The proposed approach offers practical implications for modernizing digital library services and supports next-generation research workflows. Future work includes user-centric evaluation, personalization, and dynamic knowledge graph updates.</summary>
+    <category term="cs.DL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-01T12:48:36Z</published>
+    <arxiv:comment>8 pages, 4 tables, 6 figures presented at Intellib 2026 International Conference</arxiv:comment>
+    <arxiv:primary_category term="cs.DL"/>
+    <author>
+      <name>M. S. Rajeevan</name>
+    </author>
+    <author>
+      <name>B. Mini Devi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.20080v1</id>
+    <title>The Digital Gorilla: Rebalancing Power in the Age of AI</title>
+    <updated>2026-02-23T17:46:54Z</updated>
+    <link href="https://arxiv.org/abs/2602.20080v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.20080v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Contemporary artificial intelligence (AI) policy suffers from a basic categorical error. Existing frameworks rely on analogizing AI to inherited technology types -- such as products, platforms, or infrastructure -- and in doing so generate overlapping, often contradictory governance regimes. This "analogy trap" obscures a fundamental transformation: certain advanced AI systems no longer function solely as instruments through which existing institutions exercise power, but as de facto centers of power that shape information, coordinate behavior, and structure social and economic realities at scale. This article offers a new conceptual foundation for AI governance by treating such systems as a fourth societal actor -- what we term the "Digital Gorilla" -- alongside People, the State, and Enterprises. It develops a Four Societal Actors framework that maps how power flows among these actors across five power modalities (economic, epistemic, narrative, authoritative, physical) and uses this map to diagnose where AI capabilities disturb established allocations of authority, concentrate power, or erode accountability. Drawing on constitutional principles of separated powers and federalism, the article advances a federalized, polycentric governance architecture and institutionalizes dynamic checks and balances among the four actors, rather than today's more reactive and compliance-driven approaches. Reframing AI governance in this way shifts the inquiry from how to control a risky technology to how to design institutions capable of accommodating these increasingly powerful and autonomous digital systems without sacrificing democratic legitimacy, the rule of law, or the production of public goods, and it recasts familiar debates in administrative, constitutional, and corporate law as questions of power allocation in a four-actor system.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-23T17:46:54Z</published>
+    <arxiv:comment>49 pages, 2 figures, preprint</arxiv:comment>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>M. Alejandra Parra-Orlandoni</name>
+      <arxiv:affiliation>Harvard Kennedy School</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Roxanne A. Schnyder</name>
+      <arxiv:affiliation>Harvard Law School</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Christopher J. Mallet</name>
+      <arxiv:affiliation>Harvard Kennedy School</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.00252v1</id>
+    <title>On the relation between perfect powers and tetration frozen digits</title>
+    <updated>2026-01-30T19:12:10Z</updated>
+    <link href="https://arxiv.org/abs/2602.00252v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.00252v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper provides a link between integer exponentiation and integer tetration since it is devoted to introducing some peculiar sets of perfect powers characterized by any given value of their constant congruence speed, revealing a fascinating relation between the degree of every perfect power belonging to any congruence class modulo $20$ and the number of digits frozen by these special tetration bases, in radix-$10$, for any unit increment of the hyperexponent. In particular, given any positive integer $c$, we constructively prove the existence of infinitely many $c$-th perfect powers that have a constant congruence speed of $c$.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-30T19:12:10Z</published>
+    <arxiv:comment>9 pages. This version of the paper differs from the journal version only by the addition of Reference [12] and the citation of the OEIS sequence A379243, which was approved after the journal publication</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <arxiv:journal_ref>Journal of AppliedMath, 2 (2024), no. 5, Article 1771</arxiv:journal_ref>
+    <author>
+      <name>Marco Ripà</name>
+    </author>
+    <arxiv:doi>10.59400/jam1771</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.59400/jam1771" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.06524v1</id>
+    <title>Digital Predistortion of Power Amplifiers for Quantum Computing</title>
+    <updated>2026-01-10T11:00:51Z</updated>
+    <link href="https://arxiv.org/abs/2601.06524v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.06524v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Power amplifiers (PA) are essential for microwavecontrolled trapped-ion and semiconductor spin based quantum computers (QC). They adjust the power level of the control signal and therefore the processing time of the QC. Their nonlinearities and memory effects degrade the signal quality and, thus, the fidelity of qubit gate operations. Driving the PA with a significant input power back-off reduces nonlinear effects but is neither power-efficient nor cost-effective. To overcome this limitation, this letter augments the conventional signal generation system applied in QCs by digital predistortion (DPD) to linearize the radio frequency (RF) channel. Numerical analysis of the qubit behavior based on measured representative control signals indicates that DPD improves its fidelity.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-10T11:00:51Z</published>
+    <arxiv:comment>4 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Marvin Jaeger</name>
+    </author>
+    <author>
+      <name>Bartosz Tegowski</name>
+    </author>
+    <author>
+      <name>Georg Frederik Riemschneider</name>
+    </author>
+    <author>
+      <name>Alexander Koelpin</name>
+    </author>
+    <arxiv:doi>10.1049/ell2.70708</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1049/ell2.70708" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.03709v1</id>
+    <title>The Power of 10: New Rules for the Digital World</title>
+    <updated>2026-01-07T08:49:02Z</updated>
+    <link href="https://arxiv.org/abs/2601.03709v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.03709v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As artificial intelligence rapidly advances, society is increasingly captivated by promises of superhuman machines and seamless digital futures. Yet these visions often obscure mounting social, ethical, and psychological concerns tied to pervasive digital technologies - from surveillance to mental health crises. This article argues that a guiding ethos is urgently needed to navigate these transformations. Inspired by the lasting influence of the biblical Ten Commandments, a European interdisciplinary group has proposed "Ten Rules for the Digital World" - a novel ethical framework to help individuals and societies make prudent, human-centered decisions in the age of "supercharged" technology.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-07T08:49:02Z</published>
+    <arxiv:comment>to be published in Communications of the ACM (submitted 26 June 2025, revised 29 August 2025, accepted 3 November 2025)</arxiv:comment>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Sarah Spiekermann-Hoff</name>
+    </author>
+    <author>
+      <name>Marc Langheinrich</name>
+    </author>
+    <author>
+      <name>Johannes Hoff</name>
+    </author>
+    <author>
+      <name>Christiane Wendehorst</name>
+    </author>
+    <author>
+      <name>Jürgen Pfeffer</name>
+    </author>
+    <author>
+      <name>Thomas Fuchs</name>
+    </author>
+    <author>
+      <name>Armin Grunwald</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.06111v2</id>
+    <title>LLM Powered Social Digital Twins: A Framework for Simulating Population Behavioral Response to Policy Interventions</title>
+    <updated>2026-01-21T06:47:21Z</updated>
+    <link href="https://arxiv.org/abs/2601.06111v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.06111v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Predicting how populations respond to policy interventions is a fundamental challenge in computational social science and public policy. Traditional approaches rely on aggregate statistical models that capture historical correlations but lack mechanistic interpretability and struggle with novel policy scenarios. We present a general framework for constructing Social Digital Twins - virtual population replicas where Large Language Models (LLMs) serve as cognitive engines for individual agents. Each agent, characterized by demographic and psychographic attributes, receives policy signals and outputs multi-dimensional behavioral probability vectors. A calibration layer maps aggregated agent responses to observable population-level metrics, enabling validation against real-world data and deployment for counterfactual policy analysis.
+  We instantiate this framework in the domain of pandemic response, using COVID-19 as a case study with rich observational data. On a held-out test period, our calibrated digital twin achieves a 20.7% improvement in macro-averaged prediction error over gradient boosting baselines across six behavioral categories. Counterfactual experiments demonstrate monotonic and bounded responses to policy variations, establishing behavioral plausibility. The framework is domain-agnostic: the same architecture applies to transportation policy, economic interventions, environmental regulations, or any setting where policy affects population behavior. We discuss implications for policy simulation, limitations of the approach, and directions for extending LLM-based digital twins beyond pandemic response.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-03T13:25:33Z</published>
+    <arxiv:comment>13 pages, 1 figure, 4 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Fatima Koaik</name>
+    </author>
+    <author>
+      <name>Aayush Gupta</name>
+    </author>
+    <author>
+      <name>Farahan Raza Sheikh</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.00332v1</id>
+    <title>PQC standards alternatives -- reliable semantically secure key encapsulation mechanism and digital signature protocols using the rank-deficient matrix power function</title>
+    <updated>2026-01-01T13:12:34Z</updated>
+    <link href="https://arxiv.org/abs/2601.00332v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.00332v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Post-quantum cryptography-PQC- aims to develop public-key primitives that are secure against adversaries using classical and quantum computing technologies. This study introduces novel protocols, a key encapsulation mechanism, a digital signature scheme, and special protection against linear attacks. Our purpose is to create reliable alternatives to current standards, seeking compact, fast, and secure replacements of the key interchange and digital signature in the TLS 1_3 protocol, which safeguards Internet traffic, allowing an easy post-quantum transition to protect current data from the harvest now, decrypt later threat.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-01T13:12:34Z</published>
+    <arxiv:comment>14 pages, 1 Figure, 2 Tables, 19 References, 2 Appendix</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Juan Pedro Hecht</name>
+    </author>
+    <author>
+      <name>Hugo Daniel Scolnik</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.12026v1</id>
+    <title>DT-MPC: Synthesizing Derivation-Free Model Predictive Control from Power Converter Netlists via Physics-Informed Neural Digital Twins</title>
+    <updated>2025-12-12T20:37:18Z</updated>
+    <link href="https://arxiv.org/abs/2512.12026v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.12026v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Model Predictive Control (MPC) is a powerful control strategy for power electronics, but it highly relies on manually-derived and topology-specific analytical models, which is labor-intensive and time-consuming in practical designs. To overcome this bottleneck, this paper introduces a Digital-Twin-based MPC (DT-MPC) framework for generic power converters that can systematically translate a high-level circuit into an objective-aware control policy by leveraging a DT as a high-fidelity system model. Furthermore, a physics-informed neural surrogate predictor is proposed to accelerate predictions by DT and enable real-time operation. A gradient-free simplex search optimizer is also introduced to efficiently handle complex multi-objective optimization. The efficacy of the framework has been validated through a cloud-to-edge deployment on a 1500 W dual active bridge converter. Experimental results show that the synthesized predictive model achieves an inference speed over 7 times faster than real time, the DT-MPC controller outperforms several human-designed counterparts, and the overall framework reduces engineering design time by over 95\%, verifying the superiority of DT-MPC on generalized power converters.</summary>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-12T20:37:18Z</published>
+    <arxiv:comment>15 pages, 15 figures</arxiv:comment>
+    <arxiv:primary_category term="eess.SY"/>
+    <author>
+      <name>Jialin Zheng</name>
+    </author>
+    <author>
+      <name>Haoyu Wang</name>
+    </author>
+    <author>
+      <name>Yangbin Zeng</name>
+    </author>
+    <author>
+      <name>Han Xu</name>
+    </author>
+    <author>
+      <name>Di Mou</name>
+    </author>
+    <author>
+      <name>Hong Li</name>
+    </author>
+    <author>
+      <name>Patrick Wheeler</name>
+    </author>
+    <author>
+      <name>Sergio Vazquez</name>
+    </author>
+    <author>
+      <name>Leopoldo G. Franquelo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.06616v1</id>
+    <title>Memory Power Asymmetry in Human-AI Relationships: Preserving Mutual Forgetting in the Digital Age</title>
+    <updated>2025-12-07T01:34:19Z</updated>
+    <link href="https://arxiv.org/abs/2512.06616v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.06616v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As artificial intelligence (AI) becomes embedded in personal and professional relationships, a new kind of power imbalance emerges from asymmetric memory capabilities. Human relationships have historically relied on mutual forgetting, the natural tendency for both parties to forget details over time, as a foundation for psychological safety, forgiveness, and identity change. By contrast, AI systems can record, store, and recombine interaction histories at scale, often indefinitely. We introduce Memory Power Asymmetry (MPA): a structural power imbalance that arises when one relationship partner (typically an AI-enabled firm) possesses a substantially superior capacity to record, retain, retrieve, and integrate the shared history of the relationship, and can selectively deploy that history in ways the other partner (the human) cannot. Drawing on research in human memory, power-dependence theory, AI architecture, and consumer vulnerability, we develop a conceptual framework with four dimensions of MPA (persistence, accuracy, accessibility, integration) and four mechanisms by which memory asymmetry is translated into power (strategic memory deployment, narrative control, dependence asymmetry, vulnerability accumulation). We theorize downstream consequences at individual, relational/firm, and societal levels, formulate boundary-conditioned propositions, and articulate six design principles for restoring a healthier balance of memory in human-AI relationships (e.g., forgetting by design, contextual containment, symmetric access to records). Our analysis positions MPA as a distinct construct relative to information asymmetry, privacy, surveillance, and customer relationship management, and argues that protecting mutual forgetting, or at least mutual control over memory, should become a central design and policy goal in the AI age.</summary>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-07T01:34:19Z</published>
+    <arxiv:comment>31 pages, 2 tables, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.HC"/>
+    <author>
+      <name>Rasam Dorri</name>
+    </author>
+    <author>
+      <name>Rami Zwick</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.15850v2</id>
+    <title>Elementary Bounds on Digital Sums of Powers, Factorials, and LCMs</title>
+    <updated>2026-01-07T19:23:09Z</updated>
+    <link href="https://arxiv.org/abs/2511.15850v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.15850v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove logarithmic lower bounds on digital sums of powers, multiples of powers, factorials, and the least common multiple of $\{1,\ldots, n\}$, using only elementary number theory. We conclude with an expository proof of Stewart's theorem on digital sums of powers, which uses Baker's theorem on linear forms in logarithms.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-19T20:14:24Z</published>
+    <arxiv:comment>15 pages, 3 figures. This version corrects errors in the earlier manuscript and substantially clarifies the arguments by adding detailed explanations and additional figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>David G. Radcliffe</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.14816v1</id>
+    <title>XGBoost-Powered Digital Twins Leverage Routine Blood Tests for Early Detection of Cancer and Cardiovascular Disease</title>
+    <updated>2025-11-18T08:56:37Z</updated>
+    <link href="https://arxiv.org/abs/2511.14816v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.14816v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Early detection of cancer and cardiovascular diseases is fundamental to improving patient outcomes and reducing healthcare expenditure. Current cancer screening programs are targeted towards specific cancers and are often inaccessible to large parts of the population, particularly in remote regions. This project aimed to develop digital blood twins: machine learning models that leverage routinely collected blood test data, demographics, comorbidities, and prescribed medications, for scalable and cost-effective disease screening. Digital blood twins were constructed using the UK Biobank dataset (n = 373,269). Using age, sex, comorbidities, medication profiles, and blood test z-scores, three iterations of XGBoost classifiers were trained for broad cancer, colorectal cancer, and cardiovascular disease prediction. Model interpretability was achieved through SHAP and dimensionality reduction analyses (UMAP, t-SNE). Broad-category cancer models achieved ROC-AUC = 0.607-0.706. Colorectal cancer prediction demonstrated excellent discrimination (ROC-AUC = 0.816-0.993), and cardiovascular models showed clinical utility, notably for hypertension (ROC-AUC = 0.813, F1 = 0.861). SHAP revealed consistent importance of age, sex, basophil count, and cystatin C. Immune digital blood twins as an agnostic tool demonstrate proof-of-concept feasibility for accessible, low-cost, and scalable screening of cancer and cardiovascular diseases, supporting future integration into predictive and preventive healthcare.</summary>
+    <category term="q-bio.OT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-18T08:56:37Z</published>
+    <arxiv:comment>43 pages with Supplementary Info</arxiv:comment>
+    <arxiv:primary_category term="q-bio.OT"/>
+    <author>
+      <name>Lo Kai Shun John</name>
+    </author>
+    <author>
+      <name>Riya Nagar</name>
+    </author>
+    <author>
+      <name>Abicumaran Uthamacumaran</name>
+    </author>
+    <author>
+      <name>Hector Zenil</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.07990v1</id>
+    <title>Hardware-Aware YOLO Compression for Low-Power Edge AI on STM32U5 for Weeds Detection in Digital Agriculture</title>
+    <updated>2025-11-11T08:55:58Z</updated>
+    <link href="https://arxiv.org/abs/2511.07990v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.07990v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Weeds significantly reduce crop yields worldwide and pose major challenges to sustainable agriculture. Traditional weed management methods, primarily relying on chemical herbicides, risk environmental contamination and lead to the emergence of herbicide-resistant species. Precision weeding, leveraging computer vision and machine learning methods, offers a promising eco-friendly alternative but is often limited by reliance on high-power computational platforms. This work presents an optimized, low-power edge AI system for weeds detection based on the YOLOv8n object detector deployed on the STM32U575ZI microcontroller. Several compression techniques are applied to the detection model, including structured pruning, integer quantization and input image resolution scaling in order to meet strict hardware constraints. The model is trained and evaluated on the CropAndWeed dataset with 74 plant species, achieving a balanced trade-off between detection accuracy and efficiency. Our system supports real-time, in-situ weeds detection with a minimal energy consumption of 51.8mJ per inference, enabling scalable deployment in power-constrained agricultural environments.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-11T08:55:58Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Charalampos S. Kouzinopoulos</name>
+    </author>
+    <author>
+      <name>Yuri Manna</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.03861v1</id>
+    <title>Ternary Digits of Powers of Two</title>
+    <updated>2025-11-05T21:05:33Z</updated>
+    <link href="https://arxiv.org/abs/2511.03861v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.03861v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The \textit{ternary digits of $2^n$} are a finite sequence of 0s, 1s, and 2s. It is a natural question to ask whether the frequency of any string of 0s, 1s, and 2s in this sequence approaches the same limit for all strings of the same length, as the exponent $n$ approaches infinity (\textit{Uniform Distribution in the limit}).
+  Currently the answer to this question is unknown. Even a much weaker conjecture by Erdös is still open. But we present computational results (up to $n = 10^6$) supporting uniform distribution in the limit.
+  In this context, we discuss implications of Benford's Law and a special case of Baker's Theorem.
+  Then we investigate the infinite sequence of ternary digits of $\log_3(2)$. There are analogous questions about the distribution of strings of 0s, 1s, and 2s in that sequence. If there is uniform distribution in the limit, then $\log_3(2)$ is called \textit{normal to base 3}.
+  In the absence of definitive results, we can offer again computational evidence from the first $10^6$ ternary digits of $\log_3(2)$, strongly supporting the conjecture that $\log_3(2)$ is normal to base 3.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-05T21:05:33Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Christian Roettger</name>
+    </author>
+    <author>
+      <name>Xuyi Ren</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.21094v1</id>
+    <title>Power residues, digit expansions and relative class numbers</title>
+    <updated>2025-09-25T12:43:37Z</updated>
+    <link href="https://arxiv.org/abs/2509.21094v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.21094v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This is a survey of a connection between the distribution of certain power residues modulo $p$, $p$ a prime, and relative class numbers. The focus lies on quadratic residues and sixth power residues. Dirichlet's class number formula yields a number of results about the distribution of quadratic residues, for instance, the well-known fact that the interval $[0,p/2]$ contains more quadratic residues than nonresidues. This class number formula is also responsible for some properties of the digit expansions of numbers $m/p$, $p\NDIV m$. In a certain sense the results based on Dirichlet's formula can be extended to sixth power residues, where geometry plays an important role.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-25T12:43:37Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Kurt Girstmair</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.12982v1</id>
+    <title>Out of Distribution Detection in Self-adaptive Robots with AI-powered Digital Twins</title>
+    <updated>2025-09-16T11:43:47Z</updated>
+    <link href="https://arxiv.org/abs/2509.12982v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.12982v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Self-adaptive robots (SARs) in complex, uncertain environments must proactively detect and address abnormal behaviors, including out-of-distribution (OOD) cases. To this end, digital twins offer a valuable solution for OOD detection. Thus, we present a digital twin-based approach for OOD detection (ODiSAR) in SARs. ODiSAR uses a Transformer-based digital twin to forecast SAR states and employs reconstruction error and Monte Carlo dropout for uncertainty quantification. By combining reconstruction error with predictive variance, the digital twin effectively detects OOD behaviors, even in previously unseen conditions. The digital twin also includes an explainability layer that links potential OOD to specific SAR states, offering insights for self-adaptation. We evaluated ODiSAR by creating digital twins of two industrial robots: one navigating an office environment, and another performing maritime ship navigation. In both cases, ODiSAR forecasts SAR behaviors (i.e., robot trajectories and vessel motion) and proactively detects OOD events. Our results showed that ODiSAR achieved high detection performance -- up to 98\% AUROC, 96\% TNR@TPR95, and 95\% F1-score -- while providing interpretable insights to support self-adaptation.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-16T11:43:47Z</published>
+    <arxiv:comment>15 pages, 4 figures, 3 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <arxiv:journal_ref>2025 40th IEEE/ACM International Conference on Automated Software Engineering (ASE)</arxiv:journal_ref>
+    <author>
+      <name>Erblin Isaku</name>
+    </author>
+    <author>
+      <name>Hassan Sartaj</name>
+    </author>
+    <author>
+      <name>Shaukat Ali</name>
+    </author>
+    <author>
+      <name>Beatriz Sanguino</name>
+    </author>
+    <author>
+      <name>Tongtong Wang</name>
+    </author>
+    <author>
+      <name>Guoyuan Li</name>
+    </author>
+    <author>
+      <name>Houxiang Zhang</name>
+    </author>
+    <author>
+      <name>Thomas Peyrucain</name>
+    </author>
+    <arxiv:doi>10.1109/ASE63991.2025.00281</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/ASE63991.2025.00281" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.00936v1</id>
+    <title>UrbanInsight: A Distributed Edge Computing Framework with LLM-Powered Data Filtering for Smart City Digital Twins</title>
+    <updated>2025-08-31T17:10:31Z</updated>
+    <link href="https://arxiv.org/abs/2509.00936v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.00936v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Cities today generate enormous streams of data from sensors, cameras, and connected infrastructure. While this information offers unprecedented opportunities to improve urban life, most existing systems struggle with scale, latency, and fragmented insights. This work introduces a framework that blends physics-informed machine learning, multimodal data fusion, and knowledge graph representation with adaptive, rule-based intelligence powered by large language models (LLMs). Physics-informed methods ground learning in real-world constraints, ensuring predictions remain meaningful and consistent with physical dynamics. Knowledge graphs act as the semantic backbone, integrating heterogeneous sensor data into a connected, queryable structure. At the edge, LLMs generate context-aware rules that adapt filtering and decision-making in real time, enabling efficient operation even under constrained resources. Together, these elements form a foundation for digital twin systems that go beyond passive monitoring to provide actionable insights. By uniting physics-based reasoning, semantic data fusion, and adaptive rule generation, this approach opens new possibilities for creating responsive, trustworthy, and sustainable smart infrastructures.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-31T17:10:31Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Kishor Datta Gupta</name>
+    </author>
+    <author>
+      <name>Md Manjurul Ahsan</name>
+    </author>
+    <author>
+      <name>Mohd Ariful Haque</name>
+    </author>
+    <author>
+      <name>Roy George</name>
+    </author>
+    <author>
+      <name>Azmine Toushik Wasi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.20016v2</id>
+    <title>HPC Digital Twins for Evaluating Scheduling Policies, Incentive Structures and their Impact on Power and Cooling</title>
+    <updated>2025-08-28T01:16:49Z</updated>
+    <link href="https://arxiv.org/abs/2508.20016v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.20016v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Schedulers are critical for optimal resource utilization in high-performance computing. Traditional methods to evaluate schedulers are limited to post-deployment analysis, or simulators, which do not model associated infrastructure. In this work, we present the first-of-its-kind integration of scheduling and digital twins in HPC. This enables what-if studies to understand the impact of parameter configurations and scheduling decisions on the physical assets, even before deployment, or regarching changes not easily realizable in production. We (1) provide the first digital twin framework extended with scheduling capabilities, (2) integrate various top-tier HPC systems given their publicly available datasets, (3) implement extensions to integrate external scheduling simulators. Finally, we show how to (4) implement and evaluate incentive structures, as-well-as (5) evaluate machine learning based scheduling, in such novel digital-twin based meta-framework to prototype scheduling. Our work enables what-if scenarios of HPC systems to evaluate sustainability, and the impact on the simulated system.</summary>
+    <category term="cs.DC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.ET" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-27T16:21:31Z</published>
+    <arxiv:primary_category term="cs.DC"/>
+    <author>
+      <name>Matthias Maiterth</name>
+    </author>
+    <author>
+      <name>Wesley H. Brewer</name>
+    </author>
+    <author>
+      <name>Jaya S. Kuruvella</name>
+    </author>
+    <author>
+      <name>Arunavo Dey</name>
+    </author>
+    <author>
+      <name>Tanzima Z. Islam</name>
+    </author>
+    <author>
+      <name>Kevin Menear</name>
+    </author>
+    <author>
+      <name>Dmitry Duplyakin</name>
+    </author>
+    <author>
+      <name>Rashadul Kabir</name>
+    </author>
+    <author>
+      <name>Tapasya Patki</name>
+    </author>
+    <author>
+      <name>Terry Jones</name>
+    </author>
+    <author>
+      <name>Feiyi Wang</name>
+    </author>
+    <arxiv:doi>10.1145/3731599.3767559</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3731599.3767559" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.17212v1</id>
+    <title>Reinforcement Learning enhanced Online Adaptive Clinical Decision Support via Digital Twin powered Policy and Treatment Effect optimized Reward</title>
+    <updated>2025-08-24T04:51:22Z</updated>
+    <link href="https://arxiv.org/abs/2508.17212v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.17212v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Clinical decision support must adapt online under safety constraints. We present an online adaptive tool where reinforcement learning provides the policy, a patient digital twin provides the environment, and treatment effect defines the reward. The system initializes a batch-constrained policy from retrospective data and then runs a streaming loop that selects actions, checks safety, and queries experts only when uncertainty is high. Uncertainty comes from a compact ensemble of five Q-networks via the coefficient of variation of action values with a $\tanh$ compression. The digital twin updates the patient state with a bounded residual rule. The outcome model estimates immediate clinical effect, and the reward is the treatment effect relative to a conservative reference with a fixed z-score normalization from the training split. Online updates operate on recent data with short runs and exponential moving averages. A rule-based safety gate enforces vital ranges and contraindications before any action is applied. Experiments in a synthetic clinical simulator show low latency, stable throughput, a low expert query rate at fixed safety, and improved return against standard value-based baselines. The design turns an offline policy into a continuous, clinician-supervised system with clear controls and fast adaptation.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-24T04:51:22Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Xinyu Qin</name>
+    </author>
+    <author>
+      <name>Ruiheng Yu</name>
+    </author>
+    <author>
+      <name>Lu Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.11792v1</id>
+    <title>Digital Post-Distortion Architectures for Nonlinear Power Amplifiers: Volterra and Kernel Methods</title>
+    <updated>2025-08-15T20:00:42Z</updated>
+    <link href="https://arxiv.org/abs/2508.11792v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.11792v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In modern 5G user equipments (UEs), the power amplifier (PA) contributes significantly to power consumption during uplink transmissions, especially in cell-edge scenarios. While reducing power backoff can enhance PA efficiency, it introduces nonlinear distortions that degrade signal quality. Existing solutions, such as digital pre-distortion, require complex feedback mechanisms for optimal performance, leading to increased UE complexity and power consumption. Instead, in this study we explore digital post-distortion (DPoD) techniques, which compensate for these distortions at the base station, leveraging its superior computational resources. In this study, we conduct an comprehensive study concerning the challenges and advantages associated with applying DPoD in time-domain, frequency-domain, and DFT-s-domain. Our findings suggest that implementing DPoD in the time-domain, complemented by frequency-domain channel equalization, strikes a good balance between low computational complexity and efficient nonlinearity compensation. In addition, we demonstrate that memory has to be taken into account regardless of the memory of the PA. Subsequently, we show how to pose the complex-valued problem of nonlinearity compensation in a real Hilbert space, emphasizing the potential performance enhancements as a result. We then discuss the traditional Volterra series and show an equivalent kernel method that can reduce algorithmic complexity. Simulations validate the results of our analysis and show that our proposed algorithm can significantly improve performance compared to state-of-the-art algorithms.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-15T20:00:42Z</published>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Daniel Schäufele</name>
+    </author>
+    <author>
+      <name>Jochen Fink</name>
+    </author>
+    <author>
+      <name>Renato L. G. Cavalcante</name>
+    </author>
+    <author>
+      <name>Sławomir Stańczak</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.02887v1</id>
+    <title>Physics-Embedded Neural ODEs for Sim2Real Edge Digital Twins of Hybrid Power Electronics Systems</title>
+    <updated>2025-08-04T20:34:13Z</updated>
+    <link href="https://arxiv.org/abs/2508.02887v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.02887v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Edge Digital Twins (EDTs) are crucial for monitoring and control of Power Electronics Systems (PES). However, existing modeling approaches struggle to consistently capture continuously evolving hybrid dynamics that are inherent in PES, degrading Sim-to-Real generalization on resource-constrained edge devices. To address these challenges, this paper proposes a Physics-Embedded Neural ODEs (PENODE) that (i) embeds the hybrid operating mechanism as an event automaton to explicitly govern discrete switching and (ii) injects known governing ODE components directly into the neural parameterization of unmodeled dynamics. This unified design yields a differentiable end-to-end trainable architecture that preserves physical interpretability while reducing redundancy, and it supports a cloud-to-edge toolchain for efficient FPGA deployment. Experimental results demonstrate that PENODE achieves significantly higher accuracy in benchmarks in white-box, gray-box, and black-box scenarios, with a 75% reduction in neuron count, validating that the proposed PENODE maintains physical interpretability, efficient edge deployment, and real-time control enhancement.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-04T20:34:13Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Jialin Zheng</name>
+    </author>
+    <author>
+      <name>Haoyu Wang</name>
+    </author>
+    <author>
+      <name>Yangbin Zeng</name>
+    </author>
+    <author>
+      <name>Di Mou</name>
+    </author>
+    <author>
+      <name>Xin Zhang</name>
+    </author>
+    <author>
+      <name>Hong Li</name>
+    </author>
+    <author>
+      <name>Sergio Vazquez</name>
+    </author>
+    <author>
+      <name>Leopoldo G. Franquelo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.10227v1</id>
+    <title>Quantum Perspective on Digital Money: Towards a Quantum-Powered Financial System</title>
+    <updated>2025-07-14T12:46:14Z</updated>
+    <link href="https://arxiv.org/abs/2507.10227v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.10227v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Quantum money represents an innovative approach to currency by encoding economic value within the quantum states of physical systems, utilizing the principles of quantum mechanics to enhance security, integrity, and transferability. This perspective article explores the definition and properties of quantum money. We analyze the process of transferring quantum money via quantum teleportation, using terrestrial and satellite-based quantum networks. Furthermore, we consider the impact of quantum money on the modern banking system, particularly in money creation. Finally, we conduct an analysis to assess the strengths and weaknesses of quantum money, as well as opportunities and threats associated with this emerging concept.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-14T12:46:14Z</published>
+    <arxiv:primary_category term="quant-ph"/>
+    <arxiv:journal_ref>Telecom 6(3), 50 (2025)</arxiv:journal_ref>
+    <author>
+      <name>Artur Czerwinski</name>
+    </author>
+    <arxiv:doi>10.3390/telecom6030050</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.3390/telecom6030050" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.08670v3</id>
+    <title>Multi-Symbol Digital AirComp via Modulation Design and Power Adaptation</title>
+    <updated>2025-11-25T09:10:40Z</updated>
+    <link href="https://arxiv.org/abs/2507.08670v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.08670v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recently, over-the-air computation (AirComp) leverages the superposition property of wireless channels to enable efficient function computation over a multiple access channel (MAC). However, existing digital AirComp methods either rely on single-symbol modulation, which limits flexibility and robustness, or on multi-symbol extensions that suffer from high complexity or approximation errors. To overcome these limitations, we propose a new multi-symbol modulation framework, termed sequential modulation for AirComp (SeMAC), which encodes each input into a sequence of symbols with distinct constellation diagrams across multiple time slots. This approach increases design flexibility and robustness against channel noise. Specifically, the modulation design is formulated as a non-convex optimization problem and efficiently solved through a successive convex approximation (SCA) combined with stochastic subgradient descent (SSD). For fixed modulation formats, we further develop SeMAC with power adaptation (SeMAC-PA) to adjusts transmit power and phase while preserving the modulation structure. Notably, numerical results show that SeMAC improves computation accuracy by up to 14 dB compared to the existing methods for computing nonlinear functions such as the product function.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-11T15:10:13Z</published>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Xiaojing Yan</name>
+    </author>
+    <author>
+      <name>Saeed Razavikia</name>
+    </author>
+    <author>
+      <name>Carlo Fischione</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.03553v1</id>
+    <title>Model-Based Control for Power-to-X Platforms: Knowledge Integration for Digital Twins</title>
+    <updated>2025-07-04T13:02:46Z</updated>
+    <link href="https://arxiv.org/abs/2507.03553v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.03553v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Offshore Power-to-X platforms enable flexible conversion of renewable energy, but place high demands on adaptive process control due to volatile operating conditions. To face this challenge, using Digital Twins in Power-to-X platforms is a promising approach. Comprehensive knowledge integration in Digital Twins requires the combination of heterogeneous models and a structured representation of model information. The proposed approach uses a standardized description of behavior models, semantic technologies and a graph-based model understanding to enable automatic adaption and selection of suitable models. It is implemented using a graph-based knowledge representation with Neo4j, automatic data extraction from Asset Administration Shells and port matching to ensure compatible model configurations.</summary>
+    <category term="cs.CE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-04T13:02:46Z</published>
+    <arxiv:primary_category term="cs.CE"/>
+    <author>
+      <name>Daniel Dittler</name>
+    </author>
+    <author>
+      <name>Peter Frank</name>
+    </author>
+    <author>
+      <name>Gary Hildebrandt</name>
+    </author>
+    <author>
+      <name>Luisa Peterson</name>
+    </author>
+    <author>
+      <name>Nasser Jazdi</name>
+    </author>
+    <author>
+      <name>Michael Weyrich</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.02313v1</id>
+    <title>A Vehicle-in-the-Loop Simulator with AI-Powered Digital Twins for Testing Automated Driving Controllers</title>
+    <updated>2025-07-03T04:52:18Z</updated>
+    <link href="https://arxiv.org/abs/2507.02313v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.02313v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Simulators are useful tools for testing automated driving controllers. Vehicle-in-the-loop (ViL) tests and digital twins (DTs) are widely used simulation technologies to facilitate the smooth deployment of controllers to physical vehicles. However, conventional ViL tests rely on full-size vehicles, requiring large space and high expenses. Also, physical-model-based DT suffers from the reality gap caused by modeling imprecision. This paper develops a comprehensive and practical simulator for testing automated driving controllers enhanced by scaled physical cars and AI-powered DT models. The scaled cars allow for saving space and expenses of simulation tests. The AI-powered DT models ensure superior simulation fidelity. Moreover, the simulator integrates well with off-the-shelf software and control algorithms, making it easy to extend. We use a filtered control benchmark with formal safety guarantees to showcase the capability of the simulator in validating automated driving controllers. Experimental studies are performed to showcase the efficacy of the simulator, implying its great potential in validating control solutions for autonomous vehicles and intelligent traffic.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-03T04:52:18Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Zengjie Zhang</name>
+    </author>
+    <author>
+      <name>Giannis Badakis</name>
+    </author>
+    <author>
+      <name>Michalis Galanis</name>
+    </author>
+    <author>
+      <name>Adem Bavarşi</name>
+    </author>
+    <author>
+      <name>Edwin van Hassel</name>
+    </author>
+    <author>
+      <name>Mohsen Alirezaei</name>
+    </author>
+    <author>
+      <name>Sofie Haesaert</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.00928v1</id>
+    <title>Enhancing Open RAN Digital Twin Through Power Consumption Measurement</title>
+    <updated>2025-07-01T16:35:28Z</updated>
+    <link href="https://arxiv.org/abs/2507.00928v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.00928v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The increasing demand for high-speed, ultra-reliable and low-latency communications in 5G and beyond networks has led to a significant increase in power consumption, particularly within the Radio Access Network (RAN). This growing energy demand raises operational and sustainability challenges for mobile network operators, requiring novel solutions to enhance energy efficiency while maintaining Quality of Service (QoS). 5G networks are evolving towards disaggregated, programmable, and intelligent architectures, with Open Radio Access Network (O-RAN) spearheaded by the O-RAN Alliance, enabling greater flexibility, interoperability, and cost-effectiveness. However, this disaggregated approach introduces new complexities, especially in terms of power consumption across different network components, including Open Radio Units (RUs), Open Distributed Units (DUs) and Open Central Units (CUs). Understanding the power efficiency of different O-RAN functional splits is crucial for optimising energy consumption and network sustainability. In this paper, we present a comprehensive measurement study of power consumption in RUs, DUs and CUs under varying network loads, specifically analysing the impact of Physical resource block (PRB) utilisation in Split 8 and Split 7.2b. The measurements were conducted on both software-defined radio (SDR)-based RUs and commercial indoor and outdoor RU, as well as their corresponding DU and CU. By evaluating real-world hardware deployments under different operational conditions, this study provides empirical insights into the power efficiency of various O-RAN configurations. The results highlight that power consumption does not scale significantly with network load, suggesting that a large portion of energy consumption remains constant regardless of traffic demand.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-01T16:35:28Z</published>
+    <arxiv:comment>Accepted in PIMRC 2025</arxiv:comment>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Ahmed Al-Tahmeesschi</name>
+    </author>
+    <author>
+      <name>Yi Chu</name>
+    </author>
+    <author>
+      <name>Josh Shackleton</name>
+    </author>
+    <author>
+      <name>Swarna Chetty</name>
+    </author>
+    <author>
+      <name>Mostafa Rahmani</name>
+    </author>
+    <author>
+      <name>David Grace</name>
+    </author>
+    <author>
+      <name>Hamed Ahmadi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.00288v1</id>
+    <title>Reconfiguring Digital Accountability: AI-Powered Innovations and Transnational Governance in a Postnational Accounting Context</title>
+    <updated>2025-06-30T21:56:37Z</updated>
+    <link href="https://arxiv.org/abs/2507.00288v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.00288v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This study explores how AI-powered digital innovations are reshaping organisational accountability in a transnational governance context. As AI systems increasingly mediate decision-making in domains such as auditing and financial reporting, traditional mechanisms of accountability, based on control, transparency, and auditability, are being destabilised. We integrate the Technology Acceptance Model (TAM), Actor-Network Theory (ANT), and institutional theory to examine how organisations adopt AI technologies in response to regulatory, ethical, and cultural pressures that transcend national boundaries. We argue that accountability is co-constructed within global socio-technical networks, shaped not only by user perceptions but also by governance logics and normative expectations. Extending TAM, we incorporate compliance and legitimacy as key factors in perceived usefulness and usability. Drawing on ANT, we reconceptualise accountability as a relational and emergent property of networked assemblages. We propose two organisational strategies including internal governance reconfiguration and external actor-network engagement to foster responsible, legitimate, and globally accepted AI adoption in the accounting domain.</summary>
+    <category term="econ.TH" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.ET" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-30T21:56:37Z</published>
+    <arxiv:comment>22 pages</arxiv:comment>
+    <arxiv:primary_category term="econ.TH"/>
+    <author>
+      <name>Claire Li</name>
+    </author>
+    <author>
+      <name>David Freeborn</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.23826v1</id>
+    <title>Towards the "Digital Me": A vision of authentic Conversational Agents powered by personal Human Digital Twins</title>
+    <updated>2025-06-30T13:18:31Z</updated>
+    <link href="https://arxiv.org/abs/2506.23826v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.23826v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Human Digital Twins (HDTs) have traditionally been conceptualized as data-driven models designed to support decision-making across various domains. However, recent advancements in conversational AI open new possibilities for HDTs to function as authentic, interactive digital counterparts of individuals. This paper introduces a novel HDT system architecture that integrates large language models with dynamically updated personal data, enabling it to mirror an individual's conversational style, memories, and behaviors. To achieve this, our approach implements context-aware memory retrieval, neural plasticity-inspired consolidation, and adaptive learning mechanisms, creating a more natural and evolving digital persona. The resulting system does not only replicate an individual's unique conversational style depending on who they are speaking with, but also enriches responses with dynamically captured personal experiences, opinions, and memories. While this marks a significant step toward developing authentic virtual counterparts, it also raises critical ethical concerns regarding privacy, accountability, and the long-term implications of persistent digital identities. This study contributes to the field of HDTs by describing our novel system architecture, demonstrating its capabilities, and discussing future directions and emerging challenges to ensure the responsible and ethical development of HDTs.</summary>
+    <category term="cs.ET" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-30T13:18:31Z</published>
+    <arxiv:comment>24 pages, 9 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.ET"/>
+    <author>
+      <name>Lluís C. Coll</name>
+    </author>
+    <author>
+      <name>Martin W. Lauer-Schmaltz</name>
+    </author>
+    <author>
+      <name>Philip Cash</name>
+    </author>
+    <author>
+      <name>John P. Hansen</name>
+    </author>
+    <author>
+      <name>Anja Maier</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.16591v1</id>
+    <title>SparseDPD: A Sparse Neural Network-based Digital Predistortion FPGA Accelerator for RF Power Amplifier Linearization</title>
+    <updated>2025-06-19T20:26:05Z</updated>
+    <link href="https://arxiv.org/abs/2506.16591v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.16591v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Digital predistortion (DPD) is crucial for linearizing radio frequency (RF) power amplifiers (PAs), improving signal integrity and efficiency in wireless systems. Neural network (NN)-based DPD methods surpass traditional polynomial models but face computational challenges limiting their practical deployment. This paper introduces SparseDPD, an FPGA accelerator employing a spatially sparse phase-normalized time-delay neural network (PNTDNN), optimized through unstructured pruning to reduce computational load without accuracy loss. Implemented on a Xilinx Zynq-7Z010 FPGA, SparseDPD operates at 170 MHz, achieving exceptional linearization performance (ACPR: -59.4 dBc, EVM: -54.0 dBc, NMSE: -48.2 dB) with only 241 mW dynamic power, using 64 parameters with 74% sparsity. This work demonstrates FPGA-based acceleration, making NN-based DPD practical and efficient for real-time wireless communication applications. Code is publicly available at https://github.com/MannoVersluis/SparseDPD.</summary>
+    <category term="cs.AR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-19T20:26:05Z</published>
+    <arxiv:comment>Accepted to FPL 2025</arxiv:comment>
+    <arxiv:primary_category term="cs.AR"/>
+    <arxiv:journal_ref>2025 35th International Conference on Field-Programmable Logic and Applications (FPL)</arxiv:journal_ref>
+    <author>
+      <name>Manno Versluis</name>
+    </author>
+    <author>
+      <name>Yizhuo Wu</name>
+    </author>
+    <author>
+      <name>Chang Gao</name>
+    </author>
+    <arxiv:doi>10.1109/FPL68686.2025.00031</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/FPL68686.2025.00031" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.24004v1</id>
+    <title>Redefining Research Crowdsourcing: Incorporating Human Feedback with LLM-Powered Digital Twins</title>
+    <updated>2025-05-29T20:55:27Z</updated>
+    <link href="https://arxiv.org/abs/2505.24004v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.24004v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Crowd work platforms like Amazon Mechanical Turk and Prolific are vital for research, yet workers' growing use of generative AI tools poses challenges. Researchers face compromised data validity as AI responses replace authentic human behavior, while workers risk diminished roles as AI automates tasks. To address this, we propose a hybrid framework using digital twins, personalized AI models that emulate workers' behaviors and preferences while keeping humans in the loop. We evaluate our system with an experiment (n=88 crowd workers) and in-depth interviews with crowd workers (n=5) and social science researchers (n=4). Our results suggest that digital twins may enhance productivity and reduce decision fatigue while maintaining response quality. Both researchers and workers emphasized the importance of transparency, ethical data use, and worker agency. By automating repetitive tasks and preserving human engagement for nuanced ones, digital twins may help balance scalability with authenticity.</summary>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-29T20:55:27Z</published>
+    <arxiv:comment>Accepted as a CHI Late Breaking Work (2025), cite appropriately</arxiv:comment>
+    <arxiv:primary_category term="cs.HC"/>
+    <author>
+      <name>Amanda Chan</name>
+    </author>
+    <author>
+      <name>Catherine Di</name>
+    </author>
+    <author>
+      <name>Joseph Rupertus</name>
+    </author>
+    <author>
+      <name>Gary Smith</name>
+    </author>
+    <author>
+      <name>Varun Nagaraj Rao</name>
+    </author>
+    <author>
+      <name>Manoel Horta Ribeiro</name>
+    </author>
+    <author>
+      <name>Andrés Monroy-Hernández</name>
+    </author>
+    <arxiv:doi>10.1145/3706599.3720269</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3706599.3720269" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.15978v3</id>
+    <title>Power flow and optimal power flow using quantum and digital annealers: a computational scalability analysis</title>
+    <updated>2026-03-08T12:53:30Z</updated>
+    <link href="https://arxiv.org/abs/2505.15978v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.15978v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This study further explores reformulating power flow (PF) analysis as a discrete combinatorial optimization problem, proposed in our earlier study using the Adiabatic Quantum Power Flow (AQPF) algorithm, which can be executed on Ising machines, including quantum and quantum-inspired hardware. This approach provides a new representation of the underlying equations, analogous to how neural networks approximate complex functions using simple operations. While the resulting combinatorial optimization problem is NP-hard, it is compatible with emerging quantum hardware designed to address such complexity. We introduce the Adiabatic Quantum Optimal Power Flow (AQOPF) algorithm, which transforms the classical optimal power flow (OPF) equations into quadratic unconstrained binary optimization (QUBO) models. Furthermore, the AQPF and AQOPF algorithms are evaluated on standard test cases ranging from 4- to 1354-bus systems using D-Wave's Advantage\texttrademark\ system (QA), its hybrid quantum-classical solver (HA), and Fujitsu's third-generation Digital Annealer (DAv3) and Quantum-Inspired Integrated Optimization (QIIO) platform. Both full and partitioned formulations are investigated, with particular attention to scalability and robustness in ill-conditioned scenarios. The results demonstrate that the algorithms can reproduce feasible PF and OPF solutions and exhibit promising computational scalability when supported by scalable hardware.</summary>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-21T19:57:01Z</published>
+    <arxiv:comment>17 pages, 2 pseudo codes, 2 figures, 5 tables</arxiv:comment>
+    <arxiv:primary_category term="eess.SY"/>
+    <author>
+      <name>Zeynab Kaseb</name>
+    </author>
+    <author>
+      <name>Matthias Moller</name>
+    </author>
+    <author>
+      <name>Pedro P. Vergara</name>
+    </author>
+    <author>
+      <name>Peter Palensky</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.10681v1</id>
+    <title>Towards an LLM-powered Social Digital Twinning Platform</title>
+    <updated>2025-05-15T19:58:50Z</updated>
+    <link href="https://arxiv.org/abs/2505.10681v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.10681v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present Social Digital Twinner, an innovative social simulation tool for exploring plausible effects of what-if scenarios in complex adaptive social systems. The architecture is composed of three seamlessly integrated parts: a data infrastructure featuring real-world data and a multi-dimensionally representative synthetic population of citizens, an LLM-enabled agent-based simulation engine, and a user interface that enable intuitive, natural language interactions with the simulation engine and the artificial agents (i.e. citizens). Social Digital Twinner facilitates real-time engagement and empowers stakeholders to collaboratively design, test, and refine intervention measures. The approach is promoting a data-driven and evidence-based approach to societal problem-solving. We demonstrate the tool's interactive capabilities by addressing the critical issue of youth school dropouts in Kragero, Norway, showcasing its ability to create and execute a dedicated social digital twin using natural language.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-15T19:58:50Z</published>
+    <arxiv:comment>13 pages, 3 figures, 23rd International Conference on Practical applications of Agents and Multi-Agent Systems (PAAMS 2025)</arxiv:comment>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Önder Gürcan</name>
+    </author>
+    <author>
+      <name>Vanja Falck</name>
+    </author>
+    <author>
+      <name>Markus G. Rousseau</name>
+    </author>
+    <author>
+      <name>Larissa L. Lima</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.10234v1</id>
+    <title>Self Clocked Digital LDO for Cryogenic Power Management in 22nm FDSOI with 98 Percent Efficiency</title>
+    <updated>2025-05-15T12:45:55Z</updated>
+    <link href="https://arxiv.org/abs/2505.10234v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.10234v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A universal quantum computer~(QC), though promising ground breaking solutions to complex problems, still faces several challenges with respect to scalability. Current state-of-the-art QC use a great quantity of cables to connect the physical qubits, situated in the cryogenic temperature, to room temperature electronics. Integrated cryogenic electronics together with semiconductor spin qubits is one way closer for scalability. Such a scalable quantum computer can have qubits and the control electronics at 4K stage. Being at 4K, more thermal dissipation is allowed without overloading the cooling capability of the fridge. Still, control and power circuitry is expected to be highly efficient. While commercial CMOS technologies are found to be operatable at \qty{}{mK}, lack of reliable cryogenic models while designing, increased mismatches at cryo temperatures makes the design challenging and risky. Using an FDSOI technology with backgate biasing to compensate for the threshold voltage drift happening at cryo~(compensating around 200mV) and digital circuitry is a way to address this challenge. In this work, a self-clocked digital low dropout regulator (DLDO) is designed in FDSOI for high power efficient, variation tolerant regulator to supply cryogenic circuits for Quantum computing. The proposed digital LDO is more resilient to mismatch and having self clocking and close and fine loops addresses the power efficiency and faster transient response.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-15T12:45:55Z</published>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>A. Ashok</name>
+    </author>
+    <author>
+      <name>A. Cabrera</name>
+    </author>
+    <author>
+      <name>S. Baje</name>
+    </author>
+    <author>
+      <name>A. Zambanini</name>
+    </author>
+    <author>
+      <name>K. Allinger</name>
+    </author>
+    <author>
+      <name>A. Bahr</name>
+    </author>
+    <author>
+      <name>S. van Waasen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.08493v2</id>
+    <title>BizChat: Scaffolding AI-Powered Business Planning for Small Business Owners Across Digital Skill Levels</title>
+    <updated>2025-05-15T17:38:15Z</updated>
+    <link href="https://arxiv.org/abs/2505.08493v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.08493v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Generative AI can help small business owners automate tasks, increase efficiency, and improve their bottom line. However, despite the seemingly intuitive design of systems like ChatGPT, significant barriers remain for those less comfortable with technology. To address these disparities, prior work highlights accessory skills -- beyond prompt engineering -- users must master to successfully adopt generative AI including keyboard shortcuts, editing skills, file conversions, and browser literacy. Building on a design workshop series and 15 interviews with small businesses, we introduce BizChat, a large language model (LLM)-powered web application that helps business owners across digital skills levels write their business plan -- an essential but often neglected document. To do so, BizChat's interface embodies three design considerations inspired by learning sciences: ensuring accessibility to users with less digital skills while maintaining extensibility to power users ("low-floor-high-ceiling"), providing in situ micro-learning to support entrepreneurial education ("just-in-time learning"), and framing interaction around business activities ("contextualized technology introduction"). We conclude with plans for a future BizChat deployment.</summary>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-13T12:23:11Z</published>
+    <arxiv:comment>4 pages, 1 figure, CHIWORK '25 Adjunct, June 23-25, 2025, Amsterdam, Netherlands</arxiv:comment>
+    <arxiv:primary_category term="cs.HC"/>
+    <author>
+      <name>Quentin Romero Lauro</name>
+    </author>
+    <author>
+      <name>Aakash Gautam</name>
+    </author>
+    <author>
+      <name>Yasmine Kotturi</name>
+    </author>
+    <arxiv:doi>10.1145/3707640.3731928</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3707640.3731928" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.03270v1</id>
+    <title>Power-Aware Digital Twin of Coherent Optical Receiver</title>
+    <updated>2025-05-06T08:01:15Z</updated>
+    <link href="https://arxiv.org/abs/2505.03270v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.03270v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We propose a digital twin of coherent receivers based on an extended physical model for predicting quality of transmission under receiver power variations. We experimentally validate it, demonstrating an accuracy improved by up to 1.5dB.</summary>
+    <category term="physics.optics" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-06T08:01:15Z</published>
+    <arxiv:primary_category term="physics.optics"/>
+    <arxiv:journal_ref>OECC/PSC, Jun 2025, Sapporo (Japon), Japan</arxiv:journal_ref>
+    <author>
+      <name>Ambashri Purkayastha</name>
+      <arxiv:affiliation>TSP</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Camille Delezoide</name>
+      <arxiv:affiliation>SAMOVAR</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Fabien Boitier</name>
+      <arxiv:affiliation>SAMOVAR</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Vinod Bajaj</name>
+      <arxiv:affiliation>SAMOVAR</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Mounia Lourdiane</name>
+      <arxiv:affiliation>SAMOVAR</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Cédric Ware</name>
+      <arxiv:affiliation>LTCI</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Patricia Layec</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2504.20215v1</id>
+    <title>Exploring AI-powered Digital Innovations from A Transnational Governance Perspective: Implications for Market Acceptance and Digital Accountability Accountability</title>
+    <updated>2025-04-28T19:31:01Z</updated>
+    <link href="https://arxiv.org/abs/2504.20215v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2504.20215v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This study explores the application of the Technology Acceptance Model (TAM) to AI-powered digital innovations within a transnational governance framework. By integrating Latourian actor-network theory (ANT), this study examines how institutional motivations, regulatory compliance, and ethical and cultural acceptance drive organisations to develop and adopt AI innovations, enhancing their market acceptance and transnational accountability. We extend the TAM framework by incorporating regulatory, ethical, and socio-technical considerations as key social pressures shaping AI adoption. Recognizing that AI is embedded within complex actor-networks, we argue that accountability is co-constructed among organisations, regulators, and societal actors rather than being confined to individual developers or adopters. To address these challenges, we propose two key solutions: (1) internal resource reconfiguration, where organisations restructure their governance and compliance mechanisms to align with global standards; and (2) reshaping organisational boundaries through actor-network management, fostering engagement with external stakeholders, regulatory bodies, and transnational governance institutions. These approaches allow organisations to enhance AI accountability, foster ethical and regulatory alignment, and improve market acceptance on a global scale.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="econ.GN" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-04-28T19:31:01Z</published>
+    <arxiv:primary_category term="cs.CY"/>
+    <arxiv:journal_ref>Proceedings of the UK Academy for Information Systems Conference 2025, Newcastle, UK. UKAIS</arxiv:journal_ref>
+    <author>
+      <name>Claire Li</name>
+    </author>
+    <author>
+      <name>David Peter Wallis Freeborn</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2504.04623v1</id>
+    <title>Characterization of NbTiN/HZO/NbTiN MIM Capacitors for high frequency AC Clock &amp; Power Distribution Network for Superconducting Digital Circuits</title>
+    <updated>2025-04-06T21:08:11Z</updated>
+    <link href="https://arxiv.org/abs/2504.04623v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2504.04623v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A resonant clock-power distribution network is critical for scaling energy efficient superconducting digital technology to practical high integration density circuits. High-k, tunable capacitors enable implementation of a resonant power delivery network supporting circuits with up to 400 Mdevices/cm2. We report the cryogenic characterization of Metal-Insulator-Metal capacitors using a Hafnium Zirconium Oxide (HZO) ferroelectric insulating layer and Niobium Titanium Nitride (NbTiN) superconducting electrodes. The fabricated chip includes capacitor arrays for low frequency characterization and a half-wave transmission line resonator for RF characterization. A specific capacitance of 3 uF/cm2, DC leakage current of 10-8 A/cm2 at 2 V and a constant 5 percent tunability up to 4 GHz were measured at 2.6 K.</summary>
+    <category term="cond-mat.supr-con" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-04-06T21:08:11Z</published>
+    <arxiv:comment>3 Pages, 10 Figures, 1 Table</arxiv:comment>
+    <arxiv:primary_category term="cond-mat.supr-con"/>
+    <author>
+      <name>Seifallah Ibrahim</name>
+    </author>
+    <author>
+      <name>Blake Hodges</name>
+    </author>
+    <author>
+      <name>Steven Brebels</name>
+    </author>
+    <author>
+      <name>Julian Gil Pinzon</name>
+    </author>
+    <author>
+      <name>Trent Josephsen</name>
+    </author>
+    <author>
+      <name>Ankit Pokhrel</name>
+    </author>
+    <author>
+      <name>Daniel Perez Lozano</name>
+    </author>
+    <author>
+      <name>Yann Canvel</name>
+    </author>
+    <author>
+      <name>Bart Kenens</name>
+    </author>
+    <author>
+      <name>Amey M. Walke</name>
+    </author>
+    <author>
+      <name>Gianpiero Maccarrone Lapi</name>
+    </author>
+    <author>
+      <name>Sara Iraci</name>
+    </author>
+    <author>
+      <name>Mihaela Popovici</name>
+    </author>
+    <author>
+      <name>Benjamin Huet</name>
+    </author>
+    <author>
+      <name>Quentin Herr</name>
+    </author>
+    <author>
+      <name>Zsolt Tőkei</name>
+    </author>
+    <author>
+      <name>Anna Herr</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2503.23177v3</id>
+    <title>Notes on the Finiteness of Powers of Two with All Even Digits</title>
+    <updated>2025-08-12T07:28:03Z</updated>
+    <link href="https://arxiv.org/abs/2503.23177v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.23177v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study the problem of finding positive integers $n$ such that all the decimal digits of $2^n$ are even, i.e., belong to $\{0, 2, 4, 6, 8\}$. Computational checks up to $n = 10^{15}$ reveal the known cases $n = 1, 2, 3, 6, 11$ and no additional instances. We present a self-contained argument, based on a dynamical Borel-Cantelli lemma, that establishes a metric result related to this problem. We show that the set of "initial phases" in a corresponding dynamical system that would generate infinitely many such powers is of Lebesgue measure zero, providing strong probabilistic support for the finiteness conjecture.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-29T18:10:08Z</published>
+    <arxiv:comment>This submission replaces the withdrawn v1. The original version contained a critical error in its main proof. This new version corrects the error, replacing the original unsubstantiated claim with a rigorous metric result and clarifying that the specific problem for powers of two is an open conjecture</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Bogdan C. Dumitru</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2503.22967v1</id>
+    <title>Student-Powered Digital Scholarship CoLab Project in the HKUST Library: Develop a Chinese Named-Entity Recognition (NER) Tool within One Semester from the Ground Up</title>
+    <updated>2025-03-29T04:15:34Z</updated>
+    <link href="https://arxiv.org/abs/2503.22967v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.22967v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Starting in February 2024, the HKUST Library further extended the scope of AI literacy to AI utilization, which focuses on fostering student involvement in utilizing state-of-the-art technologies in the projects that initiated by the Library, named "Digital Scholarship (DS) CoLab". A key focus of the DS CoLab scheme has been on cultivating talents and enabling students to utilize advanced technologies in practical context. It aims to reinforce the library's role as a catalyst and hub for fostering multidisciplinary collaboration and cultivate the "can do spirit" among university members. The Library offers 1-2 projects per year for students to engage with advanced technologies in practical contexts while supporting the Library in tackling challenges and streamlining operational tasks. The tool that introduced in this paper was mainly developed by two of the authors, Sherry Yip Sau Lai and Berry Han Liuruo, as part-time student helpers under one of our DS CoLab scheme in the 2024 Spring Semester (February to May 2024). This paper details the complete journey from ideation to implementation of developing a Chinese Named-Entity Recognition (NER) Tool from the group up within one semester, from the initial research and planning stages to execution and come up a viable product. The collaborative spirit fostered by this project, with students playing a central role, exemplifies the power and potential of innovative educational models that prioritize hands-on learning with student involvement.</summary>
+    <category term="cs.DL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-29T04:15:34Z</published>
+    <arxiv:comment>47 pages. Presented and submitted to DADH2024 conference (https://sites.google.com/view/dadh2024/)</arxiv:comment>
+    <arxiv:primary_category term="cs.DL"/>
+    <author>
+      <name>Sherry S. L. Yip</name>
+    </author>
+    <author>
+      <name>Berry L. Han</name>
+    </author>
+    <author>
+      <name>Holly H. Y. Chan</name>
+    </author>
+  </entry>
+</feed>

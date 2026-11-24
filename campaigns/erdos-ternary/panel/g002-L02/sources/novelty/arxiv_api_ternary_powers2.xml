@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/PKI7ulSth+NE/rdmPF+YPw1U9fg</id>
+  <title>arXiv Query: search_query=abs:ternary AND abs:"powers of two"&amp;id_list=&amp;start=0&amp;max_results=50</title>
+  <updated>2026-11-24T12:50:05Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:ternary+AND+abs:%22powers+of+two%22&amp;start=0&amp;max_results=50&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+  <opensearch:totalResults>13</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.03789v1</id>
+    <title>Repunit Coordinates for the Erdős Ternary-Digit Problem</title>
+    <updated>2026-09-30T20:41:49Z</updated>
+    <link href="https://arxiv.org/abs/2610.03789v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.03789v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Paul Erdős conjectured that the only powers of two whose ternary expansions contain no digit 2 are 1, 4, and 256. Despite extensive computational verification, the conjecture remains open. We reformulate the problem using generalised base-4 repunits. Any admissible exponent is even, say \(n=2s\), and \[ 2^{2s}=4^s=3R_s(4)+1,\qquad R_s(4)=\frac{4^s-1}{3}. \] Thus \(2^{2s}\) omits the ternary digit 2 if and only if \(R_s(4)\) does. For each depth \(m\), the map \(Φ_m:s\bmod 3^m\mapsto R_s(4)\bmod 3^m\) is a permutation of the residue classes modulo \(3^m\). Hence every prescribed \(m\)-digit ternary suffix has a unique canonical exponent seed modulo \(3^m\), and all exponents producing that suffix form an arithmetic progression. The lifting identity \[ R_{r+q3^m}(4)\equiv R_r(4)+q3^m\pmod{3^{m+1}} \] gives three lifts at each depth, exactly two of which preserve admissibility. The finite maps assemble into an isometric homeomorphism of the 3-adic integers conjugating \(x \mapsto x+1\) with \(y \mapsto 4y+1\). The unresolved global integer problem remains. No proof of the Erdős conjecture is claimed.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-30T20:41:49Z</published>
+    <arxiv:comment>26 pages, 2 figures, 5 tables. Includes reproducible finite-depth computations and an explicit search protocol. No proof of the Erdos conjecture is claimed</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Michael A. Idowu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.34259v1</id>
+    <title>QuantaSpike: Short-Window Spike-Driven Quantization for Large Language Models</title>
+    <updated>2026-09-28T04:03:17Z</updated>
+    <link href="https://arxiv.org/abs/2609.34259v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.34259v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models (LLMs) achieve strong performance across many tasks but rely on dense multiply-accumulate (MAC) operations during inference, resulting in high energy cost. Spiking neural networks (SNNs) offer an event-driven alternative in which synaptic integration uses lightweight accumulation. However, spike-driven LLM inference remains difficult because outlier-heavy activations typically require long firing windows or auxiliary non-spiking paths. We propose QuantaSpike, a short-window spike-driven quantization framework for LLMs built around Logarithmic Ternary Integrate-and-Fire (LTIF) neurons. LTIF uses ternary events with power-of-two membrane-response quanta, improving the information represented by each firing step while retaining shift-ACC-compatible computation. QuantaSpike combines this neuron with group-adaptive gain and selective outlier admission: normal values use residual LTIF steps, whereas admitted outliers receive one additional onset spike before entering the same residual dynamics. Across OPT and Llama-2, QuantaSpike achieves state-of-the-art or competitive perplexity and zero-shot accuracy among spike-driven LLM quantization methods. It also transfers to newer dense LLMs, remaining close to the FP16 reference on Llama-3-8B and Qwen3-8B under the same four-step firing window. Analytical linear-energy projections show that QuantaSpike reduces the energy of one linear transformation by about $80.0\%$ on OPT models and $67.1\%$ on Llama-2 models relative to SpikeQuant, providing an accurate and energy-efficient spike-driven path for LLM inference.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-28T04:03:17Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Bang Hu</name>
+    </author>
+    <author>
+      <name>Guowei Zhu</name>
+    </author>
+    <author>
+      <name>Changze Lv</name>
+    </author>
+    <author>
+      <name>Xiaoqing Zheng</name>
+    </author>
+    <author>
+      <name>Fengzhe Zhang</name>
+    </author>
+    <author>
+      <name>Fan Zhang</name>
+    </author>
+    <author>
+      <name>Wei Cao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.16338v1</id>
+    <title>Breaking the 1.58-bit Barrier for Ternary LLMs</title>
+    <updated>2026-09-14T20:54:24Z</updated>
+    <link href="https://arxiv.org/abs/2609.16338v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.16338v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Ternary Large Language Models (LLM) store every weight as one of three symbols $\{-1,0,+1\}$, so the cost of a ternary model is conventionally referenced to the information-theoretic $\log_2 3 \approx 1.585$ bits per weight. The prevailing deployment format packs five ternary weights into one byte (five-trit packing), and due to the power-of-two group sizes used in practice this rounds up to $1.625$ bits per weight. This effective storage bit-width treats the three symbols $\{-1,0,+1\}$ as equiprobable. We measure the actual symbol distribution of 29 ternary LLM models and find that zeros account for up to $51.5\%$ of all weights. Motivated by this finding, we introduce BITCOS, a simple distribution-adaptive layout comprised of a dense presence bitmap plus a compacted sign vector, and costs $2 - z$ bits per weight element given a zero density $z$ in the model's weights. BITCOS stores weights more compactly than the five-trit packing in 26 of the 29 tested models, and reaches $1.485$ bits per weight on the sparsest of them. BITCOS is amenable to efficient unpacking on modern processors and GPUs, and we present optimized unpacking sequences for AVX-512, AVX2 and Intel Xe2 GPUs. Measured against production state-of-the-art ternary matrix-vector multiplication kernels, at the zero densities real-world ternary models exhibit, the realized gain with our proposed layout is up to $1.28\times$. Finally, we illustrate end-to-end LLM inference results on 5 different platforms (client and server CPUs, integrated and discrete Xe2 GPUs) where decode throughput improves by up to $1.18\times$ on CPUs and $1.27\times$ on GPUs.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-14T20:54:24Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Evangelos Georganas</name>
+    </author>
+    <author>
+      <name>Alexander Heinecke</name>
+    </author>
+    <author>
+      <name>Pradeep Dubey</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.27069v2</id>
+    <title>Ternary-Valued Finite-Difference Time-Domain Method: Asymptotic Agreement with the Yee Scheme Through Noise-Shaped Quantisation</title>
+    <updated>2026-09-30T00:07:44Z</updated>
+    <link href="https://arxiv.org/abs/2608.27069v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.27069v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>I show that finite-difference time-domain (FDTD) dynamics can be reproduced using field variables restricted to the ternary alphabet ${-1,0,+1}$. The integration is carried out by a state accumulator, while quantisation is done by a second-order noise-shaped encoder with a separate error register. The Courant number $S$ plays two roles: it is the exact fixed-point ratio and also sets the encoder's oversampling ratio. When $S$ is chosen as a power of two, each cell update requires neither run-time multiplication nor floating-point arithmetic, and each emitted field symbol is represented by just two bits. The ternary scheme converges asymptotically to the standard Yee scheme as $S$ decreases towards zero. I report wall-clock and instruction counts relative to a floating-point reference, long-time energy integrations over $2\times10^{5}$ steps and the $S$ required to achieve a prescribed accuracy for the driven mode. Extending the approach to acoustics, Virieux-type elastodynamics and Schrodinger-equation solvers is a prospective direction towards a broader class of quantised physics solvers for resource-constrained and specialised hardware.</summary>
+    <category term="physics.app-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.comp-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-27T12:55:43Z</published>
+    <arxiv:comment>5 figures, 2 tables</arxiv:comment>
+    <arxiv:primary_category term="physics.app-ph"/>
+    <author>
+      <name>Ivan S. Maksymov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.25950v1</id>
+    <title>A One-Step Cascade Symmetric Model: Rank-$1$ Packets, Binary Shielding, and the Even Exact-Cardinality Profile</title>
+    <updated>2026-03-26T22:43:43Z</updated>
+    <link href="https://arxiv.org/abs/2603.25950v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.25950v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce a one-step cascade symmetric system whose local symmetry geometry is organized by finite $ρ$-closed windows and one-step stars rather than by rowwise-independent toggles. The resulting symmetric model isolates a new $ZF + DC + \neg \mathrm{BPI}$ geometry in which rank-$1$ hereditarily symmetric reals admit a packet normalization theorem over countable $ρ$-closed supports.
+  The technical center of the paper is the finite star-span lemma and the associated rank-$1$ packet calculus. From this we obtain a normalization theorem and a two-layer coding consequence for rank-$1$ reals (in the metatheory, via a well-orderable base of packets). We then apply the same binary fresh-support shielding pattern to prove $\neg C_2$, hence $\neg AC_{\mathrm{fin}}$, and therefore the failure of every even $C_n$ (where $C_n$ denotes the principle that every family of nonempty $n$-element sets admits a choice function). On the odd side, the present bounded packet calculus remains dyadic: support-fixed local actions factor through finite $2$-groups, bounded support-equivariant quotients of finite local orbits have power-of-two size, and trace-separated bounded rigid ternary families admit canonical selectors within a fixed finite trace window. Accordingly, the odd exact-cardinality profile remains open beyond the current local binary machinery.</summary>
+    <category term="math.LO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-26T22:43:43Z</published>
+    <arxiv:comment>11 pages</arxiv:comment>
+    <arxiv:primary_category term="math.LO"/>
+    <author>
+      <name>Frank Gilson</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.07892v1</id>
+    <title>Sherry: Hardware-Efficient 1.25-Bit Ternary Quantization via Fine-grained Sparsification</title>
+    <updated>2026-01-12T08:49:34Z</updated>
+    <link href="https://arxiv.org/abs/2601.07892v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.07892v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The deployment of Large Language Models (LLMs) on resource-constrained edge devices is increasingly hindered by prohibitive memory and computational requirements. While ternary quantization offers a compelling solution by reducing weights to {-1, 0, +1}, current implementations suffer from a fundamental misalignment with commodity hardware. Most existing methods must choose between 2-bit aligned packing, which incurs significant bit wastage, or 1.67-bit irregular packing, which degrades inference speed. To resolve this tension, we propose Sherry, a hardware-efficient ternary quantization framework. Sherry introduces a 3:4 fine-grained sparsity that achieves a regularized 1.25-bit width by packing blocks of four weights into five bits, restoring power-of-two alignment. Furthermore, we identify weight trapping issue in sparse ternary training, which leads to representational collapse. To address this, Sherry introduces Arenas, an annealing residual synapse mechanism that maintains representational diversity during training. Empirical evaluations on LLaMA-3.2 across five benchmarks demonstrate that Sherry matches state-of-the-art ternary performance while significantly reducing model size. Notably, on an Intel i7-14700HX CPU, our 1B model achieves zero accuracy loss compared to SOTA baselines while providing 25% bit savings and 10% speed up. The code is available at https://github.com/Tencent/AngelSlim .</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-12T08:49:34Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Hong Huang</name>
+    </author>
+    <author>
+      <name>Decheng Wu</name>
+    </author>
+    <author>
+      <name>Qiangqiang Hu</name>
+    </author>
+    <author>
+      <name>Guanghua Yu</name>
+    </author>
+    <author>
+      <name>Jinhai Yang</name>
+    </author>
+    <author>
+      <name>Jianchen Zhu</name>
+    </author>
+    <author>
+      <name>Xue Liu</name>
+    </author>
+    <author>
+      <name>Dapeng Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2202.13256v2</id>
+    <title>On two conjectures concerning the ternary digits of powers of two</title>
+    <updated>2022-03-23T22:32:08Z</updated>
+    <link href="https://arxiv.org/abs/2202.13256v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2202.13256v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Erdős conjectured that 1, 4, and 256 are the only powers of two whose ternary representations consist solely of 0s and 1s. Sloane conjectured that, except for $\{2^0,2^1,2^2,2^3,2^4,2^{15}\}$, every other power of two has at least one 0 in its ternary representation. In this paper, numerical results are given in strong support of these conjectures. In particular, we verify both conjectures for all $2^n$ with $n \leq 2 \cdot 3^{45} \approx 5.9 \times 10^{21}$. Our approach makes use of a simple recursive construction of numbers $2^n$ having prescribed patterns in their trailing ternary digits.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-02-27T00:29:20Z</published>
+    <arxiv:comment>5 pages, 2 figures, 1 algorithm</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Journal of Integer Sequences, 25(3), 2022, pages 1-9</arxiv:journal_ref>
+    <author>
+      <name>Robert I. Saye</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2009.13618v1</id>
+    <title>Ternary and Binary Representation of Coordinate and Momentum in Quantum Mechanics</title>
+    <updated>2020-09-28T20:53:19Z</updated>
+    <link href="https://arxiv.org/abs/2009.13618v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2009.13618v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>To simulate a quantum system with continuous degrees of freedom on a quantum computer based on quantum digits, it is necessary to reduce continuous observables (primarily coordinates and momenta) to discrete observables. We consider this problem based on expanding quantum observables in series in powers of two and three analogous to the binary and ternary representations of real numbers. The coefficients of the series ("digits") are, therefore, Hermitian operators. We investigate the corresponding quantum mechanical operators and the relations between them and show that the binary and ternary expansions of quantum observables automatically leads to renormalization of some divergent integrals and series (giving them finite values).</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-lat" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-09-28T20:53:19Z</published>
+    <arxiv:comment>22 pages, 8 figures</arxiv:comment>
+    <arxiv:primary_category term="quant-ph"/>
+    <arxiv:journal_ref>AIP Conference Proceedings 2362, 040002 (2021)</arxiv:journal_ref>
+    <author>
+      <name>M. G. Ivanov</name>
+    </author>
+    <author>
+      <name>A. Yu. Polushkin</name>
+    </author>
+    <arxiv:doi>10.1063/5.0055033</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1063/5.0055033" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1811.04985v1</id>
+    <title>Generalized Ternary Connect: End-to-End Learning and Compression of Multiplication-Free Deep Neural Networks</title>
+    <updated>2018-11-12T20:08:00Z</updated>
+    <link href="https://arxiv.org/abs/1811.04985v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1811.04985v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The use of deep neural networks in edge computing devices hinges on the balance between accuracy and complexity of computations. Ternary Connect (TC) \cite{lin2015neural} addresses this issue by restricting the parameters to three levels $-1, 0$, and $+1$, thus eliminating multiplications in the forward pass of the network during prediction. We propose Generalized Ternary Connect (GTC), which allows an arbitrary number of levels while at the same time eliminating multiplications by restricting the parameters to integer powers of two. The primary contribution is that GTC learns the number of levels and their values for each layer, jointly with the weights of the network in an end-to-end fashion. Experiments on MNIST and CIFAR-10 show that GTC naturally converges to an `almost binary' network for deep classification networks (e.g. VGG-16) and deep variational auto-encoders, with negligible loss of classification accuracy and comparable visual quality of generated samples respectively. We demonstrate superior compression and similar accuracy of GTC in comparison to several state-of-the-art methods for neural network compression. We conclude with simulations showing the potential benefits of GTC in hardware.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-11-12T20:08:00Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Samyak Parajuli</name>
+    </author>
+    <author>
+      <name>Aswin Raghavan</name>
+    </author>
+    <author>
+      <name>Sek Chai</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1705.04288v1</id>
+    <title>Hardware-Software Codesign of Accurate, Multiplier-free Deep Neural Networks</title>
+    <updated>2017-05-11T17:01:44Z</updated>
+    <link href="https://arxiv.org/abs/1705.04288v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1705.04288v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>While Deep Neural Networks (DNNs) push the state-of-the-art in many machine learning applications, they often require millions of expensive floating-point operations for each input classification. This computation overhead limits the applicability of DNNs to low-power, embedded platforms and incurs high cost in data centers. This motivates recent interests in designing low-power, low-latency DNNs based on fixed-point, ternary, or even binary data precision. While recent works in this area offer promising results, they often lead to large accuracy drops when compared to the floating-point networks. We propose a novel approach to map floating-point based DNNs to 8-bit dynamic fixed-point networks with integer power-of-two weights with no change in network architecture. Our dynamic fixed-point DNNs allow different radix points between layers. During inference, power-of-two weights allow multiplications to be replaced with arithmetic shifts, while the 8-bit fixed-point representation simplifies both the buffer and adder design. In addition, we propose a hardware accelerator design to achieve low-power, low-latency inference with insignificant degradation in accuracy. Using our custom accelerator design with the CIFAR-10 and ImageNet datasets, we show that our method achieves significant power and energy savings while increasing the classification accuracy.</summary>
+    <category term="cs.NE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-05-11T17:01:44Z</published>
+    <arxiv:comment>6 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.NE"/>
+    <author>
+      <name>Hokchhay Tann</name>
+    </author>
+    <author>
+      <name>Soheil Hashemi</name>
+    </author>
+    <author>
+      <name>Iris Bahar</name>
+    </author>
+    <author>
+      <name>Sherief Reda</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1702.03044v2</id>
+    <title>Incremental Network Quantization: Towards Lossless CNNs with Low-Precision Weights</title>
+    <updated>2017-08-25T13:21:18Z</updated>
+    <link href="https://arxiv.org/abs/1702.03044v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1702.03044v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper presents incremental network quantization (INQ), a novel method, targeting to efficiently convert any pre-trained full-precision convolutional neural network (CNN) model into a low-precision version whose weights are constrained to be either powers of two or zero. Unlike existing methods which are struggled in noticeable accuracy loss, our INQ has the potential to resolve this issue, as benefiting from two innovations. On one hand, we introduce three interdependent operations, namely weight partition, group-wise quantization and re-training. A well-proven measure is employed to divide the weights in each layer of a pre-trained CNN model into two disjoint groups. The weights in the first group are responsible to form a low-precision base, thus they are quantized by a variable-length encoding method. The weights in the other group are responsible to compensate for the accuracy loss from the quantization, thus they are the ones to be re-trained. On the other hand, these three operations are repeated on the latest re-trained group in an iterative manner until all the weights are converted into low-precision ones, acting as an incremental network quantization and accuracy enhancement procedure. Extensive experiments on the ImageNet classification task using almost all known deep CNN architectures including AlexNet, VGG-16, GoogleNet and ResNets well testify the efficacy of the proposed method. Specifically, at 5-bit quantization, our models have improved accuracy than the 32-bit floating-point references. Taking ResNet-18 as an example, we further show that our quantized models with 4-bit, 3-bit and 2-bit ternary weights have improved or very similar accuracy against its 32-bit floating-point baseline. Besides, impressive results with the combination of network pruning and INQ are also reported. The code is available at https://github.com/Zhouaojun/Incremental-Network-Quantization.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.NE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-02-10T02:30:22Z</published>
+    <arxiv:comment>Published by ICLR 2017, and the code is available at https://github.com/Zhouaojun/Incremental-Network-Quantization</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Aojun Zhou</name>
+    </author>
+    <author>
+      <name>Anbang Yao</name>
+    </author>
+    <author>
+      <name>Yiwen Guo</name>
+    </author>
+    <author>
+      <name>Lin Xu</name>
+    </author>
+    <author>
+      <name>Yurong Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1612.06052v2</id>
+    <title>Quantization and Training of Low Bit-Width Convolutional Neural Networks for Object Detection</title>
+    <updated>2017-08-17T06:56:17Z</updated>
+    <link href="https://arxiv.org/abs/1612.06052v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1612.06052v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present LBW-Net, an efficient optimization based method for quantization and training of the low bit-width convolutional neural networks (CNNs). Specifically, we quantize the weights to zero or powers of two by minimizing the Euclidean distance between full-precision weights and quantized weights during backpropagation. We characterize the combinatorial nature of the low bit-width quantization problem. For 2-bit (ternary) CNNs, the quantization of $N$ weights can be done by an exact formula in $O(N\log N)$ complexity. When the bit-width is three and above, we further propose a semi-analytical thresholding scheme with a single free parameter for quantization that is computationally inexpensive. The free parameter is further determined by network retraining and object detection tests. LBW-Net has several desirable advantages over full-precision CNNs, including considerable memory savings, energy efficiency, and faster deployment. Our experiments on PASCAL VOC dataset show that compared with its 32-bit floating-point counterpart, the performance of the 6-bit LBW-Net is nearly lossless in the object detection tasks, and can even do better in some real world visual scenes, while empirically enjoying more than 4$\times$ faster deployment.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-12-19T05:54:18Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Penghang Yin</name>
+    </author>
+    <author>
+      <name>Shuai Zhang</name>
+    </author>
+    <author>
+      <name>Yingyong Qi</name>
+    </author>
+    <author>
+      <name>Jack Xin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1503.05751v2</id>
+    <title>An Aperiodic Subtraction Game of Nim-dimension Two</title>
+    <updated>2015-03-25T19:47:16Z</updated>
+    <link href="https://arxiv.org/abs/1503.05751v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1503.05751v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In a recent arXiv-manuscript Fox studies infinite subtraction games with a finite (ternary) and aperiodic Sprague-Grundy function. Here we provide an elementary example of a game with the given properties, namely the game given by the subtraction set $\{F_{2n+1}-1\}$, where $F_i$ is the $i$th Fibonacci number, and where $n$ ranges over the positive integers. Our definition of nim-dimension reflects the precise number of power-of-two-components generated by the games; the group of nim-values is of order four so the dimension is two (in the classical definition this dimension would have been one). Thanks to Carlos Santos for an enlightening discussion on this matter.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-03-19T12:59:58Z</published>
+    <arxiv:comment>2 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Urban Larsson</name>
+    </author>
+  </entry>
+</feed>

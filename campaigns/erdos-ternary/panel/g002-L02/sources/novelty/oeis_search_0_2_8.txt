@@ -1,0 +1,6 @@
+# Greetings from The On-Line Encyclopedia of Integer Sequences! http://oeis.org/
+
+Search: "0 2 8 2 n" base 3
+No results.
+
+# Content is available under The OEIS End-User License Agreement: http://oeis.org/LICENSE

@@ -1,0 +1,1440 @@
+                                             Repunit Coordinates for the Erdős Ternary-Digit
+                                                               Problem
+                                                                                   Michael A. Idowu
+
+
+                                                                                         Abstract
+arXiv:2610.03789v1 [math.GM] 30 Sep 2026
+
+
+
+
+                                                     Paul Erdős conjectured that the only powers of two whose ternary expansions contain
+                                                no digit 2 are 1, 4, and 256. Despite extensive computational verification and substantial
+                                                structural work, the conjecture remains open. This paper develops a self-contained
+                                                reformulation based on generalised base-4 repunits. Any admissible exponent is even, say
+                                                                                                       s
+                                                n = 2s, and 22s = 4s = 3Rs (4) + 1,         Rs (4) = 4 3−1 . Thus 22s omits the ternary digit
+                                                2 if and only if Rs (4) does. For every depth m, we prove that Φm : s (mod 3m ) 7−→
+                                                Rs (4) (mod 3m ) is a permutation of the residue classes modulo 3m . Consequently, every
+                                                prescribed m-digit ternary suffix has a unique canonical exponent seed modulo 3m , and all
+                                                exponents producing that suffix form an arithmetic progression. The central lifting identity
+                                                Rr+q3m (4) ≡ Rr (4) + q3m (mod 3m+1 ) shows that every residue class has exactly three
+                                                lifts at the next depth and that exactly two extend an admissible suffix using only the digits
+                                                0 and 1. This places the trailing-digit recursion in an explicit repunit-coordinate framework
+                                                and leads naturally to canonical seed fibres and an inverse-limit description. Passing to the
+                                                3-adic integers, the repunit map extends to an isometric homeomorphism that conjugates
+                                                translation x 7→ x + 1 with the affine recurrence y 7→ 4y + 1. The Erdős problem is
+                                                thereby separated into two distinct components: an exact and abundant finite-depth 3-adic
+                                                structure, and the unresolved global problem of determining which ordinary non-negative
+                                                integer exponents satisfy the digit restriction at every ternary position. Worked examples,
+                                                canonical seed tables, reproducible finite-depth datasets, and an explicit search protocol
+                                                are included. No proof of the Erdős conjecture is claimed.
+
+                                           Keywords: Erdős conjecture; ternary digits; powers of two; generalised repunits; 3-adic
+                                           integers; residue classes; lifting; polynomial screening; digit omission.
+
+
+
+
+                                                                                              1
+Repunit Coordinates for the Erdős Ternary-Digit Problem                              M. A. Idowu
+
+
+1     Introduction
+In a short 1979 article, Erdős conjectured that for k > 8 the number 2k cannot be represented
+as a sum of distinct powers of 3, while recording the exceptional identity
+
+                                  28 = 256 = 35 + 32 + 3 + 1.
+
+Equivalently, the base-3 expansion of 2k contains no digit 2 only for the known exponents
+k = 0, 2, 8 [1]. The weaker formulation asks merely whether there are finitely many such
+exponents; this is the form emphasised in later dynamical and 3-adic work [4]. The problem is
+still open in 2026 [10].
+   The problem sits at an unusual interface. It is elementary to state, and any fixed exponent
+is easy to test, yet an argument excluding all future exponents has resisted both computation
+and known distribution theory. Gupta verified the conjecture through n = 4373 [2]; later work
+substantially enlarged the computational range. In particular, Saye developed a recursive
+trailing-digit construction and verified the conjecture for all n ≤ 2 · 345 ≈ 5.9 × 1021 [7].
+Dimitrov and Howe proved that among powers of two expressible as sums of at most twenty-five
+distinct powers of three, only the three known examples occur [9]. Lagarias developed real
+and 3-adic dynamical formulations and connected the problem to Cantor-set intersections [4];
+Abram and Lagarias subsequently studied finite intersections of multiplicative translates of the
+3-adic Cantor set through finite automata and Hausdorff dimension [5]. Dupuy and Weirich
+obtained average digit-equidistribution results whose non-averaged analogue would imply the
+weak Erdős conjecture [6]. Aliyev has also analysed visible regularities in ternary digit blocks
+of powers of two [8].
+   The purpose of the present paper is different from another large computation and different
+from a claim of resolution. It develops a coordinate system in which the local arithmetic of
+the problem becomes exact and recursive. The presentation is deliberately self-contained: the
+repunit identities, congruence expansions, residue permutations, canonical seeds and arithmetic
+fibres are established from first principles before they are used. The resulting framework can
+therefore be read, checked and reproduced from the present paper alone.
+   The key observation is that the Erdős condition is naturally a base-4 repunit condition.
+Once this bridge is made, the repunit block identity and its 3-adic truncations become directly
+applicable. The resulting finite-depth maps are not merely convenient: they are permutations
+of the residue rings Z/3m Z. This leads to canonical seeds, disjoint fibres and an exact lift law.
+At the inverse-limit level, the finite residue maps extend to a natural 3-adic coordinate on
+the exponent space. Taken together, these results completely characterise finite-depth suffix
+admissibility in the repunit coordinate: every prescribed suffix has a unique exponent class, the
+admissible classes form an exact binary lifting tree, and the compatible finite maps assemble
+into an isometric 3-adic coordinate. They do not, however, resolve the ordinary-integer problem.
+The unresolved Erdős conjecture asks which non-negative integers satisfy the digit restriction
+throughout the complete ternary expansion.
+
+1.1   Scope and novelty boundary
+The contribution of this paper is the following synthesis:
+• an exact reduction of the Erdős ternary-digit condition to digit omission for the generalised
+  repunit Rs (4);
+
+
+
+
+                                                2
+Repunit Coordinates for the Erdős Ternary-Digit Problem                                  M. A. Idowu
+
+
+• a canonical seed-fibre stratification of exponent classes through the permutation
+
+                                      Φm (s) = Rs (4)        (mod 3m );
+
+• a repunit-coordinate formulation of the one-digit lifting law, in which each depth-m class
+  has three lifts and exactly two preserve admissibility;
+• an inverse-limit formulation in which the compatible maps Φm assemble into an isometric
+  homeomorphism of Z3 conjugating x 7→ x + 1 with y 7→ 4y + 1.
+    Taken together, these results provide a unified repunit-coordinate description of finite-depth
+admissibility, canonical inverse fibres, and the associated 3-adic dynamics.
+    Several ingredients used in establishing this framework are classical or already present in the
+literature. Geometric-series identities, lifting-the-exponent arguments, multiplicative orders,
+and the 3-adic Cantor set are not new. Most importantly, the recursive fact that there are
+three exponent lifts at each new ternary digit and that exactly two avoid the digit 2 is already
+embodied in Saye’s construction [7]. The contribution here is therefore not the discovery of
+that recursion itself, but its integration into a repunit-coordinate framework that also exposes
+the finite-level permutation structure, canonical seed fibres, and the compatible inverse-limit
+conjugacy on Z3 .
+    A finite-depth residue tree, no matter how deep, cannot by itself prove finiteness of ordinary
+integer solutions, because the inverse-limit tree contains infinitely many 3-adic paths. Any
+complete proof must therefore introduce a genuinely global mechanism beyond finite-depth
+suffix admissibility.
+Example 1.1 (Local admissibility versus global failure). A small example already displays
+the distinction between the exact local theory and the unresolved global problem. Take
+
+                                                   s = 12.
+
+Then
+                                 412 − 1
+                     R12 (4) =           = 5 592 405 = (101112010100010)3 .
+                                    3
+Modulo 33 = 27,
+                                          R12 (4) ≡ 3 = (010)3 .
+Thus the three-digit ternary suffix is 010, so all three visible digits are admissible. Nevertheless,
+the complete ternary expansion contains the digit 2.
+   Hence s = 12 survives the depth-3 local test but is not a solution of the Erdős problem.
+This simple example captures the novelty boundary of the present framework: the residue
+theory classifies local admissibility exactly, but a separate global argument is needed to exclude
+ordinary integers whose forbidden digit occurs further to the left.
+
+
+2    Definitions and the Erdős challenge
+Definition 2.1 (Ternary digit-omission set). Let
+                                                                           
+                                     L−1                                   
+                       Σfin
+                        3,{0,1} :=             εj 3j : L ≥ 0, εj ∈ {0, 1}
+                                       X
+                                                                                ⊂ N0 .
+                                                                           
+                                         j=0
+
+
+Thus a ∈ Σfin
+          3,{0,1} exactly when the finite ternary expansion of a omits the digit 2.
+
+
+                                                      3
+Repunit Coordinates for the Erdős Ternary-Digit Problem                                           M. A. Idowu
+
+
+Problem 2.2 (Sharp Erdős ternary-digit problem). Determine all n ∈ N0 for which
+
+                                                2n ∈ Σfin
+                                                      3,{0,1} .
+
+The conjectured answer is n ∈ {0, 2, 8} [1, 7].
+
+Problem 2.3 (Weak finiteness form). Prove that the set
+
+                                        {n ∈ N0 : 2n ∈ Σfin
+                                                        3,{0,1} }
+
+is finite [4, 6].
+
+   The distinction is useful. A proof that sufficiently large powers always contain a ternary
+digit 2 would establish the weak form without identifying the exact exceptional set; a complete
+proof of the original sharp form must additionally eliminate every exponent above 8.
+
+2.1    Generalised repunits and the arithmetic toolkit
+For an integer base b > 1 and s ≥ 0, define
+
+                                                bs − 1
+                    R0 (b) = 0,      Rs (b) =          = 1 + b + · · · + bs−1          (s ≥ 1).
+                                                b−1
+Everything about repunits used later follows from this finite geometric sum. We record the
+required facts explicitly so that the later development is self-contained.
+
+Proposition 2.4 (Recurrence, addition, composition and blocks). For integers b > 1 and
+non-negative integers u, v, n, one has
+
+                                      Rn+1 (b) = bRn (b) + 1,                                             (1)
+                                      Ru+v (b) = Ru (b) + b Rv (b),
+                                                                  u
+                                                                                                          (2)
+
+and, for u ≥ 1 and v ≥ 0,
+                                         Ruv (b) = Ru (b)Rv (bu ).                                        (3)
+Consequently, whenever a ≥ 1 and n = aq + r with q ≥ 0 and 0 ≤ r < a,
+
+                                  Raq+r (b) = Ra (b)Rq (ba ) + baq Rr (b).                                (4)
+
+Proof. The recurrence follows by multiplying the geometric sum for Rn (b) by b and adjoining
+the missing constant term. Splitting the sum for Ru+v (b) after its first u terms gives
+                                      u+v−1          u−1              v−1
+                                              bj =         bj + bu
+                                       X             X                X
+                                                                            bj ,
+                                       j=0           j=0              j=0
+
+which proves (2). For composition,
+
+                                              u−1
+                                                      ! v−1     
+                                                                     v−1
+                                                                     X u−1
+                         Ru (b)Rv (bu ) =                    buj  =
+                                              X          X               X
+                                                    bi                    buj+i .
+                                              i=0          j=0               j=0 i=0
+
+Every exponent from 0 to uv − 1 occurs exactly once, proving (3). Finally, apply (2) to aq + r
+and then (3) to aq.
+
+
+
+                                                       4
+Repunit Coordinates for the Erdős Ternary-Digit Problem                            M. A. Idowu
+
+
+Theorem 2.5 (Expansion about 1 and finite p-adic truncation). For every integer s ≥ 1,
+                                                   s−1
+                                                                 !
+                                                            s
+                                  Rs (1 + x) =                                              (5)
+                                                   X
+                                                               xj .
+                                                   j=0
+                                                           j+1
+
+More generally, if p is prime, e ≥ 1 and b = 1 + cpe with c ∈ Z, then for every m ≥ 1,
+                                      m−1
+                                                   !
+                                                s
+                           Rs (b) ≡                (cpe )j       (mod pem ),                (6)
+                                      X
+
+                                      j=0
+                                               j+1
+
+        j+1 = 0 when j + 1 > s.
+         s 
+where
+
+Proof. The binomial theorem gives
+                                                       s
+                                                              !
+                                                             s k
+                                  (1 + x) − 1 =
+                                                       X
+                                            s
+                                                               x .
+                                                       k=1
+                                                             k
+
+Dividing by x and writing j = k − 1 proves (5). Substituting x = cpe gives an exact finite
+sum. Every omitted term with j ≥ m contains the factor pej and is therefore divisible by pem ,
+proving (6).
+
+  For b = 4 = 1 + 3, theorem 2.5 becomes
+                                                 s−1
+                                                             !
+                                                          s
+                                      Rs (4) =               3j ,                           (7)
+                                                 X
+
+                                                 j=0
+                                                         j+1
+
+and hence, for every m ≥ 1,
+                                         m−1
+                                                       !
+                                                  s
+                              Rs (4) ≡               3j      (mod 3m ).                     (8)
+                                         X
+
+                                         j=0
+                                                 j+1
+
+This is an exact finite-depth formula. The binomial coefficients are not themselves ternary
+digits because carries remain present, but the identity gives a useful algebraic coordinate for
+the first m digits.
+
+Example 2.6 (A numerical block decomposition and finite 3-adic expansion). Consider R7 (4)
+and split the index as
+                                    7 = 3 · 2 + 1.
+The block identity gives
+                               R7 (4) = R3 (4)R2 (43 ) + 46 R1 (4).
+Now
+                                   R3 (4) = 1 + 4 + 16 = 21,
+                                      R2 (64) = 1 + 64 = 65,
+and
+                                               R1 (4) = 1.
+Therefore
+                                R7 (4) = 21 · 65 + 4096 = 5461,
+
+
+
+                                                   5
+Repunit Coordinates for the Erdős Ternary-Digit Problem                                M. A. Idowu
+
+
+which agrees with
+                                                47 − 1
+                                     R7 (4) =          = 5461.
+                                                   3
+    The finite 3-adic expansion can be seen just as concretely. For s = 5, modulo 27,
+
+                                           5      5
+                                                !            !
+                            R5 (4) ≡ 5 + 3   + 32                (mod 27).
+                                           2      3
+
+Hence
+                          R5 (4) ≡ 5 + 30 + 90 = 125 ≡ 17         (mod 27).
+Since
+                                             17 = (122)3 ,
+the calculation recovers exactly the last three ternary digits of
+
+                                    R5 (4) = 341 = (110122)3 .
+
+   This also illustrates why the binomial coefficients should not themselves be interpreted as
+ternary digits: carries are essential.
+
+
+3     The repunit reduction
+The first theorem turns the ternary-digit problem into a repunit problem in a lossless way.
+Theorem 3.1 (Parity and repunit equivalence). Suppose the ternary expansion of 2n contains
+only 0 and 1. Then n is even. Writing n = 2s,
+
+                                     22s = 4s = 1 + 3Rs (4),                                     (9)
+
+and
+                            22s ∈ Σfin
+                                   3,{0,1}     ⇐⇒       Rs (4) ∈ Σfin
+                                                                  3,{0,1} .                    (10)
+
+Proof. If the ternary expansion of 2n omits 2, its least significant ternary digit cannot be 0
+because 3 ∤ 2n ; it must therefore be 1. Hence 2n ≡ 1 (mod 3). Since 2 ≡ −1 (mod 3), this
+forces n even, say n = 2s.
+   The identity (9) is the definition of Rs (4). Since 4s ≡ 1 (mod 3), its least significant ternary
+digit is 1. Subtracting 1 from 4s therefore causes no borrowing, and division by 3 simply shifts
+the remaining ternary digits one place to the right. Thus the digits of Rs (4) are exactly the
+ternary digits of 4s with the terminal 1 removed. This proves (10).
+
+Corollary 3.2 (Equivalent exponent formulation). The sharp Erdős conjecture is equivalent
+to
+                         {s ∈ N0 : Rs (4) ∈ Σfin
+                                             3,{0,1} } = {0, 1, 4}.
+
+Example 3.3 (The three known solutions). The repunit coordinate makes the known solutions
+transparent:
+                     s n = 2s        Rs (4)      22s = 1 + 3Rs (4)
+                     0     0            0             1 = (1)3
+                     1     2        1 = (1)3         4 = (11)3
+                     4     8     85 = (10011)3 256 = (100111)3 .
+The intermediate value s = 2 already fails because R2 (4) = 5 = (12)3 .
+
+                                                    6
+Repunit Coordinates for the Erdős Ternary-Digit Problem                                         M. A. Idowu
+
+
+3.1    A valuation invariant
+The required valuation relation can be proved directly, without invoking a separate lifting-the-
+exponent source.
+
+Lemma 3.4 (Principal 3-adic growth). For every t ≥ 0,
+                                   t
+                                43 = 1 + 3t+1 ut ,           ut ≡ 1   (mod 3).                         (11)
+                    t
+In particular, v3 (43 − 1) = t + 1.
+                                                                                            t
+Proof. For t = 0, 4 = 1 + 3, so the statement holds with u0 = 1. Suppose 43 = 1 + 3t+1 ut
+with ut ≡ 1 (mod 3). Cubing gives
+                        t+1
+                    43        = (1 + 3t+1 ut )3 = 1 + 3t+2 ut + 32t+3 u2t + 33t+3 u3t .
+                                                                          t+1
+The last two terms are divisible by 3t+3 , so the quotient of 43                − 1 by 3t+2 is congruent to
+ut ≡ 1 (mod 3). This proves the induction.
+
+Proposition 3.5 (Trailing zero valuation). For every s ≥ 1,
+
+                                            v3 (Rs (4)) = v3 (s).                                      (12)
+                                                     t
+Proof. Write s = 3t u with 3 ∤ u. Put X = 43 . Then
+
+                         4s − 1 = X u − 1 = (X − 1)(1 + X + · · · + X u−1 ).
+
+By lemma 3.4, v3 (X − 1) = t + 1 and X ≡ 1 (mod 3). The second factor is therefore congruent
+to u ̸≡ 0 (mod 3), so it contributes no further factor of 3. Thus v3 (4s − 1) = t + 1. Since
+Rs (4) = (4s − 1)/3, equation (12) follows.
+
+   Thus the number of trailing ternary zeros of Rs (4) is exactly the number of trailing base-3
+zeros of s. This is the first indication that exponent digits and repunit digits are related by a
+triangular, valuation-compatible transformation rather than randomly.
+
+Example 3.6 (Trailing zeros are controlled exactly by the exponent). Take
+
+                                              s = 18 = 2 · 32 .
+
+Thus
+                                                 v3 (s) = 2.
+The valuation theorem predicts
+                                              v3 (R18 (4)) = 2.
+
+  Indeed, modulo 27, the truncated expansion gives
+
+                                               18    18
+                                                     !            !
+                              R18 (4) ≡ 18 + 3    +9                  (mod 27).
+                                                2    3
+
+The second and third terms are divisible by 27, so
+
+                                         R18 (4) ≡ 18        (mod 27).
+
+
+
+                                                         7
+Repunit Coordinates for the Erdős Ternary-Digit Problem                               M. A. Idowu
+
+
+Since
+                                           18 = 2 · 32 ,
+the residue is divisible by 9 but not by 27.
+   Therefore R18 (4) has exactly two trailing ternary zeros. Equivalently, its ternary expansion
+ends in a block of the form
+                                            · · · 12003 .
+
+   Thus multiplication of the exponent by a power of 3 has an exact visible consequence at
+the right-hand end of the repunit expansion.
+
+
+4    Finite-depth canonical residue blocks
+We now organise the finite residue problem by unique congruence seeds and their complete
+arithmetic fibres. The construction is defined and proved directly in the present setting.
+
+Definition 4.1 (Finite repunit coordinate). For m ≥ 1, define
+
+                       Φm : Z/3m Z −→ Z/3m Z,              Φm ([s]) = [Rs (4)].
+
+   The definition is well posed because exponent shifts by 3m leave the repunit unchanged
+modulo 3m ; a stronger statement will follow from the lift theorem in section 5. We first prove
+bijectivity directly.
+
+Lemma 4.2 (Order of 4 modulo powers of 3). For m ≥ 0,
+
+                                        ord3m+1 (4) = 3m .                                    (13)
+                         m                                                                  m−1
+Proof. By lemma 3.4, 43 ≡ 1 (mod 3m+1 ), while for m ≥ 1 the same lemma gives v3 (43    −
+              m−1
+1) = m, so 43     ̸≡ 1 (mod 3m+1  ). Because 4 ≡ 1 (mod 3), its order modulo 3 m+1 divides
+the 3-power part of φ(3m+1 ) = 2 · 3m . The only possibility is therefore 3m .
+
+Theorem 4.3 (Permutation theorem). For every m ≥ 1, Φm is a permutation of Z/3m Z.
+
+Proof. If Φm ([r]) = Φm ([s]), then
+
+                                  4r − 1   4s − 1
+                                         ≡            (mod 3m ),
+                                     3        3
+so 4r ≡ 4s (mod 3m+1 ). Therefore 4r−s ≡ 1 (mod 3m+1 ). By lemma 4.2, 3m | r − s, hence
+[r] = [s] in Z/3m Z. Thus Φm is injective and, on a finite set, bijective.
+
+Definition 4.4 (Canonical seed and fibre). For c ∈ {0, 1, . . . , 3m − 1}, let σm (c) be the unique
+integer with
+                    0 ≤ σm (c) < 3m ,      Rσm (c) (4) ≡ c (mod 3m ).
+The depth-m fibre over c is
+
+                          Bm (c) := {s ∈ N0 : Rs (4) ≡ c       (mod 3m )}.
+
+Corollary 4.5 (Exhaustive arithmetic fibres). For every m ≥ 1 and residue c,
+
+                               Bm (c) = {σm (c) + 3m q : q ∈ N0 }.                            (14)
+
+
+                                                8
+Repunit Coordinates for the Erdős Ternary-Digit Problem                                      M. A. Idowu
+
+
+The fibres are disjoint and exhaust N0 .
+
+Proof. The residue class of s modulo 3m is uniquely determined by Φm (s) = c. The least
+non-negative representative is σm (c).
+
+   This is a canonical seed-plus-fibre decomposition specialised to the ternary-digit problem.
+There is one index modulus at each depth, and no global Diophantine conclusion is attached
+to the decomposition without an additional argument.
+
+4.1   Admissible suffixes
+For m ≥ 1, let                                                 
+                                m−1                            
+                        Cm :=             εj 3j : εj ∈ {0, 1}       ⊂ {0, . . . , 3m − 1}.          (15)
+                                  X
+                                                               
+                                    j=0
+
+Then |Cm | = 2m .
+
+Definition 4.6 (Admissible exponent classes). Define
+
+                    Am := Φ−1
+                           m (Cm ) = {s            (mod 3m ) : Rs (4) mod 3m ∈ Cm }.                (16)
+
+Corollary 4.7 (Exact finite-depth count). For every m ≥ 1,
+
+                                                                       2
+                                                                       m
+                                                        |Am |
+                                    |Am | = 2 ,m
+                                                              =                .                    (17)
+                                                         3m             3
+Proof. By theorem 4.3, Φm is a bijection, so the inverse image of the 2m -element set Cm has
+exactly 2m elements.
+
+   Equation (17) is exact, not probabilistic. At depth m, precisely a proportion (2/3)m of
+exponent residue classes have their first m repunit ternary digits in {0, 1}. What it does not
+say is how many finite ordinary exponents avoid 2 in all digits of the full repunit.
+
+Example 4.8 (A complete canonical fibre). At depth m = 3, consider the admissible target
+residue
+                                   c = (010)3 = 3.
+The canonical seed is
+                                                 σ3 (3) = 12.
+Indeed,
+                                          R12 (4) ≡ 3       (mod 27).
+
+   The complete depth-3 fibre is therefore
+
+                                     B3 (3) = {12 + 27q : q ∈ N0 }.
+
+For example,
+                                    s = 12,         s = 39,           s = 66
+all produce repunits whose final three ternary digits are 010. In particular,
+
+                                    R39 (4) ≡ 3 = (010)3            (mod 27).
+
+
+
+                                                        9
+Repunit Coordinates for the Erdős Ternary-Digit Problem                           M. A. Idowu
+
+
+  This example makes the word fibre literal: a prescribed three-digit output suffix determines
+not merely one exponent, but one complete arithmetic progression of exponents.
+
+
+5    The one-digit lift law
+The internal repunit toolkit is especially effective at the transition from depth m to m + 1.
+
+Lemma 5.1 (A principal block). For m ≥ 0,
+
+                                   R3m (4) ≡ 3m       (mod 3m+1 ).                        (18)
+
+Proof. By lemma 3.4,
+                            m
+                           43 − 1 = 3m+1 um ,          um ≡ 1       (mod 3).
+
+Dividing by 3 gives
+                             R3m (4) = 3m um ≡ 3m         (mod 3m+1 ),
+as required.
+
+Theorem 5.2 (Repunit block lift). Let m ≥ 0, 0 ≤ r < 3m and q ≥ 0. Then
+
+                           Rr+q3m (4) ≡ Rr (4) + q3m       (mod 3m+1 ).                   (19)
+
+Proof. By the additive identity (2),
+
+                                 Rr+q3m (4) = Rr (4) + 4r Rq3m (4).
+
+By the composition identity (3),
+                                                                m
+                                   Rq3m (4) = R3m (4)Rq (43 ).
+                                                                m
+Now lemma 5.1 gives R3m (4) ≡ 3m (mod 3m+1 ). Also 43 ≡ 1 (mod 3), so
+                                             m
+                                     Rq (43 ) ≡ q      (mod 3).
+
+Finally 4r ≡ 1 (mod 3). Multiplying these congruences yields
+
+                                 4r Rq3m (4) ≡ q3m     (mod 3m+1 ),
+
+which proves the result.
+
+Corollary 5.3 (Three lifts, one new digit). For t ∈ {0, 1, 2},
+
+                            Rr+t3m (4) ≡ Rr (4) + t3m      (mod 3m+1 ).                   (20)
+
+Hence the lower m ternary digits are unchanged, while the next digit runs once through 0, 1, 2
+as t runs through 0, 1, 2.
+
+Corollary 5.4 (Perfect binary admissibility tree). Every class in Am has exactly two children
+in Am+1 among its three lifts
+
+                            r,    r + 3m ,   r + 2 · 3m    (mod 3m+1 ).
+
+
+                                                 10
+Repunit Coordinates for the Erdős Ternary-Digit Problem                             M. A. Idowu
+
+
+Consequently the admissible residue tree is a full rooted binary tree embedded in the ternary
+exponent tree.
+
+Proof. The existing lower m output digits lie in {0, 1}. By corollary 5.3, the new digit assumes
+0, 1 and 2 exactly once. The two choices yielding 0 or 1 are admissible and the third is not.
+
+5.1     Relationship with Saye’s recursion
+Saye proves an equivalent next-digit mechanism directly for powers of two. In his notation,
+the smallest positive exponent period preserving k trailing ternary digits is uk = 2 · 3k−1 , and
+the three lifts of an exponent through this period cycle the next ternary digit [7]. Under the
+present reduction n = 2s, the exponent increment
+
+                                                   2 · 3m
+
+in n is exactly the increment 3m in s. Thus theorem 5.2 and corollary 5.3 are a repunit-
+coordinate formulation of the same finite-depth arithmetic phenomenon.
+   This equivalence is useful rather than redundant. Saye’s formulation is optimised for
+computation on 2n ; the repunit formulation exposes an additional permutation structure,
+canonical inverse fibres and a natural inverse-limit map on Z3 . In the present treatment the
+recursion follows directly from the block identities proved in proposition 2.4.
+
+Example 5.5 (The three lifts explicitly). Start with
+
+                                         r = 4,           m = 2.
+
+Since
+                                       R4 (4) = 85 = (10011)3 ,
+its final two ternary digits are 11.
+   The three exponent lifts modulo 33 = 27 are
+
+                              4,       4 + 9 = 13,          4 + 18 = 22.
+
+The lift theorem gives
+                                   R4 (4) ≡ 4 = (011)3          (mod 27),
+                              R13 (4) ≡ 13 = (111)3              (mod 27),
+and
+                              R22 (4) ≡ 22 = (211)3              (mod 27).
+
+   The old suffix 11 is unchanged, while the new ternary digit runs through
+
+                                           0,        1,         2.
+
+Exactly the first two lifts remain admissible.
+  Returning to the original power-of-two exponent n = 2s, the corresponding exponents are
+
+                                         8,         26,         44,
+
+separated by
+                                                18 = 2 · 32 .
+
+
+                                                     11
+Repunit Coordinates for the Erdős Ternary-Digit Problem                                                                   M. A. Idowu
+
+
+This gives a concrete numerical bridge between the repunit lift and the corresponding exponent-
+period formulation.
+
+                                                                  ∅
+                                                               depth 0
+
+
+                                                0                                    1
+
+                                    0                                                             1
+                                 σ1 = 0                                                        σ1 = 1
+
+
+                         0                 1                                              0                1
+
+                 00                               10                               01                              11
+               σ2 = 0                           σ2 = 3                           σ2 = 1                          σ2 = 4
+
+
+          0             1                  0              1                 0             1                 0             1
+
+       000               100            010                110           001               101           011            111
+      σ3 = 0            σ3 = 9        σ3 = 12            σ3 = 21        σ3 = 1           σ3 = 10        σ3 = 4        σ3 = 13
+
+
+Figure 1: The first three levels of the admissible residue tree. A node label is the prescribed
+repunit suffix, written most-significant digit first, followed by its canonical seed σm . Each new
+edge prepends the next ternary digit 0 or 1. The omitted third lift would prepend 2.
+
+
+
+6    The inverse-limit repunit coordinate
+The finite permutations Φm are compatible under reduction. This permits a global 3-adic
+coordinate without initially invoking analytic 3-adic exponentiation.
+Theorem 6.1 (3-adic repunit homeomorphism). There is a unique map
+
+                                                           Φ : Z3 −→ Z3
+
+whose reduction modulo 3m is Φm for every m ≥ 1. The map Φ is an isometric homeomorphism:
+for x, y ∈ Z3 ,
+                         v3 Φ(x) − Φ(y) = v3 (x − y),     x ̸= y.                    (21)
+                                         
+
+On non-negative integers,
+                                                                          4s − 1
+                                                    Φ(s) = Rs (4) =              .
+                                                                             3
+Proof. The congruence maps are compatible because r ≡ s (mod 3m ) implies, by theorem 5.2
+or lemma 4.2,
+                               Rr (4) ≡ Rs (4) (mod 3m ).
+Thus the Φm define a map on the inverse limit
+
+                                                         Z3 = lim Z/3m Z.
+                                                              ←m
+                                                                −
+
+Each Φm is bijective, so the inverse maps are also compatible; hence Φ is a homeomorphism.
+  Moreover,
+
+       x≡y         (mod 3m )              ⇐⇒        Φm (x) = Φm (y)             ⇐⇒        Φ(x) ≡ Φ(y)           (mod 3m ),
+
+                                                                   12
+Repunit Coordinates for the Erdős Ternary-Digit Problem                            M. A. Idowu
+
+
+where the middle equivalence uses bijectivity of Φm . The largest such m is therefore the
+same on both sides, proving (21). Agreement with Rs (4) on ordinary integers follows from
+construction.
+
+   In standard 3-adic analytic notation, Φ(x) agrees with (4x − 1)/3, since 4 = 1 + 3 admits
+3-adic exponentiation. The inverse-limit proof above is deliberately elementary and keeps the
+finite residue geometry visible.
+
+Proposition 6.2 (Affine conjugacy). The homeomorphism Φ conjugates translation by 1 to
+the affine map y 7→ 4y + 1:
+
+                             Φ(x + 1) = 4Φ(x) + 1               (x ∈ Z3 ).                 (22)
+
+Proof. For s ∈ N0 , equation (1) gives
+
+                                     Rs+1 (4) = 4Rs (4) + 1.
+
+Ordinary integers are dense in Z3 , and both sides of (22) are continuous, so the identity
+extends to all x ∈ Z3 .
+
+                                                x7→x+1
+                                         Z3               Z3
+
+                                         Φ ∼
+                                           =              ∼
+                                                          = Φ
+
+                                         Z3     y7→4y+1
+                                                          Z3
+
+Figure 2: Exact conjugacy between the 3-adic adding machine in exponent coordinates and
+the base-4 repunit recurrence.
+
+   The finite-level permutation structure therefore passes coherently to the inverse limit: the
+repunit coordinate defines an isometric homeomorphism of Z3 , and the recurrence Rs+1 (4) =
+4Rs (4) + 1 becomes the affine conjugacy of proposition 6.2. Having established the forward
+coordinate map and its finite-depth lifting structure, we now turn to the inverse problem:
+given a prescribed trailing ternary suffix, recover the unique canonical exponent seed that
+produces it.
+
+
+7    Canonical inverse construction
+The preceding finite and 3-adic coordinate constructions naturally suggest the inverse problem:
+given a prescribed trailing ternary suffix of Rs (4), determine the unique exponent seed modulo
+the corresponding power of 3 that produces it.
+
+Proposition 7.1 (One-step inverse lift). Suppose cm ∈ {0, . . . , 3m − 1} and r = σm (cm ). Let
+δm ∈ {0, 1, 2} be the (m + 1)st ternary digit of Rr (4), i.e.
+
+                                        Rr (4)
+                                                  
+                                   δm ≡                   (mod 3).
+                                         3m
+
+To prescribe a next digit εm ∈ {0, 1, 2}, choose the unique
+
+                         t ∈ {0, 1, 2}   with     δm + t ≡ εm        (mod 3).
+
+
+                                                  13
+Repunit Coordinates for the Erdős Ternary-Digit Problem                                      M. A. Idowu
+
+
+Then
+                                 σm+1 (cm + εm 3m ) = r + t3m .
+
+Proof. This is corollary 5.3 read in reverse, together with uniqueness from theorem 4.3.
+
+  For admissibility, one need not choose a fixed next digit: retain the two values of t for which
+δm + t is 0 or 1 modulo 3. This gives a breadth-first or depth-first search with exactly 2m
+nodes at level m, matching the complexity of Saye’s recursive construction [7].
+Remark 7.2 (Triangular digit transform). Write
+
+                               s=         tj 3j ,    Φ(s) =         yj 3j .
+                                    X                          X
+
+                                    j≥0                       j≥0
+
+The lift law implies that for each m there is a function κm of the lower exponent digits such
+that
+                            ym ≡ tm + κm (t0 , . . . , tm−1 ) (mod 3).                    (23)
+Thus Φ is a triangular digit permutation: the mth output digit depends on tm with coefficient
+1 and on lower digits through a carry term. This is another way of seeing why Φm is a
+permutation at every depth.
+
+
+8      Illustrative datasets and reproducibility
+All tables in this section are reproducible by exact integer arithmetic. They are included to
+make the finite structure concrete rather than as evidence of a proof.
+
+8.1    Small powers of two
+
+                      Table 1: Ternary expansions of 2n for 0 ≤ n ≤ 20.
+
+                n         2n   (2n )3                    number of digit 2s       omits 2?
+                0         1    1                                              0     Yes
+                1         2    2                                              1     No
+                2         4    11                                             0     Yes
+                3         8    22                                             2     No
+                4        16    121                                            1     No
+                5        32    1012                                           1     No
+                6        64    2101                                           1     No
+                7       128    11202                                          2     No
+                8       256    100111                                         0     Yes
+                9       512    200222                                         4     No
+               10      1024    1101221                                        2     No
+               11      2048    2210212                                        4     No
+               12      4096    12121201                                       3     No
+               13      8192    102020102                                      3     No
+               14     16384    211110211                                      2     No
+               15     32768    1122221122                                     6     No
+               16     65536    10022220021                                    5     No
+               17    131072    20122210112                                    5     No
+
+
+                                                    14
+Repunit Coordinates for the Erdős Ternary-Digit Problem                                   M. A. Idowu
+
+
+
+                 n        2n    (2n )3                 number of digit 2s     omits 2?
+               18     262144    111022121001                              3     No
+               19     524288    222122012002                              7     No
+               20    1048576    1222021101011                             4     No
+
+
+   The table illustrates the sharp conjecture at small scale: only n = 0, 2, 8 survive. It also
+shows why looking for a naive monotone digit statistic is unlikely to be sufficient: the number
+of 2s fluctuates strongly.
+
+8.2     Finite-depth class counts
+
+             Table 2: Exact number of admissible exponent classes at depth m.
+
+               m     modulus 3m    admissible classes 2m          exact fraction (2/3)m
+               1              3                            2                  0.666667
+               2              9                            4                  0.444444
+               3             27                            8                  0.296296
+               4             81                           16                  0.197531
+               5            243                           32                  0.131687
+               6            729                           64                  0.087791
+               7           2187                          128                  0.058528
+               8           6561                          256                  0.039018
+               9          19683                          512                  0.026012
+              10          59049                         1024                  0.017342
+
+   The exponentially decreasing fraction is compatible with a random-digit heuristic, but the
+exact count comes from bijectivity and is much stronger than a heuristic. Conversely, because
+the absolute count is 2m , the inverse-limit set remains rich.
+
+8.3     Canonical seeds for short admissible suffixes
+The seed need not look like the target suffix: for example, σ3 ((010)3 ) = 12 = (110)3 . The map
+is triangular but non-trivial because lower-digit carries modify higher output digits.
+
+Example 8.1 (Output digits and exponent digits need not agree). Consider the target suffix
+
+                                              (010)3 = 3.
+
+Its depth-3 canonical seed is
+                                         σ3 (3) = 12 = (110)3 .
+Hence
+                                  R12 (4) ≡ (010)3       (mod 27).
+
+  By contrast,
+                                              (011)3 = 4
+has the simpler seed
+                                         σ3 (4) = 4 = (011)3 .
+
+
+                                                  15
+Repunit Coordinates for the Erdős Ternary-Digit Problem                           M. A. Idowu
+
+
+
+
+Table 3: Canonical seeds σm (c) for all admissible suffixes through depth m = 3. The suffix is
+written in ordinary ternary order, most-significant digit first.
+
+                               m     suffix c         decimal c     σm (c)
+                               1          0                    0           0
+                               1          1                    1           1
+                               2          00                   0           0
+                               2          01                   1           1
+                               2          10                   3           3
+                               2          11                   4           4
+                               3      000                      0        0
+                               3      001                      1        1
+                               3      010                      3       12
+                               3      011                      4        4
+                               3      100                      9        9
+                               3      101                     10       10
+                               3      110                     12       21
+                               3      111                     13       13
+
+
+
+
+      Table 4: Depth-4 admissible target suffixes and their canonical exponent seeds.
+
+                                 suffix        seed        suffix   seed
+                                   0000          0         1000      27
+                                   0001          1         1001      28
+                                   0010         12         1010      39
+                                   0011          4         1011      31
+                                   0100         36         1100      63
+                                   0101         10         1101      37
+                                   0110         48         1110      75
+                                   0111         13         1111      40
+
+
+
+
+                                                      16
+Repunit Coordinates for the Erdős Ternary-Digit Problem                            M. A. Idowu
+
+
+   Thus the inverse residue map sometimes appears to preserve the ternary word and sometimes
+rearranges it substantially. The difference is caused by higher-place carries: the seed map is
+triangular, not digitwise identical.
+
+8.4   Record minima for long admissible trailing blocks
+Following the finite-depth viewpoint used by Saye, define ρ2 (m) as the smallest positive
+exponent n for which 2n has at least m ternary digits and its last m ternary digits omit 2.
+Direct exact computation gives the initial values in table 5; they agree with the sequence
+reported in Saye’s computational study [7].
+
+   Table 5: Initial record minima ρ2 (m) and the corresponding admissible trailing block.
+
+                         m    ρ2 (m)   last m ternary digits of 2ρ2 (m)
+                          1       2    1
+                          2       2    11
+                          3       6    101
+                          4       8    0111
+                          5       8    00111
+                          6       8    100111
+                          7      20    1101011
+                          8      24    01000101
+                          9      24    101000101
+                         10      24    0101000101
+                         11      72    10011101001
+                         12     186    011100100101
+                         13     186    0011100100101
+                         14     332    10000011000111
+                         15     332    110000011000111
+                         16    1134    0011000101100001
+
+   These minima grow irregularly. They concern only trailing blocks, not full digit omission.
+For example, a power may possess a very long admissible suffix while containing a 2 further to
+the left.
+
+8.5   Reproducibility protocol
+The finite computations require only exact integer arithmetic:
+ 1. compute Rs (4) = (4s − 1)/3 or, modulo 3m , use the recurrence Rs+1 ≡ 4Rs + 1;
+ 2. reduce Rs (4) modulo 3m and test whether every one of the m ternary digits lies in {0, 1};
+ 3. for canonical inversion, start with the unique seed at depth m and apply proposition 7.1;
+ 4. independently verify the relation to powers of two using 22s = 1 + 3Rs (4);
+ 5. for large depths, traverse only the two admissible children of each node rather than all 3m
+    exponent classes.
+  The last step reduces a depth-m suffix enumeration from Θ(3m ) naive classes to Θ(2m )
+nodes, consistent with Saye’s recursive approach [7].
+
+
+
+                                              17
+Repunit Coordinates for the Erdős Ternary-Digit Problem                                  M. A. Idowu
+
+
+Example 8.2 (Generating the first three admissible levels by hand). Beginning with the
+depth-0 seed 0, the admissible representatives evolve as follows:
+
+                                                A0 = {0},
+
+                                               A1 = {0, 1},
+                                          A2 = {0, 1, 3, 4},
+and
+                                 A3 = {0, 1, 4, 9, 10, 12, 13, 21}.
+Their cardinalities are
+                                     1,         2,             4,         8,
+as predicted.
+   For example, the depth-2 representative r = 4 has the three lifts
+
+                                          4,         13,            22.
+
+The representatives 4 and 13 survive, whereas 22 is discarded because its newly exposed repunit
+digit is 2.
+   This provides a compact hand-check of the search algorithm before it is implemented at
+large depth.
+
+
+9     Block decomposition beyond one digit
+The one-digit lift law is the smallest instance of a broader block calculation. Let a = 3h and
+write
+                                   s = aq + r,     0 ≤ r < a.
+The block identity (4) gives
+
+                               Rs (4) = Ra (4)Rq (4a ) + 4aq Rr (4).                            (24)
+
+Because a is a power of 3, both Ra (4) and 4a have controlled 3-adic proximity to 0 and 1,
+respectively. In particular,
+                                                           h
+                          v3 (R3h (4)) = h,           43 ≡ 1              (mod 3h+1 ).
+
+Thus a block of h exponent digits naturally controls a corresponding block of output precision.
+   This offers a family of implementation strategies. One may lift one digit at a time, as in
+theorem 5.2; or group several ternary exponent digits and precompute block transitions. The
+asymptotic number of surviving states remains 2m at depth m, so blocking does not change
+the fundamental exponential search tree. Its value is architectural: vectorised transitions,
+cache locality, parallel search, and the possibility of attaching stronger global filters to whole
+residue blocks.
+
+
+
+
+                                                     18
+Repunit Coordinates for the Erdős Ternary-Digit Problem                            M. A. Idowu
+
+
+9.1     Polynomial screening
+The truncated repunit expansion
+                                  !         !                    !
+                                s      s                s
+                 Rs (4) ≡ s + 3   + 32   + · · · + 3m−1              (mod 3m )
+                                2      3                m
+
+provides a second exact way to compute the first m ternary digits from s. For fixed m, this
+is a polynomial map on residue classes. The permutation theorem shows that despite its
+increasingly complicated carry structure, this polynomial induces a bijection modulo 3m .
+   A useful research question is whether the binomial form can support estimates unavailable
+from the digit tree alone: for example, bounds on carry propagation, correlations between
+distant output digits, or restrictions when s is constrained to a short Archimedean interval.
+Such estimates would begin to couple the local 3-adic coordinate with ordinary size.
+
+Example 9.1 (Computing a suffix without constructing 412 ). Suppose that only the last three
+ternary digits of R12 (4) are required. The truncated polynomial gives
+
+                                          12    12
+                                              !           !
+                         R12 (4) ≡ 12 + 3    +9               (mod 27).
+                                          2     3
+
+Therefore
+                      R12 (4) ≡ 12 + 198 + 1980 = 2190 ≡ 3      (mod 27).
+Since
+                                          3 = (010)3 ,
+the final three ternary digits are 010.
+   The large integer 412 never needs to be constructed. This is the practical meaning of
+polynomial screening: finite ternary precision can be obtained from a polynomial in the
+exponent residue.
+
+
+10      Consequences of the framework
+The preceding theorems give several immediate structural conclusions.
+
+10.1     No finite suffix obstruction can resolve the conjecture
+For every m ≥ 1, there are exactly 2m exponent classes modulo 3m for which the least significant
+m ternary digits of Rs (4) all lie in {0, 1}. Moreover, by corollary 5.4, every admissible class
+has exactly two admissible children at the next depth.
+Consequently, the finite-depth admissibility tree never terminates. There is therefore no fixed
+depth m at which all residue classes are eliminated, and no argument based solely on checking
+a bounded number of trailing ternary digits can resolve the Erdős conjecture.
+   What remains unresolved is a genuinely global question: whether an ordinary non-negative
+integer s can satisfy the digit restriction throughout the complete ternary expansion of Rs (4),
+rather than merely through any prescribed finite suffix.
+
+
+
+
+                                                19
+Repunit Coordinates for the Erdős Ternary-Digit Problem                                M. A. Idowu
+
+
+10.2    The exact local density is already determined
+The finite-depth density is exactly (2/3)m . Therefore a heuristic treating successive admissibility
+constraints as reducing the class count by a factor 2/3 happens to predict the correct count,
+but not because the digits are independent. The exact reason is that Φm is a permutation and
+the target set has cardinality 2m .
+
+10.3    Sparse-support results impose a global threshold
+If the sharp conjecture were false, a counterexample 2n would be a sum of distinct powers of 3.
+Dimitrov and Howe prove that any counterexample beyond 1, 4, 256 would require at least
+twenty-six non-zero ternary digits [9]. Since
+
+                                        22s = 3Rs (4) + 1,
+
+the terminal digit 1 of 22s is contributed by the added constant term, while the remaining
+ternary digits are those of Rs (4), shifted one place to the left. Hence any new counterexample
+would force Rs (4) to contain at least twenty-five 1-digits. This is a genuinely global restriction
+that is invisible from any bounded ternary suffix.
+
+Example 10.1 (From ternary support to an ordinary size restriction). Suppose a new
+counterexample requires at least twenty-six non-zero ternary digits in 22s . Since
+
+                                        22s = 3Rs (4) + 1,
+
+this forces at least twenty-five 1-digits in Rs (4).
+   The smallest non-negative integer containing twenty-five 1-digits in base 3 is obtained by
+placing them in the lowest twenty-five positions:
+
+                                                           325 − 1
+                                   1 + 3 + · · · + 324 =           .
+                                                              2
+Consequently any such repunit must satisfy
+
+                                                    325 − 1
+                                         Rs (4) ≥           .
+                                                       2
+Using
+                                           4s = 1 + 3Rs (4),
+one obtains
+                                             3(325 − 1)   326 − 1
+                                 4s ≥ 1 +               =         .
+                                                 2           2
+Therefore
+                                                326 − 1
+                                       &                  !'
+                                   s ≥ log4                     = 21.
+                                                   2
+   This elementary bound is small compared with existing computational verification, but
+it illustrates an important principle: a global support theorem can be converted into an
+ordinary-height restriction.
+
+
+
+
+                                                  20
+Repunit Coordinates for the Erdős Ternary-Digit Problem                             M. A. Idowu
+
+
+11     Further Research
+The framework is intended to sharpen the next mathematical question rather than obscure it.
+
+11.1    Target A: an Archimedean escape theorem
+A direct route would be to prove that there exists S0 such that every ordinary integer s > S0
+has
+                                  Φ(s) = Rs (4) ∈/ Σ3,{0,1} .
+Such a theorem must use more than residue cylinders because every cylinder contains infinitely
+many ordinary integers.
+  Possible forms of a missing global estimate include:
+• a lower bound on the number of ternary digit 2s in Rs (4) as a function of s;
+• a carry-propagation theorem for the binomial expansion (7);
+• a Diophantine approximation inequality incompatible with long or complete membership
+  in Σ3,{0,1} ;
+• an entropy or discrepancy statement strong enough to hold for each sufficiently large
+  exponent rather than only on average.
+   The last distinction is exactly the gap highlighted by Dupuy and Weirich: average equidis-
+tribution is accessible, whereas a sufficiently strong non-averaged statement would imply the
+Erdős conjecture [6].
+
+Example 11.1 (What an Archimedean escape theorem would need to prove). Consider the
+depth-4 fibre
+                                 s = 4 + 81q.
+Every member of this fibre has the same four trailing repunit digits as the genuine solution
+s = 4.
+   For q = 0,
+                                          s = 4,
+and
+                                    R4 (4) = 85 = (10011)3 ,
+which is globally admissible.
+  For q = 1,
+                                            s = 85.
+The repunit still possesses the same protected depth-4 suffix, but its complete ternary expansion
+contains forbidden digits 2.
+   An Archimedean escape theorem would establish uniformly that, once q is sufficiently large,
+some ternary digit beyond the protected four-digit suffix must equal 2. This is exactly the
+type of information that purely local residue lifting cannot provide.
+
+11.2    Target B: block filters that couple both metrics
+A computationally oriented theorem target is to attach an Archimedean interval to each
+depth-m fibre
+                                  s = σm (c) + 3m q
+
+                                               21
+Repunit Coordinates for the Erdős Ternary-Digit Problem                               M. A. Idowu
+
+
+and prove that beyond a controlled range of q some more significant ternary digit of Rs (4)
+must equal 2. The block identity (24) is naturally suited to this because it separates the
+bounded seed r from the large quotient q.
+                           m
+   The challenge is that 43 is extremely close to 1 in the 3-adic metric while enormous in the
+ordinary metric. This tension is precisely the kind of local-global interaction a successful proof
+must exploit.
+Example 11.2 (One quantity, two very different metric behaviours). Take
+
+                                             s = 9q + 4.
+
+For q = 1, one has s = 13, and the block identity gives
+
+                               R13 (4) = R9 (4)R1 (49 ) + 49 R4 (4).
+
+Now
+                                           R9 (4) = 87381,
+                                            49 = 262144,
+and
+                                            R4 (4) = 85.
+Therefore
+                           R13 (4) = 87381 + 262144 · 85 = 22369621.
+
+  On the other hand,
+                                  49 = 262144 ≡ 1            (mod 27).
+Thus 49 is extremely simple from the depth-3 3-adic viewpoint while already being very large
+in the ordinary metric.
+   This is precisely the local-global tension that an effective block filter would have to exploit.
+
+11.3    Target C: finite automata plus height
+Abram and Lagarias show that intersections of multiplicative translates of the 3-adic Cantor
+set can be described by finite automata [5]. The repunit conjugacy suggests asking whether
+selected additional constraints on s or Φ(s) can be encoded by an automaton whose accepted
+3-adic paths admit a useful Archimedean height estimate. Automata alone will retain infinite
+paths; the additional height mechanism is essential.
+Example 11.3 (Why an automaton needs a height coordinate). Suppose an automaton
+follows the successive admissible target suffixes
+
+                                 1,        11,     111,          1111.
+
+Every prefix is accepted, and the associated least exponent representatives are
+
+                                      1,     4,        13,       40.
+
+   From a purely automata-theoretic viewpoint this is simply an indefinitely accepted path.
+The automaton has no local reason to reject it.
+   A height annotation, however, records that the least ordinary representative grows while
+the residue information becomes increasingly precise. The intended research question is
+
+                                                  22
+Repunit Coordinates for the Erdős Ternary-Digit Problem                             M. A. Idowu
+
+
+whether some additional quantity - ordinary magnitude, ternary digit length, support count or
+Diophantine height - can eventually become incompatible with indefinite acceptance.
+  The automaton therefore supplies the local language but not, by itself, the global obstruction.
+
+11.4    Target D: integrate sparse-support thresholds
+Dimitrov-Howe’s result supplies a hard lower bound on the Hamming weight of any new ternary
+counterexample [9]. It is natural to enrich the residue tree with a running lower bound on the
+number of forced 1s and combine it with size estimates for 4s . Even if this does not prove
+the full conjecture, it may produce rigorous exclusions for structured subfamilies of exponent
+fibres.
+   A further possible direction is to study the carry corrections κm arising in the triangular
+digit representation (equation 23). Although finite-depth admissibility exhibits no additional
+scarcity beyond the exact factor (2/3)m , correlations among these correction terms across
+separated scales may encode information that is specific to ordinary integer exponents rather
+than arbitrary 3-adic paths. Such correlations could therefore provide a mechanism for
+coupling the exact local residue structure to genuinely global restrictions. We do not pursue
+this direction further here.
+
+
+12     Discussion
+The repunit reduction changes the perspective in three ways.
+   First, it removes the superficial asymmetry between a power of two and a sum of powers of
+three. After the forced parity reduction, the problem concerns a single recurrence
+
+                                 Rs+1 = 4Rs + 1,       R0 = 0,
+
+with the requirement that every ternary digit of Rs lie in {0, 1}. The target set is the standard
+ternary Cantor set; the orbit is an affine recurrence.
+   Secondly, the map from exponent residues to repunit residues is as regular as possible: it is
+a permutation at every 3-power modulus. This fact explains exactly why two of three lifts
+survive at each digit. It also means there is no purely local congruence scarcity waiting to be
+discovered; thus any proof must incorporate information not contained in finite-depth 3-adic
+suffix admissibility, naturally pointing towards constraints involving ordinary size or other
+global structure.
+   Thirdly, the construction places computation and proof in different roles. Deep recursion
+is excellent for verification and for discovering record admissible suffixes, as demonstrated at
+extraordinary depth by Saye [7]. But the infinite binary tree proves that further depth alone
+cannot become a proof. The research task is to find a theorem that cuts across the tree using
+ordinary magnitude, sparse-support constraints, or a non-averaged distribution principle.
+   This separation is valuable for a foundational programme. It identifies which statements
+are exact, which are computational, and where the unsolved content begins.
+
+
+
+
+                                               23
+Repunit Coordinates for the Erdős Ternary-Digit Problem                             M. A. Idowu
+
+
+13     Conclusion
+The Erdős ternary-digit challenge can be reformulated exactly through the base-4 repunit
+
+                                                   4s − 1
+                                        Rs (4) =          .
+                                                      3
+Every admissible power of two has even exponent n = 2s, and digit omission for 22s is equivalent
+to digit omission for Rs (4). The general block identity and finite p-adic expansion required for
+this coordinate are proved explicitly in proposition 2.4 and theorem 2.5.
+   At every depth m, the repunit residue map Φm (s) = Rs (4) mod 3m is a permutation.
+Consequently, each target suffix has a unique canonical exponent seed modulo 3m , its full
+source set is an arithmetic fibre, and the admissible suffixes determine exactly 2m classes. The
+block lift
+                             Rr+q3m (4) ≡ Rr (4) + q3m (mod 3m+1 )
+explains the three-to-two branching law and recovers Saye’s trailing-digit recursion in repunit
+coordinates.
+The inverse-limit map Φ : Z3 → Z3 is an isometric homeomorphism and conjugates x 7→ x + 1
+with y 7→ 4y + 1.
+This is the central conceptual outcome: the local 3-adic problem is completely populated
+and exactly recursive, whereas the unresolved content is global. A complete proof must
+explain why, among ordinary non-negative integers s, only s = 0, 1, 4 produce repunits Rs (4)
+whose full ternary expansions contain no digit 2. The framework therefore supplies a rigorous
+finite-depth structure, a reproducible computational architecture, and a precise boundary for
+future theorem development, but it does not resolve the Erdős conjecture.
+
+
+A     A compact computational algorithm
+A depth-first enumeration of admissible seeds may be stated as follows.
+
+AdmissibleSeeds(M):
+    states := {(0, 0)}    # (depth m, seed r modulo 3^m)
+    leaves := {0}
+    for m from 0 to M-1:
+        next := empty set
+        for r in leaves:
+            d := floor(R_r(4) / 3^m) mod 3
+            for t in {0,1,2}:
+                if (d + t) mod 3 is in {0,1}:
+                    next.add(r + t*3^m)
+        leaves := next
+    return leaves
+
+    A modular implementation need not construct Rr (4) in full. It is enough to maintain
+Rr (4) mod 3m+1 , or to compute it by the binary power-and-sum recurrence given in section C.
+The invariant after level m is that leaves contains exactly the 2m representatives of Am in
+[0, 3m ).
+
+
+
+
+                                               24
+Repunit Coordinates for the Erdős Ternary-Digit Problem                              M. A. Idowu
+
+
+B      A depth-2 permutation example
+Modulo 9, the full map s 7→ Rs (4) is already non-trivial but bijective:
+
+                         (s)3      00 01 02 10 11 12 20 21 22
+                   (Rs (4) mod 9)3 00 01 12 10 11 22 20 21 02.
+
+The four admissible output residues 00, 01, 10, 11 correspond to the four exponent classes
+00, 01, 10, 11 at this depth, but this superficial alignment disappears at the next level; for
+example the output suffix 010 has seed s = 12 = (110)3 .
+
+
+C      Binary power-and-sum evaluation
+For completeness, the modular repunit values used by the search may be obtained in logarithmic
+recursion depth without division. For a fixed base B, write
+
+                                   Pn := B n ,    Sn := Rn (B).
+
+Then
+
+                    P2k = Pk2 ,                         S2k = Sk (1 + Pk ),                 (25)
+                  P2k+1 = BPk2 ,                      S2k+1 = Sk (1 + Pk ) + Pk2 .          (26)
+
+Indeed, (25) follows by splitting the geometric sum into two blocks of length k, while (26)
+appends the term B 2k = Pk2 . Reducing every intermediate product modulo a chosen modulus
+M gives B n mod M and Rn (B) mod M using O(log n) recursive levels. This is sufficient for
+all finite-depth computations in the paper.
+
+
+References
+ [1] P. Erdős, “Some Unconventional Problems in Number Theory,” Mathematics Magazine,
+     vol. 52, no. 2, pp. 67-70, 1979. doi: 10.2307/2689842.
+
+ [2] H. Gupta, “Powers of 2 and Sums of Distinct Powers of 3,” Publikacije Elektrotehničkog
+     fakulteta. Serija Matematika i fizika, no. 602-633, pp. 151-158, 1978.
+
+ [3] W. Narkiewicz, “A Note on a Paper of H. Gupta Concerning Powers of 2 and 3,” Publikacije
+     Elektrotehničkog fakulteta. Serija Matematika i fizika, no. 678-715, pp. 173-174, 1980.
+
+ [4] J. C. Lagarias, “Ternary Expansions of Powers of 2,” Journal of the London Mathematical
+     Society, vol. 79, no. 3, pp. 562-588, 2009. doi: 10.1112/jlms/jdn080.
+
+ [5] W. C. Abram and J. C. Lagarias, “Intersections of Multiplicative Translates of 3-
+     adic Cantor Sets,” Journal of Fractal Geometry, vol. 1, no. 4, pp. 349-390, 2014. doi:
+     10.4171/JFG/11.
+
+ [6] T. Dupuy and D. E. Weirich, “Bits of 3n in Binary, Wieferich Primes and a Con-
+     jecture of Erdős,” Journal of Number Theory, vol. 158, pp. 268-280, 2016. doi:
+     10.1016/j.jnt.2015.05.022.
+
+
+
+
+                                                 25
+Repunit Coordinates for the Erdős Ternary-Digit Problem                          M. A. Idowu
+
+
+ [7] R. I. Saye, “On Two Conjectures Concerning the Ternary Digits of Powers of Two,”
+     Journal of Integer Sequences, vol. 25, no. 3, Article 22.3.4, 2022. https://cs.uwaterloo.
+     ca/journals/JIS/VOL25/Saye/saye3.html.
+
+ [8] Y. N. Aliyev, “Digits of Powers of 2 in Ternary Numeral System,” Notes on
+     Number Theory and Discrete Mathematics, vol. 29, no. 3, pp. 474-485, 2023. doi:
+     10.7546/nntdm.2023.29.3.474-485.
+
+ [9] V. S. Dimitrov and E. W. Howe, “Powers of 3 with Few Nonzero Bits and a Conjecture
+     of Erdős,” Rocky Mountain Journal of Mathematics, vol. 55, no. 1, pp. 45-61, 2025. doi:
+     10.1216/rmj.2025.55.45.
+
+[10] T. F. Bloom, “Erdős Problem #406,” 2026. https://www.erdosproblems.com/406. Ac-
+     cessed 21 September 2026.
+
+[11] G. H. Hardy and E. M. Wright, An Introduction to the Theory of Numbers, 6th ed. Oxford:
+     Oxford University Press, 2008.
+
+[12] K. Ireland and M. Rosen, A Classical Introduction to Modern Number Theory, 2nd ed.
+     New York: Springer, 1990.
+
+
+
+
+                                              26
+

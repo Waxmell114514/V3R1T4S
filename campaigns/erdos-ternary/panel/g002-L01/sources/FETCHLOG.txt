@@ -1,3 +1,9 @@
 2026-11-24T12:48:57Z 200 4254f10b99bb5abde709f0dde060d34f636bed8d0a592b1067932d83f3187ee1 arxiv_2202.13256.html https://arxiv.org/abs/2202.13256
 2026-11-24T12:48:57Z 200 5a86fbdbba8d4f4f6f1a697acdca0555e571a807e960aa20f63c4c84295c6602 erdosproblems_406.html https://www.erdosproblems.com/406
 2026-11-24T12:48:57Z 200 c46c2984a3ce4d88c2c51c48c781056e10bc38c0662f16b8797a84163b48a5c1 fc_406.lean https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/406.lean
+2026-11-24T12:49:33Z 200 75698c16bc2f158550e704c5968dc4ad5734f4e51320cee1a1f32922b0424233 saye_jis.html https://www.cs.uwaterloo.ca/journals/JIS/VOL25/Saye/saye3.html
+2026-11-24T12:49:33Z 200 70ff6d2545ee0ca1db8760d0ddfb1e9f3f72ee01f680f2d98155370bcf41bc67 crc_t088.html https://archive.lib.msu.edu/crcmath/math/math/t/t088.htm
+2026-11-24T12:49:50Z 200 95dd049089a3ea1937da7420b508bd606a412495ee837b2bb4395b278e7818ea cryptids_ErdosTernary15.lean https://raw.githubusercontent.com/google-deepmind/cryptids/main/Cryptids/ErdosTernary15.lean
+2026-11-24T12:49:50Z 200 63a805e6004e7974c46c2243f78d268586ebd1cf509759a09585be8e36365ac3 cryptids_ErdosTernary14.lean https://raw.githubusercontent.com/google-deepmind/cryptids/main/Cryptids/ErdosTernary14.lean
+2026-11-24T12:49:50Z 200 1159caaeb91e0543d4fd88cc7a7b0be395c51031e4397b4aabce9d5be3a5634a fc_CollatzLike.lean https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/Arxiv/2107.12475/CollatzLike.lean
+2026-11-24T12:50:17Z 200 71cda102b5579254e81ad53ea934aed2fe4e16eda27e75a48de27ffa1f378544 cryptids_Propositions.lean https://raw.githubusercontent.com/google-deepmind/cryptids/main/Cryptids/Propositions.lean
