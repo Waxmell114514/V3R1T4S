@@ -1,0 +1,13 @@
+exps ['2', '8'] N = 1 digits(lsb first) = 100000
+  N*1: 1 digits, max digit 1
+  N*4: 2 digits, max digit 1
+  N*256: 6 digits, max digit 1
+exps ['2', '18'] N = 532261 digits(lsb first) = 101010100000100000000000
+  N*1: 13 digits, max digit 1
+  N*4: 14 digits, max digit 1
+  N*262144: 24 digits, max digit 1
+exps ['16', '18'] N = 282864854542 digits(lsb first) = 110010011010001010100000100000000000
+  N*1: 25 digits, max digit 1
+  N*65536: 35 digits, max digit 1
+  N*262144: 36 digits, max digit 1
+no witness (0 not reachable after a 1)
