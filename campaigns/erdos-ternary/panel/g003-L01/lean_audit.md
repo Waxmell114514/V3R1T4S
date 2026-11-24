@@ -17,7 +17,13 @@ Build completed successfully (2141 jobs).
 (Only "module system" import warnings. The cached olean was replayed. To re-run the 12 native_decide shards,
 I also elaborated the file from scratch with `lake env lean ErdosTernary/CheckerShard.lean`, result below.)
 
-FRESH_PLACEHOLDER
+Fresh elaboration (`LEAN_NUM_THREADS=1 nice lake env lean ErdosTernary/CheckerShard.lean`), which re-ran all 12 native_decide shards:
+```
+real	14m51.982s
+user	14m43.299s
+EXIT 0
+```
+It printed no errors. The only output was the "module system" warnings.
 
 `python3 verify/lean_audit.py ErdosTernary.CheckerShard ErdosTernary.CheckerShard.checkShard_sound`:
 ```
