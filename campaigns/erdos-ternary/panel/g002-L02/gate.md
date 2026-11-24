@@ -16,3 +16,6 @@
 本结果与 Erdős 猜想本身无关。
 新颖性的限度：Narkiewicz 原文、MathSciNet MR623247 评论、zbMATH 评论页、Schinzel 2008 综述、Guy B33 未能打开
 （PENDING）；判断依据是所有可达来源都把 Narkiewicz 引作 1.62。
+
+## 人的认可（2026-11-24T13:15Z）
+人在会话中写："M3 认可"。M3 **过关**。
