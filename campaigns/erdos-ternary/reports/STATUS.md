@@ -1,6 +1,6 @@
 # STATUS（每代覆盖写）
 
-- 状态：自动续跑中（人于 2026-11-24 裁决 g003 的两个 escalate 后恢复）。定时任务 trig_01LRQJuCMqkLvc7je2jDipD8，
+- 状态：**等人**（第 4 代：Critic 对 g004-C02 判 escalate——预编译后单节点提速约 4 倍，超过 single_gen_throughput_jump 3.0；见 reports/gen_004/critic_C02.md）。定时任务 trig_01LRQJuCMqkLvc7je2jDipD8 已停用；恢复时需重新启用。
   cron 16 */2 * * * UTC，截止 2026-11-25T11:16:02Z。
 - 规则：所有成果必须是审计通过的 Lean 定理（CONSTRAINTS 11-13）。verify/ 为 v0.3 冻结。
 - 里程碑：M1 过关，证据已升为 A 级（panel/g003-C04/gate.md）；M3 过关（人已认可，panel/g002-L02/gate.md）；M2、M4 未达成。
