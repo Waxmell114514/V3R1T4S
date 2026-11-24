@@ -55,7 +55,7 @@ inner node consumes exactly three typed child proofs. If `UpTo` used n < N inste
 frozen definition uses `≤` and checkK_sound covers all n ≤ N.
 
 ## Re-elaboration
-Uncached `lake env lean` re-elaboration results so far: CheckerKernelUpTo16 rc=0 66 s; CheckerKernelUpTo18 rc=0 224 s; (UpTo20 still running);
+Uncached `lake env lean` re-elaboration results so far: CheckerKernelUpTo16 rc=0 66 s; CheckerKernelUpTo18 rc=0 224 s; CheckerKernelUpTo20 rc=0 917 s (all three kernel-rechecked without cache).
 
 ## Verdict
 All claims verified: checkK_sound and upToK_16/18/20 tier A, statements match frozen UpTo, assembly proved and complete, no native_decide/set_option/opaque/implemented_by in the audited files.
