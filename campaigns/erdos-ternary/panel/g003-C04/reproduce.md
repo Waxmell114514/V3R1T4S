@@ -1,4 +1,4 @@
-# g003-C04 skeptic REPRODUCE (in progress)
+# g003-C04 skeptic REPRODUCE
 
 - claim/CheckerKernel.lean == lean/ErdosTernary/CheckerKernel.lean: IDENTICAL (diff empty)
 - claim/Statement.lean == verify/Statement.lean: IDENTICAL
@@ -12,7 +12,7 @@
 - Independent C program (own code): 2^n mod 3^40 iterated by doubling for n=1..2*3^20=6973568802, scan trits;
   n<=63 exact. 0 exceptions with 8<n<=N; 501 n had no 2 in low 40 trits, all resolved by own Python
   pow(2,n,3^80) (first 2 at trit position <=56). Sanity run N=100 reports exactly exceptions n=2, n=8. 26 s.
-- lake build: RUNNING
+- lake build (fresh, nice, LEAN_NUM_THREADS=1): `✔ [2142/2143] Built ErdosTernary.Records.CheckerKernelUpTo20 (882s)`, `Build completed successfully (2143 jobs).`, exit 0; wall 883 s (date stamps).
 
 ## Paper re-derivation (soundness)
 Node (fuel, q=3^i, r, m, g) stands for the class C(i,r) = {r + t*2*3^i : t >= 0}; invariants m = 2^r mod M,
@@ -39,3 +39,32 @@ roots, and upToK_20 = checkK_sound (K:=64) (checkK_of_roots _ _ n20_0 n20_1). So
 references every leaf; any omitted/false leaf would be an unproved name or a failed decide, i.e. build error.
 The file has 1535 generated theorems + upToK_20 = 1536 (1024 leaves + 511 inner = 1535, matching header);
 grep shows no native_decide/sorry/axiom/set_option/macro/instance in it or in CheckerKernel.lean.
+
+## Audits (last lines, verbatim)
+`python3 verify/lean_audit.py ErdosTernary.Records.CheckerKernelUpTo20 ErdosTernary.upToK_20 --expect UpTo:2*3^20`
+```
+WARN ErdosTernary/Checker.lean: native_decide
+WARN ErdosTernary/CheckerShard.lean: native_decide
+WARN ErdosTernary/Records/UpTo28.lean: native_decide
+'ErdosTernary.upToK_20' depends on axioms: [propext, Classical.choice, Quot.sound]
+LEAN_AUDIT: PASS tier=A axioms=['Classical.choice', 'Quot.sound', 'propext']
+```
+`python3 verify/lean_audit.py ErdosTernary.CheckerKernel ErdosTernary.CheckerKernel.checkK_sound`
+```
+'ErdosTernary.CheckerKernel.checkK_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+LEAN_AUDIT: PASS tier=A axioms=['Classical.choice', 'Quot.sound', 'propext']
+```
+The native_decide WARNs are in other files (tier-B results); the axiom lists show neither theorem depends on
+them (no Lean.ofReduceBool / native_decide aux axiom). The --expect check elaborated
+`example : ErdosTernary.UpTo (2*3^20) := @ErdosTernary.upToK_20` against frozen Statement.lean.
+
+## Notes
+- A stray `lake env lean ErdosTernary/CheckerKernelUpTo20.lean` process (PID 2416, not mine, file path no longer
+  exists) was running at start; left untouched.
+- Not done: upToK_16 / upToK_18 rebuilds (not in my mandate).
+
+## Verdict
+All mandated checks reproduce: fresh build 883 s, both audits tier A, sha256 match, CheckerKernel.lean identical,
+regenerated file byte-identical, independent C+Python check finds no exception for 8 < n <= 2*3^20.
+
+pass: true
