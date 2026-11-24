@@ -1,0 +1,504 @@
+From 88b6e7172d5eb35f0cd3c3a8163f58d0c50c8331 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 24 Nov 2026 10:23:34 +0000
+Subject: [PATCH] campaigns/erdos-ternary: g001-e02 C engine (lemma-3 child
+ pruning, short products)
+
+search/c2/engine.c + core.inc: DFS in C, v = 2^r mod 3^(19*NL) in base-3^19 limbs.
+Dead child decided from trit k and r mod 2 (lemma 3) before any multi-limb work;
+j=0 child reuses v; j=1,2 child = v + v*(g_k^j - 1) mod 3^L, a short product since
+g_k^j - 1 has zero limbs below k/19; past the last branching level only j=0 chains
+remain (trit reads only); slow-path recomputation mod 3^266 beyond the fast precision
+(depth limit 265), N < 2^120 via unsigned __int128.
+search/run.py: same CLI and JSON as g0; compiles the engine into build/ on first use.
+
+T0: PASS (with brute). T1 N=2*3^24: 6.8471e+07 events/s single core (mean of 3),
+4 shards 2.0460e+08 events/s; output equals verify/tree_ref.py 2*3^24 0 1.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01UnC7uYMiJhJkFNLpaHiEeA
+---
+ campaigns/erdos-ternary/search/c2/core.inc |  67 ++++++
+ campaigns/erdos-ternary/search/c2/engine.c | 250 +++++++++++++++++++++
+ campaigns/erdos-ternary/search/run.py      | 120 +++++-----
+ 3 files changed, 374 insertions(+), 63 deletions(-)
+ create mode 100644 campaigns/erdos-ternary/search/c2/core.inc
+ create mode 100644 campaigns/erdos-ternary/search/c2/engine.c
+
+diff --git a/campaigns/erdos-ternary/search/c2/core.inc b/campaigns/erdos-ternary/search/c2/core.inc
+new file mode 100644
+index 0000000..1b5ad8a
+--- /dev/null
++++ b/campaigns/erdos-ternary/search/c2/core.inc
+@@ -0,0 +1,67 @@
++/* Hot path of the g1 (c2) engine, instantiated once per limb count NL (see engine.c).
++ * v = 2^r mod 3^(19*NL) in NL base-3^19 limbs (least significant first).
++ * expand(k, r, v): (k, r) is an alive, non-terminal node at level k whose alive count/events are already recorded.
++ * It emits every event of the children and recurses into alive children.
++ *
++ * Mechanism (hypothesis g001-e02):
++ *  - which child dies is decided from trit k of v and r mod 2 alone (lemma 3): child j has trit k equal to
++ *    t + j*c_k*(2^r mod 3) mod 3, so no multi-limb work is done for dead or N-pruned children;
++ *  - the j = 0 child reuses v unchanged; a j = 1, 2 child gets v + v*(g_k^j - 1) mod 3^L, where g_k^j - 1 is a
++ *    multiple of 3^k, so its limbs below k/19 are zero and the product is a short (triangular) product;
++ *  - once P_k > N only the j = 0 child can be <= N, so the subtree is a chain on a fixed v: a loop of trit reads. */
++
++#define CAT2(a, b) a##b
++#define CAT(a, b) CAT2(a, b)
++#define EXPAND CAT(expand_, NL)
++#define CHAIN CAT(chain_, NL)
++#define MULADD CAT(muladd_, NL)
++
++/* w = v + v*e mod 3^(19*NL), e has zero limbs below lo */
++static inline void MULADD(const uint64_t *restrict v, const uint64_t *restrict e, int lo, uint64_t *restrict w) {
++    for (int n = 0; n < lo; n++) w[n] = v[n];
++    uint64_t carry = 0;
++    for (int n = lo; n < NL; n++) {
++        uint64_t acc = v[n] + carry;
++        for (int j = lo; j <= n; j++) acc += v[n - j] * e[j];
++        carry = acc / B19;
++        w[n] = acc - carry * B19;
++    }
++}
++
++/* chain from alive non-terminal node (k, r) with P_k > N: only j = 0 children can be <= N */
++static void CHAIN(int k, u128 r, const uint64_t *v) {
++    for (;;) {
++        if (rec) { event(k + 1, r + Pmod[k], 1); event(k + 1, r + 2 * Pmod[k], 1); }
++        if (k >= NL * 19) { chain_fallback(k, r); return; }
++        if (trit_of(v, k) == 2) { if (rec) event(k + 1, r, 0); return; }
++        k++;
++        int e = alive_node(k, r);
++        if (k == stop_level) { collect(k, r, v, NL, e); return; }
++        if (e) return;
++    }
++}
++
++static void EXPAND(int k, u128 r, const uint64_t *v) {
++    if (Pbig[k]) { CHAIN(k, r, v); return; }
++    int t = trit_of(v, k);
++    int delta = (ck[k] * (r & 1 ? 2 : 1)) % 3;
++    int dead = ((2 - t + 3) * delta) % 3;          /* t + dead*delta == 2 mod 3 (delta^-1 = delta) */
++    uint64_t *w = vbuf[k + 1];
++    for (int j = 0; j < 3; j++) {
++        u128 rj = r + (u128)j * Pmod[k];             /* P_k <= N < 2^120: exact */
++        if (rj > NN) { if (rec) event(k + 1, rj, 1); continue; }
++        if (j == dead) { if (rec) event(k + 1, rj, 0); continue; }
++        int e = alive_node(k + 1, rj);
++        const uint64_t *vj = v;
++        if (j) {
++            if (e && k + 1 != stop_level) continue;   /* terminal exception: no value needed */
++            MULADD(v, Ek[j - 1][k], lowlimb[k], w); vj = w;
++        }
++        if (k + 1 == stop_level) { collect(k + 1, rj, vj, NL, e); continue; }
++        if (!e) EXPAND(k + 1, rj, vj);
++    }
++}
++
++#undef EXPAND
++#undef CHAIN
++#undef MULADD
+diff --git a/campaigns/erdos-ternary/search/c2/engine.c b/campaigns/erdos-ternary/search/c2/engine.c
+new file mode 100644
+index 0000000..1e2a2de
+--- /dev/null
++++ b/campaigns/erdos-ternary/search/c2/engine.c
+@@ -0,0 +1,250 @@
++/* g1 engine (experiment g001-e02): DFS of the trailing-ternary-digit tree of verify/CERT.md.
++ * Written independently of verify/ (no shared source).
++ *
++ * Usage: engine <N decimal> <i> <m> [--ref-sat]
++ * Prints: "d0 <d0>", "nl <limbs>", "counts c1 c2 ...", one "E <r>" per exception, "events <n> <sumhex> <xorhex>".
++ * Exit 3 on any exceeded limit (depth, precision, exception buffer); exit 2 on bad input.
++ *
++ * Representation: v = 2^r mod 3^L, L = 19*NL trits, NL base-3^19 limbs (each < 2^31, products < 2^61, so up to
++ * 8 products plus a carry accumulate in one uint64). NL is chosen from N so that L exceeds the last branching level
++ * by >= 45 trits; chains that go deeper than L recompute 2^r mod 3^266 in a slow path (depth limit 265).
++ *
++ * --ref-sat: hash N events with P_k saturated at 2^125 (the convention of verify/tree_ref.c, which differs from the
++ * literal CERT.md formula only for N events at levels k >= 80). Default is the literal CERT.md formula (r mod 2^128). */
++#include <stdio.h>
++#include <stdlib.h>
++#include <stdint.h>
++#include <string.h>
++
++typedef unsigned __int128 u128;
++#define B19 1162261467ULL          /* 3^19 */
++#define NLMAX 8
++#define FBN 14                     /* fallback limbs: 266 trits */
++#define MAXD (FBN * 19 - 1)        /* deepest supported level (trit index <= MAXD is readable) */
++#define MAXLV (MAXD + 3)
++#define MAXEXC 4096
++#ifndef MARGIN
++#define MARGIN 45                  /* trits of precision beyond the last branching level */
++#endif
++#ifndef MINNL
++#define MINNL 3                    /* (MARGIN/MINNL are lowered only by tests that force the fallback path) */
++#endif
++
++static void die(const char *msg) { fprintf(stderr, "engine: %s\n", msg); exit(3); }
++
++static u128 NN;
++static int rec;                    /* record events/counts (shard 0 in the prefix phase, always below d0) */
++static int stop_level;             /* collect alive nodes reaching this level instead of expanding */
++static uint64_t ev_n, ev_sum, ev_xor;
++static uint64_t counts[MAXLV];
++static u128 Pmod[MAXLV];           /* P_k for hashing (mod 2^128, or saturated with --ref-sat); exact when !Pbig */
++static unsigned char Pbig[MAXLV];  /* P_k > N */
++static int bitlen3[MAXLV];         /* bit length of 3^k: 3^k > 2^r  <=>  r < bitlen3[k] */
++static int ck[MAXLV];              /* trit k of (2^(P_k) - 1), nonzero by lemma 2 */
++static int lowlimb[MAXLV];         /* k / 19 */
++static uint64_t Ek[2][MAXLV][NLMAX];   /* g_k^j - 1 mod 3^L, j = 1, 2 */
++static uint64_t vbuf[MAXLV][NLMAX];
++static uint64_t magic[19];         /* ceil(2^63 / 3^s) */
++static uint64_t pow3[20];
++static u128 exc[MAXEXC];
++static int nexc;
++
++static inline uint64_t mix(uint64_t z) {
++    z += 0x9E3779B97F4A7C15ULL;
++    z = (z ^ (z >> 30)) * 0xBF58476D1CE4E5B9ULL;
++    z = (z ^ (z >> 27)) * 0x94D049BB133111EBULL;
++    return z ^ (z >> 31);
++}
++static inline void event(int k, u128 r, int code) {
++    uint64_t h = mix(mix(mix((uint64_t)r) ^ (uint64_t)(r >> 64)) ^ (uint64_t)(4 * k + code));
++    ev_n++; ev_sum += h; ev_xor ^= h;
++}
++/* exact for x < 3^19, s <= 18: x * 3^s < 2^63 */
++static inline int trit_of(const uint64_t *v, int k) {
++    uint64_t x = v[k / 19];
++    uint64_t q = (uint64_t)(((u128)x * magic[k % 19]) >> 63);
++    return (int)(q % 3);
++}
++/* (k, r) is alive; record it; return 1 if it is a terminal exception node */
++static inline int alive_node(int k, u128 r) {
++    if (k > MAXD) die("depth limit exceeded");
++    int e = r < (u128)bitlen3[k] && (Pbig[k] || r + Pmod[k] > NN);
++    if (rec) {
++        counts[k]++;
++        if (e) { event(k, r, 2); if (nexc == MAXEXC) die("too many exceptions"); exc[nexc++] = r; }
++    }
++    return e;
++}
++
++typedef struct { u128 r; int e; uint64_t v[NLMAX]; } cnode;
++static cnode *col; static size_t ncol, capcol;
++static void collect(int k, u128 r, const uint64_t *v, int nl, int e) {
++    (void)k;
++    if (ncol == capcol) { capcol = capcol ? 2 * capcol : 4096; col = realloc(col, capcol * sizeof *col); if (!col) die("oom"); }
++    col[ncol].r = r; col[ncol].e = e; memset(col[ncol].v, 0, sizeof col[ncol].v);
++    memcpy(col[ncol].v, v, nl * sizeof(uint64_t)); ncol++;
++}
++
++/* generic truncated product mod 3^(19n) (setup and fallback only) */
++static void mulmod_n(const uint64_t *a, const uint64_t *b, uint64_t *out, int n) {
++    u128 acc[FBN];
++    memset(acc, 0, sizeof acc);
++    for (int i = 0; i < n; i++) if (a[i]) for (int j = 0; i + j < n; j++) acc[i + j] += (u128)(a[i] * b[j]);
++    u128 carry = 0;
++    for (int i = 0; i < n; i++) { u128 t = acc[i] + carry; carry = t / B19; out[i] = (uint64_t)(t - carry * B19); }
++}
++static void pow2_n(u128 r, uint64_t *out, int n) {
++    uint64_t res[FBN] = {1}, base[FBN] = {2}, t[FBN] = {0};
++    for (; r; r >>= 1) {
++        if (r & 1) { mulmod_n(res, base, t, n); memcpy(res, t, sizeof t); }
++        mulmod_n(base, base, t, n); memcpy(base, t, sizeof t);
++    }
++    memcpy(out, res, n * sizeof(uint64_t));
++}
++
++/* chain continued beyond the fast precision: (k, r) alive non-terminal, P_k > N, the N events of its children
++ * already emitted. */
++static void chain_fallback(int k, u128 r) {
++    uint64_t big[FBN];
++    pow2_n(r, big, FBN);
++    for (;;) {
++        if (!Pbig[k]) die("branching beyond precision");
++        if (k > MAXD) die("depth limit exceeded");
++        if (trit_of(big, k) == 2) { if (rec) event(k + 1, r, 0); return; }
++        k++;
++        if (k == stop_level) die("stop level beyond precision");
++        if (alive_node(k, r)) return;
++        if (rec) { event(k + 1, r + Pmod[k], 1); event(k + 1, r + 2 * Pmod[k], 1); }
++    }
++}
++
++#define NL 2
++#include "core.inc"
++#undef NL
++#define NL 3
++#include "core.inc"
++#undef NL
++#define NL 4
++#include "core.inc"
++#undef NL
++#define NL 5
++#include "core.inc"
++#undef NL
++#define NL 6
++#include "core.inc"
++#undef NL
++#define NL 7
++#include "core.inc"
++#undef NL
++#define NL 8
++#include "core.inc"
++#undef NL
++typedef void (*expand_fn)(int, u128, const uint64_t *);
++static expand_fn expand_tab[NLMAX + 1] = {0, 0, expand_2, expand_3, expand_4, expand_5, expand_6, expand_7, expand_8};
++
++static void print_u128(u128 x) {
++    char b[64]; int n = 0;
++    do { b[n++] = '0' + (int)(x % 10); x /= 10; } while (x);
++    while (n) putchar(b[--n]);
++}
++static int cmp_cnode(const void *a, const void *b) {
++    u128 x = ((const cnode *)a)->r, y = ((const cnode *)b)->r;
++    return x < y ? -1 : x > y;
++}
++static int cmp_u128(const void *a, const void *b) {
++    u128 x = *(const u128 *)a, y = *(const u128 *)b;
++    return x < y ? -1 : x > y;
++}
++
++int main(int argc, char **argv) {
++    if (argc < 4 || argc > 5) { fprintf(stderr, "usage: engine N i m [--ref-sat]\n"); return 2; }
++    int refsat = argc == 5 && !strcmp(argv[4], "--ref-sat");
++    if (argc == 5 && !refsat) { fprintf(stderr, "bad option\n"); return 2; }
++    const u128 LIM = (u128)1 << 120;
++    NN = 0;
++    for (const char *s = argv[1]; *s; s++) {
++        if (*s < '0' || *s > '9') { fprintf(stderr, "bad N\n"); return 2; }
++        NN = NN * 10 + (u128)(*s - '0');
++        if (NN >= LIM) { fprintf(stderr, "engine: N >= 2^120 not supported\n"); return 3; }
++    }
++    if (!argv[1][0]) { fprintf(stderr, "bad N\n"); return 2; }
++    char *end;
++    long si = strtol(argv[2], &end, 10); if (*end) return 2;
++    long m = strtol(argv[3], &end, 10); if (*end) return 2;
++    if (m < 1 || m > (1L << 30) || si < 0 || si >= m) { fprintf(stderr, "bad shard\n"); return 2; }
++    int d0 = 12; { int b = 0; while (((u128)1 << b) < (u128)16 * (u128)m) b++; if (b + 2 > d0) d0 = b + 2; }
++
++    pow3[0] = 1; for (int i = 1; i < 20; i++) pow3[i] = pow3[i - 1] * 3;
++    for (int s = 0; s < 19; s++) magic[s] = (uint64_t)((((u128)1 << 63) + pow3[s] - 1) / pow3[s]);
++
++    /* P_k, Pbig, Pmod */
++    { u128 P = 2; int huge = 0; u128 sat = (u128)1 << 125;
++      for (int k = 1; k < MAXLV; k++) {
++          Pbig[k] = huge || P > NN;
++          Pmod[k] = refsat ? ((huge || P > sat) ? sat : P) : P;   /* P is exact mod 2^128 (wrapping) */
++          if (!huge && P > ((u128)1 << 126) / 3) huge = 1;
++          P *= 3;
++      } }
++    /* bit lengths of 3^k */
++    { uint32_t w[32] = {1}; int nw = 1;
++      for (int k = 1; k < MAXLV; k++) {
++          uint64_t c = 0;
++          for (int i = 0; i < nw; i++) { uint64_t t = (uint64_t)w[i] * 3 + c; w[i] = (uint32_t)t; c = t >> 32; }
++          if (c) { if (nw == 32) die("bitlen overflow"); w[nw++] = (uint32_t)c; }
++          int bl = 32 * (nw - 1); uint32_t x = w[nw - 1]; while (x) { bl++; x >>= 1; }
++          bitlen3[k] = bl;
++      } }
++    for (int k = 0; k < MAXLV; k++) lowlimb[k] = k / 19;
++
++    int Kb = 0; for (int k = 1; k < MAXLV; k++) if (!Pbig[k]) Kb = k;
++    int nl = (Kb + MARGIN + 18) / 19; if (nl < MINNL) nl = MINNL;
++    if (nl > NLMAX) die("N too large for limb table");
++    if (d0 + 1 >= 19 * nl) die("d0 beyond precision");
++
++    /* g_k = 2^(P_k) mod 3^(19 nl): g_1 = 4, g_{k+1} = g_k^3; E1 = g - 1, E2 = g^2 - 1 */
++    { uint64_t g[FBN] = {4}, g2[FBN] = {0}, t[FBN] = {0};
++      for (int k = 1; k <= Kb; k++) {
++          mulmod_n(g, g, g2, nl);
++          memcpy(Ek[0][k], g, nl * 8); memcpy(Ek[1][k], g2, nl * 8);
++          for (int j = 0; j < 2; j++) {
++              if (Ek[j][k][0] % 3 != 1) die("lemma check: g != 1 mod 3");
++              Ek[j][k][0] -= 1;
++              for (int n = 0; n < lowlimb[k]; n++) if (Ek[j][k][n]) die("lemma check: low limbs");
++              uint64_t x = Ek[j][k][k / 19];
++              if ((x % pow3[k % 19]) != 0) die("lemma check: not divisible by 3^k");
++          }
++          ck[k] = trit_of(Ek[0][k], k);
++          if (ck[k] == 0) die("lemma check: c_k divisible by 3");
++          if ((ck[k] * 2) % 3 != trit_of(Ek[1][k], k)) die("lemma check: c for g^2");
++          mulmod_n(g2, g, t, nl); memcpy(g, t, sizeof t);
++      } }
++
++    printf("d0 %d\nnl %d\n", d0, nl);
++    expand_fn expand = expand_tab[nl];
++
++    /* phase 1: levels <= d0, recorded by shard 0 only */
++    rec = (si == 0); stop_level = d0;
++    for (int r = 0; r < 2; r++) {
++        uint64_t *v = vbuf[1]; memset(v, 0, sizeof vbuf[1]); v[0] = r ? 2 : 1;
++        if ((u128)r > NN) { if (rec) event(1, r, 1); continue; }
++        if (trit_of(v, 0) == 2) { if (rec) event(1, r, 0); continue; }
++        int e = alive_node(1, r);
++        if (!e) expand(1, (u128)r, v);
++        /* vbuf[1] is reused by r = 1 only after the r = 0 subtree is done */
++    }
++    /* phase 2: owned subtrees below d0 */
++    qsort(col, ncol, sizeof *col, cmp_cnode);
++    rec = 1; stop_level = -1;
++    for (size_t t = (size_t)si; t < ncol; t += (size_t)m)
++        if (!col[t].e) expand(d0, col[t].r, col[t].v);
++
++    int top = 0; for (int k = 1; k < MAXLV; k++) if (counts[k]) top = k;
++    printf("counts");
++    for (int k = 1; k <= top; k++) printf(" %llu", (unsigned long long)counts[k]);
++    printf("\n");
++    qsort(exc, nexc, sizeof exc[0], cmp_u128);
++    for (int i = 0; i < nexc; i++) { printf("E "); print_u128(exc[i]); printf("\n"); }
++    printf("events %llu %016llx %016llx\n", (unsigned long long)ev_n, (unsigned long long)ev_sum,
++           (unsigned long long)ev_xor);
++    return 0;
++}
+diff --git a/campaigns/erdos-ternary/search/run.py b/campaigns/erdos-ternary/search/run.py
+index 7044725..5784189 100644
+--- a/campaigns/erdos-ternary/search/run.py
++++ b/campaigns/erdos-ternary/search/run.py
+@@ -1,83 +1,77 @@
+-"""g0 search engine (seed): plain-Python DFS of the trailing-ternary-digit tree, see verify/CERT.md.
++"""g1 search driver (experiment g001-e02): compiles and runs the C engine in search/c2/, see verify/CERT.md.
+ python3 search/run.py --N <N> --shard i/m --out <file>
+-Deliberately simple and slow; later generations replace it."""
+-import argparse, hashlib, json, math, time
++N is decimal or a*3^b. The binary is built into build/ (gitignored) on first use, keyed by the source hash.
++Output JSON has exactly the fields and layout of g0: N, shard, d0, depth_counts, exceptions, events, leaf_digest,
++wall_s. Set ERDOS_C2_REFSAT=1 to hash deep N events with verify/tree_ref.c's saturated P_k (see engine.c)."""
++import argparse, hashlib, json, os, pathlib, subprocess, sys, time
+ 
+-MASK = (1 << 64) - 1
++HERE = pathlib.Path(__file__).resolve().parent
++SRC = HERE / "c2"
++BUILD = HERE.parent / "build"
++CFLAGS = ["-O3", "-march=native", "-Wall"]
+ 
+-def splitmix(z):
+-    z = (z + 0x9E3779B97F4A7C15) & MASK
+-    z = ((z ^ (z >> 30)) * 0xBF58476D1CE4E5B9) & MASK
+-    z = ((z ^ (z >> 27)) * 0x94D049BB133111EB) & MASK
+-    return z ^ (z >> 31)
+ 
+ def parse_N(s):
+     s = s.replace(" ", "")
+     if "*3^" in s:
+         a, b = s.split("*3^")
+         return int(a) * 3 ** int(b)
++    if s.startswith("3^"):
++        return 3 ** int(s[2:])
+     return int(s)
+ 
++
++def binary():
++    h = hashlib.sha256()
++    for name in ("engine.c", "core.inc"):
++        h.update((SRC / name).read_bytes())
++    h.update(" ".join(CFLAGS).encode())
++    exe = BUILD / f"c2_engine_{h.hexdigest()[:16]}"
++    if not exe.exists():
++        BUILD.mkdir(exist_ok=True)
++        tmp = exe.with_suffix(f".tmp{os.getpid()}")
++        subprocess.run(["gcc", *CFLAGS, "-o", str(tmp), str(SRC / "engine.c")], check=True)
++        os.replace(tmp, exe)
++    return exe
++
++
+ def search(N, i, m):
+-    d0 = max(12, math.ceil(math.log2(16 * m)) + 2)
+-    counts, exc = [], []
+-    cnt = tot = xr = 0
+-    def emit(k, r, code):
+-        nonlocal cnt, tot, xr
+-        hv = splitmix(splitmix(splitmix(r & MASK) ^ (r >> 64)) ^ (4 * k + code))
+-        cnt += 1; tot = (tot + hv) & MASK; xr ^= hv
+-    def alive(k):
+-        while len(counts) < k: counts.append(0)
+-        counts[k - 1] += 1
+-    # node = (k, r, v, e) with v = 2^r mod 3^(k+1) (one extra trit for the children test), e = exception flag
+-    def candidate(k, r, v_mod_k1, record):
+-        """v_mod_k1 = 2^r mod 3^(k) is enough to test trit k-1; returns (alive, e)."""
+-        if r > N:
+-            if record: emit(k, r, 1)
+-            return False, False
+-        if v_mod_k1 // 3 ** (k - 1) == 2:
+-            if record: emit(k, r, 0)
+-            return False, False
+-        e = r < 2 * k and 3 ** k > (1 << r) and r + 2 * 3 ** (k - 1) > N
+-        if record:
+-            alive(k)
+-            if e: emit(k, r, 2); exc.append(r)
+-        return True, e
+-    def children(k, r, e, record, out):
+-        if e: return  # terminal exception node
+-        P = 2 * 3 ** (k - 1); M = 3 ** (k + 1)
+-        base = pow(2, r, M); g = pow(2, P, M)
+-        v = base
+-        for j in range(3):
+-            if j: v = v * g % M
+-            ok, ee = candidate(k + 1, r + j * P, v, record)
+-            if ok: out.append((k + 1, r + j * P, ee))
+-    level = []
+-    for r in (0, 1):
+-        ok, e = candidate(1, r, pow(2, r, 3), i == 0)
+-        if ok: level.append((1, r, e))
+-    while level and level[0][0] < d0:
+-        nxt = []
+-        for k, r, e in level:
+-            children(k, r, e, i == 0, nxt)
+-        level = nxt
+-    roots = sorted(level, key=lambda t: t[1])
+-    stack = [t for idx, t in enumerate(roots) if idx % m == i]
+-    while stack:
+-        k, r, e = stack.pop()
+-        children(k, r, e, True, stack)
+-    while counts and counts[-1] == 0: counts.pop()
+-    dig = hashlib.sha256(f"events={cnt};sum={tot:016x};xor={xr:016x}".encode()).hexdigest()
+-    return {"N": str(N), "shard": f"{i}/{m}", "d0": d0, "depth_counts": counts,
+-            "exceptions": [str(x) for x in sorted(exc)], "events": cnt, "leaf_digest": dig}
++    if N < 0 or N >= 1 << 120:
++        sys.exit(f"run.py: N out of supported range [0, 2^120): {N}")
++    exe = binary()
++    cmd = [str(exe), str(N), str(i), str(m)]
++    if os.environ.get("ERDOS_C2_REFSAT") == "1":
++        cmd.append("--ref-sat")
++    t = time.time()
++    p = subprocess.run(cmd, capture_output=True, text=True)
++    wall = time.time() - t
++    if p.returncode != 0:
++        sys.stderr.write(p.stderr)
++        sys.exit(f"run.py: engine failed with exit code {p.returncode}")
++    d0 = counts = ev = None
++    exc = []
++    for line in p.stdout.split("\n"):
++        f = line.split()
++        if not f:
++            continue
++        if f[0] == "d0": d0 = int(f[1])
++        elif f[0] == "counts": counts = [int(x) for x in f[1:]]
++        elif f[0] == "E": exc.append(int(f[1]))
++        elif f[0] == "events": ev = (int(f[1]), f[2], f[3])
++    if d0 is None or counts is None or ev is None:
++        sys.exit("run.py: incomplete engine output")
++    dig = hashlib.sha256(f"events={ev[0]};sum={ev[1]};xor={ev[2]}".encode()).hexdigest()
++    res = {"N": str(N), "shard": f"{i}/{m}", "d0": d0, "depth_counts": counts,
++           "exceptions": [str(x) for x in sorted(exc)], "events": ev[0], "leaf_digest": dig}
++    return res, wall
++
+ 
+ if __name__ == "__main__":
+     ap = argparse.ArgumentParser()
+     ap.add_argument("--N", required=True); ap.add_argument("--shard", default="0/1"); ap.add_argument("--out", required=True)
+     a = ap.parse_args()
+     i, m = (int(x) for x in a.shard.split("/"))
+-    t = time.time()
+-    res = search(parse_N(a.N), i, m)
+-    res["wall_s"] = round(time.time() - t, 3)
++    res, wall = search(parse_N(a.N), i, m)
++    res["wall_s"] = round(wall, 3)
+     with open(a.out, "w") as f:
+         json.dump(res, f)
+-- 
+2.43.0
+

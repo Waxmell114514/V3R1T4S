@@ -1,0 +1,422 @@
+From a0142b409d7364b93df700db341ff9d2d7f21783 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 24 Nov 2026 10:17:52 +0000
+Subject: [PATCH] campaigns/erdos-ternary: g001-e01 C port of the g0 DFS
+ (search/c1)
+
+search/c1/tree_c1.c: DFS per verify/CERT.md with 2^r mod 3^240 kept in six
+base-3^40 limbs, children via truncated mulmod by precomputed 2^(P_k) and
+2^(2P_k), preinverse reduction by 3^40 (Moller-Granlund), r as unsigned
+__int128 (N < 2^100), P_k kept mod 2^128 plus a "P_k > N" flag, and an exit-3
+abort for any candidate deeper than 240 trits.
+search/run.py: same CLI and JSON as g0; compiles the engine into build/
+(name carries the source hash) and computes leaf_digest from its output.
+
+T0: PASS (full, including brute force). T1 at N = 2*3^24: unsharded 1.225e7
+events/s mean (std 1e5, 3 repeats); 4 shards in parallel 4.859e7 events/s
+aggregate; output equals verify/tree_ref.py 2*3^24 0 1.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01UnC7uYMiJhJkFNLpaHiEeA
+---
+ campaigns/erdos-ternary/search/c1/tree_c1.c | 263 ++++++++++++++++++++
+ campaigns/erdos-ternary/search/run.py       |  95 +++----
+ 2 files changed, 300 insertions(+), 58 deletions(-)
+ create mode 100644 campaigns/erdos-ternary/search/c1/tree_c1.c
+
+diff --git a/campaigns/erdos-ternary/search/c1/tree_c1.c b/campaigns/erdos-ternary/search/c1/tree_c1.c
+new file mode 100644
+index 0000000..023c897
+--- /dev/null
++++ b/campaigns/erdos-ternary/search/c1/tree_c1.c
+@@ -0,0 +1,263 @@
++/* g1 engine (experiment g001-e01): C port of the g0 DFS, rules per verify/CERT.md.
++ *
++ * usage: tree_c1 <N decimal> <i> <m> <d0>
++ * prints to stdout:
++ *   depth_counts <c1> <c2> ...      (trailing zeros dropped)
++ *   exceptions <e1> <e2> ...        (sorted ascending)
++ *   events <count>
++ *   sum <16 hex>
++ *   xor <16 hex>
++ * search/run.py turns this into the certificate JSON (sha256 digest computed there).
++ *
++ * Representation: v = 2^r mod 3^L kept in NLIMB limbs of base B = 3^40 (L = 40*NLIMB trits),
++ * little-endian. Children values: v * 2^(P_k) mod 3^L with a truncated schoolbook mulmod; every
++ * 128-by-64 reduction by B uses a precomputed inverse (Moller-Granlund 2011, "Improved division by
++ * invariant integers", Alg. 4; B >= 2^63 so B is normalised).
++ * r is unsigned __int128. P_k = 2*3^(k-1) is kept mod 2^128 together with a flag "P_k > N"; the event
++ * hash only depends on r mod 2^128 (see splitmix masking in CERT.md), so wrapped child indices hash
++ * correctly, and the flag decides the r > N test exactly.
++ * Any candidate deeper than L trits aborts with exit code 3 (never silently truncates).
++ */
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++
++typedef unsigned __int128 u128;
++typedef uint64_t u64;
++
++#ifndef NLIMB
++#define NLIMB 6
++#endif
++#define LTRITS (40 * NLIMB)
++#define BASE 12157665459056928801ULL /* 3^40 */
++
++static u64 BINV; /* floor((2^128-1)/BASE) - 2^64 */
++
++static void die(const char *msg) {
++    fprintf(stderr, "tree_c1: FATAL: %s\n", msg);
++    exit(3);
++}
++
++/* (u1:u0) with u1 < BASE  ->  quotient q, remainder *rem */
++static inline u64 divB(u64 u1, u64 u0, u64 *rem) {
++    u128 q = (u128)BINV * u1;
++    q += ((u128)u1 << 64) | u0;
++    u64 q1 = (u64)(q >> 64) + 1, q0 = (u64)q;
++    u64 r = u0 - q1 * BASE;
++    if (r > q0) { q1--; r += BASE; }
++    if (r >= BASE) { q1++; r -= BASE; }
++    *rem = r;
++    return q1;
++}
++
++/* out = a*b mod 3^L (out may not alias a or b) */
++static inline void mulmod(const u64 *a, const u64 *b, u64 *out) {
++    u64 res[NLIMB];
++    memset(res, 0, sizeof res);
++    for (int i = 0; i < NLIMB; i++) {
++        u64 ai = a[i], carry = 0;
++        if (!ai) continue;
++        for (int j = 0; j < NLIMB - i; j++) {
++            u128 t = (u128)ai * b[j] + res[i + j] + carry; /* <= B^2 - 1 < B*2^64 */
++            carry = divB((u64)(t >> 64), (u64)t, &res[i + j]);
++        }
++    }
++    memcpy(out, res, sizeof res);
++}
++
++static u64 POW3[40];
++/* trit number t (0-based, least significant first) of v */
++static inline int trit(const u64 *v, int t) { return (int)((v[t / 40] / POW3[t % 40]) % 3); }
++
++static inline u64 mix(u64 z) {
++    z += 0x9E3779B97F4A7C15ULL;
++    z = (z ^ (z >> 30)) * 0xBF58476D1CE4E5B9ULL;
++    z = (z ^ (z >> 27)) * 0x94D049BB133111EBULL;
++    return z ^ (z >> 31);
++}
++
++static u128 N;
++static int record_low; /* this shard records levels <= d0 (shard 0) */
++static u64 ev_cnt, ev_sum, ev_xor;
++static u64 counts[LTRITS + 2];
++static int maxlev;
++static u128 *exc; static size_t nexc, capexc;
++
++/* per level k (1..LTRITS): P_k mod 2^128, P_k > N flag, bitlength of 3^k, G_k = 2^(P_k), G_k^2 mod 3^L */
++static u128 Pk[LTRITS + 2];
++static int Pbig[LTRITS + 2];
++static int BL3[LTRITS + 2];
++static u64 G1[LTRITS + 2][NLIMB], G2[LTRITS + 2][NLIMB];
++
++static inline void emit(int k, u128 r, int code) {
++    u64 h = mix(mix(mix((u64)r) ^ (u64)(r >> 64)) ^ (u64)(4 * k + code));
++    ev_cnt++; ev_sum += h; ev_xor ^= h;
++}
++
++typedef struct { u128 r; u64 v[NLIMB]; int k; int e; } node;
++
++/* classify candidate (k, r) with value v = 2^r mod 3^L; big = r is known > N.
++ * returns 1 if alive (and sets *e). */
++static inline int candidate(int k, u128 r, int big, const u64 *v, int record, int *e) {
++    if (big || r > N) { if (record) emit(k, r, 1); return 0; }
++    if (k > LTRITS) die("candidate depth exceeds the limb capacity (raise NLIMB)");
++    if (trit(v, k - 1) == 2) { if (record) emit(k, r, 0); return 0; }
++    *e = (r < (u128)BL3[k]) && (Pbig[k] || r + Pk[k] > N);
++    if (record) {
++        counts[k]++;
++        if (k > maxlev) maxlev = k;
++        if (*e) {
++            emit(k, r, 2);
++            if (nexc == capexc) { capexc = capexc ? 2 * capexc : 16; exc = realloc(exc, capexc * sizeof *exc); if (!exc) die("oom"); }
++            exc[nexc++] = r;
++        }
++    }
++    return 1;
++}
++
++/* children of alive node nd, appended to out[*n] */
++static inline void children(const node *nd, int record, node *out, size_t *n) {
++    if (nd->e) return;
++    int k = nd->k, kc = k + 1;
++    if (kc > LTRITS) die("child depth exceeds the limb capacity (raise NLIMB)");
++    u128 P = Pk[k];
++    int big = Pbig[k];
++    for (int j = 0; j < 3; j++) {
++        u128 rc = nd->r + (u128)j * P; /* mod 2^128 when big */
++        int cbig = big && j > 0;
++        node *c = &out[*n];
++        if (!cbig && rc <= N) {
++            if (j == 0) memcpy(c->v, nd->v, sizeof c->v);
++            else mulmod(nd->v, j == 1 ? G1[k] : G2[k], c->v);
++        }
++        int e = 0;
++        if (candidate(kc, rc, cbig, c->v, record, &e)) {
++            c->k = kc; c->r = rc; c->e = e; (*n)++;
++        }
++    }
++}
++
++static u128 parse_u128(const char *s) {
++    u128 x = 0;
++    if (!*s) die("empty N");
++    for (; *s; s++) {
++        if (*s < '0' || *s > '9') die("N must be decimal");
++        if (x > ((u128)1 << 120)) die("N too large");
++        x = x * 10 + (u128)(*s - '0');
++    }
++    return x;
++}
++
++static void print_u128(u128 x) {
++    char buf[48]; int p = 47; buf[p] = 0;
++    if (!x) buf[--p] = '0';
++    while (x) { buf[--p] = (char)('0' + (int)(x % 10)); x /= 10; }
++    fputs(buf + p, stdout);
++}
++
++static int cmp128(const void *a, const void *b) {
++    u128 x = *(const u128 *)a, y = *(const u128 *)b;
++    return x < y ? -1 : x > y;
++}
++
++static int cmpn(const void *a, const void *b);
++
++static void selftest(void) {
++    /* reduction check against plain 128-bit division */
++    u64 s = 0x1234567;
++    for (int it = 0; it < 100000; it++) {
++        s = mix(s); u64 u1 = s % BASE; s = mix(s); u64 u0 = s, rm;
++        u128 x = ((u128)u1 << 64) | u0;
++        u64 q = divB(u1, u0, &rm);
++        if (q != (u64)(x / BASE) || rm != (u64)(x % BASE)) die("divB self-test failed");
++    }
++}
++
++int main(int argc, char **argv) {
++    if (argc != 5) { fprintf(stderr, "usage: tree_c1 N i m d0\n"); return 2; }
++    N = parse_u128(argv[1]);
++    if (N >= ((u128)1 << 100)) die("N >= 2^100 not supported");
++    int si = atoi(argv[2]), sm = atoi(argv[3]), d0 = atoi(argv[4]);
++    if (sm < 1 || si < 0 || si >= sm || d0 < 1 || d0 >= LTRITS) die("bad shard / d0");
++    record_low = (si == 0);
++
++    BINV = (u64)(((u128)(~BASE) << 64 | ~(u64)0) / BASE);
++    POW3[0] = 1;
++    for (int i = 1; i < 40; i++) POW3[i] = POW3[i - 1] * 3;
++    selftest();
++
++    /* bitlength of 3^k, exact, with a small binary bignum */
++    {
++        uint32_t a[64] = {1}; int na = 1;
++        for (int k = 1; k <= LTRITS; k++) {
++            u64 c = 0;
++            for (int i = 0; i < na; i++) { u64 t = (u64)a[i] * 3 + c; a[i] = (uint32_t)t; c = t >> 32; }
++            if (c) { if (na == 64) die("bignum"); a[na++] = (uint32_t)c; }
++            int top = 31; while (!((a[na - 1] >> top) & 1)) top--;
++            BL3[k] = 32 * (na - 1) + top + 1;
++        }
++    }
++    /* P_k and G_k */
++    {
++        u128 P = 2; int big = 0;
++        u64 g[NLIMB] = {4}, t[NLIMB];
++        for (int k = 1; k <= LTRITS; k++) {
++            Pk[k] = P; Pbig[k] = big || P > N;
++            memcpy(G1[k], g, sizeof g);
++            mulmod(g, g, G2[k]);
++            /* next: P *= 3, g = g^3 */
++            if (P >= ((u128)1 << 100)) big = 1;
++            P *= 3;
++            mulmod(G2[k], g, t);
++            memcpy(g, t, sizeof t);
++        }
++    }
++
++    /* level 1 */
++    size_t cap = 1 << 16, nl = 0;
++    node *lev = malloc(cap * sizeof *lev), *nxt;
++    if (!lev) die("oom");
++    for (int r = 0; r < 2; r++) {
++        node c; memset(&c, 0, sizeof c);
++        c.v[0] = r ? 2 : 1;
++        int e = 0;
++        if (candidate(1, (u128)r, 0, c.v, record_low, &e)) { c.k = 1; c.r = r; c.e = e; lev[nl++] = c; }
++    }
++    /* breadth-first to level d0 */
++    for (int k = 1; nl && k < d0; k++) {
++        size_t ncap = 3 * nl + 3, nn = 0;
++        nxt = malloc(ncap * sizeof *nxt);
++        if (!nxt) die("oom");
++        for (size_t t = 0; t < nl; t++) children(&lev[t], record_low, nxt, &nn);
++        free(lev); lev = nxt; nl = nn;
++    }
++    /* roots: alive nodes at level d0 sorted by r ascending; node t belongs to shard t mod m */
++    qsort(lev, nl, sizeof *lev, cmpn);
++    /* depth-first below level d0 */
++    size_t scap = 4 * (LTRITS + 4), sp = 0;
++    node *stack = malloc(scap * sizeof *stack);
++    if (!stack) die("oom");
++    for (size_t t = si; t < nl; t += sm) {
++        stack[0] = lev[t]; sp = 1;
++        while (sp) {
++            node cur = stack[--sp];
++            if (sp + 3 > scap) die("stack overflow");
++            children(&cur, 1, stack, &sp);
++        }
++    }
++
++    qsort(exc, nexc, sizeof *exc, cmp128);
++    fputs("depth_counts", stdout);
++    for (int k = 1; k <= maxlev; k++) printf(" %llu", (unsigned long long)counts[k]);
++    fputs("\nexceptions", stdout);
++    for (size_t t = 0; t < nexc; t++) { putchar(' '); print_u128(exc[t]); }
++    printf("\nevents %llu\nsum %016llx\nxor %016llx\n", (unsigned long long)ev_cnt,
++           (unsigned long long)ev_sum, (unsigned long long)ev_xor);
++    return 0;
++}
++
++static int cmpn(const void *a, const void *b) {
++    u128 x = ((const node *)a)->r, y = ((const node *)b)->r;
++    return x < y ? -1 : x > y;
++}
+diff --git a/campaigns/erdos-ternary/search/run.py b/campaigns/erdos-ternary/search/run.py
+index 7044725..0ab2735 100644
+--- a/campaigns/erdos-ternary/search/run.py
++++ b/campaigns/erdos-ternary/search/run.py
+@@ -1,15 +1,15 @@
+-"""g0 search engine (seed): plain-Python DFS of the trailing-ternary-digit tree, see verify/CERT.md.
++"""g1 search engine (experiment g001-e01): driver for the C DFS in search/c1/tree_c1.c, rules per verify/CERT.md.
+ python3 search/run.py --N <N> --shard i/m --out <file>
+-Deliberately simple and slow; later generations replace it."""
+-import argparse, hashlib, json, math, time
++Compiles the C engine into build/ (gitignored) on first use; the binary name carries the source hash, so an
++edited source is recompiled. Output JSON has exactly the g0 format and field order."""
++import argparse, hashlib, json, math, os, pathlib, subprocess, sys, time
+ 
+-MASK = (1 << 64) - 1
++HERE = pathlib.Path(__file__).resolve().parent
++ROOT = HERE.parent
++SRC = HERE / "c1" / "tree_c1.c"
++BUILD = ROOT / "build"
++CFLAGS = ["-O2", "-march=native", "-Wall", "-Wextra"]
+ 
+-def splitmix(z):
+-    z = (z + 0x9E3779B97F4A7C15) & MASK
+-    z = ((z ^ (z >> 30)) * 0xBF58476D1CE4E5B9) & MASK
+-    z = ((z ^ (z >> 27)) * 0x94D049BB133111EB) & MASK
+-    return z ^ (z >> 31)
+ 
+ def parse_N(s):
+     s = s.replace(" ", "")
+@@ -18,66 +18,45 @@ def parse_N(s):
+         return int(a) * 3 ** int(b)
+     return int(s)
+ 
++
++def binary():
++    h = hashlib.sha256(SRC.read_bytes() + " ".join(CFLAGS).encode()).hexdigest()[:12]
++    exe = BUILD / f"tree_c1_{h}"
++    if not exe.exists():
++        BUILD.mkdir(exist_ok=True)
++        tmp = BUILD / f".tree_c1_{h}.{os.getpid()}"
++        subprocess.run(["cc", *CFLAGS, "-o", str(tmp), str(SRC)], check=True)
++        os.replace(tmp, exe)  # atomic: parallel shards may race to build
++    return exe
++
++
+ def search(N, i, m):
+     d0 = max(12, math.ceil(math.log2(16 * m)) + 2)
+-    counts, exc = [], []
+-    cnt = tot = xr = 0
+-    def emit(k, r, code):
+-        nonlocal cnt, tot, xr
+-        hv = splitmix(splitmix(splitmix(r & MASK) ^ (r >> 64)) ^ (4 * k + code))
+-        cnt += 1; tot = (tot + hv) & MASK; xr ^= hv
+-    def alive(k):
+-        while len(counts) < k: counts.append(0)
+-        counts[k - 1] += 1
+-    # node = (k, r, v, e) with v = 2^r mod 3^(k+1) (one extra trit for the children test), e = exception flag
+-    def candidate(k, r, v_mod_k1, record):
+-        """v_mod_k1 = 2^r mod 3^(k) is enough to test trit k-1; returns (alive, e)."""
+-        if r > N:
+-            if record: emit(k, r, 1)
+-            return False, False
+-        if v_mod_k1 // 3 ** (k - 1) == 2:
+-            if record: emit(k, r, 0)
+-            return False, False
+-        e = r < 2 * k and 3 ** k > (1 << r) and r + 2 * 3 ** (k - 1) > N
+-        if record:
+-            alive(k)
+-            if e: emit(k, r, 2); exc.append(r)
+-        return True, e
+-    def children(k, r, e, record, out):
+-        if e: return  # terminal exception node
+-        P = 2 * 3 ** (k - 1); M = 3 ** (k + 1)
+-        base = pow(2, r, M); g = pow(2, P, M)
+-        v = base
+-        for j in range(3):
+-            if j: v = v * g % M
+-            ok, ee = candidate(k + 1, r + j * P, v, record)
+-            if ok: out.append((k + 1, r + j * P, ee))
+-    level = []
+-    for r in (0, 1):
+-        ok, e = candidate(1, r, pow(2, r, 3), i == 0)
+-        if ok: level.append((1, r, e))
+-    while level and level[0][0] < d0:
+-        nxt = []
+-        for k, r, e in level:
+-            children(k, r, e, i == 0, nxt)
+-        level = nxt
+-    roots = sorted(level, key=lambda t: t[1])
+-    stack = [t for idx, t in enumerate(roots) if idx % m == i]
+-    while stack:
+-        k, r, e = stack.pop()
+-        children(k, r, e, True, stack)
+-    while counts and counts[-1] == 0: counts.pop()
++    p = subprocess.run([str(binary()), str(N), str(i), str(m), str(d0)], capture_output=True, text=True)
++    if p.returncode != 0:
++        sys.stderr.write(p.stderr)
++        raise SystemExit(f"run.py: C engine failed with exit code {p.returncode}")
++    out = {}
++    for line in p.stdout.splitlines():
++        key, *vals = line.split()
++        out[key] = vals
++    counts = [int(x) for x in out["depth_counts"]]
++    exc = sorted(int(x) for x in out["exceptions"])
++    cnt = int(out["events"][0]); tot = int(out["sum"][0], 16); xr = int(out["xor"][0], 16)
+     dig = hashlib.sha256(f"events={cnt};sum={tot:016x};xor={xr:016x}".encode()).hexdigest()
+     return {"N": str(N), "shard": f"{i}/{m}", "d0": d0, "depth_counts": counts,
+-            "exceptions": [str(x) for x in sorted(exc)], "events": cnt, "leaf_digest": dig}
++            "exceptions": [str(x) for x in exc], "events": cnt, "leaf_digest": dig}
++
+ 
+ if __name__ == "__main__":
+     ap = argparse.ArgumentParser()
+     ap.add_argument("--N", required=True); ap.add_argument("--shard", default="0/1"); ap.add_argument("--out", required=True)
+     a = ap.parse_args()
+     i, m = (int(x) for x in a.shard.split("/"))
++    N = parse_N(a.N)
++    binary()  # compile outside the timed region
+     t = time.time()
+-    res = search(parse_N(a.N), i, m)
++    res = search(N, i, m)
+     res["wall_s"] = round(time.time() - t, 3)
+     with open(a.out, "w") as f:
+         json.dump(res, f)
+-- 
+2.43.0
+
