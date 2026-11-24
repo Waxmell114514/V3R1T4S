@@ -3,3 +3,5 @@ import ErdosTernary.Checker
 import ErdosTernary.Counting
 import ErdosTernary.CountingSharp
 import ErdosTernary.E4
+import ErdosTernary.CheckerKernel
+import ErdosTernary.CheckerKernelUpTo16
