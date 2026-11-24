@@ -24,3 +24,5 @@
 2026-11-24T12:51:01Z	200	97fc7b15e8278d296b2fa98687cfd050396268395fbdf4eae15970b75d8583ed	zbapi_kennedy_cooper.json	https://api.zbmath.org/v1/document/_search?search_string=ti%3ANarkiewicz%20ti%3Alarge%20ti%3Adigits
 2026-11-24T12:51:02Z	200	a60728e806d2cb6f4ca9361c2fb1133f1710a740eefb1c045a3c90b1ae5181fb	zbapi_cites_narkiewicz.json	https://api.zbmath.org/v1/document/_search?search_string=py%3A1980-2026%20ti%3Apowers%20ti%3Aternary&results_per_page=50
 2026-11-24T12:51:04Z	200	f6e40bc179904566045113d1b3845c03252fa3fce7a389eb36ad78535a9c8d7c	mathscinet_narkiewicz.html	https://mathscinet.ams.org/mathscinet/search/publdoc.html?pg1=MR&s1=MR0624774
+2026-11-24T12:51:22Z	200	2b439122505abe6f70257aabcb51a6d43bffa6cc627dc811b4009fa88f037a27	zbapi_lagarias.json	https://api.zbmath.org/v1/document/_search?search_string=an%3A1193.11008
+2026-11-24T12:51:26Z	200	9eab5c88d8dbd19f4c24b9f5c0c11ffafb4f2643a5c879f3cd925602ba8b8b4c	zbapi_citing_0457.json	https://api.zbmath.org/v1/document/_search?search_string=ci%3A0457.10003&results_per_page=50
