@@ -20,3 +20,7 @@
 2026-11-24T12:50:28Z	200	cc4b1502ec6b3fa79d5d9afcf4245714cb4ad4c3bc911faf964383959deb89c0	arxiv_2202.13256.pdf	https://arxiv.org/pdf/2202.13256
 2026-11-24T12:50:29Z	200	d7310e38fb8c521b03fe69bebebff65dfdc646525a047fd196efa56b1c64c09d	arxiv_2601.09510.pdf	https://arxiv.org/pdf/2601.09510
 2026-11-24T12:50:29Z	200	c7e22d14b5120263b5ed27e28f6723d68685f01f9c5f6aa10f4820f7ec510639	arxiv_2601.12753.pdf	https://arxiv.org/pdf/2601.12753
+2026-11-24T12:51:00Z	403	122fef4372b61af964eb70b75f0f9f9083419dabd6ce5e1c0f1079112cd1e863	zbmath_0457.10003.html	https://zbmath.org/?q=an%3A0457.10003
+2026-11-24T12:51:01Z	200	97fc7b15e8278d296b2fa98687cfd050396268395fbdf4eae15970b75d8583ed	zbapi_kennedy_cooper.json	https://api.zbmath.org/v1/document/_search?search_string=ti%3ANarkiewicz%20ti%3Alarge%20ti%3Adigits
+2026-11-24T12:51:02Z	200	a60728e806d2cb6f4ca9361c2fb1133f1710a740eefb1c045a3c90b1ae5181fb	zbapi_cites_narkiewicz.json	https://api.zbmath.org/v1/document/_search?search_string=py%3A1980-2026%20ti%3Apowers%20ti%3Aternary&results_per_page=50
+2026-11-24T12:51:04Z	200	f6e40bc179904566045113d1b3845c03252fa3fce7a389eb36ad78535a9c8d7c	mathscinet_narkiewicz.html	https://mathscinet.ams.org/mathscinet/search/publdoc.html?pg1=MR&s1=MR0624774
