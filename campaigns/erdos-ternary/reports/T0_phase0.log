@@ -1,0 +1,26 @@
+ok   brute: exceptions for n<=20000 are exactly [0,2,8]
+ok   two-children lemma k<=40
+ok   tree_py alive counts == definition (N=3000)
+ok   tree_ref.c exceptions for N=20000 are [0,2,8]
+ok   tree_py == tree_ref.c (N=1000)
+ok   tree_py == tree_ref.c (N=100000)
+ok   tree_py == tree_ref.c (N=1062882)
+ok   engine == reference (N=1000, unsharded)
+ok   engine shards == reference shards (N=1000, m=3)
+ok   shard sums == unsharded (N=1000, m=3)
+ok   engine shards == reference shards (N=1000, m=7)
+ok   shard sums == unsharded (N=1000, m=7)
+ok   engine == reference (N=100000, unsharded)
+ok   engine shards == reference shards (N=100000, m=3)
+ok   shard sums == unsharded (N=100000, m=3)
+ok   engine shards == reference shards (N=100000, m=7)
+ok   shard sums == unsharded (N=100000, m=7)
+ok   engine == reference (N=1062882, unsharded)
+ok   engine shards == reference shards (N=1062882, m=3)
+ok   shard sums == unsharded (N=1062882, m=3)
+ok   engine shards == reference shards (N=1062882, m=7)
+ok   shard sums == unsharded (N=1062882, m=7)
+ok   check_cert passes an honest set
+ok   check_cert rejects a tampered count
+ok   check_cert rejects a missing shard
+T0: PASS

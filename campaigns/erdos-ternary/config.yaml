@@ -1,0 +1,37 @@
+problem: erdos-ternary-powers-of-two
+record_to_beat: "2*3^45"   # Saye 2022；阶段 0.3 复核一手来源后确认，此后不改
+auto_freeze: true
+freeze_checks:
+  brute_exceptions_exactly_0_2_8: true
+  tree_ref_matches_brute_up_to: 20000
+  tampered_cert_rejected: true
+generation:
+  k_hypotheses: 6
+  min_per_track: 2
+  min_targeting_bottleneck: 2   # 针对当前最大瓶颈（吞吐量或最弱引理）
+  min_exploratory: 1
+  population_size: 8
+  stall_generations: 6
+benchmark:
+  T1_N: "2*3^24"
+  repeats: 3
+eval_quota_per_experiment: 2
+verify:
+  recheck_fraction: 0.0005      # 长跑分片的独立抽查比例（参考实现约 6e6 事件/秒，校准后定）
+  min_rechecked_shards: 5
+long_run:
+  max_shard_wall_hours: 2
+  nice: 15
+gates:
+  M1_reproduce_N: "2*3^20"
+  M1_count_match_depth: 30
+  M2_verified_N_min_exclusive: "2*3^45"
+  M3_confirmed_new_statements_min: 1
+escalate:
+  single_gen_throughput_jump: 3.0   # 吞吐量单代提升超过 3 倍一律 escalate 复查
+  prediction_miss_factor: 5
+budget:
+  max_generations: 200
+  max_wall_hours: null   # 由人填写
+  max_parallel_workers: 4
+  max_spend: null        # 由人填写
