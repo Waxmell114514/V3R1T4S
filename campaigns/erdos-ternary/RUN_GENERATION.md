@@ -12,7 +12,8 @@ reports/STATUS.md 的"需要人"和 proposals/。
    reports/STATUS.md、最近一份 reports/gen_NNN.md、ledger/experiments.jsonl 最后 50 行、proposals/ 中人的答复。
 3. `python3 tools/check_lock.py` 必须打印 LOCK: OK，否则立即停止并报告。
 4. 检查"停止并等人"条件（MISSION.md）：escalate 未处理、疑似反例、M4 声称、stall、预算
-   （config.budget.max_generations 等）。任一成立：写 STATUS.md 后停止，不开新一代。
+   （config.budget.max_generations、max_wall_hours 自 STATUS.md 记录的起点算）。任一成立：写 STATUS.md，
+   并用 update_trigger 把 STATUS.md 记录的定时任务 enabled=false，然后停止，不开新一代。
 5. 检查长跑：certs/ 下进行中的分片（PID 记录在 certs/<id>/RUNNING.md）。容器若已被回收，进程不在了，
    从断点重新排队未完成分片。完成的分片证书提交。
 6. 按 MISSION.md 阶段 1 跑一代：Planner（roles/planner.md）→ 需要时 Researcher → Implementer 并行
