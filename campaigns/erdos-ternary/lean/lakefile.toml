@@ -12,5 +12,14 @@ name = "Frozen"
 srcDir = "../verify"
 roots = ["Statement"]
 
+# g004-C02: the checker's executable definitions (core-only imports, no Mathlib), compiled to native code.
+# Lake builds a shared library for this lib and loads it (--load-dynlib) when elaborating importers, so
+# native_decide runs these functions as machine code rather than in the IR interpreter.
+[[lean_lib]]
+name = "ETNative"
+srcDir = "ErdosTernary/Native"
+roots = ["ETNative"]
+precompileModules = true
+
 [[lean_lib]]
 name = "ErdosTernary"

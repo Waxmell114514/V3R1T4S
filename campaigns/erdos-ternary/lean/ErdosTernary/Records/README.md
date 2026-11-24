@@ -6,6 +6,7 @@ A green `lake build` does NOT check these. Build and audit each one explicitly, 
 
 | module | theorem | tier | cost (one run) |
 |---|---|---|---|
+| UpTo30 (+ UpTo30/Shard0..7) | upTo_30 : UpTo (2*3^30) | B (native_decide, 8 shard modules, precompiled checker) | see proofs/g004-C02.md |
 | UpTo28 | upTo_28 : UpTo (2*3^28) | B (native_decide, 8 shards) | ~8-11 min |
 | CheckerKernelUpTo18 | upToK_18 : UpTo (2*3^18) | A (kernel) | ~3.5 min |
 | CheckerKernelUpTo20 | upToK_20 : UpTo (2*3^20) | A (kernel) | ~15 min |

@@ -8,6 +8,7 @@ Tree (a simplification of verify/CERT.md, sound by `explore_sound` below): a nod
 otherwise it succeeds when its three children `(i+1, r + j * P)`, `j = 0, 1, 2`, succeed.
 Recursion depth is bounded by `fuel`; running out of fuel returns `false`, which is harmless for soundness. -/
 import Statement
+import ETNative
 import Mathlib.Data.Nat.ModEq
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
@@ -16,19 +17,7 @@ namespace ErdosTernary
 
 namespace Checker
 
-/-- One node of the residue tree. `Nat.powMod 2 r (3^(i+1))` is `2^r % 3^(i+1)` (`Nat.powMod_def`). -/
-def explore (N : ℕ) : ℕ → ℕ → ℕ → Bool
-  | 0, _, _ => false
-  | fuel + 1, i, r =>
-    let q := 3 ^ i
-    if N < r then true
-    else if Nat.powMod 2 r (3 * q) / q = 2 then true
-    else if N < r + 2 * q ∧ r ≤ 8 then true
-    else explore N fuel (i + 1) r && explore N fuel (i + 1) (r + 2 * q) &&
-      explore N fuel (i + 1) (r + 2 * (2 * q))
-
-/-- The checker: the two level-1 classes `n ≡ 0, 1 (mod 2)`. -/
-def check (N : ℕ) : Bool := explore N (N + 64) 0 0 && explore N (N + 64) 0 1
+-- `explore` and `check` are defined in `ErdosTernary/Native/ETNative.lean` (precompiled, g004-C02).
 
 /-- 2 has order dividing `2 * 3^i` modulo `3^(i+1)`. -/
 theorem pow_period (i : ℕ) : 2 ^ (2 * 3 ^ i) % 3 ^ (i + 1) = 1 := by
