@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/svZrObEGTY8iB9qQPwncXWjZEFc</id>
+  <title>arXiv Query: search_query=abs:"omit" AND abs:digit AND abs:powers&amp;id_list=&amp;start=0&amp;max_results=50</title>
+  <updated>2026-11-24T12:52:47Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22omit%22+AND+(abs:digit+AND+abs:powers)&amp;start=0&amp;max_results=50&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+  <opensearch:totalResults>6</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2611.18184v1</id>
+    <title>PTMTD: A Topology-Aware Temporal-Graph Attention Network for Joint Cyber-Attack Detection and Relay-Level Localization in Power System Protection Networks</title>
+    <updated>2026-11-13T13:51:59Z</updated>
+    <link href="https://arxiv.org/abs/2611.18184v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2611.18184v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The digitization of protection relays exposes power grids to sophisticated cyberattacks, yet existing GNN detectors omit temporal encoding, rely on static topologies, and lack relay localization. We propose PTMTD-a Pearson-driven Temporal Multimodal Topology-aware Detection Network-coupling a dilated TCN with multi-head GATv2 in a dual-head architecture for simultaneous 37-class detection and four-relay localization. PTMTD constructs its graph from measurement correlations (no impedance data) and is trained with a composite loss jointly optimizing both tasks. On the MSU-ORNL benchmark (78,377 samples, 37 classes), it achieves 99.27% accuracy, 99.25% macro F1, and 95.98% localization, outperforming GraphKAN, LSTM, GCN, and Random Forest by 5.64-11.15 percentage points (p &lt; 0.05). Ablations confirm gains from temporal encoding (+2.38%), graph attention (+2.69%), residuals (+2.07%), and correlation-driven supervision. With 639k parameters and 2.5 ms CPU inference, PTMTD is lightweight and deployment-ready. While validated on a transmission testbed, the architecture applies to microgrids with similar relay structures. Code and models are publicly available.</summary>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-11-13T13:51:59Z</published>
+    <arxiv:primary_category term="eess.SY"/>
+    <author>
+      <name>Shahin Razazni</name>
+    </author>
+    <author>
+      <name>Mohammad Ali Alirezapouri</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.03789v1</id>
+    <title>Repunit Coordinates for the Erdős Ternary-Digit Problem</title>
+    <updated>2026-09-30T20:41:49Z</updated>
+    <link href="https://arxiv.org/abs/2610.03789v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.03789v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Paul Erdős conjectured that the only powers of two whose ternary expansions contain no digit 2 are 1, 4, and 256. Despite extensive computational verification, the conjecture remains open. We reformulate the problem using generalised base-4 repunits. Any admissible exponent is even, say \(n=2s\), and \[ 2^{2s}=4^s=3R_s(4)+1,\qquad R_s(4)=\frac{4^s-1}{3}. \] Thus \(2^{2s}\) omits the ternary digit 2 if and only if \(R_s(4)\) does. For each depth \(m\), the map \(Φ_m:s\bmod 3^m\mapsto R_s(4)\bmod 3^m\) is a permutation of the residue classes modulo \(3^m\). Hence every prescribed \(m\)-digit ternary suffix has a unique canonical exponent seed modulo \(3^m\), and all exponents producing that suffix form an arithmetic progression. The lifting identity \[ R_{r+q3^m}(4)\equiv R_r(4)+q3^m\pmod{3^{m+1}} \] gives three lifts at each depth, exactly two of which preserve admissibility. The finite maps assemble into an isometric homeomorphism of the 3-adic integers conjugating \(x \mapsto x+1\) with \(y \mapsto 4y+1\). The unresolved global integer problem remains. No proof of the Erdős conjecture is claimed.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-30T20:41:49Z</published>
+    <arxiv:comment>26 pages, 2 figures, 5 tables. Includes reproducible finite-depth computations and an explicit search protocol. No proof of the Erdos conjecture is claimed</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Michael A. Idowu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.09772v1</id>
+    <title>SymbolicLight V2: Hybrid Neuromorphic Architecture and Sparse Execution for Low-Energy Language Inference</title>
+    <updated>2026-09-09T06:18:49Z</updated>
+    <link href="https://arxiv.org/abs/2609.09772v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.09772v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>SymbolicLight V2 combines sparse event computation with continuous-state processing in a hybrid neuromorphic language architecture. Extending V1's spike-gated dual paths, it adds graded signed events at further projections and softmax-free local attention. We implement the 194M-parameter model on an Alveo U50C FPGA using digital fixed-point arithmetic and on an ARM CPU using sparse integer execution. Across three same-checkpoint FPGA implementations at 175 MHz, active-row weight gathering and valid-state KV loading raise decode throughput from 474.6 to 643.2 tokens/s for a 32-token prefix and 128 outputs. Estimated gross card energy falls from 0.06087 to 0.04407 J per generated token, a 27.6% reduction. Complete-request energy, including prefill, falls by 24.4-27.7% across three prefix lengths. An independent idle split attributes 82.8% of gross card energy to loaded idle, explaining the benefit of shorter token latency. Against the recorded RTX 5090 compiled-FP32 baseline, integer FPGA execution uses 89.1% less estimated card energy during short-context decode; arithmetic precisions differ, and the GPU baseline is not the lowest-energy tested configuration. On four Cortex-A76 cores of a ROCK 5T, complete requests reach 65.4 tokens/s at 9.80 W and 0.151 J per generated token at the adapter's AC input. These results connect event sparsity to omitted computation and data movement. The mechanisms also support other dedicated V2 implementations: increasing throughput by a greater factor than active power lowers energy per generated token. Evaluation holds the deployed checkpoint fixed; its quality trails a same-budget dense control, so the results do not establish equal-quality efficiency.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-09T06:18:49Z</published>
+    <arxiv:comment>22 pages, 8 figures, 11 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Ting Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.06358v1</id>
+    <title>Edge Triggering in IoT Mesh Networks: A Comparative Monte Carlo Study of Seven Detection Algorithms</title>
+    <updated>2026-05-07T14:36:20Z</updated>
+    <link href="https://arxiv.org/abs/2605.06358v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.06358v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Real-time event detection in Internet of Things (IoT) mesh sensor networks presents significant challenges due to time-varying noise conditions, limited computational resources at edge nodes, and the need for autonomous operation without centralised coordination. This paper presents a comprehensive Monte Carlo simulation study comparing the Temporal Spectral Noise-Floor Adaptation (TSNFA) method against six alternative detection algorithms, evaluated across a 200-node mesh network over 24 hours with realistic noise models including 60 Hz electromagnetic interference (EMI), sinusoidally drifting noise power (+/- 6 dB), and intermittent digital switching bursts. TSNFA achieves 100% detection rate with zero false positives, uniquely combining three interlocking defences: spectral band selection, temporal persistence filtering, and adaptive noise-floor tracking. Every competing algorithm omits at least one of these three defences and fails correspondingly, with false-positive rates ranging from 0 (Send-on-Delta, which also detects nothing) to 13,387,930 (broadband energy ratio). These results identify the three-defence combination as necessary and sufficient for autonomous edge triggering in resource-constrained IoT deployments.</summary>
+    <category term="cs.NI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-07T14:36:20Z</published>
+    <arxiv:comment>19 pages, 3 figures, 8 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.NI"/>
+    <author>
+      <name>Sergii Makovetskyi</name>
+    </author>
+    <author>
+      <name>Lars Thomsen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.20631v3</id>
+    <title>Cost-benefit analysis of an AI-driven operational digital platform for integrated electric mobility, renewable energy, and grid management</title>
+    <updated>2026-03-22T12:12:39Z</updated>
+    <link href="https://arxiv.org/abs/2506.20631v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.20631v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Integrating electric mobility, including electric vehicles (EVs), electric trucks (ETs), and renewable energy sources (RES) with the power grid is paramount for decarbonization, efficiency, and stability. A critical gap remains, however: existing smart-grid and e-mobility cost-benefit analysis (CBA) approaches do not yet provide a unified framework for appraising AI-driven operational digital platforms (ODPs) that jointly coordinate EV/ET charging, renewable generation, and grid operations across sectoral and national boundaries. This paper develops a seven-step CBA framework tailored to this class of platform. The framework maps each layer of a multi-layered AI architecture to traceable, monetizable benefit streams-panning economic efficiency, grid reliability, and environmental externalities--while explicitly accounting for AI-specific capital and operational expenditures that conventional appraisals omit. Applied to a ten-year, three-country deployment across Austria, Hungary, and Slovenia, the analysis indicates a robust positive investment case under the modeled assumptions, confirmed through scenario sensitivity analysis, one-way parameter ranking, and probabilistic simulation. Benefit composition and country-level drivers differ systematically across national contexts, yet the economic rationale is preserved in each, reflecting the framework's adaptability to heterogeneous electrification trajectories. The findings indicate the economic viability of AI-driven digital platforms for cross-sectoral energy--mobility integration and highlight the critical role of ODPs in advancing decarbonization in the mobility--power nexus. To that end, they have direct implications for the design and appraisal of digital infrastructure investments under the EU's Fit for 55 and REPowerEU programmes.</summary>
+    <category term="econ.GN" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-25T17:26:16Z</published>
+    <arxiv:primary_category term="econ.GN"/>
+    <author>
+      <name>Arega Getaneh Abate</name>
+    </author>
+    <author>
+      <name>Xiaobing Zhang</name>
+    </author>
+    <author>
+      <name>Xiufeng Liu</name>
+    </author>
+    <author>
+      <name>Dogan Keles</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/astro-ph/0608632v2</id>
+    <title>Cosmological Constraints from the SDSS Luminous Red Galaxies</title>
+    <updated>2006-10-30T19:15:41Z</updated>
+    <link href="https://arxiv.org/abs/astro-ph/0608632v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/astro-ph/0608632v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We measure the large-scale real-space power spectrum P(k) using luminous red galaxies (LRGs) in the Sloan Digital Sky Survey (SDSS) and use this measurement to sharpen constraints on cosmological parameters from the Wilkinson Microwave Anisotropy Probe (WMAP). We employ a matrix-based power spectrum estimation method using Pseudo-Karhunen-Loeve eigenmodes, producing uncorrelated minimum-variance measurements in 20 k-bands of both the clustering power and its anisotropy due to redshift-space distortions, with narrow and well-behaved window functions in the range 0.01h/Mpc &lt; k &lt; 0.2h/Mpc. Results from the LRG and main galaxy samples are consistent, with the former providing higher signal-to-noise. Our results are robust to omitting angular and radial density fluctuations and are consistent between different parts of the sky. They provide a striking confirmation of the predicted large-scale LCDM power spectrum.
+  Combining only SDSS LRG and WMAP data places robust constraints on many cosmological parameters that complement prior analyses of multiple data sets. The LRGs provide independent cross-checks on Om and the baryon fraction in good agreement with WMAP. Within the context of flat LCDM models, our LRG measurements complement WMAP by sharpening the constraints on the matter density, the neutrino density and the tensor amplitude by about a factor of two, giving Omega_m=0.24+-0.02 (1 sigma), sum m_nu &lt; 0.9 eV (95%) and r&lt;0.3 (95%). Baryon oscillations are clearly detected and provide a robust measurement of the comoving distance to the median survey redshift z=0.35 independent of curvature and dark energy properties. Within the LCDM framework, our power spectrum measurement improves the evidence for spatial flatness, sharpening the curvature constraint Omega_tot=1.05+-0.05 from WMAP alone to Omega_tot=1.003+-0.010. Assuming Omega_tot=1, the equation of state parameter is constrained to w=-0.94+-0.09, indicating the potential for more ambitious future LRG measurements to provide precision tests of the nature of dark energy. All these constraints are essentially independent of scales k&gt;0.1h/Mpc and associated nonlinear complications, yet agree well with more aggressive published analyses where nonlinear modeling is crucial.</summary>
+    <category term="astro-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2006-08-30T15:28:12Z</published>
+    <arxiv:comment>Matches accepted PRD version. SDSS data, likelihood code, Markov chains and ppt figures available at http://space.mit.edu/home/tegmark/sdss.html 36 journal pages, 25 figs. CosmoMC plugin at http://cosmologist.info/cosmomc/</arxiv:comment>
+    <arxiv:primary_category term="astro-ph"/>
+    <arxiv:journal_ref>Phys.Rev.D74:123507,2006</arxiv:journal_ref>
+    <author>
+      <name>M Tegmark</name>
+    </author>
+    <author>
+      <name>D Eisenstein</name>
+    </author>
+    <author>
+      <name>M Strauss</name>
+    </author>
+    <author>
+      <name>D Weinberg</name>
+    </author>
+    <author>
+      <name>M Blanton</name>
+    </author>
+    <author>
+      <name>J Frieman</name>
+    </author>
+    <author>
+      <name>M Fukugita</name>
+    </author>
+    <author>
+      <name>J Gunn</name>
+    </author>
+    <author>
+      <name>A Hamilton</name>
+    </author>
+    <author>
+      <name>G Knapp</name>
+    </author>
+    <author>
+      <name>R Nichol</name>
+    </author>
+    <author>
+      <name>J Ostriker</name>
+    </author>
+    <author>
+      <name>N Padmanabhan</name>
+    </author>
+    <author>
+      <name>W Percival</name>
+    </author>
+    <author>
+      <name>D Schlegel</name>
+    </author>
+    <author>
+      <name>D Schneider</name>
+    </author>
+    <author>
+      <name>R Scoccimarro</name>
+    </author>
+    <author>
+      <name>U Seljak</name>
+    </author>
+    <author>
+      <name>H Seo</name>
+    </author>
+    <author>
+      <name>M Swanson</name>
+    </author>
+    <author>
+      <name>A Szalay</name>
+    </author>
+    <author>
+      <name>M Vogeley</name>
+    </author>
+    <author>
+      <name>J Yoo</name>
+    </author>
+    <author>
+      <name>I Zehavi</name>
+    </author>
+    <author>
+      <name>K Abazajian</name>
+    </author>
+    <author>
+      <name>S Anderson</name>
+    </author>
+    <author>
+      <name>J Annis</name>
+    </author>
+    <author>
+      <name>N Bahcall</name>
+    </author>
+    <author>
+      <name>B Bassett</name>
+    </author>
+    <author>
+      <name>A Berlind</name>
+    </author>
+    <author>
+      <name>J Brinkmann</name>
+    </author>
+    <author>
+      <name>T Budavari</name>
+    </author>
+    <author>
+      <name>F Castander</name>
+    </author>
+    <author>
+      <name>A Connolly</name>
+    </author>
+    <author>
+      <name>I Csabai</name>
+    </author>
+    <author>
+      <name>M Doi</name>
+    </author>
+    <author>
+      <name>D Finkbeiner</name>
+    </author>
+    <author>
+      <name>B Gillespie</name>
+    </author>
+    <author>
+      <name>K Glazebrook</name>
+    </author>
+    <author>
+      <name>G Hennessy</name>
+    </author>
+    <author>
+      <name>D Hogg</name>
+    </author>
+    <author>
+      <name>Z Ivezic</name>
+    </author>
+    <author>
+      <name>B Jain</name>
+    </author>
+    <author>
+      <name>D Johnston</name>
+    </author>
+    <author>
+      <name>S Kent</name>
+    </author>
+    <author>
+      <name>D Lamb</name>
+    </author>
+    <author>
+      <name>B Lee</name>
+    </author>
+    <author>
+      <name>H Lin</name>
+    </author>
+    <author>
+      <name>J Loveday</name>
+    </author>
+    <author>
+      <name>R Lupton</name>
+    </author>
+    <author>
+      <name>J Munn</name>
+    </author>
+    <author>
+      <name>K Pan</name>
+    </author>
+    <author>
+      <name>C Park</name>
+    </author>
+    <author>
+      <name>J Peoples</name>
+    </author>
+    <author>
+      <name>J Pier</name>
+    </author>
+    <author>
+      <name>A Pope</name>
+    </author>
+    <author>
+      <name>M Richmond</name>
+    </author>
+    <author>
+      <name>C Rockosi</name>
+    </author>
+    <author>
+      <name>R Scranton</name>
+    </author>
+    <author>
+      <name>R Sheth</name>
+    </author>
+    <author>
+      <name>A Stebbins</name>
+    </author>
+    <author>
+      <name>C Stoughton</name>
+    </author>
+    <author>
+      <name>I Szapudi</name>
+    </author>
+    <author>
+      <name>D Tucker</name>
+    </author>
+    <author>
+      <name>D Vanden Berk</name>
+    </author>
+    <author>
+      <name>B Yanny</name>
+    </author>
+    <author>
+      <name>D York</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.74.123507</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.74.123507" title="doi"/>
+  </entry>
+</feed>

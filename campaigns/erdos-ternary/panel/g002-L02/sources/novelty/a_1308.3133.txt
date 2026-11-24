@@ -1,0 +1,1660 @@
+                                              INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF
+                                                            3-ADIC CANTOR SETS
+arXiv:1308.3133v1 [math.NT] 14 Aug 2013
+
+
+
+
+                                                              WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+                                                  Abstract. Motivated by a question of Erdős, this paper considers questions
+                                                  concerning the discrete dynamical system on the 3-adic integers Z3 given by
+                                                  multiplication by 2. Let the 3-adic Cantor set Σ3,2̄ consist of all 3-adic in-
+                                                  tegers whose expansions use only the digits 0 and 1. The exceptional set
+                                                  E(Z3 ) is the set of all elements of Z3 whose forward orbits under this ac-
+                                                  tion intersects the 3-adic Cantor set Σ3,2̄ infinitely many times. It has been
+                                                  shown that this set has Hausdorff dimension at most 12 and it has been con-
+                                                  jectured that it has Hausdorff dimension 0. Approaches to upper bounds on
+                                                  the Hausdorff dimensions of these sets leads to study of intersections of multi-
+                                                  plicative translates of Cantor sets by powers of 2. More generally, this paper
+                                                  studies the structure of finite intersections of general multiplicative translates
+                                                  S = Σ3,2̄ ∩ M1 Σ3,2̄ ∩ · · · ∩ M1 Σ3,2̄ by integers 1 < M1 < M2 < · · · < Mn .
+                                                                  1                n
+                                                  These sets are describable as sets of 3-adic integers whose 3-adic expansions
+                                                  have one-sided symbolic dynamics given by a finite automaton. As a conse-
+                                                  quence, the Hausdorff dimension of such a set is always of the form log3 (β)
+                                                  where β is an algebraic integer. This paper gives a method to determine the
+                                                  automaton for given data (M1 , ..., Mn ). Experimental results indicate that the
+                                                  Hausdorff dimension of such sets depends in a very complicated way on the
+                                                  integers M1 , ..., Mn .
+
+
+
+
+                                                                                    Contents
+                                            1. Introduction                                                                             2
+                                            1.1. Motivation: Erdős problem                                                             3
+                                            1.2. Generalized exceptional set problem                                                    5
+                                            1.3. Algorithmic Results                                                                    6
+                                            1.4. Hausdorff dimension results: Two infinite families                                     7
+                                            1.5. Hausdorff dimension results: exceptional sets                                          8
+                                            1.6. Extensions of Results                                                                  9
+                                            1.7. Overview                                                                               9
+                                            1.8. Notation                                                                               9
+                                            2. Symbolic Dynamics and Graph-Directed Constructions                                       9
+                                            2.1. Symbolic Dynamics, Graphs and Finite Automata                                          9
+                                            2.2. p-Adic path sets, sofic shifts and p-adic path set fractals                           10
+                                            2.3. p-Adic Symbolic Dynamics and Graph Directed Constructions                             11
+                                            3. Structure of Intersection Sets C(1, M1 , M2 , ..., Mn )                                 12
+                                            3.1. Constructing a path set presentation X(1, M )                                         12
+                                            3.2. Constructing a path set presentation X(1, M1 , . . . , Mn )                           15
+
+                                             Date: August 13, 2013.
+                                             The first author received support from an NSF Graduate Research Fellowship. The second
+                                          author received support from NSF grants DMS-0801029 and DMS-1101373.
+                                                                                          1
+2                     WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+    3.3. Path Set Characterization of C(1, M1 , ..., Mn )                                 16
+    3.4. Examples                                                                         16
+    4. Infinite Families                                                                  20
+    4.1. Basic Properties                                                                 20
+    4.2. The family Lk = (1k )3 = 21 (3k − 1).                                            21
+    4.3. The family Nk = (10k−1 1)3 = 3k + 1.                                             23
+    4.4. Hausdorff dimension bounds for C(1, M1 , ..., Mn ) with Mi in families           26
+    5. Applications                                                                       28
+    5.1. Hausdorff dimension of the generalized exceptional set E⋆ (Z3 )                  28
+    5.2. Bounds for approximations to the exceptional set E(Z3 )                          29
+    Acknowledgments                                                                       30
+    References                                                                            30
+
+
+
+                                    1. Introduction
+   We study the following problem. Let the 3-adic Cantor set Σ3 := Σ3,2̄ be the
+subset of all 3-adic integers whose 3-adic expansions consist of digits 0 and 1 only.
+This set is a well-known fractal having Hausdorff dimension dimH (Σ3 ) = log3 2 ≈
+0.630929. By a multiplicative translate of such a Cantor set we mean a multiplica-
+tively rescaled set rΣ3 = {rx : x ∈ Σ3 }, where we restrict to r = pq ∈ Q× being a
+rational number that is 3-integral, meaning that 3 does not divide q, In this paper
+we study sets given as finite intersections of such multiplicative translates:
+                                                         n
+                                                        \   1
+                            C(r1 , r2 , · · · , rn ) :=       Σ3 ,              (1.1)
+                                                           r
+                                                        i=1 i
+
+where now each r1i is 3-integral. These sets are fractals and our object is to obtain
+bounds on their Hausdorff dimensions. Our motivation for studying this problem
+arose from a problem of Erdős [8] which is described in Section 1.1.
+   In principle the Hausdorff dimensions of sets C(r1 , r2 , · · · , rn ) are explicitly com-
+putable in a closed form. This comes about as follows. We show each such set has
+the property that the 3-adic expansions of all the members of C(r1 , r2 , · · · , rn ) are
+characterizable as the output labels of all infinite paths in a labeled finite automaton
+which start from a marked initial vertex. General sets of such path labels associated
+to a finite automaton form symbolic dynamical systems that we call path sets and
+which we study in [1]. The sets C(r1 , r2 , · · · , rn ) are then p-adic path set fractals
+(with p = 3), using terminology we introduced in [2]. These sets are collections
+of all p-adic numbers whose p-adic expansions have digits described by the labels
+along infinite paths according to a digit assignment map taking path labels in the
+graph to p-adic digits. In [2, Theorem 2.10] we showed that a p-adic path set fractal
+is any set Y in Zp constructed by a p-adic analogue of a real number graph-directed
+fractal construction, as given in Mauldin and Williams [16]. This geometric object
+Y is given as the set-valued fixed point of a dilation functional equation using a set
+of p-adic affine maps, cf. [2, Theorem 2.6]. We showed in [2, Theorem 1.4] that the
+if X is a p-adic path set fractal then any multiplicative translate rX by a p-integral
+rational number r is also a p-adic path set fractal. In addition p-adic path set
+fractals are closed under set intersection, a property they inherit from path sets,
+see [1, Theorem 1.2]. Since the 3-adic Cantor set is a 3-adic path set fractal, the
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                   3-ADIC CANTOR SETS        3
+
+
+full shift on two symbols, these closure properties immediately imply that every set
+C(r1 , r2 , ..., rn ) is a 3-adic path set fractal.
+   In [2, Theorem 1.1] we showed that the Hausdorff dimension of a p-adic path set
+fractal X is directly computable from the adjacency matrix of a suitable presenta-
+tion X. One has
+                                       dimH (X) = logp β,
+in which β is the spectral radius ρ(A) of the adjacency matrix A of a finite automa-
+ton which gives a suitable presentation of the given path set; see Section 2. This
+spectral radius coincides with the Perron eigenvalue ([13, Definition 4.4.2]) of the
+nonnegative integer matrix A 6= 0, which is the largest real eigenvalue β ≥ 0 of A.
+For adjacency matrices of graphs containing at least one directed cycle, which are
+nonnegative integer matrices, the Perron eigenvalue is necessarily a real algebraic
+integer, and also has β ≥ 1. In the case at hand we know a priori that 1 ≤ β ≤ 2.
+Everything here is algorithmically effective, as discussed in Sections 2 and 3.
+   This paper presents theoretical and experimental results about these sets. In
+Section 3 we give an algorithm to compute an efficient presentation of the under-
+lying path set of C(1, M ) for integers M ≥ 1, which is simpler than the general
+constructions given in [1], [2]. We extend this method to C(1, M1 , M2 , ..., Mn ). We
+give a complete analysis of the structure of the resulting path set presentations for
+two infinite families C(1, Mk ) of integers {Mk : k ≥ 1} whose 3-adic expansions take
+an especially simple form. These examples exhibit rather complicated automata in
+the presentations. We experimentally use the algorithm for C(1, M1 , M2 , ..., Mn ) to
+compute various examples indicating that the automata depend in an extremely
+complicated way on 3-adic arithmetic properties of M . This complexity is reflected
+in the behavior of the Hausdorff dimension function, and leads to many open ques-
+tions.
+
+1.1. Motivation: Erdős problem. Erdős [8] conjectured that for every n ≥ 9,
+the ternary expansion of 2n contains the ternary digit 2. A weak version of this
+conjecture asserts that there are finitely many n such that the ternary expansion
+of 2n consists of 0’s and 1’s. Both versions of this conjecture appear difficult.
+   In [11] the second author proposed a 3-adic generalization of this problem, as
+follows. Let Z3 denote the 3-adic integers, and let a 3-adic integer α have 3-adic
+expansion
+     (α)3 := (· · · a2 a1 a0 )3 = a0 + a1 · 3 + a2 · 32 + · · · , with all ai ∈ {0, 1, 2}.
+Definition 1.1. The 3-adic exceptional set E(Z3 ) is defined by
+E(Z3 ) := {λ ∈ Z3 : for infinitely many n ≥ 0 the expansion (2n λ)3 omits the digit 2}.
+   The weak version of Erdős’s conjecture above is equivalent to the assertion that
+E(Z3 ) does not contain the integer 1.
+   The exceptional set seems an interesting object in its own right. It is forward
+invariant under multiplication by 2, and one may expect it to be a very small set
+in terms of measure or dimension. At present it remains possible that the E(Z3 )
+is a countable set, or even that it consists of the single element {0}. In 2009 the
+second author put forward the following conjecture asserting that the exceptional
+set is small in the sense of Hausdorff dimension ( [11, Conjecture 1.7]).
+4                         WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+Conjecture 1.2. (Exceptional Set Conjecture) The 3-adic exceptional set E(Z3 )
+has Hausdorff dimension zero, i.e.
+                                         dimH (E(Z3 )) = 0.                           (1.2)
+   As limited evidence in favor of this conjecture, the paper [11] showed that the
+Hausdorff dimension of E(Z3 ) is at most 21 , as explained below. That paper initiated
+a strategy to obtain upper bounds for dimH (E(Z3 )) based on the containment
+relation
+                                         \∞
+                               E(Z3 ) ⊆        E (k) (Z3 ),                      (1.3)
+                                                  k=1
+where
+           E (k) (Z3 ) := {λ ∈ Z3 : at least k values of (2n λ)3 omit the digit 2}.   (1.4)
+     These sets form a nested family
+                         Σ3,2̄ = E (1) (Z3 ) ⊇ E (2) (Z3 ) ⊇ E (3) (Z3 ) ⊇ · · ·
+The containment relation (1.3) immediately implies inequalities relating the Haus-
+dorff dimension of these sets, namely
+                                         dimH (E(Z3 )) ≤ Γ,                           (1.5)
+where Γ is defined by
+                                   Γ := lim dimH (E (k) (Z3 )).                       (1.6)
+                                          k→∞
+   The inequality (1.5) raises the subsidiary problem of obtaining upper bounds for
+Γ, which in turn requires obtaining bounds for the individual dimH (E (k) (Z3 )). We
+note the possibility that dimH (E(Z3 )) < Γ may hold.
+   The analysis of the sets E (k) (Z3 ) for k ≥ 2 leads to the study of particular sets
+of the kind (1.1) considered in this paper. We have
+                                         [
+                      E (k) (Z3 ) =             C(2m1 , . . . , 2mk ).            (1.7)
+                                         0≤m1 <...<mk
+
+  We next give a simplification, showing that for the purposes of computing Haus-
+dorff dimension we may, without loss of generality, restrict this set union to subsets
+having m1 = 0 so that 2m1 = 1.
+Definition 1.3. The restricted 3-adic exceptional set E1 (Z3 ) is given by
+E1 (Z3 ) := {λ ∈ Z3 : for n = 0 and infinitely many other n, (2n λ)3 omits the digit 2}.
+     It is easy to see that
+                                                  ∞
+                                                 [    1
+                                      E(Z3 ) =          E1 (Z3 ).
+                                                 n=0
+                                                     2n
+Since the right side is a countable union of sets we obtain
+                                          1        
+             dimH (E(Z3 )) = sup dimH ( n E1 (Z3 )) = dimH (E1 (Z3 )).
+                              n≥0         2
+and we also have E1 (Z3 ) ⊂ Σ3,2̄ . Now set
+     (k)
+    E1 (Z3 ) := {λ ∈ Σ3,2̄ : for at least k values of n ≥ 0, (2n λ)3 omits the digit 2}.
+For 0 < m1 < m2 < · · · < mk we have the set identities
+                                       1
+              C(2m1 , . . . , 2mk ) = m1 C(1, 2m2 −m1 , . . . , 2mk −m1 ).
+                                     2
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                     3-ADIC CANTOR SETS    5
+
+                                    S∞        (k)
+These identities yield E (k) (Z3 ) = n=0 2−n E1 (Z3 ). Again, since this is a countable
+union of sets, we obtain the equality
+                                                      
+                                                (k)                 (k)
+          dimH (E (k) (Z3 )) = sup dimH (2−n E1 (Z3 ) = dimH (E1 (Z3 ))
+                                k≥1
+
+asserted above. It also follows that
+                                                    (k)
+                               Γ = lim dimH (E1 (Z3 )).                                (1.8)
+                                      k→∞
+   We now have
+                     (k)
+                                       [
+                    E1 (Z3 ) =                    C(1, 2m1 , . . . , 2mk−1 ).          (1.9)
+                                 0≤m1 <...<mk−1
+
+The right side of this expression is a countable union of sets, so we have
+                                                                         
+              (k)
+      dimH (E1 (Z3 )) =        sup         dimH C(1, 2m1 , . . . , 2mk−1 ) .          (1.10)
+                           0≤m1 <...<mk−1
+
+Upper bounds for the right side of this formula are obtained by bounding above
+the Hausdorff dimensions of all the individual sets C(1, 2m1 , . . . , 2mk−1 ), of the form
+(1.1). Lower bounds may be obtained by determining the Hausdorff dimension of
+specific individual sets C(1, 2m1 , . . . , 2mk−1 ). By this means the second author [11,
+Theorem 1.6 (ii)] obtained the upper bound
+                                                          (2)       1
+                     Γ ≤ dimH (E (2) (Z3 )) = dimH (E1 (Z3 )) ≤ ,                    (1.11)
+                                                                    2
+and using (1.5) we conclude that
+                                                        1
+                                   dimH (E(Z3 )) ≤ .                                 (1.12)
+                                                        2
+1.2. Generalized exceptional set problem. We are interested in obtaining im-
+proved upper bounds on dimH (E(Z3 )). To progress further with the approach
+above, one needs a better understanding of the structure of sets C(1, 2m1 , ..., 2mk ),
+with the hope to obtain uniform bounds on their Hausdorff dimension.
+   One approach to upper bounding the exceptional set is to relax its defining
+conditions to allow arbitrary positive integers M in place of powers of 2. Since
+the 3-adic Cantor set Σ3,2̄ is forward invariant under multiplication by 3, we will
+restrict to integers M 6≡ 0 (mod 3).
+   For application to the exceptional set E(Z3 ), the discussion in Section 1.1 indi-
+cates that it suffices to consider the restricted family of sets C(1, M1 , . . . , Mn ), i.e.
+taking M0 = 1. We define a relaxed version of the restricted 3-adic exceptional set,
+as follows.
+Definition 1.4. The 3-adic generalized exceptional set is the set
+E⋆ (Z3 ) := {λ ∈ Z3 : there are infinitely many M ≥ 1, M 6≡ 0 (mod 3), including M = 1,
+              such that the 3-adic expansion (M λ)3 omits the digit 2}.
+   When considering intersective sets C(1, M1 , . . . , Mn ), we can then further restrict
+to require all Mi ≡ 1 (mod 3), since any M ≡ 2 (mod 3) has C(1, M ) = {0}. We
+have E1 (Z3 ) ⊂ E⋆ (Z3 ) ⊂ Σ3,2̄ and therefore
+                   dimH (E(Z3 )) = dimH (E1 (Z3 )) ≤ dimH (E⋆ (Z3 )).                 (1.13)
+Thus upper bounds for the Hausdorff dimension of the generalized exceptional set
+yield upper bounds for that of the exceptional set.
+6                      WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+Problem 1.5. (Generalized Exceptional Set Problem ) Determine upper and lower
+bounds for the Hausdorff dimension of the generalized exceptional set E⋆ (Z3 ). In
+particular, determine whether dimH (E⋆ (Z3 )) = 0 or dimH (E⋆ (Z3 )) > 0 holds.
+                                                              (k)
+     We next define a family of sets in parallel to E1 (Z3 ) above. We define
+    (k)
+E⋆ (Z3 ) := {λ ∈ Z3 : there exist 1 = M1 < M2 < · · · < Mk , with all Mi ≡ 1(mod 3),
+                 such that the 3-adic expansion (Mi λ)3 omits the digit 2}.
+     Then in parallel to the case above, we have
+                       (k)
+                                      [
+                     E⋆ (Z3 ) =               C(1, M1 , . . . , Mk−1 ).
+                                  1=M1 <...<Mk−1
+                                   Mi ≡1( mod 3)
+
+
+In consequence we have the inclusion
+                                               ∞
+                                                      (k)
+                                               \
+                                  E⋆ (Z3 ) ⊆         E⋆ (Z3 ).
+                                               k=1
+
+This inclusion yields the bound
+                                   dimH (E⋆ (Z3 )) ≤ Γ∗ ,                       (1.14)
+where we define
+                                                        (k)
+                               Γ⋆ := lim dimH (E⋆ (Z3 )).                       (1.15)
+                                      k→∞
+As far as we know it is possible that dimH (E⋆ (Z3 )) < Γ∗ may occur.
+  The second author [11, Theorem 1.6] obtained the upper bound
+                                                (2)                 1
+                                Γ∗ ≤ dimH (E⋆ (Z3 )) ≤                ,         (1.16)
+                                                                    2
+which in fact yielded (1.11).
+   Our interest in the generalized exceptional set problem stemmed from the fact
+that if it were true that dimH (E⋆ (Z3 )) = 0, then the Exceptional Set Conjecture
+1.2 would follow. However a main result of our investigation establishes that this
+does not hold: we obtain the lower bounds
+                                            1
+                     Γ⋆ ≥ dimH (E⋆ (Z3 )) ≥ log3 2 ≈ 0.315464,
+                                            2
+see Theorem 1.9 below. This inconvenient fact limits the upper bounds attainable
+on dimH (E(Z3 )) via the relaxed problem.
+
+1.3. Algorithmic Results. We study the size of intersections of multiplicative
+translates of the 3-adic Cantor set Σ3 := Σ3,2̄ , as measured by Hausdorff dimension.
+We study the sets
+                                                  1            1
+                C(1, M1 , . . . , Mn ) := Σ3,2̄ ∩   Σ ∩ ···∩      Σ .
+                                                  M1 3,2̄     Mn 3,2̄
+where 1 < M1 < · · · < Mn are positive integers. As remarked above, via results
+in [1], [2] these sets have a nice description, with their members having p-adic
+expansions describable by finite automata, which permits effective computation
+of their Hausdorff dimension. These results are reviewed in Section 2, and the
+necessary definitions for presentations of a path set used in the following theorem
+appear there.
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                 3-ADIC CANTOR SETS    7
+
+
+Theorem 1.6. (Dimension of C(1, M1 , ..., Mn ))
+   (1) There is a terminating algorithm that takes as input any finite set of integers
+1 ≤ M1 < . . . < Mn , and gives as output a labeled directed graph G = (G, L)
+with a marked starting vertex v0 , which is a presentation of a path set X =
+X(1, M1, M2 , · · · , Mn ) describing the 3-adic expansions of the elements of the space
+                                             1                1
+                   C(1, M1 , ..., Mn ) := Σ3 ∩  Σ3 ∩ . . . ∩    Σ3 .
+                                            M1               Mn
+This presentation is right-resolving
+                                   Qnand all vertices are reachable from the marked
+vertex. The graph G has at most i=1 (1 + ⌊ 21 Mi ⌋) vertices.
+   (2) The topological entropy β of the path set X is the Perron eigenvalue of the
+adjacency matrix A of the directed graph G. It is a real algebraic integer satisfying
+1 ≤ β ≤ 2. Furthermore the Hausdorff dimension
+                          dimH (C(1, M1 , ..., Mn )) = log3 β.
+This dimension falls in the interval [0, log3 2].
+   This construction is quite explicit in the special case C(1, M ). In that case
+already the associated graphs G can be very complicated, and there exist examples
+where the graph has an arbitrarily large number of strongly connected components,
+cf. [3].
+   We have computed Hausdorff dimensions of many examples of such intersections.
+In the process we have found some infinite families of integers where the graph
+structures are analyzable, see Section 4 and [3]. From the viewpoint of fractal con-
+structions, the sets constructed give specific interesting examples of graph-directed
+fractals, which appear to have structure depending on the integers (M1 , .., Mn ) in
+an intricate way.
+
+1.4. Hausdorff dimension results: Two infinite families. There are some
+simple properties of the 3-adic expansion of M (which coincides with the ternary
+expansion of M , read backwards) which restrict the Hausdorff dimension of sets
+C(1, M ). We begin with some simple restrictions on the Hausdorff dimension which
+can be read off from the 3-adic expansion of M ; this coincides with the ternary
+expansion of M , written (M )3 , written backwards, where we write the ternary
+expansion
+                                                           k
+                                                           X
+               (M )3 := (ak ak−1 · · · a1 a0 )3 , f or M =    aj 3 j .
+                                                                 j=0
+
+If the first nonzero 3-adic digit a0 = 2, then C(1, M ) = {0}, whence its Haus-
+dorff dimension dimH (C(1, M )) = 0. On the other hand, if the positive integers
+M1 , ..., Mk all all digits aj = 0 or aj = 1 in their 3-adic expansions, then the
+Hausdorff dimension dimH (C(1, M1 , M2 , ..., Mk )) must be positive.
+   We have found several infinite families of integers having ternary expansions
+of a simple form, whose path set presentations have a regular structure in the
+family parameter k, that permits their Hausdorff dimension to be determined. The
+simplest family takes M1 = 3k = (10k )3 . In this trivial case C(1, 3k ) = Σ3,2̄ , whence
+                        dimH (C(1, Mk )) = log3 2 ≈ 0.630929.                     (1.17)
+In Section 4 we analyze two other infinite families in detail, as follows. The first of
+these families is Lk = 12 (3k − 1) = (1k )3 , for k ≥ 1.
+8                     WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+Theorem 1.7. (Infinite Family Lk = 21 (3k − 1))
+   (1) Let Lk = 21 (3k − 1) = (1k )3 . The path set presentation (G, v0 ) for the path
+set X(1, Lk ) underlying C(1, Lk )) has exactly k vertices and is strongly connected.
+   (2) For every k ≥ 1,
+                     dimH (C(1, Lk ) = dimH C(1, (1k )3 ) = log3 βk ,
+where βk is the unique real root greater than 1 of λk − λk−1 − 1 = 0.
+  (3) For all k ≥ 3 there holds
+                                    log k                     
+                        
+                                           3         log log(k)
+                  dimH C(1, Lk ) =            +O                  .
+                                          k               k
+   The Hausdorff dimension of the set dimH (C(1, Lk )) is positive but approaches 0
+as k → ∞. This result is proved in Section 4.2.
+   Secondly, we consider the family Nk = 3k + 1 = (10k−1 1)3 . Our main results
+concern this family.
+Theorem 1.8. (Infinite Family Nk = 3k + 1)
+   (1) Let Nk = 3k + 1 = (10k−1 1)3 . The path set presentation (G, v0 ) for the path
+set X(1, Nk ) underlying C(1, Nk ) has exactly 2k vertices and is strongly connected.
+   (2) For every integer k ≥ 1, there holds
+                                                            √ 
+                                       k−1                1+ 5
+      dimH (C(1, Nk )) = dimH C(1, (10     1)3 ) = log3            ≈ 0.438018.
+                                                            2
+   Here the Hausdorff dimension is constant as k → ∞. Theorem 1.8 is a direct
+consequence of results established in Section 4.3 (Theorem 4.4 and Proposition 4.5).
+   We also include results on multiple intersections of sets in the two infinite families
+above in Section 4.4. It is easy to see that for each infinite family above, the
+Hausdorff dimensions of arbitrarily large intersections are always positive. We give
+some lower bounds on the dimension; Theorem 4.8 gives multiple intersections that
+establish Γ⋆ ≥ 12 log3 2.
+   In a sequel [3] we analyze a third infinite family Pk = (20k−1 1)3 = 2 · 3k + 1,
+whose underlying path set graphs exhibit much more complicated behavior; they
+have an unbounded number of strongly connected components as k → ∞.
+
+1.5. Hausdorff dimension results: exceptional sets. In addition we are able
+to combine graphs in the infinite family C(1, Nk ) in such a way to get C(1, M1 , M2 , ..., Mn )
+with distinct Mk ≡ 1 (mod 3) which have Hausdorff dimension further bounded
+away from zero.
+   In Section 5.1 we establish the following lower bound on the Hausdorff dimension
+of the generalized exceptional set. We are indebted to A. Bolshakov for observing
+this result, which improves on Theorem 4.8.
+Theorem 1.9. The generalized exceptional set E⋆ satisfies
+                                          1
+                           dimH (E⋆ ) ≥     log3 2 ≈ 0.315464.
+                                          2
+In fact,
+                                                                    1
+             dimH ({λ ∈ Σ3,2̄ : N2k+1 λ ∈ Σ3,2̄ for all k ≥ 1}) ≥     log3 2.
+                                                                    2
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF              3-ADIC CANTOR SETS      9
+
+
+   This result is an immediate corollary of Theorem 5.1. The proof strongly uses
+the fact that the integers N2k+1 have only two nonzero 3-adic digits.
+   In Section 5.2 we give numerical improvements on the lower bounds in [11] for
+small k for the Hausdorff dimension of the enclosing sets E (k) (Z3 ) that upper bound
+that of the exceptional set E(Z3 ). These improvements come via explicit examples.
+
+1.6. Extensions of Results. The results of this paper show that the Generalized
+Exceptional Set E∗ (Z3 ) has positive Hausdorff dimension. Theorem 1.9 shows that
+to make further progress on the Exceptional Set Conjecture one cannot relax the
+problem to consider general integers M ; it will be necessary to consider a smaller
+class on integers that have some special properties in common with the integers 2k .
+    In a sequel [3] we investigate another approach towards the Exceptional Set
+Conjecture. Let n3 (M ) denote the number of nonzero 3 digits of M . It asks
+whether the dimH C(1, M ) necessarily decreases to 0 as n3 (M ) → ∞. It is a known
+fact that the number of nonzero ternary digits in (2n )3 goes to infinity as n → ∞,
+i.e. for each k ≥ 2 there are only finitely many n with (2n )3 having at most
+k nonzero ternary digits. This result was first established in 1971 by Senge and
+Straus, see [18], and a quantitative version of this assertion follows from results of
+C. L. Stewart [20, Theorem 1]. It follows that if it were true that dimH C(1, M ) → 0
+as n3 (M ) → ∞, then the Exceptional Set Conjecture would follow.
+    This paper and its sequel [3] study the Hausdorff dimension of these sets in the
+special case of multiplicative translates of 3-adic Cantor sets, but one may also
+consider many more complicated path set fractals in the sense of [2] in place of the
+Cantor set. The algorithmic methods of this paper apply to p-adic numbers for any
+prime p and to the g-adic numbers considered by Mahler [14] for any integer g ≥ 2.
+
+1.7. Overview. Section 2 reviews properties of p-adic path sets and their symbolic
+dynamics, drawing on [1] and [2]. The general framework of these papers includes
+intersections of multiplicative translates of 3-adic Cantor sets as a special case.
+Section 2 also states a formula for computing the Hausdorff dimension of such sets.
+Section 3 of this paper gives algorithmic constructions and proves Theorem 1.6.
+It also presents examples. Section 4 studies two infinite families of intersections
+of 3-adic Cantor sets and proves Theorems 1.7 and 1.8. Section 5 gives applica-
+tions, which include the lower bound on the Hausdorff dimension of the generalized
+exceptional set E⋆ (Z3 ) and lower bounds on dimH (E (k) (Z3 )) for small k.
+
+1.8. Notation. The notation (m)3 means either the base 3 expansion of the posi-
+tive integer m, or else the 3-adic expansion of (m)3 . In the 3-adic case this expansion
+is to be P
+         read right to left, so that it is compatible with the ternary expansion. That
+is, α = ∞          j
+           j=0 aj 3 would be written (· · · a2 a1 a0 )3 .
+
+
+
+       2. Symbolic Dynamics and Graph-Directed Constructions
+2.1. Symbolic Dynamics, Graphs and Finite Automata. The constructions
+of this paper are based on the fact that the points in intersections of multiplicative
+translates of 3-adic Cantor sets have 3-adic expansions that are describable in terms
+of allowable paths generated by finite directed labeled graphs . We use symbolic
+dynamics on certain closed subsets of the one-sided shift space Σ = AN with fixed
+symbol alphabet A, which for our application will be specialized to A = {0, 1, 2}.
+10                    WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+A basic reference for directed graphs and symbolic dynamics, which we follow, is
+Lind and Marcus [13].
+   By a graph we mean a finite directed graph, allowing loops and multiple edges.
+A labeled graph is a graph assigning labels to each directed edge; these labels are
+drawn from a finite symbol alphabet. A labeled directed graph can be interpreted
+as a finite automaton in the sense of automata theory. In our applications to 3-adic
+digit sets, the labels are drawn from the alphabet A = {0, 1, 2}. In a directed graph,
+a vertex is a source if all directed edges touching that vertex are outgoing; it is a
+sink if all directed edges touching that edge are incoming. A vertex is essential if it
+is neither a source nor a sink, and is called stranded otherwise. A graph is essential
+if all of its vertices are essential. A graph G is strongly connected if for each two
+vertices i, j there is a directed path from i to j. We let SC(G) denote the set of
+strongly connected component subgraphs of G.
+   We use some basic facts from Perron-Frobenius theory of nonnegative matrices.
+The Perron eigenvalue ([13, Definition 4.4.2]) of a nonnegative real matrix A 6= 0 is
+the largest real eigenvalue β ≥ 0 of A. A nonnegative matrix is irreducible if for each
+row and column (i, j) some power Am has (i, j)-th entry nonzero. A nonnegative
+matrix A is primitive if some power Ak for an integer k ≥ 1 has all entries positive;
+primitivity implies irreducibility but not vice versa. The Perron-Frobenius theorem,
+[13, Theorem 4.2.3] for an irreducible nonnegative matrix A states that:
+     (1) The Perron eigenvalue β is geometrically and algebraically simple, and has
+          an everywhere positive eigenvector v.
+     (2) All other eigenvalues µ have |µ| ≤ β, so that β = σ(A), the spectral radius
+          of A.
+     (3) Any other everywhere positive eigenvector must be a positive mulitiple of
+          v.
+For a general nonnegative real matrix A 6= 0, the Perron eigenvalue need not be
+simple, but it still equals the spectral radius σ(A) and it has at least one everywhere
+nonnegative eigenvector.
+   We apply this theory to adjacency matrices of graphs. A (vertex-vertex) adja-
+cency matrix A = AG of the directed graph G has entry aij counting the number
+of directed edges from vertex i to vertex j. The adjacency matrix is irreducible if
+and only if the associated graph is strongly connected, and we also call the graph
+irreducible in this case. Here primitivity of the adjacency matrix of a directed graph
+G is equivalent to the graph being strongly connected and aperiodic, i.e. the great-
+est common divisor of its (directed) cycle lengths is 1. For an adjacency matrix
+of a graph containing at least at least one directed cycle, its Perron eigenvalue is
+necessarily a real algebraic integer β ≥ 1 (see Lind [12] for a characterization of
+these numbers).
+
+2.2. p-Adic path sets, sofic shifts and p-adic path set fractals. Our basic
+objects are special cases of the following definition. A pointed graph is a pair (G, v)
+consisting of a directed labeled graph G = (G, E) and a marked vertex v of G. Here
+G is a (directed) graph and E is an assignment of labels (e, ℓ) = (v1 , v2 , ℓ) to the
+edges of G, where every edge gets a unique label, and no two triples are the same
+(but multiple edges and loops are permitted otherwise).
+Definition 2.1. Given a pointed graph (G, v) its associated path set P = XG (v) ⊂
+AN is the set of all infinite one-sided symbol sequences (x0 , x1 , x2 , ...) ∈ AN , giving
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                3-ADIC CANTOR SETS 11
+
+
+the successive labels of all one-sided infinite walks in G issuing from the distin-
+guished vertex v. Many different (G, v) may give the same path set P, and we call
+any such (G, v) a presentation of P.
+   An important class of presentations have the following extra property. We say
+that a directed labeled graph G = (G, v) is right-resolving if for each vertex of G
+all directed edges outward have distinct labels. (In automata theory G is called a
+deterministic automaton.) One can show that every path set has a right-resolving
+presentation.
+   Note that the labeled graph G without a marked vertex determines a one-sided
+sofic shift in the sense of symbolic dynamics, as defined in [1]. This sofic shift
+comprises the set union of the path sets at all vertices of G. Path sets are closed
+sets in the shift topology, but are in general non-invariant under the one-sided shift
+operator. Those path sets P that are invariant are exactly the one-sided sofic shifts
+[1, Theorem 1.4].
+   We study the path set concept in symbolic dynamics in [1]. The collection of
+path sets X := X(G,v0 ) in a given alphabet is closed under finite union and intersec-
+tion ([1]). The symbolic dynamics analogue of Hausdorff dimension is topological
+entropy. The topological entropy of a path set Htop (X) is given by
+                                                1
+                          Htop (X) := lim sup     log Nn (X),
+                                        n→∞     n
+where Nn (X) counts the number of distinct blocks of symbols of lengh n appearing
+in elements of X. The topological entropy is easy to compute for right-resolving
+presentation. By [1, Theorem 1.13], it is
+                                   Htop (X) = log β                               (2.1)
+where β is the Perron eigenvalue of the adjacency matrix A = AG of the underlying
+directed graph G of G, e.g. the spectral radius of A.
+
+2.3. p-Adic Symbolic Dynamics and Graph Directed Constructions. We
+now suppose A = {0, 1, 2, ..., p − 1}. We can view the elements of a path set X
+on this alphabet geometrically as describing the digits in the p-adic expansion of a
+p-adic integer. This is done using a map φ : AN → Zp . from symbol sequences into
+Zp . We call the resulting image set K = φ(X) a p-adic path set fractal. Such sets are
+studied in [2], where they are related to graph-directed fractal constructions. The
+class of p-adic path set fractals is closed under p-adic addition and multiplication
+by rational numbers r ∈ Q that lie in Zp ([2]).
+   It is possible to compute the Hausdorff dimension of a p-adic path set fractal
+directly from a suitable presentation of the underlying path set X = XG (v). We
+will use the following result.
+Proposition 2.2. Let p be a prime, and K a set of p-adic integers whose allowable
+p-adic expansions are described by the symbolic dynamics of a p-adic path set XK
+on symbols A = {0, 1, 2, · · · , p − 1}. Let (G, v0 ) be a presentation of this path set
+that is right-resolving.
+   (1) The map φp : Zp → [0, 1]Ptaking α = ∞                 k
+                                                  P
+                                                     k=0 ak p ∈ Zp to the real number
+                                      ∞    ak
+with base p expansion φp (α) := k=0 pk+1 is a continuous map, and the image of
+K under this map, K ′ := φp (K) ⊂ [0, 1], is a graph-directed fractal in the sense of
+Mauldin-Williams.
+12                    WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+     (2) The Hausdorff dimension of the p-adic path set fractal K is
+                             dimH (K) = dimH (K ′ ) = logp β,                     (2.2)
+where β is the spectral radius of the adjacency matrix A of G.
+Proof. These results are proved in [2, Section 2].                                   
+   In this paper we treat the case p = 3 with A = {0, 1, 2}. The 3-adic Cantor set
+is a 3-adic path set fractal, so these general properties above guarantee that the
+intersection of a finite number of multiplicative translates of 3-adic Cantor sets will
+itself be a 3-adic path set fractal K, generated from an underlying path set.
+   To do calculations with such sets we will need algorithms for converting presen-
+tations of a given p-adic path set to presentations of new p-adic path sets derived
+by the operations above. The p-adic arithmetic operations are treated in [2] and
+union and intersection are treated in [1].
+
+            3. Structure of Intersection Sets C(1, M1 , M2 , ..., Mn )
+   We show that the sets C(1, M1 , . . . , Mn ) consist of those 3-adic integers whose
+3-adic expansions are describable as path sets X(1, M1 , · · · , Mn ). We also present
+an algorithm which when given the data (M1 , ..., Mn ) as input produces as output
+a presentation G = (G, v0 ) of the path set X(1, M1 , . . . , Mn ).
+
+3.1. Constructing a path set presentation X(1, M ). We describe an algorith-
+mic procedure to obtain a path set presentation X(1, M ) for the 3-adic expansions
+of elements in C(1, M ). Since C(1, 3j M ) = C(1, M ), we may reduce to the case
+M 6≡ 0 (mod 3) and since C(1, M ) = {0} if M ≡ 2 (mod 3) it suffices to consider
+the case M ≡ 1 (mod 3).
+                                                                                1
+Theorem 3.1. For M ≥ 1, with M ≡ 1 (mod 3), the set C(1, M ) = Σ3 ∩ M             Σ3
+has 3-adic expansions given by a path set X(1, M ) which has an algorithmically
+computable path set presentation (G, v0 ), in which the vertices vm are labeled with
+a subset of the integers 0 ≤ m ≤ ⌊ 12 M ⌋, always including m = 0, and of cardinality
+at most ⌊ M
+          2 ⌋. This presentation is right-resolving, connected and essential.
+
+Proof. The labeled graph G = (G, L) will have path labels drawn from {0, 1} and
+the vertices vj of the underlying directed graph G will be labeled by a subset of the
+integers j satisfying 0 ≤ N ≤ M + 1. The marked vertex v0 corresponds to N = 0
+and is the starting vertex of the algorithm.
+   The idea is simple. Suppose that
+                                      ∞
+                                      X                          1
+                               α :=         a j 3 j ∈ Σ3 ∩         Σ3 .
+                                      j=0
+                                                                 M
+
+Here all aj ∈ {0, 1} and in addition
+                                             ∞
+                                             X
+                                  Mα =             b j 3 j ∈ Σ3 .
+                                             j=0
+
+Suppose the first n digits
+                                                n−1
+                                                X
+                                       αn =           aj 3 j ,
+                                                j=0
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF               3-ADIC CANTOR SETS 13
+
+
+are chosen. Since M ≡ 1 (mod 3) this uniquely specifies the first n digits of
+                                            m+n−1
+                                                      (n)
+                                             X
+                                  M αn :=            bj 3j ,
+                                             j=0
+
+namely
+                              (n)
+                             bj     = bj for 0 ≤ j ≤ n − 1,
+                                                                                 (n)
+which have bj ∈ {0, 1}, for 0 ≤ j ≤ n − 1. Here the remaining digits bn+k for
+1 ≤ k ≤ m are unrestricted, with
+                                    m = ⌊log3 M ⌋ + 1.
+We have followed a path in the graph G corresponding to edges labeled (a0 , a1 , ..., an−1 ).
+The vertex we arrive at after these steps will be labeled by the value of the “carry-
+digit” part of βn , which is
+                                     m+n−1
+                                      X (n)
+                               N=          bj 3j−n .
+                                         j=n
+                                               (n)
+   The value of the bottom 3-adic digit bn of N will determine the allowable exit
+edges from vertex vN , and the label of the vertices reached. The requirement is
+that the next digit an satisfy
+                                  an + b(n)
+                                        n ≡ 0, 1(mod 3)                                (3.1)
+If such a value is chosen, then we will be able to create a valid αn+1 and βn+1 :=
+M αn+1 will have
+                             b(n+1)
+                              n     = an + b(n)
+                                            n (mod 3).
+There always exists at least one exit edge from each reachable vertex vN , since for
+ (n)                                    (n)
+bn = 0 the admissible an = 0, 1; for bn = 1 the only admissible an = 0, and for
+ (n)
+bn = 2 the only admissible an = 1, in order that the next digits an+1 , bn+1 both
+belong to {0, 1}.
+   The important point is that the vertex label N is all that must be remembered to
+decide on an admissible exit edge in the next step, since its bottom digit determines
+the allowable exit edge values a ⊂ {0, 1} by requiring
+                                  a + N ≡ 0, 1 (mod 3),                                (3.2)
+and for an exit edge labeled a one can determine the new vertex label vN ′ as
+                                           N + Ma
+                                  N ′ := ⌊          ⌋.                          (3.3)
+                                              3
+To the graph G one adds a directed edge for each allowable value an = 0 or 1 from
+N to N ′ labeled by an .
+   Now one sees that the are only finitely many vertices vN that can be reached
+from the vertex v0 . One proves by induction on the number of steps n taken that
+any reachable vertex vN has vertex label.
+                                               M
+                                    0 ≤ N ≤ ⌊ ⌋.
+                                                2
+This holds for the initial vertex, while for the induction step, we obtain from (3.3)
+that
+                               N + Ma       M/2 + M       M
+                         N′ ≤             ≤            ≤     .
+                                   3              3        2
+14                    WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+Thus the process of constructing the graph will halt.
+   It is easily seen that the presentation G = (G, v0 ) obtained this way has the
+desired properties.
+    (1) The graph G is right-resolving because there every vertex has exit edges
+         with distinct edge-labels by construction.
+    (2) The graph G is essential because every vertex has at least one admissible
+         exit edge, as shown above.
+    (3) The graph is connected since we include in it only vertices reachable from
+         v0 .
+Since G is essential, G is a presentation of a certain 3-adic path set via the corre-
+spondence taking infinite walks beginning at the v0 -state in G to words in the edges
+traversed. Denote this path set XG,0 .
+   It remains to prove that this is the path set X(1, M ) corresponding to C(1, M ),
+which is the claim that
+                                   XG,0 = X(1, M ).
+To prove the claim, let Φ : XG,0 → Z3 be the map
+                                                     ∞
+                                                     X
+                                 · · · a2 a1 a0 7→         ak 3 k .
+                                                     k=0
+
+Φ is clearely an injection. Φ(XG,0 ) ⊂ C(1, M     P): Since k· · · a2 a1 a0 ∈ XG,0 is a word
+in the full shift on {0, 1}, Φ(· · · a2 a1 a0 ) = ∞  k=0 ak 3 omits the digit 2, so that
+Φ(XG,0 ) ⊂ Σ3 . But the algorithm was constructed specifically so that, given a path
+π = al al−1 · · · a2 a1 a0 in G originating at 0, there is an edge labeled al+1 ∈ {0, 1}
+from the terminal vertex t(π) if and only if each digit of the 3-adic expansion of
+     Pl+1         k
+                    
+M·      k=0 ck 3      which cannot be altered by any potential (l + 2)nd digit is either
+                                                  1
+0 or 1. This shows both that Φ(XG,0 ) ⊂ M           Σ3 and C(1, M ) ⊂ Φ(XG,0 ), so that
+Φ|Φ−1 (C(1,M)) : XG,0 → C(1, M ) is a bijection. Assigning the appropriate metric to
+XG,0 makes Φ an isomorphism in a now obvious way, proving the claim.                      
+  We obtain an algorithm to construct G = (G, v0 ) based on the construction
+above.
+Algorithm A (Algorithmic Construction of Path Set Presentation X(1, M )).
+   (1) (Initial Step) Start with initial marked vertex v0 , and initial vertex set
+       I0 := {v0 }. Add an exit edge with edge label 0 giving a self-loop to v0 , and
+       add another exit edge with edge label 1 going to new vertex vm with vertex
+       label m := ⌊M/3⌋, Add these two edges and their labels to form (labeled)
+       edge table E1 . Form the new vertex set I1 := {vm }, and go to Recursive
+       Step with j = 1.
+   (2) (Recursive step) Given value j, a nonempty new vertex set Ij of level j
+       vertices, a current vertex set Vj and current edge set Ej . At step j + 1
+       determine all allowable exit edge labels from vertices vN in Ij , using the
+       criterion (3.2), and compute vertices reachable by these exit edges, with
+       reachable vertex labels computed by update equation (3.3). Add these new
+       edges and their labels to current edge set to make updated current edge set
+       Ej+1 . Collect all vertices reached that are not in current vertex set Vj into
+       a new vertex set Ij+1 . Update current vertex set Vj+1 = Vj ∪ Ij+1 . Go to
+       test step.
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                          3-ADIC CANTOR SETS 15
+
+
+    (3) (Test step). If the current vertex set Ij+1 is empty, halt, with the complete
+        presentation G = (G, v0 ) given by sets Vj+1 , Ej+1 . If Ij+1 is nonempty,
+        reset j 7→ j + 1 and go to Recursive Step.
+  The correctness of the algorithm follows from the discussion above.
+
+3.2. Constructing a path set presentation X(1, M1 , . . . , Mn ). Given integers
+1 ≤ M1 < . . . < Mn , we now have a way to construct graph presentations of the
+path sets X(1, Mi ) for each i. Since
+                                                        n
+                                                        \
+                           X(1, M1 , . . . , Mn ) =          X(1, Mi ),
+                                                       i=1
+
+we need to know how to combine these graphs.
+  Recall the following definition from Lind and Marcus [13]:
+Definition 3.2. Let G1 and G2 be labeled graphs with the same alphabet A, and
+let their underlying graphs be G1 = (V1 , E1 ) and G2 = (V2 , E2 ). The label product
+G1 ⋆ G2 of G1 and G2 has underlying graph G with vertex set V = V1 × V2 , edge set
+E = {(e1 , e2 ) ∈ E1 × E2 : e1 and e2 have the same labels}.
+   In [1, Proposition 4.3], we show that if (Gi , vi ) is a graph presentation of the
+path set Pi , then (G1 ⋆ G2 , (v1 , v2 )) is a graph presentation for P1 ∩ P2 . It follows
+that we can form a presentation of C(1, M1 , · · · , Mn ) as the label product
+                     (G, v) = (G1 ⋆ G2 ⋆ · · · ⋆ Gn , (v1 , v2 , . . . , vn )),
+where (Gi , vi ) is the presentation of C(1, Mi ) just constructed.
+Theorem 3.3. For 1 < M1 < M2 < · · · < Mn , with all Mi ≡ 1 (mod 3), the set
+                                              n                            n
+                                              \                           \   1
+             C(1, M1 , M2 , · · · , Mn )) =         C(1, Mi ) = Σ3 ∩ (           Σ3 ),
+                                              i=1                         i=1
+                                                                              Mi
+
+has 3-adic expansions of its elements given by a path set X(1, M1 , M2 , · · · , Mn ).
+This path set has an algorithmically computable presentation (G, v0 ), in which
+the vertices vN are labeled with a subset of integer vectors N = (N1 , N2 , ..., Nn )
+with 0 ≤ Ni ≤ 12 Mi , always including the zero vector 0. The presentation has
+         Qn
+at most i=1 (1 + ⌊ 21 Mi ⌋) vertices in the underlying graph. This presentation is
+right-resolving, connected and essential.
+Proof. The presentation is obtained by recursively applying the label product con-
+struction to the presentations C(1, Mi ), see Algorithm B below. Each step preserves
+the properties of the presentation graph being right-resolving, connected and essen-
+tial. The number of states of the label product construction is at most the product
+of the number of states in the two presentations being constructed. By Theorem
+3.1, the presentation of C(1, Mi ) has at most (1 + ⌊ 21 M ⌋) vertices. The bound given
+follows by induction on the successive label product constructions.                  
+
+Algorithm B (Algorithmic Construction of Path Set Presentation X(1, M1 , ..., Mn ).
+    (1) (Initial Step) Construct presentations Gi = (Gi , Li ) for X(1, Mi ) to C(1, Mi )
+        for 1 ≤ i ≤ n, using Algorithm A. Apply the label product construction to
+        form H2 := G1 ⋆ G2 .
+16                    WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+      (2) For 2 ≤ i ≤ n − 1, apply the label product construction to form
+                                    Hi+1 = Hi ⋆ Gi+1 .
+          Halt when Hn is computed.
+
+3.3. Path Set Characterization of C(1, M1 , ..., Mn ). From Theorem 3.3 we eas-
+ily derive the following result.
+Theorem 3.4. For any integers 1 ≤ M1 < . . . < Mn , let
+                                                    1                1
+                   C(1, M1 , . . . , Mn ) := Σ3 ∩      Σ3 ∩ . . . ∩    Σ3 .
+                                                    M1              Mn
+This is the set of all 3-adic integers λ ∈ Σ3 such that Mj λ omits the digit 2 in its
+3-adic expansion. Then:
+   (1) The complete set of the 3-adic expansions of numbers in the set C(1, M1 , . . . , Mn ),
+is a path set in the alphabet A = {0, 1, 2}.
+   (2) The Hausdorff dimension of C(1, M1 , . . . , Mn ) is log3 β, where log β is the
+topological entropy of this path set. Here β necessarily satisfies 1 ≤ β ≤ 2, and β
+is a Perron number, i.e. it is a real algebraic integer β ≥ 1 such that all its other
+algebraic conjugates satisfy |σ(β)| < β.
+Proof. Theorem 3.3 gives an explicit construction of a presentation (G, v) showing
+that C(1, M1 . . . , Mn ) is a p-adic path set.
+   By Proposition 2.2 the Hausdorff dimension of C(1, M1 . . . , Mn ) is log3 β, where
+β is the spectral radius of the adjacency matrix A of the underlying graph G.
+Since A is a 0-1 matrix, by Perron-Frobenius theory the spectral radius equals the
+maximal eigenvalue in absolute value, which is necessarily a positive real number β.
+It is a solution to a monic polynomial over Z, so that β is necessarily an algebraic
+integer. By construction, the sum of the entries of any row in A is either 1 or 2, so
+that we also have 1 ≤ β ≤ 2.                                                        
+
+Remark 3.5. The adjacency matrix A in the sets above need not be irreducible.
+Example 3.3 below presents a graph C(1, 19) having a reducible matrix A. Here the
+underlying graph G has two strongly connected components.
+     Combining the results above establishes Theorem 1.6.
+
+Proof of Theorem 1.6. (1) This follows from Theorem 3.1 and Theorem 3.3, with
+the algorithm for constructing a the presentation of the path set X(1, M1 , M2 , · · · , Mn )
+given by combining Algorithm A and Algorithm B.
+   (2) This follows from Theorem 3.4.                                                    
+
+3.4. Examples. We present several examples of path set presentations.
+Example 3.1. The 3-adic Cantor set Σ3 = C(1) = C(1, 1) has a path set presen-
+tation (G, v0 ) pictured in Figure 3.1. It is the full shift on two symbols, and the
+initial vertex is the vertex labeled 0. The underlying graph G of G is a double cover
+of a one vertex graph with two symbols. The advantage of the graph G pictured
+is that a path for it is completely determined by the set of vertex symbols that it
+passes through.
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF          3-ADIC CANTOR SETS 17
+
+
+
+
+                                1
+             0           0              1           1
+                                0
+
+
+FIGURE 3.1. Path set presentation of Cantor shift Σ3 = C(1). The marked vertex
+                       is 0.
+
+
+
+
+Example 3.2. A path set presentation of C(1, 7), with 7 = (21)3 is shown in Figure
+3.2. The vertex labeled 0 is the marked initial state.
+
+                                0
+
+
+
+                                0
+                         1              0
+
+
+                     2                      1
+
+                         1              0
+                                10
+
+
+
+                              1
+     FIGURE 3.2. Path set presentation of C(1, 7). The marked vertex is 0.
+
+
+  The graph in Figure 3.2 has adjacency matrix
+                                              
+                                    1 1 0 0
+                                 0 0 1 0 
+                           A=   0 0 1 1 ,
+                                               
+
+                                    1 0 0 0
+                                                √
+which has Perron-Frobenius eigenvalue β = 1+2 5 , so
+                                            √ !
+                                        1+ 5
+                  dimH (C(1, 7)) = log3            ≈ 0.438018.
+                                           2
+
+Example 3.3. A path set presentation of C(1, 19), with 19 = (201)3 , is shown in
+Figure 3.3. The node labeled 0 is the marked initial state.
+18                   WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+                                           0
+
+
+
+                                           0
+                                                        0
+                                  1
+
+                       20                                       1
+                                  0
+
+                                           2
+
+                          1           0         1                   0
+
+                                          21            1
+
+                       22                                   10
+                                  1                 0
+
+
+                                          100
+
+
+
+                                  1
+       FIGURE 3.3. Path set presentation of C(1, 19). The marked vertex is 0.
+
+
+     The graph in Figure 3.3 has adjacency matrix
+                                                                             
+                           1              1     0       0   0       0   0   0
+                          0              0     1       1   0       0   0   0 
+                                                                             
+                          0              0     0       0   1       0   0   0 
+                                                                             
+                          0              0     0       0   0       1   0   0 
+                       A=
+                          0
+                                                                              ,
+                                         0     0       0   1       0   1   0 
+                                                                              
+                          0              0     0       1   0       0   0   0 
+                                                                             
+                          0              0     0       0   0       1   0   1 
+                           1              0     0       0   0       0   0   0
+which has Perron eigenvalue β ≈ 1.465571, so
+
+                        dimH (C(1, 19)) = log3 β ≈ 0.347934.
+
+Example 3.4. We consider implementation of the algorithm for C(1, 7, 19). We
+start from the presentations of C(1, 7) and C(1, 19) in Example 3.1. Taking the
+label product gives us a presentation of C(1, 7, 19), which is shown in Figure 3.4.
+   This graph G for C(1, 7, 19) has adjacency matrix A given by:
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF           3-ADIC CANTOR SETS 19
+
+                                0
+
+
+
+                               0-0
+                          1            0
+
+
+                   2-20                    0-1
+                   1                       0
+
+                  10-22                    1-10
+
+                          1            0
+
+                              10-100
+
+
+
+                                1
+   FIGURE 3.4. Path set presentation of C(1, 7, 19). The marked vertex is 0.
+
+                                                  
+                                1 1 0 0 0 0
+                              0 0 1 0 0 0 
+                                                  
+                              0 0 0 1 0 0 
+                        A=                       .
+                              0 0 0 1 1 0 
+                                                   
+                              0 0 0 0 0 1 
+                                1 0 0 0 0 0
+   The Perron eigenvalue β ≈ 1.46557 of this matrix is the largest real root of
+λ6 − 2λ5 + λ4 − 1 = 0: The Hausdorff dimension of C(1, 7, 19) is then
+                       dimH (C(1, 7, 19)) = log3 β ≈ 0.347934.                (3.4)
+Example 3.5. The set C(1, 43), with N = 43 = (1121)3 has M ≡ 1 (mod 3), but
+nevertheless has Hausdorff dimension 0. A presentation of the path set associated
+to C(1, 43) is given in Figure 3.5.
+   The graph in Figure 3.5 has four strongly connected components, with vertex sets
+{0}, {112}, {2, 120, 201, 20}, and {12, 121} respectively, each of whose underlying
+path sets have Hausdorff dimension 0.
+20                   WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+                                1
+                    112                 0            0
+
+                    1
+                                        1
+                    201                              120
+                                             1
+
+                    0                   2                 0
+                            0
+                                                 0
+                     20               121                12
+                            1
+                                                 1
+
+     FIGURE 3.5. Path set presentation of C(1, 43). The marked vertex is 0.
+
+
+
+                                    4. Infinite Families
+4.1. Basic Properties. We have the following simple result, showing the influence
+of the digits in the 3-adic expansion of M on the size of the set C(1, M ) and
+C(1, M1 , M2 , · · · , Mk ).
+Theorem 4.1. (1) If the smallest nonzero 3-adic digit in the 3-adic expansion of
+the positive integer M is 2, then C(1, M ) = {0}, and
+                                     dimH (C(1, M )) = 0.                        (4.1)
+   (2) If positive integers M1 , M2 , ..., Mn ∈ Σ3 all have the property that their 3-
+adic expansions (Mi )3 (equivalently their ternary expansions) contain only digits 0
+and 1, then
+                           dimH (C(1, M1 , M2 , ..., Mn )) > 0.                  (4.2)
+Remark. For neither (1) or (2) does the converse hold. The example M = 43 =
+(1121)3 has dimH (C(1, M )) = 0, but its 3-adic expansion has smallest digit 1. The
+example M = 64 = (2101)3 has dimH (C(1, M )) > 0, but its 3-adic expansion has a
+digit 2.
+Proof. of Theorem 4.1. (1) Suppose the smallest nonzero 3-adic digit in the 3-adic
+expansion of the positive integer M is 2. Then the graph presentation of the path
+set X(1, M ) associated to C(1, M ) constructed using Algorithm A consists of only
+the node labeled 0 and the self-loop labeled 0 at this node (i.e. C(1, M ) = {0}),
+whence dimH (C(1, M )) = 0. This holds because the smallest nonzero digit of M N
+for any N ∈ Σ3 is 2, so that M N ∈ / Σ3 .
+   (2) Suppose M1 , . . . , Mn ∈ Σ3 are positive integers so that all of their 3-adic
+expansions have only the digits 0 and 1. For each Mi , let mi be the largest nonzero
+ternary position of Mi (i.e. Mi = 3mi + lower order terms). Then in the graph
+presentation constructed for X(1, Mi ) by Algorithm A, the walk starting at the
+origin, then moving along an edge labeled 1 (which exists since (Mi )3 omits the
+digit 2), then moving along mi consecutive edges labeled 0, is a directed cycle at 0.
+Since the edge labeled 0 is a loop at 0, if we let m = max1≤i≤n mi , then the graph
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                 3-ADIC CANTOR SETS 21
+
+
+presentation the path set X(1, M1 , ..., Mj ) of C(1, M1 , . . . , Mn ) has a directed cycle
+at 0 of length m + 1 given by first traversing the edge labeled 1, then traversing
+m consecutive edges labeled 0. This cycle and plus the loop of length one at 0 are
+distinct directed cycles at 0. It follows that the associated path set has positive
+topological entropy, and hence C(1, M1 , . . . , Mn ) has positive Hausdorff dimension
+by [2, Theorem 3.1 (iii)].                                                                
+
+4.2. The family Lk = (1k )3 = 21 (3k − 1). The path set presentations (G, v0 ) of
+the sets C(1, Lk ) are particularly simple to analyze.
+Theorem 4.2. (1) For k ≥ 1, and Lk = 21 (3k − 1), there holds
+                               dimH (C(1, Lk )) = log3 βk ,                           (4.3)
+where βk is the unique real root greater than 1 of
+                                   λk − λk−1 − 1 = 0.                                 (4.4)
+   (2) For k ≥ 6, the values βk satisfy the bounds
+                            log k 2 log log k            log k
+                       1+        −            ≤ βk ≤ 1 +       .                      (4.5)
+                              k        k                   k
+Then for all k ≥ 3,
+                                            log3 k     log log k 
+                       dimH (C(1, Lk )) =          +O              .                  (4.6)
+                                              k           log k
+                       Path set Perron eigenvalue Hausdorff dim
+                       C(1, L1 )         2.000000      0.630929
+                       C(1, L2 )         1.618033      0.438018
+                       C(1, L3 )         1.465571      0.347934
+                       C(1, L4 )         1.380278      0.293358
+                       C(1, L5 )         1.324718      0.255960
+                       C(1, L6 )         1.285199      0.228392
+                       C(1, L7 )         1.255423      0.207052
+                       C(1, L8 )         1.232055      0.189948
+                       C(1, L9 )         1.213150      0.175877
+
+              TABLE 4.1. Hausdorff dimensions of C(1, Lk ) (to six decimal places)
+
+
+   We first analyze the structure of the directed graph (G, v0 ) in this presentation.
+Proposition 4.3. For Lk = (1k )3 = 21 (3k − 1) the path set C(1, Lk ) has a presen-
+tation (G, v0 ) given by Algorithm A which has exactly k vertices. The vertices vm
+have labels m = 0 and m = (1j )3 , for 1 ≤ j ≤ k − 1. The underlying directed graph
+G is strongly connected and primitive.
+Proof. The presentation (G, v0 ) of C(1, Lk ) has an underlying directed graph G
+having k vertices Vn with N = 0 and N = (1j )3 for 1 ≤ j ≤ k − 1. The vertex v0
+has two exit edges labeled 0 and 1, and all other vertices have a unique exit edge
+labeled 0. The edges form a self-loop at 0 labeled 0, and a directed k-cycle, whose
+vertex labels are
+                   0 → (1k−1 )3 → (1k−2 )3 → · · · (12 )3 → (1)3 → 0,
+22                    WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+This cycle certifies strong connectivity of the graph G, and in it all edge labels are
+0 except the edge 0 → (1k−1 )3 labeled 1. Primitivity follows because it has a cycle
+of length 1 at vertex (0)3 .                                                        
+Proof of Theorem 4.2. (1) By appropriate ordering of the vertices, the adjacency
+matrix A of G is the k × k matrix
+                                                     
+                                  1 1 0 ... 0
+                                                    . 
+                               0 0 1 . . . .. 
+                              
+                                                     
+                          A=  ... ... . . . . . . 0  .
+                                                      
+                                                     
+                               0 0 ... 0 1 
+                                  1 0 ... 0 0
+The characteristic polynomial of this matrix is
+                                                                           
+                                         λ − 1 −1 0                 ... 0
+                                                                   ..   .. 
+                                       0       λ −1                   .  . 
+                                            .   ..
+                                                                           
+          pk (λ) := det(λI − A) = det      ..     ..               ..      .
+                                      
+                                                .    .                . 0 
+                                       0       0 ...                λ −1 
+                                          −1    0 ...                0   λ
+Expansion of this determinant by minors on the first column yields
+           pk (λ) = (λ − 1)λk−1 + (−1)k−1 (−1)(−1)k−1 = λk − λk−1 − 1.           (4.7)
+The Perron eigenvalue of the nonnegative matrix A will be a positive real root
+αk ≥ 1 of p(λ). By (2.1) the topological entropy of the path set X(1, Lk ) associated
+to C(1, Lk ) is log βk , while by Proposition 2.2 the Hausdorff dimension of the 3-adic
+path set fractal C(1, Lk ) itself is log3 βk
+   (2) We estimate the size of βk . There is at most one real root βk ≥ 1 since for
+λ > 1 − 1/k one has
+              ′
+             pk (λ)   =   kλk−1 − (k − 1)λk−2 = λk−2 (kλ − (k − 1)) > 0.
+  For the lower bound, we consider pk (λ) for λ > 1 and define variables y > 0 by
+λ = 1 + yk with y > 0, and x := λk > 1, noting that w = λk = (1 + ky )k < ey Now
+                           x                y                xy 
+             λk−1 + 1 =         + 1 ≥ x  1 −    + 1 ≥ x +   1 −      ,
+                         1 + ky              k                  k
+which exceeds x whenever xy ≤ k. Thus we have pk (1 + ky ) < 0 whenever xy <
+yey ≤ k. The choice y = log k − 2 log log k gives, for k ≥ 3,
+                                                         k
+                    yey ≤ log k(elog k−2 log log k ) ≤       ≤ k.
+                                                       log k
+Thus we have, for k ≥ 3, pk (1 + logk k − 2 log klog k ) < 0, so
+                                        log(k)    log log k
+                              βk ≥ 1 +         −2           ,
+                                           k          k
+which is the lower bound in (4.5). For the upper bound, it suffices to show pk (1 +
+log k                                            log k k−1 log k
+  k ) > 0 for k ≥ 6. We wish to show (1 + k )              ( k ) > 1 for k ≥ 6. This
+               log k k−1     k
+becomes (1 + k )         > log k , and on taking logarithms requires
+                                            log k
+                      (log k − 1) log(1 +         ) > log k − log log k.
+                                              k
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                3-ADIC CANTOR SETS 23
+
+
+Using the approximation log(1 + x) ≥ x − 21 x2 valid for 0 < x < 1, we verify this
+inequality holds for k ≥ 6, and the upper bound in (4.5) follows. The asymptotic
+estimate (4.6) for the Hausdorff dimension of C(1, Lk ) immediately follows by taking
+logarithms to base 3 of the estimates above.
+                                                                                    
+   The results above imply Theorem 1.7 in the introduction.
+Proof of Theorem 1.7. Assertion (1) follows from Proposition 4.3. Assertions (2)
+and (3) follow from Theorem 4.2.                                              
+4.3. The family Nk = (10k−1 1)3 = 3k + 1. We prove the following result.
+Theorem 4.4. For every integer k ≥ 0, and Nk = 3k + 1 = (10k−1 1)3 ,
+                                                        √ 
+                                                      1+ 5
+   dimH (C(1, Nk )) = dimH C(1, (10k−1 1)3 ) = log3          ≈ 0.438018.             (4.8)
+                                                        2
+   To prove this result we first characterize the presentation G = (G, v0 ) associated
+to Nk by the construction of Theorem 3.1.
+Proposition 4.5. For Nk = 3k + 1 the path set C(1, Nk ) has a presentation G =
+(G, v0 ) given by Algorithm A with the following properties.
+  (1) The vertices vm have labels m that comprise those integers 0 ≤ m ≤ 12 (3k −1)
+whose 3-adic expansion (m)3 omits the digit 2.
+  (2) The directed graph G has exactly 2k vertices.
+  (3) The directed graph G is strongly connected and primitive.
+Proof. (1) Any vertex vm reachable from v0 has a 3-adic expansion (equivalently
+ternary expansion) (m)3 that omits the digit 2, and has at most k 3-adic digits.
+This is proved by induction on the number of steps n taken. The base case has the
+node (0)3 . For the induction step, every vertex in the graph has an exit edge labeled
+0, and vertices with labels m ≡ 0 (mod 3) also have an exit edge labeled 1. The
+exit edges labeled 0 map m = (bk−1 bk−2 · · · b1 b0 )3 to m′ = (0bk−1 bk−2 · · · b2 b1 )3 .
+The exit edges labeled 1 map m to m′ = (1bk−1 bk−2 · · · b2 b1 )3 . For both types of
+exit edges the new vertex reached at the next step omits the digit 2 from its 3-adic
+expansion, completing the induction step.
+    (2) There are exactly 2k possible such vertex labels m in which (m)3 omits the
+digit 2. Call such vertex labels admissible. The largest such m = 12 (3k − 1).
+    (3) To show the graph Gk is strongly connected it suffices to establish that:
+   (R1) Every possible such vertex l vm with admissible label m is reachable by a
+         directed path in G from the initial vertex 0 = (00 · · · 0)3 .
+   (R2) All admissible vertices vm have a directed path in G from vm to v0 .
+Note that (R1), (R2) together imply that G is strongly connected. To show (R1),
+write m = (bk−1 · · · b0 )3 , with all bj = 0 or 1, and let i be the smallest index with
+bi = 1. Starting from v0 , we may add a directed series of exit edges labeled in
+order bi , bi+1 , bi+2 , · · · , bk−1 to arrive at vm . Such edges exist in G, because all
+intermediate vertices vm′ reached along this path have m′ ≡ 0 (mod3) so that an
+exit edges labeled both 0 and 1 are available at that step. Indeed, the j-th step in
+the path has (mj )3 having k − j initial 3-adic digits of 0, and k − 1 − i ≤ k − 1.
+    To show (R2) we observe that for any vertex vm following a path of exit edges
+all labeled 0 will eventually arrive at the vertex v0 . This is permissible since (m)3
+has all digits 0 or 1.
+24                     WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+  Now Gk is strongly connected, and it is primitive since it has a loop at vertex 0.
+This completes the proof.                                                         
+   To obtain an adjacency matrix for this graph, we must choose a suitable or-
+dering of the vertex labels. Order the vertices of G recursively as follows: the
+(0k−1 )3 -vertex is first I1 , and the (10k−1 )3 -vertex is second I2 . Now, suppose that
+at step j we have ordered the vertices I1 , . . . , Im , in that order, with m = 2j .
+Then for 1 ≤ j < k, we assert that there will be precisely 2m vertices, all dis-
+tinct from I1 , . . . , Im , to which some Ii has an out edge. We can label these
+J11 , J12 , . . . , Jm1 , Jm2 so that Ji1 has an in-edge labeled 0 from Ii , and Ji2 has
+an in-edge labeled 1 from Ii . Assuming this assertion, at the j-th step we expand
+our ordering to I1 . . . , Im , J11 , J12 , . . . , Jm1 , Jm2 .
+Proposition 4.6. The ordering of the vertices above is valid, and the adjacency
+matrix A of the underlying graph G of G is the following 2k × 2k matrix A = (aij ):
+                      
+                       1 if 1 ≤ i ≤ 2k−1 and j ∈ {2i − 1, 2i};
+                aij =    1 if 2k−1 < 1 and j = 2(i − 2k−1 ) − 1;
+                         0 otherwise.
+                      
+
+This description is consistent and exhaustive, characterizing A.
+     To illustrate this, we have for k = 2
+                                                          
+                                         1      1   0    0
+                                       0       0   1    1 
+                                 A=                      ,
+                                         1      0   0    0 
+                                         0      0   1    0
+     while for k = 3 we have
+                                                                  
+                                  1 1 0         0   0    0   0   0
+                                0 0 1          1   0    0   0   0 
+                                                                  
+                                0 0 0          0   1    1   0   0 
+                                                                  
+                                0 0 0          0   0    0   1   1 
+                          A=   1 0 0
+                                                                   .
+                                               0   0    0   0   0 
+                                                                   
+                                0 0 1          0   0    0   0   0 
+                                                                  
+                                0 0 0          0   1    0   0   0 
+                                  0 0 0         0   0    0   1   0
+Proof. First, we address the ordering of the vertices of G. According to the pre-
+scription of the proposition, I1 = (0)3 , I2 = (10k−1 )3 . In the next step, there
+is an out-edge labeled 1 from vertex (10k−1 )3 to (110k−2 )3 , and an out-edge la-
+beled 0 from vertex (10k−1 )3 to vertex (10k−2 )3 . This gives I3 = (110k−2 )3 ,
+I4 = (10k−2 )3 . In general, for k1 + · · · + kr < k all nonnegative, if we have a vertex
+(1k1 0k2 1k3 · · · 1kr 0k−Σki )3 , it has an out-edge labeled 1 to a vertex (1k1 +1 0k2 1k3 · · · 1kr 0k−1−Σki )3
+and an out-edged labeled 0 to a vertex (1k1 0k2 1k3 · · · 1kr 0k−1−Σki )3 . On the other
+hand, a vertex labeled (1k1 0k2 1k3 · · · 1kr )3 ending in 1 has a single out-edge labeled
+0 to the vertex (1k1 0k2 1k3 · · · 1kr −1 )3 .
+   Thus, if an edge-walk originating at the 0-vertex has label (er er−1 · · · e1 )3 , the
+terminal vertex of this edge walk is the vertex (er er−1 · · · e1 0k−r )3 . Now, for any
+vertex ending in 0, edges labeled 0 and 1 are both admissible, which means that
+an edge walk labeled e1 e2 · · · ek is admissible for all values ej = 0 or ej = 1 for
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                              3-ADIC CANTOR SETS 25
+
+
+all 1 ≤ j ≤ k. But this, then, says that all possible vertex labels from {0, 1}k are
+achieved. Moreover, we showed above that a vertex with label from {0, 1}k has
+out-edges only to other vertices labeled from {0, 1}k , so this is precisely the set of
+vertices of G. The rth step of the vertex ordering procedure adds precisely those
+vertices which end in 0k−r , of which there are 2r−1 = 2 · 2r−2 . The procedure ends
+at the kth step with those vertices which end in 1. In all, there are 2k vertices, one
+for each label from {0, 1}k .
+   Now we can understand the definition of the coefficients aij of the adjacency
+matrix A of the underlying graph G of G. Vertex (0)3 maps into itself and vertex
+(10k )3 , which are ordered first and second with respect to the ordering. Thus
+a11 = a12 = 1, a1j = 0 for j > 2. Now suppose a vertex is ordered it h (Ii ) at the
+rth stage, and r ≤ k − 1, so that not all vertices have yet been ordered. There are
+2r vertices ordered so far (so 1 ≤ i ≤ 2r ), and the (r + 1)st stage of the construction
+orders the next 2r vertices precisely so that the out-edges from vertex Ii go to
+vertices I2i−1 and I2i . This gives the prescription for aij for 1 ≤ i ≤ 2k−1 .
+   Observe that the vertices I2k−1 +1 , I2k−1 +2 , . . . , I2k have labels ending in 1. Hence,
+such a vertex labeled m has a single out-edge to the vertex labeled (m−1)/3. But if
+m is the label of I2k−1 +r , then (m − 1)/3 is the label of I2r−1 . But (2k−1 + r, 2r − 1)
+can be rewritten (i, 2(i − 2k−1 ) − 1). This gives the result.                              
+
+   We are now ready to prove Theorem 4.4.
+
+Proof of Theorem 4.4. Let Ak be the adjacency matrix of the presentation of C(1, Nk )
+constructed via our algorithm.
+                        √
+                                  We directly find a strictly positive eigenvector vk of
+Ak having Ak vkT = ( 1+2 5 )vkT . Here vk is a 2k ×1 row vector, with vK T
+                                                                           its transpose,
+          (j)
+and let vk denote its j-th entry. √
+                                      The Perron-Frobenius Theorem [13, Theorem
+                              1+ 5
+4.2.3] then implies that α = 2 is the Perron eigenvalue of Ak . Theorem 1.6 will
+then give us that
+                                                        √ 
+                                                     1+ 5
+                         dimH (C(1, Nk )) = log3              .
+                                                        2
+              √
+Let φ = 1+2 5 be the golden ratio. We define the vector vk recursively as follows:
+      (1) v1 = (φ, 1) = (φ1 , φ0 );
+      (2) If vj−1 = (φk1 , φk2 , . . . , φk2j−1 ), then
+                  vj = (φk1 +1 , φk2 +1 , . . . , φk2j−1 +1 , φk1 , φk2 , . . . , φk2j−1 ).
+Note that vj is obtained from vj−1 by adjoining φvj−1 to the front of vj .
+  We need now to check that AvkT = φvkT . We will argue by induction on k. The
+base case is easy. Now observe that if we write
+                                               
+                                           Tk
+                                 Ak =
+                                           Bk
+for Tk and Bk each 2k−1 × 2k blocks, then we have
+                                               
+                                        Bk 0
+                             Bk+1 =
+                                         0 Bk
+and                                                             
+                                                      Tk    0
+                                       Tk+1 =                        .
+                                                      0     Tk
+26                           WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+  It follows easily from this and the definition of the vectors vk that if Ak vkT =
+φvkT , then Ak+1 vk+1
+                  T        T
+                       = φvk+1 . This proves the theorem.
+                                                                                  
+Proof of Theorem 1.8. Here (1) follows from Proposition 4.5, and (2) follows from
+Theorem 4.4.                                                                    
+4.4. Hausdorff dimension bounds for C(1, M1 , ..., Mn ) with Mi in families.
+The path set structures of each of the three infinite families are compatible with
+each other, as a function of k, so that the associated C(1, M1 , ..., Mn ) all have
+positive Hausdorff dimension. We treat them separately.
+Theorem 4.7. For the family Lk = 21 (3k − 1) = (1k )3 , for 1 ≤ k1 < . . . <
+kn , the pointed graph G(0, . . . , 0) of the path set X(1, Lk1 , · · · Lkm ) associated to
+C(1, Lk1 , . . . , Lkn ) is isomorphic to the pointed graph (Gkn , 0) presenting C(1, Lkn ).
+In particular
+                          dimH (C(1, Lk1 , . . . , Lkn )) = dimH (C(1, Lkn )).        (4.9)
+Proof. The presentation (Gk , 0) of C(1, Lk ) constructed with Algorithm A consists
+of a self-loop at the 0-vertex and a cycle of length k at the 0-state. Taking in
+Algorithm B the label product Gk1 ⋆ · · · ⋆ Gkn gives a graph G with a self-loop at
+the (0, . . . , 0)-vertex and a cycle
+                        1/                                0   / (1k1 −2 , . . . , 1kn −2 ) 0
+     (0, . . . , 0)          (1k1 −1 , . . . , 1kn −1 )                                             / ···
+
+
+                                                          0                               0
+                                         ···                      / (0, . . . , 0, 1)          / (0, . . . , 0).
+
+This cycle has length kn . We can then see that the graph G is isomorphic to Gkn
+by an isomorphism sending (0, . . . , 0) to 0.                                
+     We next treat multiple intersections drawn from the second family Nk .
+Theorem 4.8. For the family Nk = 3k + 1 = (10k−1 1)3 the following hold.
+  (1) For 1 ≤ k1 < k2 < · · · < kn , one has
+                      dimH (C(1, Nk1 , Nk2 , . . . , Nkn )) ≥ dimH (C(1, Lkn +1 ))                          (4.10)
+Equality holds when kj = j for 1 ≤ j ≤ n.
+  (2) For fixed n ≥ 1, there holds
+                                                                   1
+             lim inf dimH (C(1, Nk , . . . , Nk+n−1 )) ≥             (log3 2) ≈ 0.315464.                   (4.11)
+              k→∞                                                  2
+In particular, Γ⋆ ≥ 12 (log3 2).
+Proof. (1) It is easy to see that the set C(1, Nk1 , Nk2 , . . . , Nkn ) contains the set
+                                          ∞
+                                          X
+                      Ykn := {λ =               3ℓ1 +···+ℓj ∈ Z3,2̄ : all ℓj ≥ kn + 1},
+                                          j=1
+
+(Here we allow finite sums, corresponding to some ℓj = +∞). This fact holds by
+observing that if λ ∈ Yk,n then Nkj λ ∈ Σ3,2̄ for 1 ≤ j ≤ n, because
+                                      X∞                  X∞
+                             Nkj λ = (   3ℓ1 +···+ℓj ) + (   3ℓ1 +···+ℓj +kj )
+                                          j=1                    j=1
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                   3-ADIC CANTOR SETS 27
+
+
+and the 3-adic addition has no carry operations since all exponents are distinct.
+The set Ykn is a 3-adic path set fractal and it is easily checked to be identical with
+C(1, Lnk +1 ), using the structure of its associated graph. This proves (4.10). To show
+equality holds, one must show that allowable sequences for each of N1 , N2 , ..., Nn
+require gaps of size at least n + 1 between each successive nonzero 3-adic digit in
+an element of C(1, N1 , N2 , ..., Nn ). This can be done by induction on the current
+non-zero 3-adic digit; we omit details.
+   (2) We study the symbolic dynamics of the elements of the underlying path sets
+in C(1, Nk+j−1 ), for 1 ≤ j ≤ n, given in Theorem 4.4, and use this to lower bound
+the Hausdorff dimension.
+Claim. The 3-adic path set underlying C(1, Nk , . . . , Nk+n ) contains all symbol
+sequences which, when subdivided into successive blocks of length 2k + n, have every
+such block of the form
+                  (00 · · · 00ak ak−1 · · · a3 a2 1)3 with each ai ∈ {0, 1}.
+
+
+Proof of claim. It suffices to show that all sequences split into blocks of length 2k+n
+of the form (00 · · · 00ak ak−1 · · · a3 a2 1)3 occur in C(1, Nj ) for each k ≤ j ≤ k + n,
+since this will imply the statement for the label product. Consider the presentation
+Gj of C(1, Nj ) given by our algorithm. Beginning at the 0-vertex, an edge labeled
+1 takes us to the state (10j−1 )3 . From a vertex whose label ends in 0, one may
+traverse an edge with label 1 or 0. But if we are at a vertex whose labeled a0, an
+edge labeled 0 takes us to a vertex labeled a, and an edge labeled 1 takes us to a
+vertex labeled 1a (this is specific to the case of Nj ). In other words, we apply the
+truncated shift map to our vertex label and either concatenate with 1 on the left or
+not. It follows that from the vertex (10j−1 )3 the next (j − 1) edges traversed may
+be labeled either 0 or 1.
+    At this point the initial 1 from (10j−1 )3 has moved to the far right of our vertex
+label. Therefore, our choice is restricted: we must traverse an edge labeled 0. Since
+our vertex label, whatever it is, consists of only 0’s and 1’s, we can in any case
+traverse j or more consecutive edges labeled 0 to get back to the 0-vertex. Thus,
+first traversing an edge labeled 1, then traversing edges labeled 0 or 1 freely for
+the next (k − 1)-steps, then traversing k + n edges labeled 0 and returning to the
+0-vertex, is possible in the graph Gj for each k ≤ j ≤ k + n. It follows that all
+sequences of the desired form are in each C(1, Nj ), and hence in C(1, Nk . . . , Nk+n ),
+proving the claim.                                                                      
+  With this claim in hand, we see that each block of size (2k + n contains at least
+2k−2 admissible (2k + n)-blocks in C(1, Nk , . . . , Nk+n ). We conclude that the maxi-
+mum eigenvalue βn,k of the adjacency matrix of the graph Gn,k of C(1, Nk , Nk+1 , · · · , Nk+n−1 )
+must satisfy (βn,k )2n+k ≥ 2k−2 . This yields
+                                                 k−2
+                                      βn,k ≥ 2 k+2n .
+                                √
+and hence lim inf k→∞ βn,k ≥     2. The Hausdorff dimension formula in Proposition
+2.2 then yields
+                                                                1
+      lim sup dimH C(1, Nk , . . . , Nk+n ) ≥ lim sup log3 βn,k ≥ log3 2.          (4.12)
+        k→∞                                     k→∞              2
+as asserted.
+28                    WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+     The lower bound Γ⋆ ≥ 21 log3 2 follows immediately from this bound, see (1.15).
+                                                                                  
+
+                                      5. Applications
+   We give several applications to improving bounds for the Hausdorff dimension
+of various sets.
+
+5.1. Hausdorff dimension of the generalized exceptional set E⋆ (Z3 ). Theo-
+rem 4.8 (2) shows that there are arbitrarily large families C(1, Nk1 , ..., Nkn ) having
+Hausdorff dimension uniformly bounded below. If one properly restricts the choice
+of the Nkj then one can obtain an infinite set in this way, as was pointed out to us
+by Artem Bolshakov. It yields a nontrivial lower bound on the Hausdorff dimension
+of the generalized exceptional set.
+Theorem 5.1. (Lower Bound for Generalized Exceptional Set)
+  (1) The subset Y of the 3-adic Cantor set Σ3,2̄ given by
+                           ∞
+                           X
+              Y := {λ :=         aj 3j : all a2k ∈ {0, 1}, all a2k+1 = 0} ⊂ Z3 .
+                           j=0
+
+is a 3-adic path set fractal having dimH (Y ) = 21 log3 2 ≈ 0.315464. This set satisfies
+                            Y ⊂ C(1, N2k+1 ), for all k ≥ 0,
+               k
+where Nk = 3 + 1, and in consequence
+                                          ∞
+                                          \
+                                    Y ⊆         C(1, N2k+1 ).
+                                          k=1
+
+  (2) One has
+                                                              1
+  dimH {λ ∈ Σ3,2̄ : N2k+1 λ ∈ Σ3,2̄ for all k ≥ 0} ≥ dimH (Y ) = log3 2.               (5.1)
+                                                                2
+Therefore
+                                     1
+                      dimH (E∗ ) ≥ log3 2 = 0.315464.                                  (5.2)
+                                     2
+Proof. (1) The 3-adic path set fractal property of Y ⊂ Σ3,2̄ is easily established,
+since the underlying graph of its symbolic dynamics
+                                              √     is pictured in Figure 5.1. The
+Perron eigenvalue of its adjacency matrix is 2, and its Hausdorff dimension is
+1
+2 log3 2 by Proposition 2.2.
+
+
+
+                                              0
+                                              1
+ 0                                                                                 1
+                                              0
+                   FIGURE 5.1. Presentation of Y .
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                           3-ADIC CANTOR SETS 29
+
+                                                                              P∞            2j
+   The elements of Y can be rewritten in the form λ =                           j=0 b2j 3        , with all
+b2j ∈ {0, 1}. We then have
+                               ∞
+                               X                      ∞
+                                                      X
+                                             2j
+                   N2k+1 λ =         b2j 3        +         b2j 32j+2k+1 ∈ Σ3,2̄ ,
+                               j=0                    j=0
+
+and the inclusion in the Cantor set Σ3,2̄ follows because the sets of 3-adic exponents
+in the two sums on the right side are disjoint, so there are no carry operations in
+combining them under 3-adic addition. This establishes that Y ⊂ C(1, N2k+1 ).
+   (2) All elements λ ∈ Y have N2k+1 λ ∈ Σ3,2̄ for all k ≥ 1. Thus
+                   Y ⊂ {λ ∈ Σ3,2̄ : N2k+1 λ ∈ Σ3,2̄ for all k ≥ 1}.
+The result (5.1) follows, from which (5.2) is immediate.                                                 
+  Theorem 1.9 is included as part (2) of this result.
+5.2. Bounds for approximations to the exceptional set E(Z3 ). We conclude
+with numerical results concerning Hausdorff dimensions of the upper approximation
+sets E (k) (Z3 ) to the exceptional set E(Z3 ). Recall that the only powers of 2 that
+are known to have ternary expansions that omit the digit 2 are 20 = 1 = (1)3 , 22 =
+4 = (11)3 , and 28 = 256 = (10111)3. In contrast 24 = 16 = (121)3 and 26 = 64 =
+(2101)3.
+   We begin with empirical results about the sets C(1, 2m1 , . . . , 2mn ) obtained via
+Algorithm A. Here we note the necessary condition 22n ≡ 1 (mod 3) for positive
+Hausdorff dimension.
+                                  Set            Hausdorff dimension
+                                C(1, 22 )        0.438018
+                                C(1, 24 )        0.255960
+                                C(1, 26 )        0.278002
+                                C(1, 28 )        0.287416
+                               C(1, 210 )        0.215201
+                               C(1, 212 )        0.244002
+                               C(1, 214 )        0.267112
+                              C(1, 22 , 24 )     0.
+                              C(1, 22 , 26 )     0.
+                              C(1, 22 , 28 )     0.228392
+                             C(1, 22 , 210 )     0.
+                              C(1, 24 , 26 )     0.
+                              C(1, 24 , 28 )     0.
+                             C(1, 24 , 210 )     0.
+                              C(1, 26 , 28 )     0.
+                             C(1, 26 , 210 )     0.
+                             C(1, 28 , 210 )     0.
+                            C(1, 22 , 28 , 212 ) 0.
+                            C(1, 22 , 28 , 214 ) 0.
+                            C(1, 22 , 28 , 216 ) 0.
+
+             TABLE 5.2. Hausdorff dimension of C(1, 2m1 , . . . , 2mk ) (to six decimal
+                         places)
+30                      WILLIAM ABRAM AND JEFFREY C. LAGARIAS
+
+
+Theorem 5.2. The following bounds hold for sets E (k) (Z3 ).
+                                            √ 
+                     (2)                1+ 5
+             dimH (E (Z3 )) ≥ log3                  ≈ 0.438018,
+                                            2
+                   dimH (E (3) (Z3 ))     ≥ log3 β1 ≈ 0.228392,
+where β1 ≈ 1.28520 is a root of λ − λ5 − 1 = 0.
+                                         6
+
+
+Proof. We have
+               dimH (E (2) (Z3 )) =            sup      dimH (C(2m1 , 2m2 ))
+                                             0≤m1 <m2
+                                                                            √ !
+                                                        0   2            1+ 5
+                                     ≥       dimH (C(2 , 2 )) = log3            .
+                                                                           2
+
+The bound for N1 = 22 = (11)3 follows from Theorem 1.8, taking k = 1.
+  We also have
+            dimH (E (3) (Z3 )) =               sup       dimH (C(2m1 , 2m2 , 2m3 ))
+                                        0≤m1 <m2 <m3
+
+                                 ≥      dimH (C(20 , 22 , 28 )) = log3 β1 ≈ 0.228392
+where β1 ≈ 1.28520... is a root of λ6 − λ5 − 1 = 0.                                             
+  It is unclear whether dimH (E (k) (Z3 )) is positive for any k ≥ 4. Currently
+C(1, 22 , 28 ) is the only component of E (3) (Z3 ) known to have positive Hausdorff
+dimension. At present we do not know of any set C(1, 2m1 , 2m2 , 2m3 ) that has
+positive Hausdorff dimension.
+
+Acknowledgments. The authors thank Artem Bolshakov for making the key ob-
+servation that Theorem 5.1 should hold. W. Abram acknowledges the support of
+an NSF Graduate Research Fellowship and of the University of Michigan, where
+this work was carried out.
+
+                                             References
+[1] W. Abram and J. C. Lagarias, Path sets and their symbolic dynamics, eprint arXiv:1207:5004
+[2] W. Abram and J. C. Lagarias, p-Adic path set fractals and arithmetic, eprint arXiv:1210:2478
+[3] W. Abram, A. Bolshakov and J. C. Lagarias, Intersections of multiplicative translates of
+    3-adic Cantor sets, Part II, in preparation.
+[4] R.L. Adler and B. Marcus, Topological entropy and equivalence of dynamical systems, Mem-
+    oirs of the American Mathematical Society, Volume 20, No. 219, AMS: Providence, RI 1979.
+[5] J.P. Alloche and J. O. Shallit, Automatic Sequences: Theory, Applications, Generalizations,
+    Cambridge University Press: Cambridge 2003.
+[6] M. Boyle and D. Handelman, The spectrum of nonnegative matrices via symbolic dynamics,
+    Ann. Math. 133 (1991), no. 2, 249–316.
+[7] G. Edgar, Measure, topology and fractal geometry, Second Edition Springer-Verlag: New York
+    2008.
+[8] P. Erdős, Some unconventional problems in number theory, Math. Mag. 52 (1979), 67-70.
+[9] E. de Faria and C. Tresser, On Sloane’s persistence problem, arXiv:1307.1188, July 2013.
+[10] A. Katok and B. Hasselblatt, Introduction to the Modern Theory of Dynamical Systems
+    (Cambridge University Press, New York, 1995).
+[11] J.C. Lagarias, Ternary expansions of powers of 2, J. London Math. Soc.(2) 79 (2009), 562-
+    588.
+[12] D. Lind, The entropies of topological Markov shifts and a related class of algebraic integers,
+    Ergod. Th. Dyn. Sys. 4 (1984), no. 2, 283–300.
+   INTERSECTIONS OF MULTIPLICATIVE TRANSLATES OF                    3-ADIC CANTOR SETS 31
+
+
+[13] D. Lind and B. Marcus, An Introduction to Symbolic Dynamics and Coding, (Cambridge
+    University Press, New York, 1995).
+[14] K. Mahler, Lectures on diophantine approximations, Part I. g-adic numbers and Roth’s
+    theorem, Prepared from notes of R. P. Bambah, University of Notre Dame Press, Notre Dame
+    IN 1961.
+[15] R. D. Mauldin and M. Urbański, Graph directed Markov systems. Geometry and dynamics
+    of limit sets, Cambridge Tracts in Mathematics No. 148, Cambridge Univ. Press: Cambridge
+    2003.
+[16] R. D. Mauldin and S. C. Williams, On the Hausdorff dimension of some graphs, Trans. Amer.
+    Math. Soc. 298 (1986), no. 2, 793–803.
+[17] R.D. Mauldin and S.C. Williams, Hausdorff Dimension of Graph Directed Constructions,
+    Transactions of the American Mathematical Society, 309, No. 2 (1988) , 811-829.
+[18] H. G. Senge and E. Straus, P.V. numbers and sets of multiplicity, Periodica Math. Hung. 3
+    (1973), 93–100.
+[19] J.G. Simonsen, On the Computabillity of the Topological Entropy of Subshifts, Discrete Math-
+    ematics and Theoretical Computer Science, 8 (2006), 83-96.
+[20] C. L. Stewart, On the Representation of an Integer in two Different Bases, J. Reine Angew.
+    Math., 319 (1980), 63–72.
+[21] B. Weiss, Subshifts of finite type and sofic systems, Monatshefte für Math. 77 (1973), 462–
+    474.
+[22] S. Williams, A sofic system which is not spectrally of finite type, Ergod. Th. Dyn. Sys. 8
+    (1988), 483–490.
+
+  Department of Mathematics and Computer Science, Hillsdale College, Hillsdale,
+MI 49242-1205,USA
+  E-mail address: wabram@hillsdale.edu
+
+   Department of Mathematics, University of Michigan, Ann Arbor, MI 48109-1043,USA
+   E-mail address: lagarias@umich.edu
+

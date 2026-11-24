@@ -32,3 +32,9 @@
 2026-11-24T12:51:58Z	200	e4a06ed2be2780be36aea9ecc768cb339fda6f42158e7a75ce056baceb4af35a	arxiv_api_dupuy_weirich.xml	http://export.arxiv.org/api/query?search_query=au:Dupuy+AND+au:Weirich&max_results=20
 2026-11-24T12:52:03Z	400	afe82cfce177197dcc3f4dd749a442f6c9d2cdffde05a8e2c36e564a579edad4	mo_search_ternary_powers2.json	https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=relevance&q=ternary%20powers%20of%202&site=mathoverflow&pagesize=50
 2026-11-24T12:52:03Z	200	872b1b72a0aac3ebf2970b89dfb4e44b0549aa002390e86403a4005b7232ce7b	mo_search_narkiewicz.json	https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=relevance&q=Narkiewicz&site=mathoverflow&pagesize=50
+2026-11-24T12:52:16Z	200	a92d70b3d3aba5f8550c49314df395a9b030ef14b258c1b82c3e1da4d423a37b	mo_search_ternary2.json	https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=relevance&q=ternary%20expansion%202%5En&site=mathoverflow&pagesize=50
+2026-11-24T12:52:16Z	200	f538cd32de6365c70f6b96e8041887bfd607afe1b49628780e7b47c5e2012aa2	mo_search_erdos_ternary.json	https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=relevance&title=ternary&site=mathoverflow&pagesize=100
+2026-11-24T12:52:32Z	200	29dd17c6cd6bf16d7bc55fbf5686ae9d4a1c1c955ee71edc1b174e3e980c5794	arxiv_2105.06440.pdf	https://arxiv.org/pdf/2105.06440
+2026-11-24T12:52:33Z	200	9cdebcbd27a21d9edf2a21615abfba248098fd43f909e0fecb4d1277497a667a	arxiv_1308.3133.pdf	https://arxiv.org/pdf/1308.3133
+2026-11-24T12:52:33Z	200	9adb61fabfc9bff7c02170b261253059ebaf972ba98d4ac7825802c87bc03e87	arxiv_api_omit_digit.xml	http://export.arxiv.org/api/query?search_query=abs:%22omit%22+AND+abs:digit+AND+abs:powers&sortBy=submittedDate&sortOrder=descending&max_results=50
+2026-11-24T12:53:07Z	200	c82fc8386018bf6c7761b28691c5843767b47584ca7ae290d3f1f9be1513f8a2	mathscinet_MR623247.html	https://mathscinet.ams.org/mathscinet-getitem?mr=623247
