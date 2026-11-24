@@ -1,0 +1,3 @@
+2026-11-24T12:48:57Z 200 4254f10b99bb5abde709f0dde060d34f636bed8d0a592b1067932d83f3187ee1 arxiv_2202.13256.html https://arxiv.org/abs/2202.13256
+2026-11-24T12:48:57Z 200 5a86fbdbba8d4f4f6f1a697acdca0555e571a807e960aa20f63c4c84295c6602 erdosproblems_406.html https://www.erdosproblems.com/406
+2026-11-24T12:48:57Z 200 c46c2984a3ce4d88c2c51c48c781056e10bc38c0662f16b8797a84163b48a5c1 fc_406.lean https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/406.lean
