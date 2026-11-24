@@ -224,7 +224,7 @@ budget:
   max_wall_hours: 24     # 人定（2026-11-24）：自动续跑总时长上限
   generation_interval_hours: 2   # 人定：每 2 小时触发一代
   max_parallel_workers: 4
-  max_spend: null        # 由人填写
+  max_spend: null        # 人定（2026-11-24）：不设花费上限，只按墙钟 max_wall_hours 控制
 
 === FILE: ledger/SCHEMA.md ===
 experiments.jsonl 每行一条，只追加：
