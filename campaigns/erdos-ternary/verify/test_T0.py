@@ -54,6 +54,14 @@ def main():
     for N in (10 ** 3, 10 ** 5, 2 * 3 ** 12):
         p = tree_py.run(N); c = tree_ref.run(N); c.pop("wall_s")
         check(f"tree_py == tree_ref.c (N={N})", p == c)
+    # deep levels (>= 80, where P_k exceeds 2^125): proposals/0002. Shards 754 and 1115 of 4096 at N = 2*3^30
+    # reach levels 98 and 82.
+    Nd, md = 2 * 3 ** 30, 4096
+    deep = {}
+    for i in (754, 1115):
+        p = tree_py.run(Nd, i, md); c = tree_ref.run(Nd, i, md); c.pop("wall_s"); deep[i] = c
+        check(f"tree_py == tree_ref.c deep (N=2*3^30, shard {i}/{md}, levels {len(c['depth_counts'])})",
+              p == c and len(c["depth_counts"]) > 80)
     d = tempfile.mkdtemp()
     try:
         for N in (10 ** 3, 10 ** 5, 2 * 3 ** 12):
@@ -69,6 +77,9 @@ def main():
                     tot = dc if tot is None else [x + y for x, y in zip(tot + [0] * (len(dc) - len(tot)), dc + [0] * (len(tot) - len(dc)))]
                 check(f"engine shards == reference shards (N={N}, m={m})", allok)
                 check(f"shard sums == unsharded (N={N}, m={m})", tot == ref["depth_counts"] and evs == ref["events"])
+        for i in (754, 1115):
+            g = run_engine(a.engine, Nd, i, md, d); g.pop("wall_s", None)
+            check(f"engine == reference deep (N=2*3^30, shard {i}/{md})", g == deep[i])
         # tamper tests on a fresh certificate set
         cd = pathlib.Path(d) / "certset"; cd.mkdir()
         N, m = 2 * 3 ** 12, 7

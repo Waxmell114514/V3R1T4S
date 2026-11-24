@@ -2,7 +2,7 @@
 python3 search/run.py --N <N> --shard i/m --out <file>
 N is decimal or a*3^b. The binary is built into build/ (gitignored) on first use, keyed by the source hash.
 Output JSON has exactly the fields and layout of g0: N, shard, d0, depth_counts, exceptions, events, leaf_digest,
-wall_s. Set ERDOS_C2_REFSAT=1 to hash deep N events with verify/tree_ref.c's saturated P_k (see engine.c)."""
+wall_s."""
 import argparse, hashlib, json, os, pathlib, subprocess, sys, time
 
 HERE = pathlib.Path(__file__).resolve().parent
@@ -40,8 +40,6 @@ def search(N, i, m):
         sys.exit(f"run.py: N out of supported range [0, 2^120): {N}")
     exe = binary()
     cmd = [str(exe), str(N), str(i), str(m)]
-    if os.environ.get("ERDOS_C2_REFSAT") == "1":
-        cmd.append("--ref-sat")
     t = time.time()
     p = subprocess.run(cmd, capture_output=True, text=True)
     wall = time.time() - t

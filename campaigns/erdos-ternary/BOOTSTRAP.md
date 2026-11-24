@@ -221,7 +221,8 @@ escalate:
   prediction_miss_factor: 5
 budget:
   max_generations: 200
-  max_wall_hours: null   # 由人填写
+  max_wall_hours: 24     # 人定（2026-11-24）：自动续跑总时长上限
+  generation_interval_hours: 2   # 人定：每 2 小时触发一代
   max_parallel_workers: 4
   max_spend: null        # 由人填写
 

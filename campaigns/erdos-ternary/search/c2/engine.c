@@ -1,16 +1,14 @@
 /* g1 engine (experiment g001-e02): DFS of the trailing-ternary-digit tree of verify/CERT.md.
  * Written independently of verify/ (no shared source).
  *
- * Usage: engine <N decimal> <i> <m> [--ref-sat]
+ * Usage: engine <N decimal> <i> <m>
  * Prints: "d0 <d0>", "nl <limbs>", "counts c1 c2 ...", one "E <r>" per exception, "events <n> <sumhex> <xorhex>".
  * Exit 3 on any exceeded limit (depth, precision, exception buffer); exit 2 on bad input.
  *
  * Representation: v = 2^r mod 3^L, L = 19*NL trits, NL base-3^19 limbs (each < 2^31, products < 2^61, so up to
  * 8 products plus a carry accumulate in one uint64). NL is chosen from N so that L exceeds the last branching level
  * by >= 45 trits; chains that go deeper than L recompute 2^r mod 3^266 in a slow path (depth limit 265).
- *
- * --ref-sat: hash N events with P_k saturated at 2^125 (the convention of verify/tree_ref.c, which differs from the
- * literal CERT.md formula only for N events at levels k >= 80). Default is the literal CERT.md formula (r mod 2^128). */
+ * N events are hashed with the literal CERT.md formula (r mod 2^128). */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -37,7 +35,7 @@ static int rec;                    /* record events/counts (shard 0 in the prefi
 static int stop_level;             /* collect alive nodes reaching this level instead of expanding */
 static uint64_t ev_n, ev_sum, ev_xor;
 static uint64_t counts[MAXLV];
-static u128 Pmod[MAXLV];           /* P_k for hashing (mod 2^128, or saturated with --ref-sat); exact when !Pbig */
+static u128 Pmod[MAXLV];           /* P_k mod 2^128 for hashing; exact when !Pbig */
 static unsigned char Pbig[MAXLV];  /* P_k > N */
 static int bitlen3[MAXLV];         /* bit length of 3^k: 3^k > 2^r  <=>  r < bitlen3[k] */
 static int ck[MAXLV];              /* trit k of (2^(P_k) - 1), nonzero by lemma 2 */
@@ -157,9 +155,7 @@ static int cmp_u128(const void *a, const void *b) {
 }
 
 int main(int argc, char **argv) {
-    if (argc < 4 || argc > 5) { fprintf(stderr, "usage: engine N i m [--ref-sat]\n"); return 2; }
-    int refsat = argc == 5 && !strcmp(argv[4], "--ref-sat");
-    if (argc == 5 && !refsat) { fprintf(stderr, "bad option\n"); return 2; }
+    if (argc != 4) { fprintf(stderr, "usage: engine N i m\n"); return 2; }
     const u128 LIM = (u128)1 << 120;
     NN = 0;
     for (const char *s = argv[1]; *s; s++) {
@@ -178,10 +174,10 @@ int main(int argc, char **argv) {
     for (int s = 0; s < 19; s++) magic[s] = (uint64_t)((((u128)1 << 63) + pow3[s] - 1) / pow3[s]);
 
     /* P_k, Pbig, Pmod */
-    { u128 P = 2; int huge = 0; u128 sat = (u128)1 << 125;
+    { u128 P = 2; int huge = 0;
       for (int k = 1; k < MAXLV; k++) {
           Pbig[k] = huge || P > NN;
-          Pmod[k] = refsat ? ((huge || P > sat) ? sat : P) : P;   /* P is exact mod 2^128 (wrapping) */
+          Pmod[k] = P;   /* P is exact mod 2^128 (wrapping) */
           if (!huge && P > ((u128)1 << 126) / 3) huge = 1;
           P *= 3;
       } }

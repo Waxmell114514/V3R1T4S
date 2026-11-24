@@ -19,7 +19,8 @@ static u128 NN;
 static uint64_t ev_count, ev_sum, ev_xor;
 static uint64_t counts[MAXK + 2];
 static int maxlevel;
-static u128 Pk[MAXK + 2];      /* P_k, saturating at ~2^127 */
+static u128 Pk[MAXK + 2];      /* P_k mod 2^128 (exact while PkBig[k] == 0) */
+static int PkBig[MAXK + 2];    /* 1 iff the true P_k exceeds 2^120 > N */
 static big Gk[MAXK + 2];       /* 2^(P_k) mod 3^(40L) */
 static uint64_t pow3[41];
 
@@ -69,13 +70,14 @@ static int fully_known(int k, u128 r) {
 typedef struct { int k; u128 r; big v; } node;  /* v = 2^r mod 3^(40L) */
 
 /* classify candidate; returns 1 if alive, sets *isE */
-static int classify(int k, u128 r, const big *v, int *isE, int record) {
+/* gt = 1: the true r is known to exceed N (r itself may be the true value mod 2^128) */
+static int classify(int k, u128 r, const big *v, int *isE, int record, int gt) {
     *isE = 0;
-    if (r > NN) { if (record) event(k, r, 1); return 0; }
+    if (gt || r > NN) { if (record) event(k, r, 1); return 0; }
     if (k - 1 > MAXK) { fprintf(stderr, "DEPTH\n"); exit(3); }
     if (trit(v, k - 1) == 2) { if (record) event(k, r, 0); return 0; }
     if (record) { counts[k]++; if (k > maxlevel) maxlevel = k; }
-    if (fully_known(k, r) && r + Pk[k] > NN) {
+    if (fully_known(k, r) && (PkBig[k] || r + Pk[k] > NN)) {
         *isE = 1;
         if (record) { event(k, r, 2); printf("E "); print_u128(r); printf("\n"); }
     }
@@ -104,7 +106,7 @@ static void dfs(node *root, int rootE) {
             if (j > 0) { big w; mulmod(&v, &Gk[k], &w); v = w; }
             u128 r = cur.r + (u128)j * Pk[k];
             int isE;
-            if (classify(k + 1, r, &v, &isE, 1)) {
+            if (classify(k + 1, r, &v, &isE, 1, j > 0 && PkBig[k])) {
                 node c; c.k = isE ? -(k + 1) : (k + 1); c.r = r; c.v = v; push(&c);
             }
         }
@@ -133,7 +135,10 @@ int main(int argc, char **argv) {
     /* P_k and G_k = 2^(P_k) */
     big two; memset(&two, 0, sizeof two); two.l[0] = 2;
     Pk[1] = 2;
-    for (int k = 2; k <= MAXK + 1; k++) { Pk[k] = Pk[k - 1] * 3; if (Pk[k] > ((u128)1 << 125)) Pk[k] = (u128)1 << 125; }
+    for (int k = 2; k <= MAXK + 1; k++) {
+        Pk[k] = Pk[k - 1] * 3;  /* wraps mod 2^128, as CERT.md hashes r mod 2^128 */
+        PkBig[k] = PkBig[k - 1] || Pk[k - 1] > (((u128)1 << 120) / 3);
+    }
     mulmod(&two, &two, &Gk[1]); /* 2^2 */
     for (int k = 2; k <= MAXK + 1; k++) { big a, b; mulmod(&Gk[k - 1], &Gk[k - 1], &a); mulmod(&a, &Gk[k - 1], &b); Gk[k] = b; }
     printf("d0 %d\n", d0);
@@ -144,8 +149,8 @@ int main(int argc, char **argv) {
     big one; memset(&one, 0, sizeof one); one.l[0] = 1;
     /* level 1 candidates r=0 (v=1), r=1 (v=2) */
     { int isE; node c;
-      c.r = 0; c.v = one; if (classify(1, 0, &one, &isE, rec0)) { c.k = isE ? -1 : 1; lvl[nl++] = c; }
-      c.r = 1; c.v = two; if (classify(1, 1, &two, &isE, rec0)) { c.k = isE ? -1 : 1; lvl[nl++] = c; } }
+      c.r = 0; c.v = one; if (classify(1, 0, &one, &isE, rec0, 0)) { c.k = isE ? -1 : 1; lvl[nl++] = c; }
+      c.r = 1; c.v = two; if (classify(1, 1, &two, &isE, rec0, 0)) { c.k = isE ? -1 : 1; lvl[nl++] = c; } }
     for (int k = 1; k < d0; k++) {
         nn = 0;
         for (size_t t = 0; t < nl; t++) {
@@ -155,7 +160,7 @@ int main(int argc, char **argv) {
                 if (j > 0) { big w; mulmod(&v, &Gk[k], &w); v = w; }
                 u128 r = lvl[t].r + (u128)j * Pk[k];
                 int isE;
-                if (classify(k + 1, r, &v, &isE, rec0)) {
+                if (classify(k + 1, r, &v, &isE, rec0, j > 0 && PkBig[k])) {
                     if (nn == cap) { fprintf(stderr, "prefix too big\n"); return 2; }
                     node c; c.k = isE ? -(k + 1) : (k + 1); c.r = r; c.v = v; nxt[nn++] = c;
                 }
