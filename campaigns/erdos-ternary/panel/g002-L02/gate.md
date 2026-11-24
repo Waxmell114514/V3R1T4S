@@ -19,3 +19,9 @@
 
 ## 人的认可（2026-11-24T13:15Z）
 人在会话中写："M3 认可"。M3 **过关**。
+
+## 推广形式（g004-P03，2026-11-24T16:10Z）
+`ErdosTernary.CountingLambda.card_noTwo_mul_le_succ_rpow`：对每个不被 3 整除的自然数 λ 与每个 X ≥ 0，
+#{0 ≤ n ≤ X : λ·2^n 的三进制不含 2} ≤ (X+1)^{log_3 2}；A 级，独立审计 pass（panel/g004-P03/lean_audit.md），
+Critic accept（reports/gen_004/critic_P03.md）。按 Critic 建议记为本 M3 结果的推广形式，不单独计为新命题、
+不单独开小组：Lagarias 2009 Thm 1.4 已有对任意非零 3-adic λ 的 2X^α 型界，新的只有常数 1，与 λ = 1 的情形同源。
