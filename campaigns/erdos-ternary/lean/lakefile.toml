@@ -1,0 +1,16 @@
+name = "ErdosTernary"
+defaultTargets = ["ErdosTernary", "Frozen"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.36.0"
+
+# Frozen definitions live in ../verify (hash-locked); do not edit them through this project.
+[[lean_lib]]
+name = "Frozen"
+srcDir = "../verify"
+roots = ["Statement"]
+
+[[lean_lib]]
+name = "ErdosTernary"

@@ -1,0 +1,801 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/aucLrrvlgi8dM7o3uKBPOUSX1v0</id>
+  <title>arXiv Query: search_query=au:Dupuy&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-11-24T10:13:26Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=au:Dupuy&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>342</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2006.16678v1</id>
+    <title>ARPEGE Cloud Cover Forecast Post-Processing with Convolutional Neural Network</title>
+    <updated>2020-06-30T10:51:39Z</updated>
+    <link href="https://arxiv.org/abs/2006.16678v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2006.16678v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Cloud cover is crucial information for many applications such as planning land observation missions from space. It remains however a challenging variable to forecast, and Numerical Weather Prediction (NWP) models suffer from significant biases, hence justifying the use of statistical post-processing techniques. In this study, ARPEGE (Météo-France global NWP) cloud cover is post-processed using a convolutional neural network (CNN). CNN is the most popular machine learning tool to deal with images. In our case, CNN allows the integration of spatial information contained in NWP outputs. We use a gridded cloud cover product derived from satellite observations over Europe as ground truth, and predictors are spatial fields of various variables produced by ARPEGE at the corresponding lead time. We show that a simple U-Net architecture produces significant improvements over Europe. Moreover, the U-Net outclasses more traditional machine learning methods used operationally such as a random forest and a logistic quantile regression. We introduced a weighting predictor layer prior to the traditional U-Net architecture which produces a ranking of predictors by importance, facilitating the interpretation of the results. Using $N$ predictors, only $N$ additional weights are trained which does not impact the computational time, representing a huge advantage compared to traditional methods of ranking (permutation importance, sequential selection, ...).</summary>
+    <category term="physics.ao-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-06-30T10:51:39Z</published>
+    <arxiv:comment>32 pages, 12 figures</arxiv:comment>
+    <arxiv:primary_category term="physics.ao-ph"/>
+    <author>
+      <name>Florian Dupuy</name>
+    </author>
+    <author>
+      <name>Olivier Mestre</name>
+    </author>
+    <author>
+      <name>Mathieu Serrurier</name>
+    </author>
+    <author>
+      <name>Mohamed Chafik Bakkay</name>
+    </author>
+    <author>
+      <name>Valentin Kivachuk Burdá</name>
+    </author>
+    <author>
+      <name>Naty Citlali Cabrera-Gutiérrez</name>
+    </author>
+    <author>
+      <name>Jean-Christophe Jouhaud</name>
+    </author>
+    <author>
+      <name>Maud-Alix Mader</name>
+    </author>
+    <author>
+      <name>Guillaume Oller</name>
+    </author>
+    <author>
+      <name>Michaël Zamo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1311.0973v1</id>
+    <title>Automorphisms of the Affine Line over Nonreduced Rings</title>
+    <updated>2013-11-05T06:10:15Z</updated>
+    <link href="https://arxiv.org/abs/1311.0973v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1311.0973v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study automorphisms of the affine line over rings like ZZ/p^n.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-11-05T06:10:15Z</published>
+    <arxiv:comment>15 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Taylor Dupuy</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1003.3160v1</id>
+    <title>Note on the diophantine equation X^t+Y^t=BZ^t</title>
+    <updated>2010-03-16T15:04:52Z</updated>
+    <link href="https://arxiv.org/abs/1003.3160v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1003.3160v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we obtain new results on the integers solutions X, Y, Z of the diophantine equation X^t+Y^t=BZ^t for a rationnal integer B and a prime number t verifying some conditions explained in the paper.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-03-16T15:04:52Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Benjamin Dupuy</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1712.04685v1</id>
+    <title>Projector augmented-wave method: an analysis in a one-dimensional setting</title>
+    <updated>2017-12-13T10:15:02Z</updated>
+    <link href="https://arxiv.org/abs/1712.04685v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1712.04685v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this article, a numerical analysis of the projector augmented-wave (PAW) method is presented, restricted to the case of dimension one with Dirac potentials modeling the nuclei in a periodic setting. The PAW method is widely used in electronic ab initio calculations, in conjunction with pseudopotentials. It consists in replacing the original electronic Hamiltonian $H$ by a pseudo-Hamiltonian $H^{PAW}$ via the PAW transformation acting in balls around each nuclei. Formally, the new eigenvalue problem has the same eigenvalues as $H$ and smoother eigenfunctions. In practice, the pseudo-Hamiltonian $H^{PAW}$ has to be truncated, introducing an error that is rarely analyzed. In this paper, error estimates on the lowest PAW eigenvalue are proved for the one-dimensional periodic Schrödinger operator with double Dirac potentials.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-12-13T10:15:02Z</published>
+    <arxiv:comment>31 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Mi-Song Dupuy</name>
+    </author>
+    <arxiv:doi>10.1051/m2an/2019017</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1051/m2an/2019017" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.20394v1</id>
+    <title>An Elementary Expression for Multiple Scattering in Homogeneous Microflake Media</title>
+    <updated>2026-09-17T13:43:58Z</updated>
+    <link href="https://arxiv.org/abs/2609.20394v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.20394v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We derive a novel diffuse-like BRDF based on microfacet theory. Its main novelty lies in the fact that it admits an elementary expression for both evaluation and importance sampling, while accounting exactly for all scattering orders under the Smith shadowing assumption. As such, it is the first to settle the question of whether such a construction was possible. In practice, the BRDF produces Lambertian reflectance at normal incidence and progressively concentrates reflected light around the mirror direction as incidence approaches grazing. We showcase this effect by comparing rendering results against Lambertian and state-of-the-art stochastic microfacet BRDFs.</summary>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-17T13:43:58Z</published>
+    <arxiv:primary_category term="cs.GR"/>
+    <author>
+      <name>Jonathan Dupuy</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.23539v1</id>
+    <title>Process Utility in High-Stakes Competition</title>
+    <updated>2026-05-22T12:01:21Z</updated>
+    <link href="https://arxiv.org/abs/2605.23539v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.23539v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study how individuals trade off outcome ("what") and process ("how") utility in high-stakes strategic decisions, namely professional tennis. Using optimality conditions and the second-service rule, we derive a sufficient condition for the nonparametric lower bound on the weight of process utility to be positive. Under mild shape restrictions, the high-frequency data indicate that most players likely value process utility positively. We then develop a structural model that recovers player-specific preferences over outcomes and processes. Estimates show that players systematically sacrifice success probabilities to increase process utility, with economically meaningful consequences for match outcomes and expected earnings.</summary>
+    <category term="econ.EM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-22T12:01:21Z</published>
+    <arxiv:primary_category term="econ.EM"/>
+    <author>
+      <name>Arnaud Dupuy</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2004.13228v2</id>
+    <title>The Statement of Mochizuki's Corollary 3.12: Initial Theta Data</title>
+    <updated>2025-06-19T15:13:13Z</updated>
+    <link href="https://arxiv.org/abs/2004.13228v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2004.13228v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We show that Mochizuki's initial theta data is computable from an elliptic curve defined over $\mathbb{Q}$. We work out the case of initial theta data for the elliptic curve with Cremona label 11a1 in detail.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.LO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-04-28T00:50:15Z</published>
+    <arxiv:comment>The previously titled "The Statement of Mochizuki's Corollary 3.12, Initial Theta Data, and the First Two Indeterminacies" has split into "The Statement of Mochizuki's Corollary 3.12: Initial Theta Data" and "The Statement of Mochizuki's Corollary 3.12: the First Two Indeterminacies". An updated version of the present article will appear in Ramanujan Journal</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Taylor Dupuy</name>
+    </author>
+    <author>
+      <name>Anton Hilado</name>
+    </author>
+    <arxiv:doi>10.1007/s11139-025-01100-y</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s11139-025-01100-y" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1403.2025v1</id>
+    <title>Deligne-Illusie Classes I: Lifted Torsors of Lifts of the Frobenius for Curves</title>
+    <updated>2014-03-09T03:16:36Z</updated>
+    <link href="https://arxiv.org/abs/1403.2025v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1403.2025v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For curves of genus bigger than one we prove that Buium's first arithmetic jet spaces (p-jet spaces) admit the structure of a torsor under some line bundle.
+  This result lifts a known constructions in characteristic p where the first $p$-jet space modulo p is a sheaf under the Frobenius tangent sheaf (parametrizing Frobenius linear derivations).
+  In particular we show there is a natural family of lifts of the Frobenius tangent bundle so that the first $p$-jet space (and hence higher order lifts of the Frobenius) form torsor a under this bundle.
+  The Cech cohomology classes associated to this torsor structure, which we call the Deligne-Illusie class, has strong analogies with the classical Kodaira-Spencer class from deformation theory.</summary>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.LO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-03-09T03:16:36Z</published>
+    <arxiv:primary_category term="math.AG"/>
+    <author>
+      <name>Taylor Dupuy</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1311.0974v1</id>
+    <title>Positivity and Lifts of the Frobenius</title>
+    <updated>2013-11-05T06:18:08Z</updated>
+    <link href="https://arxiv.org/abs/1311.0974v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1311.0974v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We show that a smooth scheme over a ring of Witt vectors cannot have a lift of the Frobenius if it has positive Kodaira dimension.</summary>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-11-05T06:18:08Z</published>
+    <arxiv:comment>7 pages</arxiv:comment>
+    <arxiv:primary_category term="math.AG"/>
+    <author>
+      <name>Taylor Dupuy</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1007.0875v2</id>
+    <title>On the Capacity Achieving Covariance Matrix for Frequency Selective MIMO Channels Using the Asymptotic Approach</title>
+    <updated>2011-04-12T14:30:52Z</updated>
+    <link href="https://arxiv.org/abs/1007.0875v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1007.0875v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this contribution, an algorithm for evaluating the capacity-achieving input covariance matrices for frequency selective Rayleigh MIMO channels is proposed. In contrast with the flat fading Rayleigh case, no closed-form expressions for the eigenvectors of the optimum input covariance matrix are available. Classically, both the eigenvectors and eigenvalues are computed numerically and the corresponding optimization algorithms remain computationally very demanding. In this paper, it is proposed to optimize (w.r.t. the input covariance matrix) a large system approximation of the average mutual information derived by Moustakas and Simon. The validity of this asymptotic approximation is clarified thanks to Gaussian large random matrices methods. It is shown that the approximation is a strictly concave function of the input covariance matrix and that the average mutual information evaluated at the argmax of the approximation is equal to the capacity of the channel up to a O(1/t) term, where t is the number of transmit antennas. An algorithm based on an iterative waterfilling scheme is proposed to maximize the average mutual information approximation, and its convergence studied. Numerical simulation results show that, even for a moderate number of transmit and receive antennas, the new approach provides the same results as direct maximization approaches of the average mutual information.</summary>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-07-06T12:38:05Z</published>
+    <arxiv:comment>revised version submitted to IEEE-IT on 12th April 2011 (34 pages, 2 figures, 2 tabs)</arxiv:comment>
+    <arxiv:primary_category term="cs.IT"/>
+    <author>
+      <name>Florian Dupuy</name>
+    </author>
+    <author>
+      <name>Philippe Loubaton</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1411.0428v2</id>
+    <title>Cosmological Perturbation Theory for streams of relativistic particles</title>
+    <updated>2014-12-09T20:12:17Z</updated>
+    <link href="https://arxiv.org/abs/1411.0428v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1411.0428v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Motion equations describing streams of relativistic particles and their properties are explored in detail in the framework of Cosmological Perturbation Theory. Those equations, derived in any metric both in the linear and nonlinear regimes, express the matter and momentum conservation. In this context we extend the setup of adiabatic initial conditions - that was initially performed in the Conformal Newtonian gauge - to the Synchronous gauge. The subhorizon limit of the nonlinear motion equations written in a generic perturbed Friedmann-Lemaître metric is then derived and analyzed. We show in particular that the momentum field $P_{i}(x)$ is always potential in the linear regime and remains so at subhorizon scales in the nonlinear regime. Finally the equivalence principle is exploited to highlight invariance properties satisfied by such a system of equations, extending that known for streams of non-relativistic particles, namely the extended Galilean invariance.</summary>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-11-03T11:16:18Z</published>
+    <arxiv:primary_category term="astro-ph.CO"/>
+    <author>
+      <name>Hélène Dupuy</name>
+    </author>
+    <author>
+      <name>Francis Bernardeau</name>
+    </author>
+    <arxiv:doi>10.1088/1475-7516/2015/03/030</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1088/1475-7516/2015/03/030" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1503.05707v2</id>
+    <title>On the importance of nonlinear couplings in large-scale neutrino streams</title>
+    <updated>2015-07-15T10:35:49Z</updated>
+    <link href="https://arxiv.org/abs/1503.05707v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1503.05707v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We propose a procedure to evaluate the impact of nonlinear couplings on the evolution of massive neutrino streams in the context of large-scale structure growth. Such streams can be described by general nonlinear conservation equations, derived from a multiple-flow perspective, which generalize the conservation equations of non-relativistic pressureless fluids. The relevance of the nonlinear couplings is quantified with the help of the eikonal approximation applied to the subhorizon limit of this system. It highlights the role played by the relative displacements of different cosmic streams and it specifies, for each flow, the spatial scales at which the growth of structure is affected by nonlinear couplings. We found that, at redshift zero, such couplings can be significant for wavenumbers as small as $k=0.2\,h$/Mpc for most of the neutrino streams.</summary>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-03-19T11:01:42Z</published>
+    <arxiv:comment>12 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.CO"/>
+    <author>
+      <name>Hélène Dupuy</name>
+    </author>
+    <author>
+      <name>Francis Bernardeau</name>
+    </author>
+    <arxiv:doi>10.1088/1475-7516/2015/08/053</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1088/1475-7516/2015/08/053" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2407.02215v1</id>
+    <title>Concurrent Binary Trees for Large-Scale Game Components</title>
+    <updated>2024-07-02T12:30:32Z</updated>
+    <link href="https://arxiv.org/abs/2407.02215v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2407.02215v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A concurrent binary tree (CBT) is a GPU-friendly data-structure suitable for the generation of bisection based terrain tessellations, i.e., adaptive triangulations over square domains. In this paper, we expand the benefits of this data-structure in two respects. First, we show how to bring bisection based tessellations to arbitrary polygon meshes rather than just squares. Our approach consists of mapping a triangular subdivision primitive, which we refer to as a bisector, to each halfedge of the input mesh. These bisectors can then be subdivided adaptively to produce conforming triangulations solely based on halfedge operators. Second, we alleviate a limitation that restricted the triangulations to low subdivision levels. We do so by using the CBT as a memory pool manager rather than an implicit encoding of the triangulation as done originally. By using a CBT in this way, we concurrently allocate and/or release bisectors during adaptive subdivision using shared GPU memory. We demonstrate the benefits of our improvements by rendering planetary scale geometry out of very coarse meshes. Performance-wise, our triangulation method evaluates in less than 0.2ms on console-level hardware.</summary>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-07-02T12:30:32Z</published>
+    <arxiv:primary_category term="cs.GR"/>
+    <author>
+      <name>Anis Benyoub</name>
+    </author>
+    <author>
+      <name>Jonathan Dupuy</name>
+    </author>
+    <arxiv:doi>10.1145/3675371</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3675371" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1810.01329v2</id>
+    <title>Discretization error cancellation in the plane-wave approximation of periodic Hamiltonians with Coulomb singularities</title>
+    <updated>2019-03-15T13:07:27Z</updated>
+    <link href="https://arxiv.org/abs/1810.01329v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1810.01329v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In solid-state physics, energies of molecular systems are usually computed with a plane-wave discretization of Kohn-Sham equations. A priori estimates of plane-wave convergence for periodic Kohn-Sham calculations with pseudopotentials have been proved , however in most computations in practice, plane-wave cut-offs are not tight enough to target the desired accuracy. It is often advocated that the real quantity of interest is not the value of the energy but of energy differences for different configurations. The computed energy difference is believed to be much more accurate because of `discretization error cancellation', since the sources of numerical errors are essentially the same for different configurations. For periodic linear Hamiltonians with Coulomb potentials, error cancellation can be explained by the universality of the Kato cusp condition. Using weighted Sobolev spaces, Taylor-type expansions of the eigenfunctions are available yielding a precise characterization of this singularity. This then gives an explicit formula of the first order term of the decay of the Fourier coefficients of the eigenfunctions. It enables one to prove that errors on eigenvalue differences are reduced but converge at the same rate as the error on the eigenvalue.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-10-02T15:42:44Z</published>
+    <arxiv:comment>14 pages, 3 figures, improved result on main theorem, corrected typos</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Mi-Song Dupuy</name>
+    </author>
+    <arxiv:doi>10.1007/s10915-019-00959-6</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s10915-019-00959-6" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2407.10881v2</id>
+    <title>Exciting DeePMD: Learning excited state energies, forces, and non-adiabatic couplings</title>
+    <updated>2024-09-13T19:49:16Z</updated>
+    <link href="https://arxiv.org/abs/2407.10881v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2407.10881v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We extend the DeePMD neural network architecture to predict electronic structure properties necessary to perform non-adiabatic dynamics simulations. While learning the excited state energies and forces follows a straightforward extension of the DeePMD approach for ground-state energies and forces, how to learn the map between the non-adiabatic coupling vectors (NACV) and the local chemical environment descriptors of DeePMD is less trivial. Most implementations of machine-learning-based non-adiabatic dynamics inherently approximate the NACVs, with an underlying assumption that the energy-difference-scaled NACVs are conservative fields. We overcome this approximation, implementing the method recently introduced by Richardson [J. Chem. Phys. 158 011102 (2023)], which learns the symmetric dyad of the energy-difference-scaled NACV. The efficiency and accuracy of our neural network architecture is demonstrated through the example of the methaniminium cation CH$_2$NH$_2^+$.</summary>
+    <category term="physics.chem-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-07-15T16:35:00Z</published>
+    <arxiv:comment>Presentation of the 3 challenges in learning NACVs was clarified, with references added. A supplementary material section was added to clarify some points made in main text about methods' properties, together with more tests and comparisons of the different methods. Main results of these comparisons are summarized in main text with new figures. Ancillary files with code and data were added</arxiv:comment>
+    <arxiv:primary_category term="physics.chem-ph"/>
+    <author>
+      <name>Lucien Dupuy</name>
+    </author>
+    <author>
+      <name>Neepa T. Maitra</name>
+    </author>
+    <arxiv:doi>10.1063/5.0227523</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1063/5.0227523" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2305.02339v2</id>
+    <title>Dynamic cosmography of the local Universe: Laniakea and five more watershed superclusters</title>
+    <updated>2023-08-30T07:16:04Z</updated>
+    <link href="https://arxiv.org/abs/2305.02339v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2305.02339v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This article delivers the dynamical cosmography of the Local Universe within z=0.1 (1 giga light-years). We exploit the gravitational velocity field computed using the CosmicFlows-4 catalog of galaxy distances to delineate superclusters as watersheds, publishing for the first time their size, shape, main streams of matter and the location of their central attractor. Laniakea, our home supercluster's size is confirmed to be 2 $\times 10^6$ (Mpc $h^{-1}$)$^3$. Five more known superclusters are now dynamically defined in the same way: Apus, Hercules, Lepus, Perseus-Pisces and Shapley. Also, the central repellers of the Bootes and Sculptor voids are found and the Dipole and Cold Spot repellers now appear as a single gigantic entity. Interestingly the observed superclusters are an order of magnitude larger than the theoretical ones predicted by cosmological $Λ$CDM simulations.</summary>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-05-03T18:00:01Z</published>
+    <arxiv:comment>8 pages, 4 figures, 1 table, accepted in A&amp;A (AA/2023/46802)</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.CO"/>
+    <arxiv:journal_ref>A&amp;A 678, A176 (2023)</arxiv:journal_ref>
+    <author>
+      <name>Alexandra Dupuy</name>
+    </author>
+    <author>
+      <name>Hélène M. Courtois</name>
+    </author>
+    <arxiv:doi>10.1051/0004-6361/202346802</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1051/0004-6361/202346802" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2002.00512v1</id>
+    <title>Variational projector-augmented wave method: a full-potential approach for electronic structure calculations in solid-state physics</title>
+    <updated>2020-02-02T23:43:59Z</updated>
+    <link href="https://arxiv.org/abs/2002.00512v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2002.00512v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In solid-state physics, energies of crystals are usually computed with a plane-wave discretization of Kohn-Sham equations. However the presence of Coulomb singularities requires the use of large plane-wave cut-offs to produce accurate numerical results. In this paper, an analysis of the plane-wave convergence of the eigenvalues of periodic linear Hamiltonians with Coulomb potentials using the variational projector-augmented wave (VPAW) method is presented. In the VPAW method, an invertible transformation is applied to the original eigenvalue problem, acting locally in balls centered at the singularities. In this setting, a generalized eigenvalue problem needs to be solved using plane-waves. We show that cusps of the eigenfunctions of the VPAW eigenvalue problem at the positions of the nuclei are significantly reduced. These eigenfunctions have however a higher-order derivative discontinuity at the spheres centered at the nuclei. By balancing both sources of error, we show that the VPAW method can drastically improve the plane-wave convergence of the eigenvalues with a minor additional computational cost. Numerical tests are provided confirming the efficiency of the method to treat Coulomb singularities.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-02-02T23:43:59Z</published>
+    <arxiv:comment>29 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Mi-Song Dupuy</name>
+    </author>
+    <arxiv:doi>10.1016/j.jcp.2021.110510</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.jcp.2021.110510" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.16363v3</id>
+    <title>Exact static linear response of excited states from ensemble density functional theory</title>
+    <updated>2025-09-10T09:17:46Z</updated>
+    <link href="https://arxiv.org/abs/2506.16363v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.16363v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Following a recent work [E. Fromager, J. Phys. Chem. A 2025, 129, 4, 1143-1155] on the ensemble density functional theory (DFT) of excited electronic energy levels, we derive in this paper the ensuing static linear response theory, thus allowing for an in-principle exact evaluation of excited-state density-density linear response functions in a completely frequency-independent setting. Once individual-state components of the inverse ensemble linear response function have been introduced, a working Dyson-type equation naturally emerges for each state, individually. By considering the zero-weight limit of the theory, which infinitesimally deviates from standard Kohn--Sham DFT, exact excited-state corrections to ground-state linear response DFT can be identified. They involve the first-order weight derivatives of the ensemble Hartree-exchange-correlation (Hxc) potential and kernel, thus confirming the importance in ensemble DFT of both weight and density-functional derivatives of the ensemble Hxc energy functional.</summary>
+    <category term="physics.chem-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-19T14:39:53Z</published>
+    <arxiv:primary_category term="physics.chem-ph"/>
+    <author>
+      <name>Lucien Dupuy</name>
+    </author>
+    <author>
+      <name>Emmanuel Fromager</name>
+    </author>
+    <arxiv:doi>10.1021/acs.jpca.5c04552</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1021/acs.jpca.5c04552" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2102.09841v1</id>
+    <title>Finite-size effects in response functions of molecular systems</title>
+    <updated>2021-02-19T10:21:00Z</updated>
+    <link href="https://arxiv.org/abs/2102.09841v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2102.09841v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We consider an electron in a localized potential submitted to a weak external, timedependent field. In the linear response regime, the response function can be computed using Kubo's formula. In this paper, we consider the numerical approximation of the response function by means of a truncation to a finite region of space. This is necessarily a singular approximation because of the discreteness of the spectrum of the truncated Hamiltonian, and in practice a regularization (smoothing) has to be used. Our results provide error estimates for the response function past the ionization threshold with respect to both the smoothing parameter and the size of the computational domain.</summary>
+    <category term="math.AP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-02-19T10:21:00Z</published>
+    <arxiv:primary_category term="math.AP"/>
+    <author>
+      <name>Mi-Song Dupuy</name>
+      <arxiv:affiliation>TUM</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Antoine Levitt</name>
+      <arxiv:affiliation>CERMICS</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1610.05925v1</id>
+    <title>Learning Determinantal Point Processes in Sublinear Time</title>
+    <updated>2016-10-19T09:18:10Z</updated>
+    <link href="https://arxiv.org/abs/1610.05925v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1610.05925v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We propose a new class of determinantal point processes (DPPs) which can be manipulated for inference and parameter learning in potentially sublinear time in the number of items. This class, based on a specific low-rank factorization of the marginal kernel, is particularly suited to a subclass of continuous DPPs and DPPs defined on exponentially many items. We apply this new class to modelling text documents as sampling a DPP of sentences, and propose a conditional maximum likelihood formulation to model topic proportions, which is made possible with no approximation for our class of DPPs. We present an application to document summarization with a DPP on $2^{500}$ items.</summary>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-10-19T09:18:10Z</published>
+    <arxiv:comment>Under review for AISTATS 2017</arxiv:comment>
+    <arxiv:primary_category term="stat.ML"/>
+    <author>
+      <name>Christophe Dupuy</name>
+      <arxiv:affiliation>SIERRA</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Francis Bach</name>
+      <arxiv:affiliation>SIERRA, LIENS</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1603.02644v5</id>
+    <title>Online but Accurate Inference for Latent Variable Models with Local Gibbs Sampling</title>
+    <updated>2018-01-31T08:38:26Z</updated>
+    <link href="https://arxiv.org/abs/1603.02644v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1603.02644v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study parameter inference in large-scale latent variable models. We first propose an unified treatment of online inference for latent variable models from a non-canonical exponential family, and draw explicit links between several previously proposed frequentist or Bayesian methods. We then propose a novel inference method for the frequentist estimation of parameters, that adapts MCMC methods to online inference of latent variable models with the proper use of local Gibbs sampling. Then, for latent Dirich-let allocation,we provide an extensive set of experiments and comparisons with existing work, where our new approach outperforms all previously proposed methods. In particular, using Gibbs sampling for latent variable inference is superior to variational inference in terms of test log-likelihoods. Moreover, Bayesian inference through variational methods perform poorly, sometimes leading to worse fits with latent variables of higher dimensionality.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-03-08T19:57:47Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <arxiv:journal_ref>Journal of Machine Learning Research, Journal of Machine Learning Research, 2017, 18, pp.1 - 45</arxiv:journal_ref>
+    <author>
+      <name>Christophe Dupuy</name>
+      <arxiv:affiliation>SIERRA</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Francis Bach</name>
+      <arxiv:affiliation>LIENS, SIERRA</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.11510v1</id>
+    <title>Adaptive Tetrahedral Grids for Volumetric Path-Tracing</title>
+    <updated>2025-06-13T07:10:41Z</updated>
+    <link href="https://arxiv.org/abs/2506.11510v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.11510v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We advertise the use of tetrahedral grids constructed via the longest edge bisection algorithm for rendering volumetric data with path tracing. The key benefits of such grids is two-fold. First, they provide a highly adaptive space-partitioning representation that limits the memory footprint of volumetric assets. Second, each (tetrahedral) cell has exactly 4 neighbors within the volume (one per face of each tetrahedron) or less at boundaries. We leverage these properties to devise optimized algorithms and data-structures to compute and path-trace adaptive tetrahedral grids on the GPU. In practice, our GPU implementation outperforms regular grids by up to x30 and renders production assets in real time at 32 samples per pixel.</summary>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-13T07:10:41Z</published>
+    <arxiv:primary_category term="cs.GR"/>
+    <author>
+      <name>Anis Benyoub</name>
+    </author>
+    <author>
+      <name>Jonathan Dupuy</name>
+    </author>
+    <arxiv:doi>10.1145/3721239.3734093</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3721239.3734093" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2205.14631v2</id>
+    <title>Anchor Prediction: A Topic Modeling Approach</title>
+    <updated>2022-06-01T07:38:36Z</updated>
+    <link href="https://arxiv.org/abs/2205.14631v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2205.14631v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Networks of documents connected by hyperlinks, such as Wikipedia, are ubiquitous. Hyperlinks are inserted by the authors to enrich the text and facilitate the navigation through the network. However, authors tend to insert only a fraction of the relevant hyperlinks, mainly because this is a time consuming task. In this paper we address an annotation, which we refer to as anchor prediction. Even though it is conceptually close to link prediction or entity linking, it is a different task that require developing a specific method to solve it. Given a source document and a target document, this task consists in automatically identifying anchors in the source document, i.e words or terms that should carry a hyperlink pointing towards the target document. We propose a contextualized relational topic model, CRTM, that models directed links between documents as a function of the local context of the anchor in the source document and the whole content of the target document. The model can be used to predict anchors in a source document, given the target document, without relying on a dictionary of previously seen mention or title, nor any external knowledge graph. Authors can benefit from CRTM, by letting it automatically suggest hyperlinks, given a new document and the set of target document to connect to. It can also benefit to readers, by dynamically inserting hyperlinks between the documents they're reading. Experiments conducted on several Wikipedia corpora (in English, Italian and German) highlight the practical usefulness of anchor prediction and demonstrate the relevancy of our approach.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-05-29T11:26:52Z</published>
+    <arxiv:comment>14 pages, correct typo and \citep</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Jean Dupuy</name>
+    </author>
+    <author>
+      <name>Adrien Guille</name>
+    </author>
+    <author>
+      <name>Julien Jacques</name>
+    </author>
+    <arxiv:doi>10.1145/3487553.3524927</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3487553.3524927" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2411.12847v1</id>
+    <title>mDAE : modified Denoising AutoEncoder for missing data imputation</title>
+    <updated>2024-11-19T20:31:53Z</updated>
+    <link href="https://arxiv.org/abs/2411.12847v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2411.12847v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper introduces a methodology based on Denoising AutoEncoder (DAE) for missing data imputation. The proposed methodology, called mDAE hereafter, results from a modification of the loss function and a straightforward procedure for choosing the hyper-parameters. An ablation study shows on several UCI Machine Learning Repository datasets, the benefit of using this modified loss function and an overcomplete structure, in terms of Root Mean Squared Error (RMSE) of reconstruction. This numerical study is completed by comparing the mDAE methodology with eight other methods (four standard and four more recent). A criterion called Mean Distance to Best (MDB) is proposed to measure how a method performs globally well on all datasets. This criterion is defined as the mean (over the datasets) of the distances between the RMSE of the considered method and the RMSE of the best method. According to this criterion, the mDAE methodology was consistently ranked among the top methods (along with SoftImput and missForest), while the four more recent methods were systematically ranked last. The Python code of the numerical study will be available on GitHub so that results can be reproduced or generalized with other datasets and methods.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-11-19T20:31:53Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Mariette Dupuy</name>
+    </author>
+    <author>
+      <name>Marie Chavent</name>
+    </author>
+    <author>
+      <name>Remi Dubois</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1111.3805v1</id>
+    <title>Diversity of the MMSE receiver in flat fading and frequency selective MIMO channels at fixed rate</title>
+    <updated>2011-11-16T13:54:19Z</updated>
+    <link href="https://arxiv.org/abs/1111.3805v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1111.3805v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this contribution, the evaluation of the diversity of the MIMO MMSE receiver is addressed for finite rates in both flat fading channels and frequency selective fading channels with cyclic prefix. It has been observed recently that in contrast with the other MIMO receivers, the MMSE receiver has a diversity depending on the aimed finite rate, and that for sufficiently low rates the MMSE receiver reaches the full diversity - that is, the diversity of the ML receiver. This behavior has so far only been partially explained. The purpose of this paper is to provide complete proofs for flat fading MIMO channels, and to improve the partial existing results in frequency selective MIMO channels with cyclic prefix.</summary>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-11-16T13:54:19Z</published>
+    <arxiv:comment>Extended version of Asilomar 2011 conference paper, 17 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.IT"/>
+    <author>
+      <name>Florian Dupuy</name>
+    </author>
+    <author>
+      <name>Philippe Loubaton</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2207.05618v1</id>
+    <title>Htex: Per-Halfedge Texturing for Arbitrary Mesh Topologies</title>
+    <updated>2022-07-12T15:42:44Z</updated>
+    <link href="https://arxiv.org/abs/2207.05618v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2207.05618v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce per-halfedge texturing (Htex) a GPU-friendly method for texturing arbitrary polygon-meshes without an explicit parameterization. Htex builds upon the insight that halfedges encode an intrinsic triangulation for polygon meshes, where each halfedge spans a unique triangle with direct adjacency information. Rather than storing a separate texture per face of the input mesh as is done by previous parameterization-free texturing methods, Htex stores a square texture for each halfedge and its twin. We show that this simple change from face to halfedge induces two important properties for high performance parameterization-free texturing. First, Htex natively supports arbitrary polygons without requiring dedicated code for, e.g, non-quad faces. Second, Htex leads to a straightforward and efficient GPU implementation that uses only three texture-fetches per halfedge to produce continuous texturing across the entire mesh. We demonstrate the effectiveness of Htex by rendering production assets in real time.</summary>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-07-12T15:42:44Z</published>
+    <arxiv:primary_category term="cs.GR"/>
+    <author>
+      <name>Wilhem Barbier</name>
+    </author>
+    <author>
+      <name>Jonathan Dupuy</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2306.05044v2</id>
+    <title>Sampling Visible GGX Normals with Spherical Caps</title>
+    <updated>2023-06-12T15:36:04Z</updated>
+    <link href="https://arxiv.org/abs/2306.05044v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2306.05044v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Importance sampling the distribution of visible GGX normals requires sampling those of a hemisphere. In this work, we introduce a novel method for sampling such visible normals. Our method builds upon the insight that a hemispherical mirror reflects parallel light rays uniformly within a solid angle shaped as a spherical cap. This spherical cap has the same apex as the hemispherical mirror, and its aperture given by the angle formed by the orientation of that apex and the direction of incident light rays. Based on this insight, we sample GGX visible normals as halfway vectors between a given incident direction and directions drawn from its associated spherical cap. Our resulting implementation is even simpler than that of Heitz and leads to up to systematic speed-ups in our benchmarks.</summary>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-06-08T08:54:27Z</published>
+    <arxiv:comment>6 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.GR"/>
+    <author>
+      <name>Jonathan Dupuy</name>
+    </author>
+    <author>
+      <name>Anis Benyoub</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2004.13108v2</id>
+    <title>Probabilistic Szpiro, Baby Szpiro, and Explicit Szpiro from Mochizuki's Corollary 3.12</title>
+    <updated>2020-04-29T01:29:45Z</updated>
+    <link href="https://arxiv.org/abs/2004.13108v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2004.13108v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In \cite{Dupuy2020a} we gave some explicit formulas for the "indeterminacies" Ind1,Ind2,Ind3 in Mochizuki's Inequality as well as a new presentation of initial theta data. In the present paper we use these explicit formulas, together with our probabilistic formulation of \cite[Corollary 3.12]{IUT3} to derive variants of Szpiro's inequality (in the spirit of \cite{IUT4}). In particular, for an elliptic curve in initial theta data we show how to derive uniform Szpiro (with explicit numerical constants). The inequalities we get will be strictly weaker than \cite[Theorem 1.10]{IUT4} but the proofs are more transparent, modifiable, and user friendly. All of these inequalities are derived from an probabilistic version of \cite[Corollary 3.12]{IUT3} formulated in \cite{Dupuy2020a} based on the notion of random measurable sets.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-04-27T19:17:11Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Taylor Dupuy</name>
+    </author>
+    <author>
+      <name>Anton Hilado</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1001.3102v2</id>
+    <title>On the Capacity Achieving Covariance Matrix for Frequency Selective MIMO Channels Using the Asymptotic Approach</title>
+    <updated>2010-07-06T13:05:54Z</updated>
+    <link href="https://arxiv.org/abs/1001.3102v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1001.3102v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this contribution, an algorithm for evaluating the capacity-achieving input covariance matrices for frequency selective Rayleigh MIMO channels is proposed. In contrast with the flat fading Rayleigh cases, no closed-form expressions for the eigenvectors of the optimum input covariance matrix are available. Classically, both the eigenvectors and eigenvalues are computed numerically and the corresponding optimization algorithms remain computationally very demanding. In this paper, it is proposed to optimize (w.r.t. the input covariance matrix) a large system approximation of the average mutual information derived by Moustakas and Simon. An algorithm based on an iterative water filling scheme is proposed, and its convergence is studied. Numerical simulation results show that, even for a moderate number of transmit and receive antennas, the new approach provides the same results as direct maximization approaches of the average mutual information.</summary>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-01-18T16:59:55Z</published>
+    <arxiv:comment>presented at ISIT 2010 Conference, Austin, Texas, June 13-18, 2010 (5 pages, 1 figure, 2 tables)</arxiv:comment>
+    <arxiv:primary_category term="cs.IT"/>
+    <author>
+      <name>Florian Dupuy</name>
+    </author>
+    <author>
+      <name>Philippe Loubaton</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2210.04593v1</id>
+    <title>Dissociation limit of the H2 molecule in the particle-hole random phase approximation</title>
+    <updated>2022-10-10T11:54:27Z</updated>
+    <link href="https://arxiv.org/abs/2210.04593v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2210.04593v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this work, we consider the particle-hole random phase approximation (phRPA), an approximation to the correlation energy in electronic structure, and show that the phRPA energy of the H2 molecule correctly dissociates. That is, as the hydrogen atoms are pulled apart, the phRPA energy of the system converges to twice the phRPA energy of a single hydrogen atom. Despite the simplicity of the H2 system, the correct dissociation of H2 is known to be a difficult problem for density functional approximations. As part of our result, we prove that the phRPA correlation energy is well-defined.</summary>
+    <category term="math.AP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-10-10T11:54:27Z</published>
+    <arxiv:primary_category term="math.AP"/>
+    <author>
+      <name>Mi-Song Dupuy</name>
+      <arxiv:affiliation>LJLL</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Kyle Thicke</name>
+      <arxiv:affiliation>TAMU</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1311.5487v1</id>
+    <title>Describing massive neutrinos in cosmology as a collection of independent flows</title>
+    <updated>2013-11-21T17:22:03Z</updated>
+    <link href="https://arxiv.org/abs/1311.5487v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1311.5487v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A new analytical approach allowing to account for massive neutrinos in the non-linear description of the growth of the large-scale structure of the universe is proposed. Unlike the standard approach in which neutrinos are described as a unique hot fluid, it is shown that the overall neutrino fluid can be equivalently decomposed into a collection of independent flows. Starting either from elementary conservation equations or from the evolution equation of the phase-space distribution function, we derive the two non-linear motion equations that each of these flows satisfies. Those fluid equations describe the evolution of macroscopic fields. We explain in detail the connection between the collection of flows we defined and the standard massive neutrino fluid. Then, in the particular case of adiabatic initial conditions, we explicitly check that, at linear order, the resolution of this new system of equations reproduces the results obtained in the standard approach based on the collisionless Boltzmann hierarchy. Besides, the approach advocated in this paper allows to show how each neutrino flow settles into the cold dark matter flow depending on initial velocities. It opens the way to a fully non-linear treatment of the dynamical evolution of neutrinos in the framework of large-scale structure growth.</summary>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-11-21T17:22:03Z</published>
+    <arxiv:comment>23 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.CO"/>
+    <author>
+      <name>Hélène Dupuy</name>
+    </author>
+    <author>
+      <name>Francis Bernardeau</name>
+    </author>
+    <arxiv:doi>10.1088/1475-7516/2014/01/030</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1088/1475-7516/2014/01/030" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1909.07605v1</id>
+    <title>Integration and Simulation of Bivariate Projective-Cauchy Distributions within Arbitrary Polygonal Domains</title>
+    <updated>2019-09-17T06:07:31Z</updated>
+    <link href="https://arxiv.org/abs/1909.07605v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1909.07605v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Consider a uniform variate on the unit upper-half sphere of dimension $d$. It is known that the straight-line projection through the center of the unit sphere onto the plane above it distributes this variate according to a $d$-dimensional projective-Cauchy distribution. In this work, we leverage the geometry of this construction in dimension $d=2$ to derive new properties for the bivariate projective-Cauchy distribution. Specifically, we reveal via geometric intuitions that integrating and simulating a bivariate projective-Cauchy distribution within an arbitrary domain translates into respectively measuring and sampling the solid angle subtended by the geometry of this domain as seen from the origin of the unit sphere. To make this result practical for, e.g., generating truncated variants of the bivariate projective-Cauchy distribution, we extend it in two respects. First, we provide a generalization to Cauchy distributions parameterized by location-scale-correlation coefficients. Second, we provide a specialization to polygonal-domains, which leads to closed-form expressions. We provide a complete MATLAB implementation for the case of triangular domains, and briefly discuss the case of elliptical domains and how to further extend our results to bivariate Student distributions.</summary>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-09-17T06:07:31Z</published>
+    <arxiv:comment>Technical Report</arxiv:comment>
+    <arxiv:primary_category term="math.PR"/>
+    <author>
+      <name>Jonathan Dupuy</name>
+    </author>
+    <author>
+      <name>Laurent Belcour</name>
+    </author>
+    <author>
+      <name>Eric Heitz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1711.06529v1</id>
+    <title>Variational projector augmented-wave method: theoretical analysis and preliminary numerical results</title>
+    <updated>2017-11-17T13:38:08Z</updated>
+    <link href="https://arxiv.org/abs/1711.06529v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1711.06529v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In Kohn-Sham electronic structure computations, wave functions have singularities at nuclear positions. Because of these singularities, plane-wave expansions give a poor approximation of the eigenfunctions. In conjunction with the use of pseudo-potentials, the PAW (projector augmented-wave) method circumvents this issue by replacing the original eigenvalue problem by a new one with the same eigenvalues but smoother eigenvectors. Here a slightly different method, called VPAW (variational PAW), is proposed and analyzed. This new method allows for a better convergence with respect to the number of plane-waves. Some numerical tests on an idealized case corroborate this efficiency.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-11-17T13:38:08Z</published>
+    <arxiv:comment>41 pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Xavier Blanc</name>
+    </author>
+    <author>
+      <name>Eric Cancès</name>
+    </author>
+    <author>
+      <name>Mi-Song Dupuy</name>
+    </author>
+    <arxiv:doi>10.1016/j.crma.2017.05.004</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.crma.2017.05.004" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.02985v3</id>
+    <title>Charged excitations made neutral: N-centered ensemble density functional theory of Fukui functions</title>
+    <updated>2026-06-17T11:57:15Z</updated>
+    <link href="https://arxiv.org/abs/2601.02985v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.02985v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>An in-principle exact working equation to compute electronic affinity and ionization Fukui functions is derived within the $N$-centered (Nc) ensemble extension of density functional theory (DFT). It circumvents the kernel derivative discontinuity problem of DFT for fractional electron numbers, whose contribution is recovered through weight derivatives of the ensemble density functional potential. Thus, it allows for the design of alternative and effective approximations, such as the weight-dependent scaling of regular functionals or the interpolation between known limits of Nc ensembles</summary>
+    <category term="physics.chem-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-06T12:52:18Z</published>
+    <arxiv:primary_category term="physics.chem-ph"/>
+    <author>
+      <name>Lucien Dupuy</name>
+    </author>
+    <author>
+      <name>Emmanuel Fromager</name>
+    </author>
+    <arxiv:doi>10.1103/gjf6-25xy</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/gjf6-25xy" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1804.00228v2</id>
+    <title>Deligne--Illusie Classes as Arithmetic Kodaira--Spencer Classes</title>
+    <updated>2018-04-16T19:25:35Z</updated>
+    <link href="https://arxiv.org/abs/1804.00228v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1804.00228v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Faltings showed that "arithmetic Kodaira--Spencer classes" satisfying a certain compatibility axiom cannot exist.
+  By modifying his definitions slightly, we show that the Deligne--Illusie classes satisfy what could be considered an "arithmetic Kodaira--Spencer" compatibility condition.
+  Afterwards we discuss a "wittfinitesimal Torelli problem" and its relation to CM Jacobians.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.LO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-03-31T23:39:11Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Taylor Dupuy</name>
+    </author>
+    <author>
+      <name>David Zureick-Brown</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2401.06878v1</id>
+    <title>Exact-factorization-based surface-hopping without velocity adjustment</title>
+    <updated>2024-01-12T20:14:11Z</updated>
+    <link href="https://arxiv.org/abs/2401.06878v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2401.06878v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>While surface-hopping has emerged as a powerful method to simulate non-adiabatic dynamics in large molecules, the ad hoc nature of the necessary velocity adjustments and decoherence corrections in the algorithm somewhat reduces its reliability. Here we propose a new scheme that eliminates these aspects, by combining the nuclear equation from the quantum trajectory surface-hopping approach with the electronic equation derived from the exact factorization approach. The resulting method, denoted QTSH-XF, places surface-hopping on a firmer ground and is shown to successfully capture dynamics in Tully models and in a linear vibronic coupling model of the photo-excited uracil cation.</summary>
+    <category term="physics.chem-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-01-12T20:14:11Z</published>
+    <arxiv:primary_category term="physics.chem-ph"/>
+    <author>
+      <name>Lucien Dupuy</name>
+    </author>
+    <author>
+      <name>Anton Rikus</name>
+    </author>
+    <author>
+      <name>Neepa T. Maitra</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2405.18094v3</id>
+    <title>A space-time variational formulation for the many-body electronic Schr{ö}dinger evolution equation</title>
+    <updated>2026-04-07T09:27:05Z</updated>
+    <link href="https://arxiv.org/abs/2405.18094v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2405.18094v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove in this paper that the solution of the time-dependent Schr{ö}dinger equation can be expressed as the solution of a global space-time quadratic minimization problem that is amenable to Galerkin time-space discretization schemes, using an appropriate least-square formulation. The present analysis can be applied to the electronic many-body time-dependent Schr{ö}dinger equation with an arbitrary number of electrons and interaction potentials with Coulomb singularities. We motivate the interest of the present approach with two goals: first, the design of Galerkin space-time discretization methods; second, the definition of dynamical low-rank approximations following a variational principle different from the classical Dirac-Frenkel principle, and for which it is possible to prove the global-in-time existence of solutions.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-05-28T12:00:16Z</published>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Mi-Song Dupuy</name>
+      <arxiv:affiliation>LJLL</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Virginie Ehrlacher</name>
+      <arxiv:affiliation>MATHERIALS, CERMICS UMR 9032</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Clément Guillot</name>
+      <arxiv:affiliation>MATHERIALS, CERMICS UMR 9032</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2305.12226v2</id>
+    <title>The Theory of the Entire Algebraic Functions</title>
+    <updated>2023-12-10T18:35:51Z</updated>
+    <link href="https://arxiv.org/abs/2305.12226v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2305.12226v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let A be the integral closure of the ring of polynomials CC[t], within the field of algebraic functions in one variable. We show that A interprets the ring of integers. This contrasts with the analogue for finite fields, proved to have a decidable theory (see Prestel-Schmid and van den Dries-A. Macintyre).</summary>
+    <category term="math.LO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-05-20T16:35:40Z</published>
+    <arxiv:primary_category term="math.LO"/>
+    <author>
+      <name>Taylor Dupuy</name>
+    </author>
+    <author>
+      <name>Ehud Hrushovski</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1705.03034v1</id>
+    <title>A rigid analytic proof that the Abel-Jacobi map extends to compact-type models</title>
+    <updated>2017-05-08T18:23:39Z</updated>
+    <link href="https://arxiv.org/abs/1705.03034v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1705.03034v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $K$ be a non-Archimedean valued field with valuation ring $R$. Let $C_η$ be a $K$-curve with compact type reduction, so its Jacobian $J_η$ extends to an abelian $R$-scheme $J$. We prove that an Abel-Jacobi map $ι\colon C_η\to J_η$ extends to a morphism $C\to J$, where $C$ is a compact-type $R$-model of $J$, and we show this is a closed immersion when the special fiber of $C$ has no rational components. To do so, we apply a rigid-analytic "fiberwise" criterion for a finite morphism to extend to integral models, and geometric results of Bosch and Lütkebohmert on the analytic structure of $J_η$.</summary>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-05-08T18:23:39Z</published>
+    <arxiv:comment>6 pages, comments welcome</arxiv:comment>
+    <arxiv:primary_category term="math.AG"/>
+    <author>
+      <name>Taylor Dupuy</name>
+    </author>
+    <author>
+      <name>Joseph Rabinoff</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2410.04943v3</id>
+    <title>A posteriori error estimates for Schr{ö}dinger operators discretized with linear combinations of atomic orbitals</title>
+    <updated>2025-09-01T12:32:53Z</updated>
+    <link href="https://arxiv.org/abs/2410.04943v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2410.04943v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We establish guaranteed and practically computable a posteriori error bounds for source problems and eigenvalue problems involving linear Schr{ö}dinger operators with atom-centered potentials discretized with linear combinations of atomic orbitals. We show that the energy norm of the discretization error can be estimated by the dual energy norm of the residual, that further decomposes into atomic contributions, characterizing the error localized on atoms. Moreover, we show that the practical computation of the dual norms of atomic residuals involves diagonalizing radial Schr{ö}dinger operators which can easily be precomputed in practice. We provide numerical illustrations of the performance of such a posteriori analysis on several test cases, showing that the error bounds accurately estimate the error, and that the localized error components allow for optimized adaptive basis sets.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-10-07T11:38:24Z</published>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Geneviève Dusson</name>
+      <arxiv:affiliation>LMB</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Mi-Song Dupuy</name>
+      <arxiv:affiliation>LJLL</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Ioanna-Maria Lygatsika</name>
+      <arxiv:affiliation>CEA/DAM</arxiv:affiliation>
+    </author>
+  </entry>
+</feed>

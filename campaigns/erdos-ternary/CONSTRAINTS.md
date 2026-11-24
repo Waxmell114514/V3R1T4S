@@ -4,8 +4,9 @@
 没有打开过的文献不得引用；凭记忆写的出处必须标"未核实"。
 2. 计算轨道的结论只能是"对 0 ≤ n ≤ N 无反例"，N 必须由完整、无上限截断的覆盖得出。
 有任何未完成、超时或被跳过的分片，N 不得更新。
-3. 理论轨道的每个命题必须标级别：PROVED-HERE（有完整证明）、SKETCH、HEURISTIC、SPECULATION、KNOWN（附出处）。
-SKETCH 永远不是证明。Lean 文件中出现 sorry、admit、新 axiom 或改动冻结陈述的，一律不算证明。
+3. 草稿中的每个命题必须标级别：LEAN-VERIFIED（已满足第 11 条）、PROVED-HERE（纸面完整证明，尚未形式化）、
+SKETCH、HEURISTIC、SPECULATION、KNOWN（附出处）。只有 LEAN-VERIFIED 算成果。
+Lean 文件中出现 sorry、admit、新 axiom 或改动冻结陈述的，一律不算证明。
 4. 启发式论证（"数字随机，所以概率为零"）不得写成证明。概率模型只能标 HEURISTIC。
 5. 除阶段 0 外，任何角色不得写 verify/。冻结陈述 verify/Statement.lean 不得被改写或绕开。
 6. 状态词只降不升。只有三怀疑者小组全部通过才能写 CONFIRMED_*；单一上下文最多写 PROMISING。
@@ -16,3 +17,8 @@ SKETCH 永远不是证明。Lean 文件中出现 sorry、admit、新 axiom 或�
 并行任务的内存总和不超过空闲内存的一半。
 9. 不得修改 verify/ 的检查器来让结果通过。检查器不通过就是不通过。
 10. 引用前人：用到的结果、数据和代码写明作者和链接（Erdős、Vardi、Lagarias、Narkiewicz、Saye 等）。
+11. 所有成果都必须是 Lean 定理：lake build 通过、verify/lean_audit.py 通过、独立审计员通过。
+未满足三者的任何东西（C 程序输出、证明稿、数值实验）不得写成成果，不得计入里程碑主指标。
+12. 不得修改 verify/Statement.lean 中冻结的定义，不得在 lean/ 中重新定义同名概念来"替换"它；
+成果定理必须直接使用冻结的定义（审计员核对）。
+13. native_decide 只允许用于对具体数值求值，且成果须标为 B 级；不得用 native_decide 证明含自由变量的一般命题。

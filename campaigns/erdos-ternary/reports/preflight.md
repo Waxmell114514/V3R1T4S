@@ -7,8 +7,8 @@
 | C 编译器 | gcc 13.3.0；libgmp.so.10 存在但无 gmp.h 头文件 |
 | CPU / 内存 / 磁盘 | 4 核 / 16087 MB（空闲约 15.6 GB）/ 60 GB 可用 |
 | 网络 | arxiv.org 200，pypi.org 200，raw.githubusercontent.com 200 |
-| Lean 4 / Mathlib | **未安装**：安装 elan 的命令被本会话的权限策略拒绝。verify/Statement.lean 只冻结陈述文本。需要人决定是否放行（见 proposals/0001-lean.md） |
+| Lean 4 / Mathlib | 起初被权限策略拒绝；人同意 proposals/0001 后已安装：elan 4.4.0，Lean v4.36.0，Mathlib v4.36.0（见 reports/refreeze_v0.2.md）。新容器需重装：见 RUN_GENERATION.md 第 1 步 |
 | 并行子 agent | 可用（Agent 工具，独立工作树 isolation=worktree）；本机还有 claude CLI |
 | 容器 | 云端临时容器，会被回收：所有状态提交并推送到 claude/dreamy-curie-mcxq35；长跑必须分片、可续跑 |
 
-结论：可以并行；计算轨道可在本机跑；理论轨道的形式化检查暂不可用，理论命题只能走三怀疑者小组。
+结论：可以并行；Lean 可用；按 v0.2 规则，所有成果都必须是通过 lean_audit 和独立审计的 Lean 定理。

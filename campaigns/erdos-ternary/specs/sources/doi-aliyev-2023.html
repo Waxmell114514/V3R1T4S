@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171609782-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171609782-1');
+</script>
+<meta charset="UTF-8" />
+<title>Digits of powers of 2 in ternary numeral system | Notes on Number Theory and Discrete Mathematics</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://nntdm.net/wp-content/themes/twentyten/style.css" />
+<link rel="pingback" href="https://nntdm.net/xmlrpc.php" />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Notes on Number Theory and Discrete Mathematics &raquo; Feed" href="https://nntdm.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Notes on Number Theory and Discrete Mathematics &raquo; Comments Feed" href="https://nntdm.net/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/nntdm.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.18"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])?!1:!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55358,56760,9792,65039],[55358,56760,8203,9792,65039])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-quicklatex-format-css'  href='https://nntdm.net/wp-content/plugins/wp-quicklatex/css/quicklatex-format.css?ver=5.1.18' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://nntdm.net/wp-includes/css/dist/block-library/style.min.css?ver=5.1.18' type='text/css' media='all' />
+<link rel='stylesheet' id='awsm-ead-public-css'  href='https://nntdm.net/wp-content/plugins/embed-any-document/css/embed-public.min.css?ver=2.7.4' type='text/css' media='all' />
+<link rel='stylesheet' id='collapseomatic-css-css'  href='https://nntdm.net/wp-content/plugins/jquery-collapse-o-matic/light_style.css?ver=1.6' type='text/css' media='all' />
+<link rel='stylesheet' id='moove_gdpr_frontend-css'  href='https://nntdm.net/wp-content/plugins/gdpr-cookie-compliance/dist/styles/gdpr-main.css?ver=4.5.8' type='text/css' media='all' />
+<style id='moove_gdpr_frontend-inline-css' type='text/css'>
+#moove_gdpr_cookie_modal,#moove_gdpr_cookie_info_bar,.gdpr_cookie_settings_shortcode_content{font-family:Nunito,sans-serif}#moove_gdpr_save_popup_settings_button{background-color:#373737;color:#fff}#moove_gdpr_save_popup_settings_button:hover{background-color:#000}#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton,#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton{background-color:#0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder a.mgbutton,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder button.mgbutton,.gdpr_cookie_settings_shortcode_content .gdpr-shr-button.button-green{background-color:#0C4DA2;border-color:#0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder a.mgbutton:hover,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder button.mgbutton:hover,.gdpr_cookie_settings_shortcode_content .gdpr-shr-button.button-green:hover{background-color:#fff;color:#0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close span.gdpr-icon{background-color:#0C4DA2;border:1px solid #0C4DA2}#moove_gdpr_cookie_info_bar span.change-settings-button.focus-g{-webkit-box-shadow:0 0 1px 3px #0C4DA2;-moz-box-shadow:0 0 1px 3px #0C4DA2;box-shadow:0 0 1px 3px #0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close i:hover,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close span.gdpr-icon:hover,#moove_gdpr_cookie_info_bar span[data-href]>u.change-settings-button{color:#0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected a span.gdpr-icon,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected button span.gdpr-icon{color:inherit}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li:hover a,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li:hover button{color:#000}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a span.gdpr-icon,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button span.gdpr-icon{color:inherit}#moove_gdpr_cookie_modal .gdpr-acc-link{line-height:0;font-size:0;color:transparent;position:absolute}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close:hover i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-tab-main .moove-gdpr-tab-main-content a:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content span.change-settings-button:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content u.change-settings-button:hover,#moove_gdpr_cookie_info_bar span[data-href]>u.change-settings-button,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content span.change-settings-button.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content u.change-settings-button.focus-g{color:#0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected a,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected button{color:#000}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected a i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected button i{color:#000}#moove_gdpr_cookie_modal.gdpr_lightbox-hide{display:none}
+</style>
+<script type='text/javascript' src='https://nntdm.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://nntdm.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://nntdm.net/wp-content/plugins/wp-quicklatex/js/wp-quicklatex-frontend.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='https://nntdm.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://nntdm.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://nntdm.net/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.1.18" />
+<link rel="canonical" href="https://nntdm.net/volume-29-2023/number-3/474-485/" />
+<link rel='shortlink' href='https://nntdm.net/?p=8579' />
+<link rel="alternate" type="application/json+oembed" href="https://nntdm.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnntdm.net%2Fvolume-29-2023%2Fnumber-3%2F474-485%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://nntdm.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnntdm.net%2Fvolume-29-2023%2Fnumber-3%2F474-485%2F&#038;format=xml" />
+
+<!-- Bad Behavior 2.2.22 run time: 1.987 ms -->
+<link rel="icon" href="https://nntdm.net/wp-content/uploads/2021/10/cropped-nntdm-favicon-fin-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://nntdm.net/wp-content/uploads/2021/10/cropped-nntdm-favicon-fin-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://nntdm.net/wp-content/uploads/2021/10/cropped-nntdm-favicon-fin-180x180.png" />
+<meta name="msapplication-TileImage" content="https://nntdm.net/wp-content/uploads/2021/10/cropped-nntdm-favicon-fin-270x270.png" />
+</head>
+
+<body class="page-template-default page page-id-8579 page-child parent-pageid-8521">
+<div id="wrapper" class="hfeed">
+	<div id="header">
+		<div id="masthead">
+			<div id="branding" role="banner">
+								<div id="site-title">
+					<span>
+						<a href="https://nntdm.net/" title="Notes on Number Theory and Discrete Mathematics" rel="home">Notes on Number Theory and Discrete Mathematics</a>
+					</span>
+				</div>
+				<div id="site-description"></div>
+
+										<img src="https://nntdm.net/wp-content/themes/twentyten/images/headers/sunset.jpg" width="941" height="92" alt="" />
+								</div><!-- #branding -->
+
+			<div id="access" role="navigation">
+			  				<div class="skip-link screen-reader-text"><a href="#content" title="Skip to content">Skip to content</a></div>
+								<div class="menu-header"><ul id="menu-mainmenu" class="menu"><li id="menu-item-51" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-51"><a href="https://nntdm.net/">About NNTDM</a></li>
+<li id="menu-item-74" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-74"><a href="https://nntdm.net/editorial-board/">Editorial Board</a></li>
+<li id="menu-item-76" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="https://nntdm.net/journal-contents/">Journal Contents</a></li>
+<li id="menu-item-73" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-73"><a href="https://nntdm.net/instructions-to-authors/">Instructions to Authors</a>
+<ul class="sub-menu">
+	<li id="menu-item-2065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2065"><a href="https://nntdm.net/publishing-ethics-policy/">Publishing Ethics Policy</a></li>
+	<li id="menu-item-7715" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7715"><a href="https://nntdm.net/instructions-to-authors/typesetting/">Common typesetting issues</a></li>
+</ul>
+</li>
+<li id="menu-item-1402" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1402"><a href="https://nntdm.net/indexing/">Indexing</a></li>
+<li id="menu-item-7250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7250"><a href="https://nntdm.net/pricing/">Pricing</a></li>
+<li id="menu-item-921" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-921"><a href="http://nntdm.net/category/newsletter/">NNTDM Newsletter</a></li>
+</ul></div>			</div><!-- #access -->
+		</div><!-- #masthead -->
+	</div><!-- #header -->
+
+	<div id="main">
+
+		<div id="container">
+			<div id="content" role="main">
+
+			
+
+				<div id="post-8579" class="post-8579 page type-page status-publish hentry">
+											<h1 class="entry-title">Digits of powers of 2 in ternary numeral system</h1>
+					
+					<div class="entry-content">
+						<p><strong>Yagub N. Aliyev</strong><br />
+Notes on Number Theory and Discrete Mathematics<br />
+Print ISSN 1310–5132, Online ISSN 2367–8275<br />
+<a href="https://nntdm.net/volume-29-2023/number-3/">Volume 29, 2023, Number 3</a>, Pages 474–485<br />
+DOI: <a href="https://doi.org/10.7546/nntdm.2023.29.3.474-485" target="_blank" rel="noopener noreferrer">10.7546/nntdm.2023.29.3.474-485</a><br />
+<strong><a href="https://nntdm.net/papers/nntdm-29/NNTDM-29-3-474-485.pdf">Full paper (PDF, 790 Kb)</a></strong></p>
+<h2>Details</h2>
+<h3>Authors and affiliations</h3>
+<p>Yagub N. Aliyev <a href="mailto:yaliyev@ada.edu.az"><img class="alignnone" src="http://nntdm.net/wp-content/uploads/img/env.jpg" alt="" width="23" height="17" /></a> <a href="https://orcid.org/0000-0003-1698-4297" target="_blank" rel="noopener noreferrer"><img class="alignnone wp-image-7318" src="https://nntdm.net/wp-content/uploads/2022/02/orcid.png" alt="" width="18" height="18" srcset="https://nntdm.net/wp-content/uploads/2022/02/orcid.png 240w, https://nntdm.net/wp-content/uploads/2022/02/orcid-150x150.png 150w" sizes="(max-width: 18px) 100vw, 18px" /></a><br />
+<small><em>School of IT and Engineering, ADA University<br />
+Ahmadbey Aghaoglu str. 61, Baku, AZ1008, Azerbaijan<br />
+</em></small></p>
+<h3>Abstract</h3>
+<p>We study the digits of the powers of 2 in the ternary number system. We propose an algorithm for doubling numbers in ternary numeral system. Using this algorithm, we explain the appearance of “stairs” formed by 0s and 2s when the numbers <img src="https://nntdm.net/wp-content/ql-cache/quicklatex.com-2b2498b2505ec35bf09e41fe21d516bf_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#50;&#94;&#110;&#32;&#40;&#110;&#61;&#48;&#44;&#49;&#44;&#50;&#44;&#32;&#92;&#108;&#100;&#111;&#116;&#115;&#41;" title="Rendered by QuickLaTeX.com" height="19" width="136" style="vertical-align: -5px;"/> are written vertically so that for example the last digits are forming one column, the second last digits are forming another column, and so forth. We use the patterns formed by the leftmost digits, and the patterns formed by the rightmost digits to prove that the sizes of these blocks of 0s and 2s are unbounded. We also study how this regularity changes when the digits are taken between the left end and the right end of the numbers.</p>
+<h3>Keywords</h3>
+<ul>
+<li>Ternary numeral system</li>
+<li>Benford’s law</li>
+<li>Digits</li>
+<li>Zeros</li>
+<li>Twos</li>
+<li>Powers of two</li>
+</ul>
+<h3>2020 Mathematics Subject Classification</h3>
+<ul>
+<li>Primary: 11A63</li>
+<li>Secondary: 11A07, 11B83</li>
+</ul>
+<h3>References</h3>
+<ol>
+<li>Benford, F. (1938). The law of anomalous numbers. <em>Proceedings of the American Philosophical Society</em>, 78(4), 551–572.</li>
+<li>Birkhoff, G. D. (1931). Proof of the ergodic theorem, <em>Proceedings of the National Academy of Sciences USA</em>, 17, 656–660.</li>
+<li>Bohl, P. (1909). Über ein in der Theorie der säkutaren Störungen vorkommendes Problem, <em>Journal für die reine und angewandte Mathematik,</em> 135, 189–283.</li>
+<li>Chang, S. (2023). Unlikely leading digits of powers of 2. <em>Elemente der Mathematik,</em> 78(2), 77–81.</li>
+<li>Erdős, P. (1979). Some unconventional problems in number theory. <em>Mathematics Magazine</em>, 52(2), 67–70.</li>
+<li>Erdős, P., &amp; Graham, R. L. (1980). <em>Old and New Problems and Results in Combinatorial Number Theory</em>. Geneva, Switzerland: L’Enseignement Mathématique Université de Genève, Vol. 28.</li>
+<li>Hill, T. (1995). A statistical derivation of the significant-digit law. <em>Statistical Science</em>, 10(4), 354–363.</li>
+<li>Hill, T.P. (1995). The significant-digit phenomenon. <em>The American Mathematical Monthly</em>, 102(4) 322–327.</li>
+<li>Khintchine, A. (1933). Zu Birkhoffs Lösung des Ergodenproblems. <em>Mathematische Annalen,</em> 107, 485–488.</li>
+<li>Klenke, A. (2020). <em>Probability Theory, A Comprehensive Course</em>, Universitext, 716 p.</li>
+<li>Kuipers, L., &amp; Niederreiter, H. (1974). <em>Uniform Distribution of Sequences</em>. John Wiley; Russian translation: Nauka, 1985.</li>
+<li>Lagarias, J. C. (2009). Ternary expansions of powers of 2. <em>Journal of the London Mathematical Society</em>, 79, 562–588.</li>
+<li>Origlio, V., &amp; Weisstein, E.W. Ternary. From <em>MathWorld – A Wolfram Web Resource</em>, Available online at: https://mathworld.wolfram.com/Ternary.html</li>
+<li>Rosen, K. H. (2000). <em>Elementary Number Theory and its Applicatons</em> (4th ed.). Addison-Wesley-Longman.</li>
+<li>Sierpinski, W. (1910). Sur la valeur asymptotique d&#8217;une certaine somme. <em>Bulletin International de l&#8217;Academie Polonaise des Sciences et des Lettres (Cracovie)</em> series A, 9–11.</li>
+<li>Sloane, N. J. A. (1973). The persistence of a number. <em>Journal of Recreational Mathematics</em>, 6(2), 97–98.</li>
+<li>Sloane, N. J. A. (ed.), Powers of 2 written in base 3, <em>The On-Line Encyclopedia of Integer Sequences (OEIS)</em>, A004642. Available online at: https://oeis.org/A004642</li>
+<li>Sobol, I. M. (1985). Points uniformly filling a high-dimensional cube. <em>Znaniye</em>, <em>Mathematics, Cybernetics series</em>, 2, 1–32 (in Russian).</li>
+<li>Strzelecki, P. (2004). On powers of 2. <em>EMS Newsletter</em>, 52, 7–8; translated from Polish journal <em>Delta</em> 7 (1994).</li>
+<li>Vardi, I. (1991). <em>Computational Recreations in Mathematica</em>. Reading, MA: Addison-Wesley.</li>
+<li>Weyl, H. (1910). Über die Gibbs&#8217;sche Erscheinung und verwandte Konvergenzphänomene. <em>Rendiconti del Circolo Matematico di Palermo</em>, 330, 377–407.</li>
+<li>Weyl, H. (1916). Über die Gleichverteilung von Zahlen mod. Eins. <em>Mathematische Annalen</em>, 77, 313–352.</li>
+</ol>
+<h3>Manuscript history</h3>
+<ul>
+<li>Received: 23 November 2022</li>
+<li>Revised: 22 June 2023</li>
+<li>Accepted: 27 June 2023</li>
+<li>Online First: 10 July 2023</li>
+<li><span class="collapseomatic " id="id9825"  tabindex="0" title="Correction Notice: 24 July 2023"    >Correction Notice: 24 July 2023</span><div id="target-id9825" class="collapseomatic_content "><small>Per Author&#8217;s request made on 23 July 2023, the following correction is made on page 474, line -7 of the Online First (electronic) version:<br />
+<b>Old:</b> <em>In 1979, Paul Erdős conjectured that there are only finitely many positive integers that can be written as sum of distinct powers of <img src="https://nntdm.net/wp-content/ql-cache/quicklatex.com-e584dd0bab4e6c8efc164939c28db757_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#50;" title="Rendered by QuickLaTeX.com" height="12" width="8" style="vertical-align: 0px;"/>.</em><br />
+<b>New:</b> <em>In 1979, Paul Erdős conjectured that there are only finitely many positive integers <img src="https://nntdm.net/wp-content/ql-cache/quicklatex.com-b170995d512c659d8668b4e42e1fef6b_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#110;" title="Rendered by QuickLaTeX.com" height="8" width="11" style="vertical-align: 0px;"/> such that <img src="https://nntdm.net/wp-content/ql-cache/quicklatex.com-e4249a2b3de09582eb567b98f8cd62b1_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#50;&#94;&#110;" title="Rendered by QuickLaTeX.com" height="12" width="17" style="vertical-align: 0px;"/> can be written as sum of distinct powers of <img src="https://nntdm.net/wp-content/ql-cache/quicklatex.com-4a1d3ea4963f568cabd97329456036b6_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#51;" title="Rendered by QuickLaTeX.com" height="12" width="9" style="vertical-align: 0px;"/>.</em></small></p>
+</div>
+</li>
+</ul>
+<h3>Copyright information</h3>
+<p><img class="alignnone wp-image-8146" src="http://nntdm.net/wp-content/uploads/2023/01/CCBY-300x105.png" alt="" width="60" height="21" srcset="https://nntdm.net/wp-content/uploads/2023/01/CCBY-300x105.png 300w, https://nntdm.net/wp-content/uploads/2023/01/CCBY.png 646w" sizes="(max-width: 60px) 100vw, 60px" /> Ⓒ 2023 by the Author.<br />
+This is an Open Access paper distributed under the terms and conditions of the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>.</p>
+<div style="background: #ececfe;">
+<h2>Related papers</h2>
+</div>
+<div style="background: #d6d6fe;">
+<h2>Cite this paper</h2>
+<p>Aliyev, Y. N. (2023). Digits of powers of 2 in ternary numeral system. <em>Notes on Number Theory and Discrete Mathematics</em>, 29(3), 474-485, DOI: 10.7546/nntdm.2023.29.3.474-485.</p>
+</div>
+																	</div><!-- .entry-content -->
+				</div><!-- #post-## -->
+
+				
+			<div id="comments">
+
+
+	<p class="nocomments">Comments are closed.</p>
+
+
+
+</div><!-- #comments -->
+
+
+			</div><!-- #content -->
+		</div><!-- #container -->
+
+
+		<div id="primary" class="widget-area" role="complementary">
+			<ul class="xoxo">
+
+<li id="search-2" class="widget-container widget_search"><form role="search" method="get" id="searchform" class="searchform" action="https://nntdm.net/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form></li><li id="text-5" class="widget-container widget_text">			<div class="textwidget"><p><a href="https://nntdm.net/2026/06/nntdm-in-journal-citations-reports-2025/"><img class="aligncenter wp-image-10852" src="http://nntdm.net/wp-content/uploads/2026/06/NNTDM-2025-IF.png" alt="" width="180" height="179" /></a></p>
+</div>
+		</li><li id="text-4" class="widget-container widget_text"><h3 class="widget-title">Latest Issues</h3>			<div class="textwidget"><div style="font-family: monospace;">
+<p>▷ <a href="http://nntdm.net/volume-32-2026/number-4">Volume 32, 2026, Number 4</a><br />
+▷ <a href="http://nntdm.net/volume-32-2026/number-3">Volume 32, 2026, Number 3</a><br />
+▷ <a href="http://nntdm.net/volume-32-2026/number-2">Volume 32, 2026, Number 2</a><br />
+▷ <a href="http://nntdm.net/volume-32-2026/number-1">Volume 32, 2026, Number 1</a></p>
+</div>
+</div>
+		</li><li id="text-3" class="widget-container widget_text"><h3 class="widget-title">Journal Contents</h3>			<div class="textwidget"><div style="font-family: monospace;">
+<p>▶ <a href="http://nntdm.net/volume-32-2026/">Volume 32, 2026</a><br />
+▶ <a href="http://nntdm.net/volume-31-2025/">Volume 31, 2025</a><br />
+▶ <a href="http://nntdm.net/volume-30-2024/">Volume 30, 2024</a><br />
+▶ <a href="http://nntdm.net/volume-29-2023/">Volume 29, 2023</a><br />
+▶ <a href="http://nntdm.net/volume-28-2022/">Volume 28, 2022</a><br />
+▶ <a href="http://nntdm.net/volume-27-2021/">Volume 27, 2021</a><br />
+▶ <a href="http://nntdm.net/volume-26-2020/">Volume 26, 2020</a><br />
+▶ <a href="http://nntdm.net/volume-25-2019/">Volume 25, 2019</a><br />
+▶ <a href="http://nntdm.net/volume-24-2018/">Volume 24, 2018</a><br />
+▶ <a href="http://nntdm.net/volume-23-2017/">Volume 23, 2017</a><br />
+▶ <a href="http://nntdm.net/volume-22-2016/">Volume 22, 2016</a><br />
+▶ <a href="http://nntdm.net/volume-21-2015/">Volume 21, 2015</a><br />
+▶ <a href="http://nntdm.net/volume-20-2014/">Volume 20, 2014</a><br />
+▶ <a href="http://nntdm.net/volume-19-2013/">Volume 19, 2013</a><br />
+▶ <a href="http://nntdm.net/volume-18-2012/">Volume 18, 2012</a><br />
+▶ <a href="http://nntdm.net/volume-17-2011/">Volume 17, 2011</a><br />
+▶ <a href="http://nntdm.net/volume-16-2010/">Volume 16, 2010</a><br />
+▶ <a href="http://nntdm.net/volume-15-2009/">Volume 15, 2009</a><br />
+▶ <a href="http://nntdm.net/volume-14-2008/">Volume 14, 2008</a><br />
+▶ <a href="http://nntdm.net/volume-13-2007/">Volume 13, 2007</a><br />
+▶ <a href="http://nntdm.net/volume-12-2006/">Volume 12, 2006</a><br />
+▶ <a href="http://nntdm.net/volume-11-2005/">Volume 11, 2005</a><br />
+▶ <a href="http://nntdm.net/volume-10-2004/">Volume 10, 2004</a><br />
+▶ <a href="http://nntdm.net/volume-09-2003/">Volume 9, 2003</a><br />
+▶ <a href="http://nntdm.net/volume-08-2002/">Volume 8, 2002</a><br />
+▶ <a href="http://nntdm.net/volume-07-2001/">Volume 7, 2001</a><br />
+▶ <a href="http://nntdm.net/volume-06-2000/">Volume 6, 2000</a><br />
+▶ <a href="http://nntdm.net/volume-05-1999/">Volume 5, 1999</a><br />
+▶ <a href="http://nntdm.net/volume-04-1998/">Volume 4, 1998</a><br />
+▶ <a href="http://nntdm.net/volume-03-1997/">Volume 3, 1997</a><br />
+▶ <a href="http://nntdm.net/volume-02-1996/">Volume 2, 1996</a><br />
+▶ <a href="http://nntdm.net/volume-01-1995/">Volume 1, 1995</a></p>
+</div>
+</div>
+		</li>			</ul>
+		</div><!-- #primary .widget-area -->
+
+	</div><!-- #main -->
+
+	<div id="footer" role="contentinfo">
+		<div id="colophon">
+
+
+
+			<div id="site-info">
+				<a href="https://nntdm.net/" title="Notes on Number Theory and Discrete Mathematics" rel="home">
+					Notes on Number Theory and Discrete Mathematics				</a>
+			</div><!-- #site-info -->
+
+			<div id="site-generator">
+								 Last update: 20 October 2026			</div><!-- #site-generator -->
+
+		</div><!-- #colophon -->
+	</div><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+<script type='text/javascript'>
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+var colomatpauseInit = '';
+var colomattouchstart = '';
+</script>
+  <aside id="moove_gdpr_cookie_info_bar" class="moove-gdpr-info-bar-hidden moove-gdpr-align-center moove-gdpr-dark-scheme gdpr_infobar_postion_bottom" role="note" aria-label="GDPR Cookie Banner" style="display: none;">
+    <div class="moove-gdpr-info-bar-container">
+      <div class="moove-gdpr-info-bar-content">
+        
+<div class="moove-gdpr-cookie-notice">
+  <p>We are using cookies to give you the best experience on our website.</p><p>You can find out more about which cookies we are using or switch them off in <span role="link" tabindex="0" data-href="#moove_gdpr_cookie_modal" class="change-settings-button">settings</span>.</p></div>
+<!--  .moove-gdpr-cookie-notice -->        
+<div class="moove-gdpr-button-holder">
+  <button class="mgbutton moove-gdpr-infobar-allow-all" aria-label="Accept">Accept</button>
+  </div>
+<!--  .button-container -->      </div>
+      <!-- moove-gdpr-info-bar-content -->
+    </div>
+    <!-- moove-gdpr-info-bar-container -->
+  </aside>
+  <!-- #moove_gdpr_cookie_info_bar -->
+<script type='text/javascript' src='https://nntdm.net/wp-content/plugins/embed-any-document/js/pdfobject.min.js?ver=2.7.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var eadPublic = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://nntdm.net/wp-content/plugins/embed-any-document/js/embed-public.min.js?ver=2.7.4'></script>
+<script type='text/javascript' src='https://nntdm.net/wp-content/plugins/jquery-collapse-o-matic/js/collapse.js?ver=1.6.14'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var moove_frontend_gdpr_scripts = {"ajaxurl":"https:\/\/nntdm.net\/wp-admin\/admin-ajax.php","post_id":"8579","plugin_dir":"https:\/\/nntdm.net\/wp-content\/plugins\/gdpr-cookie-compliance","show_icons":"all","is_page":"1","strict_init":"1","enabled_default":{"third_party":0,"advanced":0},"geo_location":"false","force_reload":"false","is_single":"","hide_save_btn":"false","current_user":"0","cookie_expiration":"365","script_delay":"2000","wp_lang":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://nntdm.net/wp-content/plugins/gdpr-cookie-compliance/dist/scripts/main.js?ver=4.5.8'></script>
+<script type='text/javascript' src='https://nntdm.net/wp-includes/js/wp-embed.min.js?ver=5.1.18'></script>
+
+
+<!-- V1 -->
+<div id="moove_gdpr_cookie_modal" class="gdpr_lightbox-hide" role="complementary" aria-label="GDPR Settings Screen">
+  <div class="moove-gdpr-modal-content moove-clearfix logo-position-left moove_gdpr_modal_theme_v1">
+    <button class="moove-gdpr-modal-close" aria-label="Close GDPR Cookie Settings">
+      <span class="gdpr-sr-only">Close GDPR Cookie Settings</span>
+      <span class="gdpr-icon moovegdpr-arrow-close"></span>
+    </button>
+    <div class="moove-gdpr-modal-left-content">
+      
+<div class="moove-gdpr-company-logo-holder">
+  <img src="https://nntdm.net/wp-content/plugins/gdpr-cookie-compliance/dist/images/gdpr-logo.png" alt="Notes on Number Theory and Discrete Mathematics"   width="350"  height="233"  class="img-responsive" />
+</div>
+<!--  .moove-gdpr-company-logo-holder -->      <ul id="moove-gdpr-menu">
+        
+<li class="menu-item-on menu-item-privacy_overview menu-item-selected">
+  <button data-href="#privacy_overview" class="moove-gdpr-tab-nav" aria-label="Privacy Overview">
+    <span class="gdpr-svg-icon">
+      <svg class="icon icon-privacy-overview" viewBox="0 0 26 32">
+        <path d="M11.082 27.443l1.536 0.666 1.715-0.717c5.018-2.099 8.294-7.014 8.294-12.442v-5.734l-9.958-5.325-9.702 5.325v5.862c0 5.376 3.2 10.24 8.115 12.365zM4.502 10.138l8.166-4.506 8.397 4.506v4.813c0 4.838-2.893 9.19-7.347 11.034l-1.101 0.461-0.922-0.41c-4.352-1.894-7.194-6.195-7.194-10.957v-4.941zM12.029 14.259h1.536v7.347h-1.536v-7.347zM12.029 10.394h1.536v2.483h-1.536v-2.483z" fill="currentColor"></path>
+      </svg>      
+    </span> 
+    <span class="gdpr-nav-tab-title">Privacy Overview</span>
+  </button>
+</li>
+
+  <li class="menu-item-strict-necessary-cookies menu-item-off">
+    <button data-href="#strict-necessary-cookies" class="moove-gdpr-tab-nav" aria-label="Strictly Necessary Cookies">
+      <span class="gdpr-svg-icon">
+        <svg class="icon icon-strict-necessary" viewBox="0 0 26 32">
+          <path d="M22.685 5.478l-9.984 10.752-2.97-4.070c-0.333-0.461-0.973-0.538-1.434-0.205-0.435 0.333-0.538 0.947-0.23 1.408l3.686 5.094c0.179 0.256 0.461 0.41 0.768 0.435h0.051c0.282 0 0.538-0.102 0.742-0.307l10.854-11.699c0.358-0.435 0.333-1.075-0.102-1.434-0.384-0.384-0.998-0.358-1.382 0.026v0zM22.301 12.954c-0.563 0.102-0.922 0.64-0.794 1.203 0.128 0.614 0.179 1.229 0.179 1.843 0 5.094-4.122 9.216-9.216 9.216s-9.216-4.122-9.216-9.216 4.122-9.216 9.216-9.216c1.536 0 3.021 0.384 4.378 1.101 0.512 0.23 1.126 0 1.357-0.538 0.205-0.461 0.051-0.998-0.384-1.254-5.478-2.944-12.314-0.922-15.283 4.557s-0.922 12.314 4.557 15.258 12.314 0.922 15.258-4.557c0.896-1.638 1.357-3.482 1.357-5.35 0-0.768-0.077-1.51-0.23-2.253-0.102-0.538-0.64-0.896-1.178-0.794z" fill="currentColor"></path>
+        </svg>
+      </span> 
+      <span class="gdpr-nav-tab-title">Strictly Necessary Cookies</span>
+    </button>
+  </li>
+
+
+
+
+      </ul>
+      
+<div class="moove-gdpr-branding-cnt">
+  
+		<a href="https://wordpress.org/plugins/gdpr-cookie-compliance" target="_blank" rel="noopener noreferrer nofollow" class='moove-gdpr-branding'>Powered by&nbsp; <span>GDPR Cookie Compliance</span></a>
+		</div>
+<!--  .moove-gdpr-branding -->    </div>
+    <!--  .moove-gdpr-modal-left-content -->
+    <div class="moove-gdpr-modal-right-content">
+      <div class="moove-gdpr-modal-title">
+         
+      </div>
+      <!-- .moove-gdpr-modal-ritle -->
+      <div class="main-modal-content">
+
+        <div class="moove-gdpr-tab-content">
+          
+<div id="privacy_overview" class="moove-gdpr-tab-main">
+      <span class="tab-title">Privacy Overview</span>
+    <div class="moove-gdpr-tab-main-content">
+  	<p>This website uses cookies so that we can provide you with the best user experience possible. Cookie information is stored in your browser and performs functions such as recognising you when you return to our website and helping our team to understand which sections of the website you find most interesting and useful.</p>
+  	  </div>
+  <!--  .moove-gdpr-tab-main-content -->
+
+</div>
+<!-- #privacy_overview -->          
+  <div id="strict-necessary-cookies" class="moove-gdpr-tab-main" style="display:none">
+    <span class="tab-title">Strictly Necessary Cookies</span>
+    <div class="moove-gdpr-tab-main-content">
+      <p>Strictly Necessary Cookie should be enabled at all times so that we can save your preferences for cookie settings.</p>
+      <div class="moove-gdpr-status-bar ">
+        <div class="gdpr-cc-form-wrap">
+          <div class="gdpr-cc-form-fieldset">
+            <label class="cookie-switch" for="moove_gdpr_strict_cookies">    
+              <span class="gdpr-sr-only">Enable or Disable Cookies</span>        
+              <input type="checkbox" aria-label="Strictly Necessary Cookies"  value="check" name="moove_gdpr_strict_cookies" id="moove_gdpr_strict_cookies">
+              <span class="cookie-slider cookie-round" data-text-enable="Enabled" data-text-disabled="Disabled"></span>
+            </label>
+          </div>
+          <!-- .gdpr-cc-form-fieldset -->
+        </div>
+        <!-- .gdpr-cc-form-wrap -->
+      </div>
+      <!-- .moove-gdpr-status-bar -->
+              <div class="moove-gdpr-strict-warning-message" style="margin-top: 10px;">
+          <p>If you disable this cookie, we will not be able to save your preferences. This means that every time you visit this website you will need to enable or disable cookies again.</p>
+        </div>
+        <!--  .moove-gdpr-tab-main-content -->
+                                              
+    </div>
+    <!--  .moove-gdpr-tab-main-content -->
+  </div>
+  <!-- #strict-necesarry-cookies -->
+          
+          
+          
+        </div>
+        <!--  .moove-gdpr-tab-content -->
+      </div>
+      <!--  .main-modal-content -->
+      <div class="moove-gdpr-modal-footer-content">
+        <div class="moove-gdpr-button-holder">
+  <button class="mgbutton moove-gdpr-modal-allow-all button-visible"  aria-label="Enable All">Enable All</button>
+  <button class="mgbutton moove-gdpr-modal-save-settings button-visible" aria-label="Save Settings">Save Settings</button>
+</div>
+<!--  .moove-gdpr-button-holder -->      </div>
+      <!--  .moove-gdpr-modal-footer-content -->
+    </div>
+    <!--  .moove-gdpr-modal-right-content -->
+
+    <div class="moove-clearfix"></div>
+
+  </div>
+  <!--  .moove-gdpr-modal-content -->
+</div>
+<!-- #moove_gdpr_cookie_modal --></body>
+</html>

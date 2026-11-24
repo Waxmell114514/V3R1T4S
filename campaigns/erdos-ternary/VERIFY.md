@@ -7,9 +7,13 @@ verify/ 内容（阶段 0 准备，此后冻结）
 （按层遍历序把每个被剪枝或终止节点的 (k, r, 原因) 序列化后取 sha256）、证书 JSON 格式。
 * verify/check_cert.py：读一组分片证书，检查覆盖完整、计数一致、例外集合，按抽查比例调用 tree_ref.py 重算。
 * verify/test_T0.py：T0 测试（见下）。
-* verify/Statement.lean：Lean 4 冻结陈述（若环境能装 Lean）：
-theorem erdos_ternary : ∀ n : ℕ, n > 8 → 2 ∈ Nat.digits 3 (2 ^ n)。
-只冻结陈述，证明留给 proofs/lean/。装不了 Lean 就写入文本陈述并在 preflight 中说明。
+* verify/Statement.lean：Lean 4 冻结定义（不含证明）：
+def ErdosTernary.Statement : Prop := ∀ n : ℕ, 8 < n → 2 ∈ Nat.digits 3 (2 ^ n)
+def ErdosTernary.UpTo (N : ℕ) : Prop := ∀ n : ℕ, n ≤ N → 8 < n → 2 ∈ Nat.digits 3 (2 ^ n)
+lean/lakefile.toml 以 lean_lib Frozen（srcDir = "../verify"）引入它。
+* verify/lean_audit.py：python3 verify/lean_audit.py <模块> <定理> [--expect Statement|UpTo:<N>]：
+lake build 该模块；扫描源文件禁用词；#print axioms 判定 A/B 级；--expect 时检查定理类型
+与冻结定义一致（用 example : <冻结命题> := <定理>）。末行 LEAN_AUDIT: PASS tier=A|B 或 LEAN_AUDIT: FAIL。
 
 分层
 T0 正确性（确定性单测，全部通过才计后续分数）
@@ -21,7 +25,7 @@ T0 正确性（确定性单测，全部通过才计后续分数）
 T1 吞吐量：固定 N = 2·3^24，单核和全核各跑一次，报节点/秒和总耗时，3 次取均值和标准差
 T2 规模：外推到 N = 2·3^46 的预计 CPU 小时数（由 T1 吞吐量和 3·2^K 节点模型计算）
 T3 纪录：已验证 N（只在全部分片完成且抽查通过后更新）
-T4 理论：每条命题的级别、Lean 检查结果（无 sorry/axiom）、新颖性检索记录、小组结论
+T4 Lean：每条成果的 lake build 结果、lean_audit 级别、独立审计结论、新颖性检索记录、小组结论
 T5 人：M4 和 M3 的最终认可由人完成，不在自动循环内
 
 规则

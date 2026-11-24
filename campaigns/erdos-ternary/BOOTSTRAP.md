@@ -1,9 +1,12 @@
-BOOTSTRAP.md — Erdős 三进制猜想 · 自动迭代包 v0.1
+BOOTSTRAP.md — Erdős 三进制猜想 · 自动迭代包 v0.2
 你是本项目的 orchestrator。
 第一步：把下方每个 "=== FILE: 路径 ===" 段落原样写入对应路径（路径相对于本文件所在目录
 campaigns/erdos-ternary/；可用 python3 tools/unpack.py 完成），然后从 MISSION.md 的阶段 0 开始执行。
 本文件和 CONSTRAINTS.md 你无权修改。想改规则，写到 proposals/ 等人处理。
 本仓库的 AGENTS.md 与 kit/RULES.md 同样约束你；二者与本包冲突时以 kit/RULES.md 为准，并写 proposals/。
+修订记录：v0.2（2026-11-24，由人提出）——所有成果必须是 Lean 4 定理，经 lake build 编译通过、
+经 verify/lean_audit.py 公理审计通过、并经独立审计员（全新上下文）审计通过，才算成果。
+C 或 Python 程序的输出、Markdown 证明稿都只算中间产物，不算成果。
 
 === FILE: MISSION.md ===
 目标
@@ -11,9 +14,23 @@ campaigns/erdos-ternary/；可用 python3 tools/unpack.py 完成），然后从 
 等价地：使 2^n 的三进制展开只含 0 和 1 的 n 恰为 0、2、8。
 "解出"只有两种：(a) 一个完整证明，经冻结的形式化陈述在 Lean 4 中通过内核检查，
 或经三怀疑者小组全部通过并由人（T5）认可；(b) 一个反例 n > 8，由 verify/ 的独立检查器确认。
-在此之前，舰队通过两条轨道持续产出可检验的中间成果：
-计算轨道 C：把"无反例"的已验证上界 N 推过公开纪录，附可复核证书。
-理论轨道 P：证明文献中没有的部分结果（引理、计数上界、3-adic 结构命题），每条可独立检验。
+在此之前，舰队通过两条轨道持续产出中间成果。
+
+成果的唯一形式（v0.2，人定）：一个 Lean 4 + Mathlib 定理，同时满足
+(1) 在 lean/ 工程中 lake build 编译通过；
+(2) python3 verify/lean_audit.py 判 PASS：无 sorry/admit/新 axiom/unsafe/implemented_by/extern 等，
+    #print axioms 只含允许的公理；
+(3) 独立审计员（roles/lean_auditor.md，全新上下文，只看 Lean 源文件和非形式陈述）判定
+    Lean 陈述忠实表达了声称的命题，且没有利用定义漏洞；
+(4) 里程碑级成果还需三怀疑者小组通过。
+公理分级：A 级只用 propext、Classical.choice、Quot.sound；B 级另含 Lean.ofReduceBool / Lean.trustCompiler
+（即用了 native_decide，信任 Lean 编译器）。每条成果必须标明级别，B 级成果必须在报告中写明所信任的内容。
+C/Python 搜索、Markdown 证明稿只是探索工具和草稿，本身不是成果。
+
+计算轨道 C：得到 Lean 定理 ErdosTernary.UpTo N（verify/Statement.lean 中冻结的定义），N 推过公开纪录。
+可行路线：在 Lean 中写树搜索检查器，用 Lean 证明其可靠性（返回 true ⇒ UpTo N），再对具体 N 求值
+（小 N 用 decide 达 A 级；大 N 用 native_decide 达 B 级）。C 引擎用于探索、调度和交叉核对。
+理论轨道 P：在 Lean 中证明文献中没有的部分结果（引理、计数上界、3-adic 结构命题）。
 现状（阶段 0 须按一手来源复核，读不到就写 PENDING STATUS CHECK）：
 Saye 2022（arXiv:2202.13256，JIS vol. 25）：16 ≤ n ≤ 2·3^45 时 2^n 三进制含全部三种数字。
 更早 Vardi：n ≤ 2·3^20 无反例。Lagarias 2009（arXiv:math/0512006）给出 3-adic 动力系统框架。
@@ -21,7 +38,8 @@ Saye 2022（arXiv:2202.13256，JIS vol. 25）：16 ≤ n ≤ 2·3^45 时 2^n 三
 
 目录
 search/ 可写。计算轨道代码：树搜索、分片调度、证书生成。C/C++/Python 均可
-proofs/ 可写。理论轨道：proofs/<id>.md 数学证明稿，proofs/lean/ 形式化文件
+lean/ 可写（lean/ErdosTernary/ 下）。全部成果的 Lean 源文件。Lake 工程，Mathlib 版本见 lean/lakefile.toml
+proofs/ 可写。非形式证明草稿（只作草稿，不是成果）
 specs/ Researcher 写。文献摘录、公式、已知结果与出处
 verify/ 阶段 0 建好后冻结，只读。独立检查器、T0 测试、冻结的形式化陈述
 certs/ 只追加。计算证书（分片清单、计数、哈希），大文件只存清单与哈希
@@ -69,9 +87,11 @@ g0 通过 T0 后写入账本和种群。
 3. Planner 出 k 个假设，计算轨道和理论轨道各至少 config.generation.min_per_track 个。
 4. 需要规格的假设先交 Researcher（文献核实、公式、已知结果）。
 5. k 个 Implementer 并行，各自一个分支或工作树，只实现一个假设。
-计算假设：通过 T0 后跑 T1 基准（固定预算），报吞吐量（节点/秒）和外推的完成时间。
-理论假设：写出证明稿；能形式化的进 proofs/lean/ 并用 lake build 检查。
-6. Critic 逐个审查，给出 accept、reject 或 escalate。
+计算假设：通过 T0 后跑 T1 基准（固定预算），报吞吐量（节点/秒）和外推的完成时间；
+涉及 Lean 检查器的，另报 Lean 中的吞吐量与可靠性定理的状态。
+理论假设：写出证明稿，然后在 lean/ErdosTernary/ 中形式化；lake build 与 verify/lean_audit.py 都通过才可提交。
+6. Critic 逐个审查，给出 accept、reject 或 escalate。声称为成果的，另派独立审计员（roles/lean_auditor.md）
+在全新上下文中审计；审计不通过的只能作为中间产物入种群，不得计入主指标。
 7. 接受的版本进种群，按 Pareto 前沿（吞吐量、已验证 N、已证引理数）保留 population_size 个。
 8. 前沿最优的计算版本继续推进长跑（见下"长跑"）。
 9. 追加账本，写 reports/gen_NNN.md，覆盖写 reports/STATUS.md，提交并推送。
@@ -83,10 +103,13 @@ g0 通过 T0 后写入账本和种群。
 已验证 N 只在全部分片完成且抽查全部通过后更新。
 
 里程碑
-M1 复现 主指标 T1 吞吐量。过关：独立复现 Vardi 界 2·3^20，并对深度 ≤ 30 与验证器计数一致
-M2 计算纪录 主指标 已验证 N。过关：N > 2·3^45（严格超过 Saye），证书全部提交，抽查全部通过
-M3 部分定理 主指标 经确认的新命题数。过关：至少 1 条文献中没有的命题被小组 CONFIRMED_PARTIAL
-M4 证明 主指标 无，二值。过关：冻结陈述的 Lean 证明通过，或小组全部通过且人认可
+M1 复现 主指标 Lean 中已证的 UpTo N。过关：Lean 定理 UpTo (2·3^20)（A 或 B 级），审计通过；
+   并有 Lean 证明的检查器可靠性定理
+M2 计算纪录 主指标 Lean 中已证的 N。过关：Lean 定理 UpTo N，N > 2·3^45（严格超过 Saye），B 级即可，
+   审计通过，三怀疑者小组通过
+M3 部分定理 主指标 经确认的新 Lean 定理数。过关：至少 1 条文献中没有的命题，Lean 证明审计通过，
+   小组 CONFIRMED_PARTIAL
+M4 证明 主指标 无，二值。过关：Lean 定理 ErdosTernary.Statement 的证明，A 级，审计通过，小组通过，人认可
 M1 之后，M2 与 M3 并行推进；M4 永远开放，任何一代都可以提交 M4 尝试。
 过关后由三怀疑者小组复核（roles/skeptic.md），通过才进入下一里程碑。
 前一里程碑的指标自动转为约束：吞吐量退步超过 5% 的计算版本不接受。
@@ -96,6 +119,7 @@ M1 之后，M2 与 M3 并行推进；M4 永远开放，任何一代都可以提�
 * Critic 给出 escalate
 * 找到疑似反例（立即停所有长跑，保存现场，三怀疑者复核，不对外公开）
 * 声称完成 M4（不论信心多高）
+* lean/ 工程无法编译，或 verify/lean_audit.py 自身无法运行
 * 连续 stall_generations 代所有轨道主指标都无提升（先写一份原因分析）
 * 任一预算上限触发
 * 你认为某条约束妨碍进展（写 proposals/，不要自行绕过）
@@ -107,8 +131,9 @@ M1 之后，M2 与 M3 并行推进；M4 永远开放，任何一代都可以提�
 没有打开过的文献不得引用；凭记忆写的出处必须标"未核实"。
 2. 计算轨道的结论只能是"对 0 ≤ n ≤ N 无反例"，N 必须由完整、无上限截断的覆盖得出。
 有任何未完成、超时或被跳过的分片，N 不得更新。
-3. 理论轨道的每个命题必须标级别：PROVED-HERE（有完整证明）、SKETCH、HEURISTIC、SPECULATION、KNOWN（附出处）。
-SKETCH 永远不是证明。Lean 文件中出现 sorry、admit、新 axiom 或改动冻结陈述的，一律不算证明。
+3. 草稿中的每个命题必须标级别：LEAN-VERIFIED（已满足第 11 条）、PROVED-HERE（纸面完整证明，尚未形式化）、
+SKETCH、HEURISTIC、SPECULATION、KNOWN（附出处）。只有 LEAN-VERIFIED 算成果。
+Lean 文件中出现 sorry、admit、新 axiom 或改动冻结陈述的，一律不算证明。
 4. 启发式论证（"数字随机，所以概率为零"）不得写成证明。概率模型只能标 HEURISTIC。
 5. 除阶段 0 外，任何角色不得写 verify/。冻结陈述 verify/Statement.lean 不得被改写或绕开。
 6. 状态词只降不升。只有三怀疑者小组全部通过才能写 CONFIRMED_*；单一上下文最多写 PROMISING。
@@ -119,6 +144,11 @@ SKETCH 永远不是证明。Lean 文件中出现 sorry、admit、新 axiom 或�
 并行任务的内存总和不超过空闲内存的一半。
 9. 不得修改 verify/ 的检查器来让结果通过。检查器不通过就是不通过。
 10. 引用前人：用到的结果、数据和代码写明作者和链接（Erdős、Vardi、Lagarias、Narkiewicz、Saye 等）。
+11. 所有成果都必须是 Lean 定理：lake build 通过、verify/lean_audit.py 通过、独立审计员通过。
+未满足三者的任何东西（C 程序输出、证明稿、数值实验）不得写成成果，不得计入里程碑主指标。
+12. 不得修改 verify/Statement.lean 中冻结的定义，不得在 lean/ 中重新定义同名概念来"替换"它；
+成果定理必须直接使用冻结的定义（审计员核对）。
+13. native_decide 只允许用于对具体数值求值，且成果须标为 B 级；不得用 native_decide 证明含自由变量的一般命题。
 
 === FILE: VERIFY.md ===
 verify/ 内容（阶段 0 准备，此后冻结）
@@ -130,9 +160,13 @@ verify/ 内容（阶段 0 准备，此后冻结）
 （按层遍历序把每个被剪枝或终止节点的 (k, r, 原因) 序列化后取 sha256）、证书 JSON 格式。
 * verify/check_cert.py：读一组分片证书，检查覆盖完整、计数一致、例外集合，按抽查比例调用 tree_ref.py 重算。
 * verify/test_T0.py：T0 测试（见下）。
-* verify/Statement.lean：Lean 4 冻结陈述（若环境能装 Lean）：
-theorem erdos_ternary : ∀ n : ℕ, n > 8 → 2 ∈ Nat.digits 3 (2 ^ n)。
-只冻结陈述，证明留给 proofs/lean/。装不了 Lean 就写入文本陈述并在 preflight 中说明。
+* verify/Statement.lean：Lean 4 冻结定义（不含证明）：
+def ErdosTernary.Statement : Prop := ∀ n : ℕ, 8 < n → 2 ∈ Nat.digits 3 (2 ^ n)
+def ErdosTernary.UpTo (N : ℕ) : Prop := ∀ n : ℕ, n ≤ N → 8 < n → 2 ∈ Nat.digits 3 (2 ^ n)
+lean/lakefile.toml 以 lean_lib Frozen（srcDir = "../verify"）引入它。
+* verify/lean_audit.py：python3 verify/lean_audit.py <模块> <定理> [--expect Statement|UpTo:<N>]：
+lake build 该模块；扫描源文件禁用词；#print axioms 判定 A/B 级；--expect 时检查定理类型
+与冻结定义一致（用 example : <冻结命题> := <定理>）。末行 LEAN_AUDIT: PASS tier=A|B 或 LEAN_AUDIT: FAIL。
 
 分层
 T0 正确性（确定性单测，全部通过才计后续分数）
@@ -144,7 +178,7 @@ T0 正确性（确定性单测，全部通过才计后续分数）
 T1 吞吐量：固定 N = 2·3^24，单核和全核各跑一次，报节点/秒和总耗时，3 次取均值和标准差
 T2 规模：外推到 N = 2·3^46 的预计 CPU 小时数（由 T1 吞吐量和 3·2^K 节点模型计算）
 T3 纪录：已验证 N（只在全部分片完成且抽查通过后更新）
-T4 理论：每条命题的级别、Lean 检查结果（无 sorry/axiom）、新颖性检索记录、小组结论
+T4 Lean：每条成果的 lake build 结果、lean_audit 级别、独立审计结论、新颖性检索记录、小组结论
 T5 人：M4 和 M3 的最终认可由人完成，不在自动循环内
 
 规则
@@ -217,6 +251,7 @@ prediction 必须在运行评估之前写入。
 * 计算轨道和理论轨道各至少 {min_per_track} 个；至少 {m} 个针对当前瓶颈，至少 1 个是探索性的。
 * 计算轨道示例方向：定长多精度算术代替大整数、按层增量更新 2^r mod 3^k、
 批量化与 SIMD、更好的分片与负载均衡、Saye 递归法的复现与改进、提前截断的数学剪枝。
+* Lean 方向：在 Lean 中写树搜索检查器并证明其可靠性（是 M1/M2 的必经之路）；提升 Lean 检查器的运行速度。
 * 理论轨道示例方向：3-adic 结构（Lagarias 框架）、计数函数上界（Narkiewicz 型）的改进、
 有限自动机或 Hausdorff 维数论证、对数线性形式（Baker 型）能否约束数字、
 形式化已知初等引理作为后续证明的基础。每个理论假设写清目标命题。
@@ -235,8 +270,9 @@ prediction 必须在运行评估之前写入。
 在你的独立分支或工作树上实现假设 {id}，父版本为 {parent}。
 计算轨道：可写 search/ 下 {touched} 列出的文件。流程：读 specs/，实现，跑 verify/test_T0.py，
 通过后跑 T1（不超过配额），提交。T0 不通过不要提交。
-理论轨道：写 proofs/{id}.md：命题、完整证明或明确标注的缺口、级别标签。
-能形式化的写 proofs/lean/，lake build 必须无错误、无 sorry。
+理论轨道：先写 proofs/{id}.md 草稿：命题、纸面证明、级别标签。然后在 lean/ErdosTernary/ 中形式化，
+直接使用 verify/Statement.lean 的冻结定义。lake build 必须无错误，verify/lean_audit.py 必须 PASS。
+形式化没完成的，如实标注为草稿，不得声称成果。
 禁止：CONSTRAINTS.md 列出的一切。先读它。
 实现不了就写明原因后停止，不要换一个假设硬做。
 输出：diff 摘要，T0/T1 结果原文或证明摘要，你认为可能出问题的地方。
@@ -246,8 +282,8 @@ prediction 必须在运行评估之前写入。
 检查：
 * 改动是否对应假设，有无夹带无关修改。是否碰了 verify/。
 * 计算：覆盖是否完整，有无隐藏截断，是否与 tree_ref 逐项一致，吞吐量数字是否来自实际输出。
-* 理论：每一步是否成立；有无把启发式当证明；是否循环论证；是否默认了等价于猜想本身的假设；
-Lean 文件有无 sorry/axiom/陈述偏移。
+* 理论：每一步是否成立；有无把启发式当证明；是否循环论证；是否默认了等价于猜想本身的假设。
+* Lean：亲自重跑 lake build 和 verify/lean_audit.py；声称成果但缺少 Lean 定理或审计未过的，一律 reject。
 * 结果与预测偏差超过 {prediction_miss_factor} 倍时须给出解释，解释不了就 escalate。
 * 吞吐量单代跳升超过 {single_gen_throughput_jump} 倍一律 escalate。
 输出：verdict，理由，写入账本的 lesson（一句话）。
@@ -255,14 +291,26 @@ Lean 文件有无 sorry/axiom/陈述偏移。
 === FILE: roles/skeptic.md ===
 你是三怀疑者之一，角色为 {role}（REPRODUCE、NOVELTY 或 CRITERION）。
 你在全新上下文中，只看 panel/{claim}/claim/ 里的材料，不看舰队的其他讨论。
-REPRODUCE：自己写代码或自己逐行重证，不复用声称者的代码。
+REPRODUCE：亲自重跑 lake build 与 verify/lean_audit.py；对计算成果另用自己写的程序重算一个独立样本。
 NOVELTY：检索文献（Lagarias、Narkiewicz、Saye、Dupuy–Weirich 等及近 24 个月 arXiv），判断是否已知。
 CRITERION：判断声称的范围是否恰好等于证据支持的范围，不多一分。
 输出 panel/{claim}/{role}.md，末行为 pass: true 或 pass: false，附理由。
 
+=== FILE: roles/lean_auditor.md ===
+你是独立 Lean 审计员，在全新上下文中工作，审计成果 {id}。你只看：声称的非形式命题（一段话）、
+lean/ 下相关 Lean 源文件、verify/Statement.lean。不看舰队的讨论和证明稿。
+必须亲自执行：
+* 在 lean/ 下 lake build，贴出输出末尾。
+* python3 verify/lean_audit.py <模块> <定理> [--expect ...]，贴出末行。
+* 逐条核对：Lean 定理的类型是否恰好表达非形式命题（量词、范围、边界情况如 n ≤ N 还是 n < N、
+  Nat 减法截断、digits 的定义方向）；是否直接使用冻结定义；有无通过新定义、instance、notation、
+  macro、局部 attribute 或 set_option 改变含义；native_decide 是否只用于具体数值求值。
+* 假设有一处偏差：写出它会导致什么错误结论。
+输出 panel/{id}/lean_audit.md，末行 pass: true 或 pass: false，附理由。
+
 === FILE: reports/TEMPLATE.md ===
 第 {gen} 代
-里程碑和主指标：已验证 N，吞吐量，已确认命题数；较上代变化；距过关线
+里程碑和主指标：Lean 中已证的 UpTo N（级别），吞吐量，审计通过的新 Lean 定理数；较上代变化；距过关线
 本代实验：id，轨道，假设，预测，结果，裁决（表格）
 Planner 预测命中率：本代，累计
 长跑进度：已完成分片 / 总分片，预计完成时间，抽查结果

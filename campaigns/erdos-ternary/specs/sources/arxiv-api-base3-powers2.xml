@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/QPIx6PhBO+qAd9pl9B6Ewxa9K1Q</id>
+  <title>arXiv Query: search_query=abs:"base 3" AND abs:"powers of 2"&amp;id_list=&amp;start=0&amp;max_results=50</title>
+  <updated>2026-11-24T10:13:35Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22base+3%22+AND+abs:%22powers+of+2%22&amp;start=0&amp;max_results=50&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1011.3646v1</id>
+    <title>Quantum Abacus for counting and factorizing numbers</title>
+    <updated>2010-11-16T10:56:07Z</updated>
+    <link href="https://arxiv.org/abs/1011.3646v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1011.3646v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We generalize the binary quantum counting algorithm of Lesovik, Suslov, and Blatter [Phys. Rev. A 82, 012316 (2010)] to higher counting bases. The algorithm makes use of qubits, qutrits, and qudits to count numbers in a base 2, base 3, or base d representation. In operating the algorithm, the number n &lt; N = d^K is read into a K-qudit register through its interaction with a stream of n particles passing in a nearby wire; this step corresponds to a quantum Fourier transformation from the Hilbert space of particles to the Hilbert space of qudit states. An inverse quantum Fourier transformation provides the number n in the base d representation; the inverse transformation is fully quantum at the level of individual qudits, while a simpler semi-classical version can be used on the level of qudit registers. Combining registers of qubits, qutrits, and qudits, where d is a prime number, with a simpler single-shot measurement allows to find the powers of 2, 3, and other primes d in the number n. We show, that the counting task naturally leads to the shift operation and an algorithm based on the quantum Fourier transformation. We discuss possible implementations of the algorithm using quantum spin-d systems, d-well systems, and their emulation with spin-1/2 or double-well systems. We establish the analogy between our counting algorithm and the phase estimation algorithm and make use of the latter's performance analysis in stabilizing our scheme. Applications embrace a quantum metrological scheme to measure a voltage (analog to digital converter) and a simple procedure to entangle multi-particle states.</summary>
+    <category term="cond-mat.mes-hall" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-11-16T10:56:07Z</published>
+    <arxiv:comment>23 pages, 15 figures</arxiv:comment>
+    <arxiv:primary_category term="cond-mat.mes-hall"/>
+    <author>
+      <name>M. V. Suslov</name>
+    </author>
+    <author>
+      <name>G. B. Lesovik</name>
+    </author>
+    <author>
+      <name>G. Blatter</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevA.83.052317</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevA.83.052317" title="doi"/>
+  </entry>
+</feed>

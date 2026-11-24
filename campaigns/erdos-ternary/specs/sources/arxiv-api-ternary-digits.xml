@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/KAbfRnClX49EJUuPViac2aewkJk</id>
+  <title>arXiv Query: search_query=abs:"ternary digits"&amp;id_list=&amp;start=0&amp;max_results=50</title>
+  <updated>2026-11-24T10:17:09Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22ternary+digits%22&amp;start=0&amp;max_results=50&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+  <opensearch:totalResults>15</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.03789v1</id>
+    <title>Repunit Coordinates for the Erdős Ternary-Digit Problem</title>
+    <updated>2026-09-30T20:41:49Z</updated>
+    <link href="https://arxiv.org/abs/2610.03789v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.03789v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Paul Erdős conjectured that the only powers of two whose ternary expansions contain no digit 2 are 1, 4, and 256. Despite extensive computational verification, the conjecture remains open. We reformulate the problem using generalised base-4 repunits. Any admissible exponent is even, say \(n=2s\), and \[ 2^{2s}=4^s=3R_s(4)+1,\qquad R_s(4)=\frac{4^s-1}{3}. \] Thus \(2^{2s}\) omits the ternary digit 2 if and only if \(R_s(4)\) does. For each depth \(m\), the map \(Φ_m:s\bmod 3^m\mapsto R_s(4)\bmod 3^m\) is a permutation of the residue classes modulo \(3^m\). Hence every prescribed \(m\)-digit ternary suffix has a unique canonical exponent seed modulo \(3^m\), and all exponents producing that suffix form an arithmetic progression. The lifting identity \[ R_{r+q3^m}(4)\equiv R_r(4)+q3^m\pmod{3^{m+1}} \] gives three lifts at each depth, exactly two of which preserve admissibility. The finite maps assemble into an isometric homeomorphism of the 3-adic integers conjugating \(x \mapsto x+1\) with \(y \mapsto 4y+1\). The unresolved global integer problem remains. No proof of the Erdős conjecture is claimed.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-30T20:41:49Z</published>
+    <arxiv:comment>26 pages, 2 figures, 5 tables. Includes reproducible finite-depth computations and an explicit search protocol. No proof of the Erdos conjecture is claimed</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Michael A. Idowu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.14353v1</id>
+    <title>Chiroptical Ternary Entropy Harvesting from Self-Assembled Block Copolymer Nanopatterns</title>
+    <updated>2026-05-14T04:26:33Z</updated>
+    <link href="https://arxiv.org/abs/2605.14353v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.14353v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Nanoscale fabrication inevitably produces local stochasticity that is commonly treated as a defect, but can instead be harnessed as a material resource for information security. Here we report a chiroptical platform for ternary entropy harvesting based on stochastic Au nanopatterns formed by block copolymer self-assembly. By transducing fabrication-induced stochastic microstates into handedness-dependent optical responses through chiroptical mapping, our platform enables native ternary digitization rather than conventional binary encoding, allowing physically harvested ternary random sequences to be used for key generation. This raises the information density to log2(3) = 1.585 bits per trit, approximately 58.5% higher than the binary limit, enabling more entropy to be harvested from a limited physical footprint. The harvested outputs exhibit near-balanced symbol populations, negligible spatial and inter-sample correlations, Shannon entropy approaching the ternary ideal, and resistance to statistical and machine-learning-based prediction. These results establish self-assembled chiroptical nanostructures as a scalable platform for cryptographic key generation, secure edge devices, and distributed Internet-of-Things platforms.</summary>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T04:26:33Z</published>
+    <arxiv:primary_category term="cond-mat.mtrl-sci"/>
+    <author>
+      <name>Wookjin Jung</name>
+    </author>
+    <author>
+      <name>Serin Jeong</name>
+    </author>
+    <author>
+      <name>Kyulim Kim</name>
+    </author>
+    <author>
+      <name>Dongkyu Lee</name>
+    </author>
+    <author>
+      <name>Sang Ouk Kim</name>
+    </author>
+    <author>
+      <name>Jihyeon Yeom</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.04877v1</id>
+    <title>Frequency of a Digit in the Representation of a Number and the Asymptotic Mean Value of the Digits</title>
+    <updated>2026-03-05T07:07:01Z</updated>
+    <link href="https://arxiv.org/abs/2603.04877v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.04877v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study the relationship between the frequency of a ternary digit in a number and the asymptotic mean value of the digits. The conditions for the existence of the asymptotic mean of digits in a ternary number are established. We indicate an infinite everywhere dense set of numbers without frequency of digits but with the asymptotic mean of the digits.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.FA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-05T07:07:01Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Ukrainian Mathematical Journal, Vol. 66, No. 3, August, 2014 (Ukrainian Original Vol. 66, No. 3, March, 2014)</arxiv:journal_ref>
+    <author>
+      <name>S. O. Klymchuk</name>
+    </author>
+    <author>
+      <name>O. P. Makarchuk</name>
+    </author>
+    <author>
+      <name>M. V. Pratsiovytyi</name>
+    </author>
+    <arxiv:doi>10.1007/s11253-014-0934-7</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s11253-014-0934-7" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.11799v3</id>
+    <title>Explicit separation of quadratic irrationals from the middle-third Cantor set</title>
+    <updated>2026-09-10T21:15:55Z</updated>
+    <link href="https://arxiv.org/abs/2601.11799v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.11799v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>An earlier form of this manuscript claimed, subject to a ``shallow contribution'' hypothesis, a log-square upper bound for the first occurrence of the ternary digit $1$ in a quadratic irrational, and consequently a quantitative separation from the middle-third Cantor set. Those conclusions are withdrawn. The argument used a decomposition defined only after finite exit had been assumed in order to prove finite exit, and the proposed quadratic-field-uniform Thue--Mahler estimate did not follow from the cited $S$-unit theory: the relevant set $S$ varies with the minimal polynomial, and the displayed $S$-unit quotient does not retain the power-of-$3$ exponent without an additional normalization.
+  This replacement records the defects and retains the unconditional part of the argument. For a quadratic irrational whose orbit exits, we prove the exact exit-to-distance identity and an elementary height-dependent clearance bound. We also give a corrected universal bound for a single $L$-run and show that an exceptionally long $R$-to-$L$ transition produces a bounded value of a binary quadratic norm form at a power of $3$. A finite-prefix decomposition identifies the additional uniform orbit-counting theorem that would be required for a genuine separation result. No assertion that a quadratic irrational lies outside the Cantor set is made here.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-16T22:00:58Z</published>
+    <arxiv:comment>Major correction. The earlier log-square exit-time theorem and the resulting separation bound are withdrawn. The proof assumed finite exit while using the hypothesis to prove finite exit, and its field-uniform S-unit/Thue--Mahler estimate was not established. This replacement records the gaps and retains only the unconditional dynamical, integrality, and bounded-norm reductions</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Frank Gilson</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.03861v1</id>
+    <title>Ternary Digits of Powers of Two</title>
+    <updated>2025-11-05T21:05:33Z</updated>
+    <link href="https://arxiv.org/abs/2511.03861v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.03861v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The \textit{ternary digits of $2^n$} are a finite sequence of 0s, 1s, and 2s. It is a natural question to ask whether the frequency of any string of 0s, 1s, and 2s in this sequence approaches the same limit for all strings of the same length, as the exponent $n$ approaches infinity (\textit{Uniform Distribution in the limit}).
+  Currently the answer to this question is unknown. Even a much weaker conjecture by Erdös is still open. But we present computational results (up to $n = 10^6$) supporting uniform distribution in the limit.
+  In this context, we discuss implications of Benford's Law and a special case of Baker's Theorem.
+  Then we investigate the infinite sequence of ternary digits of $\log_3(2)$. There are analogous questions about the distribution of strings of 0s, 1s, and 2s in that sequence. If there is uniform distribution in the limit, then $\log_3(2)$ is called \textit{normal to base 3}.
+  In the absence of definitive results, we can offer again computational evidence from the first $10^6$ ternary digits of $\log_3(2)$, strongly supporting the conjecture that $\log_3(2)$ is normal to base 3.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-05T21:05:33Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Christian Roettger</name>
+    </author>
+    <author>
+      <name>Xuyi Ren</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2504.11917v2</id>
+    <title>Dirac Representation for Lattice Spin Operators: Spin-$1/2$ and Spin-$1$ cases</title>
+    <updated>2026-10-15T13:56:45Z</updated>
+    <link href="https://arxiv.org/abs/2504.11917v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2504.11917v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce a quantum representation of lattice spin operators (LSOs) by mapping quantum spins to their classical analogues for spin values $S=1/2$ and $S=1$. The resulting Dirac (bra--ket) forms are derived from the structure of binary and ternary digit distributions in non-negative integers. \color{blue} The construction requires only an enumeration of the lattice sites and is therefore independent on the spatial dimension and lattice geometry. \color{black} Analytical expressions for extracting the $j$th bit or trit of an integer without performing an explicit binary or ternary decomposition are obtained. \color{blue}As an application of the representation, \color{black} we analyze the one-dimensional spin-$1/2$ {XXZ} Heisenberg model with open boundaries in a magnetic field in both absence (uniform magnetic field) and presence of disorder (random magnetic field). In the absence of disorder (clean system), we demonstrate that the corresponding eigenvalue problem can be reduced to a tight-binding problem on a graph. For the isotropic case, this is solved analytically without resorting to any spinless transformation or the Bethe Ansatz. In the presence of disorder, a convergent perturbation theory is elaborated. Our analytical results are benchmarked against exact diagonalization for systems up to $K\leq 18$ spins. These computations exploit the global $U(1)$ symmetry to block-diagonalize the Hamiltonian and the spin-inversion symmetry to further decompose the zero-magnetization sector. Quantitative agreement between analytical and numerical results is observed.</summary>
+    <category term="cond-mat.soft" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-04-16T09:54:35Z</published>
+    <arxiv:primary_category term="cond-mat.soft"/>
+    <author>
+      <name>Maseim Bassis Kenmoe</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2410.09073v1</id>
+    <title>Level of Scientific Readiness with Ternary Data Types</title>
+    <updated>2024-10-02T17:08:14Z</updated>
+    <link href="https://arxiv.org/abs/2410.09073v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2410.09073v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In addition to the technology readiness level (TRL the scientific readiness level (SRL) has been introduced as a more authentic and adequate tool for determining the status quo of scientific and scientific-technical projects of fundamental or applied nature. The SRL includes 10 levels of scientific readiness, namely, the FRL (Fundamental Readiness Level), the ARL (Applied Readiness Level), and the IRL (Innovation Readiness Level). For quantitative and visual assessment of the level of scientific readiness, a system of positional ternary (three-valued, trinary) codes with integer trits (ternary digit) is introduced. The ternary code interprets the degree of project elaboration according to the fundamental, applied, and innovation vectors/trits FRL/ARL/IRL. Examples of scientific project assessments are provided. The main characteristics of the new scale and assessment of the level of readiness and the application areas of the scientific readiness level are noted. Tasks for further development of the system of scientific readiness levels are formulated.</summary>
+    <category term="cs.DL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.soc-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-10-02T17:08:14Z</published>
+    <arxiv:comment>20 pages, 3 tables, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.DL"/>
+    <author>
+      <name>Eldar Knar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2309.01615v1</id>
+    <title>A balanced Memristor-CMOS ternary logic family and its application</title>
+    <updated>2023-09-04T13:57:51Z</updated>
+    <link href="https://arxiv.org/abs/2309.01615v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2309.01615v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The design of balanced ternary digital logic circuits based on memristors and conventional CMOS devices is proposed. First, balanced ternary minimum gate TMIN, maximum gate TMAX and ternary inverters are systematically designed and verified by simulation, and then logic circuits such as ternary encoders, decoders and multiplexers are designed on this basis. Two different schemes are then used to realize the design of functional combinational logic circuits such as a balanced ternary half adder, multiplier, and numerical comparator. Finally, we report a series of comparisons and analyses of the two design schemes, which provide a reference for subsequent research and development of three-valued logic circuits.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.ET" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-09-04T13:57:51Z</published>
+    <arxiv:comment>15 pages, 30 figures</arxiv:comment>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Xiao-Yuan Wang</name>
+    </author>
+    <author>
+      <name>Jia-Wei Zhou</name>
+    </author>
+    <author>
+      <name>Chuan-Tao Dong</name>
+    </author>
+    <author>
+      <name>Xin-Hui Chen</name>
+    </author>
+    <author>
+      <name>Sanjoy Kumar Nandi</name>
+    </author>
+    <author>
+      <name>Robert G. Elliman</name>
+    </author>
+    <author>
+      <name>Sung-Mo Kang</name>
+    </author>
+    <author>
+      <name>Herbert Ho-Ching Iu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2203.13467v2</id>
+    <title>RD-Optimized Trit-Plane Coding of Deep Compressed Image Latent Tensors</title>
+    <updated>2022-05-08T07:53:19Z</updated>
+    <link href="https://arxiv.org/abs/2203.13467v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2203.13467v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>DPICT is the first learning-based image codec supporting fine granular scalability. In this paper, we describe how to implement two key components of DPICT efficiently: trit-plane slicing and rate-distortion-optimized (RD-optimized) coding. In DPICT, we transform an image into a latent tensor, represent the tensor in ternary digits (trits), and encode the trits in the decreasing order of significance. For entropy encoding, it is necessary to compute the probability of each trit, which demands high time complexity in both the encoder and the decoder. To reduce the complexity, we develop a parallel computing scheme for the probabilities, which is described in detail with pseudo-codes. Moreover, we compare the trit-plane slicing in DPICT with the alternative bit-plane slicing. Experimental results show that the time complexity is reduced significantly by the parallel computing and that the trit-plane slicing provides better RD performances than the bit-plane slicing.</summary>
+    <category term="eess.IV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-03-25T06:33:16Z</published>
+    <arxiv:primary_category term="eess.IV"/>
+    <author>
+      <name>Seungmin Jeon</name>
+    </author>
+    <author>
+      <name>Jae-Han Lee</name>
+    </author>
+    <author>
+      <name>Chang-Su Kim</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2202.13256v2</id>
+    <title>On two conjectures concerning the ternary digits of powers of two</title>
+    <updated>2022-03-23T22:32:08Z</updated>
+    <link href="https://arxiv.org/abs/2202.13256v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2202.13256v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Erdős conjectured that 1, 4, and 256 are the only powers of two whose ternary representations consist solely of 0s and 1s. Sloane conjectured that, except for $\{2^0,2^1,2^2,2^3,2^4,2^{15}\}$, every other power of two has at least one 0 in its ternary representation. In this paper, numerical results are given in strong support of these conjectures. In particular, we verify both conjectures for all $2^n$ with $n \leq 2 \cdot 3^{45} \approx 5.9 \times 10^{21}$. Our approach makes use of a simple recursive construction of numbers $2^n$ having prescribed patterns in their trailing ternary digits.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-02-27T00:29:20Z</published>
+    <arxiv:comment>5 pages, 2 figures, 1 algorithm</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Journal of Integer Sequences, 25(3), 2022, pages 1-9</arxiv:journal_ref>
+    <author>
+      <name>Robert I. Saye</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2112.06334v2</id>
+    <title>DPICT: Deep Progressive Image Compression Using Trit-Planes</title>
+    <updated>2022-05-06T05:50:08Z</updated>
+    <link href="https://arxiv.org/abs/2112.06334v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2112.06334v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We propose the deep progressive image compression using trit-planes (DPICT) algorithm, which is the first learning-based codec supporting fine granular scalability (FGS). First, we transform an image into a latent tensor using an analysis network. Then, we represent the latent tensor in ternary digits (trits) and encode it into a compressed bitstream trit-plane by trit-plane in the decreasing order of significance. Moreover, within each trit-plane, we sort the trits according to their rate-distortion priorities and transmit more important information first. Since the compression network is less optimized for the cases of using fewer trit-planes, we develop a postprocessing network for refining reconstructed images at low rates. Experimental results show that DPICT outperforms conventional progressive codecs significantly, while enabling FGS transmission. Codes are available at https://github.com/jaehanlee-mcl/DPICT.</summary>
+    <category term="eess.IV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-12-12T22:09:33Z</published>
+    <arxiv:comment>Accepted to CVPR 2022 (Oral presentation)</arxiv:comment>
+    <arxiv:primary_category term="eess.IV"/>
+    <author>
+      <name>Jae-Han Lee</name>
+    </author>
+    <author>
+      <name>Seungmin Jeon</name>
+    </author>
+    <author>
+      <name>Kwang Pyo Choi</name>
+    </author>
+    <author>
+      <name>Youngo Park</name>
+    </author>
+    <author>
+      <name>Chang-Su Kim</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2105.11173v2</id>
+    <title>Collisions of digit sums in bases 2 and 3</title>
+    <updated>2022-04-20T10:04:46Z</updated>
+    <link href="https://arxiv.org/abs/2105.11173v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2105.11173v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove a folklore conjecture concerning the sum-of-digits functions in bases two and three: there are infinitely many positive integers $n$ such that the sum of the binary digits of $n$ equals the sum of the ternary digits of $n$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-05-24T09:44:08Z</published>
+    <arxiv:comment>20 pages, accepted for publication in Israel J. Math</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Lukas Spiegelhofer</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1906.11401v1</id>
+    <title>Quantum Phase Estimation with Time-Frequency Qudits in a Single Photon</title>
+    <updated>2019-06-27T00:50:21Z</updated>
+    <link href="https://arxiv.org/abs/1906.11401v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1906.11401v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Phase Estimation Algorithm (PEA) is an important quantum algorithm used independently or as a key subroutine in other quantum algorithms. Currently most implementations of the PEA are based on qubits, where the computational units in the quantum circuits are two-dimensional states. Performing quantum computing tasks with higher dimensional states -- qudits -- has been proposed, yet a qudit-based PEA has not been realized. Using qudits can reduce the resources needed for achieving a given precision or success probability. Compared to other quantum computing hardware, photonic systems have the advantage of being resilient to noise, but the probabilistic nature of photon-photon interaction makes it difficult to realize two-photon controlled gates that are necessary components in many quantum algorithms. In this work, we report an experimental realization of a qudit-based PEA on a photonic platform, utilizing the high dimensionality in time and frequency degrees of freedom (DoFs) in a single photon. The controlled-unitary gates can be realized in a deterministic fashion, as the control and target registers are now represented by two DoFs in a single photon. This first implementation of a qudit PEA, on any platform, successfully retrieves any arbitrary phase with one ternary digit of precision.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.optics" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-06-27T00:50:21Z</published>
+    <arxiv:comment>7 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Hsuan-Hao Lu</name>
+    </author>
+    <author>
+      <name>Zixuan Hu</name>
+    </author>
+    <author>
+      <name>Mohammed S. Alshaykh</name>
+    </author>
+    <author>
+      <name>Alexandria J. Moore</name>
+    </author>
+    <author>
+      <name>Yuchen Wang</name>
+    </author>
+    <author>
+      <name>Poolad Imany</name>
+    </author>
+    <author>
+      <name>Andrew M. Weiner</name>
+    </author>
+    <author>
+      <name>Sabre Kais</name>
+    </author>
+    <arxiv:doi>10.1002/qute.201900074</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1002/qute.201900074" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1703.02820v1</id>
+    <title>On one nearly everywhere continuous and nowhere differentiable function, that defined by automaton with finite memory</title>
+    <updated>2017-03-08T12:54:05Z</updated>
+    <link href="https://arxiv.org/abs/1703.02820v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1703.02820v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper is devoted to the investigation of the following function $$ f: x=Δ^{3}_{α_{1}α_{2}...α_{n}...}{\rightarrow} Δ^{3}_{\varphi(α_{1})\varphi(α_{2})...\varphi(α_{n})...}=f(x)=y, $$ where $\varphi(i)=\frac{-3i^{2}+7i}{2}$, $ i \in N^{0}_{2}=\{0,1,2\}$, and $Δ^{3}_{α_{1}α_{2}...α_{n}...}$ is the ternary representation of $x \in [0;1]$. That is values of this function are obtained from the ternary representation of the argument by the following change of digits: 0 by 0, 1 by 2, and 2 by 1. This function preserves the ternary digit $0$.
+  Main mapping properties and differential, integral, fractal properties of the function are studied. Equivalent representations by additionally defined auxiliary functions of this function are proved.
+  This paper is the paper translated from Ukrainian (the Ukrainian variant available at https://www.researchgate.net/publication/292970012). In 2012, the Ukrainian variant of this paper was represented by the author in the International Scientific Conference "Asymptotic Methods in the Theory of Differential Equations" dedicated to 80th anniversary of M. I. Shkil (the conference paper available at https://www.researchgate.net/publication/301765319). In 2013, the investigations of the present article were generalized by the author in the paper "One one class of functions with complicated local structure" (https://arxiv.org/pdf/1601.06126.pdf) and in the several conference papers (available at: https://www.researchgate.net/publication/301765326, https://www.researchgate.net/publication/303052308).</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-03-08T12:54:05Z</published>
+    <arxiv:comment>12 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>Symon Serbenyuk</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1012.4241v1</id>
+    <title>A New Technique for Text Data Compression</title>
+    <updated>2010-12-20T05:21:03Z</updated>
+    <link href="https://arxiv.org/abs/1012.4241v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1012.4241v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper we use ternary representation of numbers for compressing text data. We use a binary map for ternary digits and introduce a way to use the binary 11-pair, which has never been use for coding data before, and we futher use 4-Digits ternary representation of alphabet with lowercase and uppercase with some extra symbols that are most commonly used in day to day life. We find a way to minimize the length of the bits string, which is only possible in ternary representation thus drastically reducing the length of the code. We also find some connection between this technique of coding dat  and Fibonacci numbers.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-12-20T05:21:03Z</published>
+    <arxiv:comment>Submitted to IJKEDM</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <arxiv:journal_ref>2012 International Symposium on Computer, Consumer and Control, 2012, pp.405-409</arxiv:journal_ref>
+    <author>
+      <name>Udita N. Katugampola</name>
+    </author>
+    <arxiv:doi>10.1109/IS3C.2012.109</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/IS3C.2012.109" title="doi"/>
+  </entry>
+</feed>
