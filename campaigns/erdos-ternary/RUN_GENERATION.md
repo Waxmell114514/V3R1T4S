@@ -16,6 +16,8 @@ reports/STATUS.md 的"需要人"和 proposals/。
    并用 update_trigger 把 STATUS.md 记录的定时任务 enabled=false，然后停止，不开新一代。
 5. 检查长跑：certs/ 下进行中的分片（PID 记录在 certs/<id>/RUNNING.md）。容器若已被回收，进程不在了，
    从断点重新排队未完成分片。完成的分片证书提交。
+5b. 若最新的 reports/gen_NNN/plan.json 还没有对应的 reports/gen_NNN.md（上一代未收尾），或本会话仍有该代的
+   子 agent 在运行：本次不开新一代，只收尾该代（等子 agent 回报、Critic、审计、报告）。
 6. 按 MISSION.md 阶段 1 跑一代：Planner（roles/planner.md）→ 需要时 Researcher → Implementer 并行
    （Agent 工具，isolation=worktree，同时不超过 config.budget.max_parallel_workers）→ T0/T1 →
    Critic（roles/critic.md，用一个新的子 agent，只给它 diff 和结果）→ 种群 → 账本 → 报告。

@@ -7,5 +7,5 @@
 - Lean 成果：upTo_40、exceptions_have_no_two（A 级，独立审计 pass，冒烟测试，非新成果）
 - 最佳探索引擎：g001-e02（search/c2，6.85e7 事件/秒/核，4 片 2.05e8/s），人已确认 escalate 后合入
 - 种群：g000-e00、g001-e01（对照，补丁）、g001-e02、g000-lean
-- 第 2 代计划方向：Lean 中的树搜索检查器与可靠性定理（目标 UpTo (2·3^20)）；Narkiewicz 原文核实与计数上界形式化
+- 第 2 代：**进行中**（2026-11-24T11:33Z 开始，reports/gen_002/plan.json，4 个子 agent）。方向：Lean 中的树搜索检查器与可靠性定理（目标 UpTo (2·3^20)）；Narkiewicz 原文核实与计数上界形式化
 - 需要人：无（max_spend 按人的决定不设，只看墙钟）
