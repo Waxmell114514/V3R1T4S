@@ -15,3 +15,8 @@
 2026-11-24T12:50:14Z	200	f03402b8a7df1738ecddb300ec4e43c6edc1fca3c1e121f0d1b0f1b8e42e3310	arxiv_api_erdos_ternary.xml	http://export.arxiv.org/api/query?search_query=abs:Erdos+AND+abs:ternary&sortBy=submittedDate&sortOrder=descending&max_results=50
 2026-11-24T12:50:15Z	200	b085578a8961cd43be6440b6db4e3769227b84696d5076454fa519e78ea570f7	arxiv_api_powers2_base3.xml	http://export.arxiv.org/api/query?search_query=abs:%22powers+of+2%22+AND+abs:%22base+3%22&sortBy=submittedDate&sortOrder=descending&max_results=50
 2026-11-24T12:50:15Z	200	8448eef80a6a8e0a0a550ef3cc452da2136d4f30adab231a33130a3c9739432a	arxiv_api_digits_powers.xml	http://export.arxiv.org/api/query?search_query=ti:digits+AND+ti:powers&sortBy=submittedDate&sortOrder=descending&max_results=60
+2026-11-24T12:50:28Z	200	2e473328a1646ed2ad0382be5f685be132fc2f9ade5b269109d9e7aa1bc7f07b	arxiv_2511.03861.pdf	https://arxiv.org/pdf/2511.03861
+2026-11-24T12:50:28Z	200	42ba7612ddc9df2cf1a716c1c918d6f0f3d1e681583883a59ca3e9ad6c50020e	arxiv_2405.06220.pdf	https://arxiv.org/pdf/2405.06220
+2026-11-24T12:50:28Z	200	cc4b1502ec6b3fa79d5d9afcf4245714cb4ad4c3bc911faf964383959deb89c0	arxiv_2202.13256.pdf	https://arxiv.org/pdf/2202.13256
+2026-11-24T12:50:29Z	200	d7310e38fb8c521b03fe69bebebff65dfdc646525a047fd196efa56b1c64c09d	arxiv_2601.09510.pdf	https://arxiv.org/pdf/2601.09510
+2026-11-24T12:50:29Z	200	c7e22d14b5120263b5ed27e28f6723d68685f01f9c5f6aa10f4820f7ec510639	arxiv_2601.12753.pdf	https://arxiv.org/pdf/2601.12753

@@ -7,3 +7,4 @@
 2026-11-24T12:49:50Z 200 63a805e6004e7974c46c2243f78d268586ebd1cf509759a09585be8e36365ac3 cryptids_ErdosTernary14.lean https://raw.githubusercontent.com/google-deepmind/cryptids/main/Cryptids/ErdosTernary14.lean
 2026-11-24T12:49:50Z 200 1159caaeb91e0543d4fd88cc7a7b0be395c51031e4397b4aabce9d5be3a5634a fc_CollatzLike.lean https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/Arxiv/2107.12475/CollatzLike.lean
 2026-11-24T12:50:17Z 200 71cda102b5579254e81ad53ea934aed2fe4e16eda27e75a48de27ffa1f378544 cryptids_Propositions.lean https://raw.githubusercontent.com/google-deepmind/cryptids/main/Cryptids/Propositions.lean
+2026-11-24T12:50:32Z 200 4c06d262b2cbbb1b3635e36aa7217fc84b6301bf9874dcc169960bc46bf3d6cc kyo_erdosternary2_README.md https://raw.githubusercontent.com/kyo-oo/erdosternary2/HEAD/README.md

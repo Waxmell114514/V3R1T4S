@@ -1,0 +1,660 @@
+                                                 POWERS IN PRIME BASES AND A PROBLEM ON CENTRAL
+                                                              BINOMIAL COEFFICIENTS
+
+                                                                SEBASTIAN TIM HOLDUM, FREDERIK RAVN KLAUSEN,
+                                                                   AND PETER MICHAEL REICHSTEIN RASMUSSEN
+arXiv:2601.09510v1 [math.NT] 14 Jan 2026
+
+
+
+
+                                                                                             Abstract
+                                                                              2n
+                                                                                
+                                           It is an open problem whether      n        is divisible by 4 or 9 for all n > 256. In connection with
+                                                                                                                                           k+1 
+                                           this, we prove that for a fixed uneven m the asymptotic density of k’s such that m ∤ 2 2k is
+                                           0. To do so we examine numbers of the form αk in base p, where p is a prime and (α, p) = 1.
+                                           For every n and a we find an upper bound on the number of k’s less than a such that (αk )p
+                                           contains less than n digits greater than p2 . This is done by showing that every sequence of
+                                           the form ⟨σt , . . . , σ1 , σ0 ⟩, where 0 ≤ σi < p for i ≥ 1 and σ0 is in the residue class generated
+                                           by α modulo p, occurs at specific places in the representation (αk )p as k varies.
+
+
+                                           1. Introduction
+
+                                           A well known conjecture by Erdős states that the central binomial coefficient 2n
+                                                                                                                                  
+                                                                                                                                 n is never
+                                           squarefree for n > 4. The problem was finally solved in 1996 by Granville and Ramaré [5],
+                                           but is still inspiring further investigation of the central binomial coefficients. One question
+                                           left unanswered can be found in Concrete Mathematics [4] and is the following conjecture
+                                           which is the starting point of this paper.
+
+                                           Conjecture 1.1. The central binomial coefficient 2n
+                                                                                                    
+                                                                                                   n is divisible by 4 or 9 for every n > 4
+                                           except n = 64 and n = 256.
+
+                                              Since 4 divides 2n
+                                                                   
+                                                                 n when n is not a power of 2, we consider only binomial coefficients of
+                                                        k+1 
+                                           the form 2 2k in our study of the conjecture. By Kummer’s theorem the greatest exponent
+                                           of a prime p dividing the central binomial coefficient 2n
+                                                                                                        
+                                                                                                      n is equal to the number of carries
+                                           as n is added to itself in base p. Thus, to prove the conjecture it is sufficient to show that
+                                           there are at least 2 carries when 2k is added to itself in base 3 and k > 8.
+                                              In relation to this, Erdős conjectured in 1979 [2] that the base 3 representation of 2k only
+                                           omits the digit 2 for k = 0, 2, 8, noting that no methods for attacking it seemed to exist.
+                                              Methods for analysing the digits of powers of a number α in prime bases are scarce, and
+                                           further developing such methods is what most of this paper will be concerned with.
+                                              Considering the periodicity of the base p representation of αk , for a prime p and (p, α) = 1,
+                                           we find new patterns that allow us to bound the function
+                                                                 n                                                             po
+                                                     Spn (a) = # 0 ≤ s < a | (αs )p contains less than n digits greater than      .
+                                                                                                                               2
+                                           Specifically we show that every sequence of the form ⟨σt , . . . , σ1 , σ0 ⟩, where 0 ≤ σi < p for
+                                           i ≥ 1 and σ0 is in the residue class generated by α modulo p, occurs at given places in the
+                                           representation (αk )p as k varies.
+2
+SEBASTIAN TIM HOLDUM, FREDERIK RAVN KLAUSEN, AND PETER MICHAEL REICHSTEIN RASMUSSEN
+
+  Interestingly, if p is not a Wieferich prime base α, it turns out that this system occurs on
+every digit of (αk )p .
+  We use the above observations to show that
+                                                  n−1 log ( p+1 )
+                               S n (a) ≤ 8 log (a)
+                                 p                p   a p 2 ,                              (1)
+and in special cases we improve results due to Narkiewicz [8], and Kennedy and Cooper [1].
+   The bound (1) is used to prove that for any odd m ∈ N, the set of numbers k such that
+      k+1 
+m ∤ 2 2k has asymptotic density 0, which in the case m = 9 specifically addresses conjecture
+1.1.
+
+  Lastly, we have used computer experiments to improve a result due to Goetgheluck [3]
+                                                  7
+which confirmed Conjecture 1.1 for all n ≤ 24.2·10 .
+Theorem 1.2. The central binomial coefficient 2n
+                                                     
+                                                    n is divisible by 4 or 9 for every n such
+              1013
+that 4 < n ≤ 2     except for n = 64 and n = 256.
+See the Appendix for source code.
+
+
+
+2. Large digits in prime bases
+
+In this section we explore the base p representation of powers of an integer α, where p is
+a prime not dividing α. We say that a digit n is “small” if n < p2 and “large” otherwise.
+Further, p will always denote an odd prime, and α > 1 an integer with (α, p) = 1.
+  The main goal of the section is to bound the following function in various ways.
+Definition 2.1. Let p be an odd prime and a, n ∈ N. Fix α such that p ∤ α. Then set
+                   Spn (a) = # {0 ≤ s < a | (αs )p contains < n large digits} .
+
+Bounding the Spn is done by considering periodic properties of αk in base p as k varies.
+
+2.1. Notation and definitions
+Definition 2.2. Let p be a prime and n, k ∈ N. We write pk || n if pk | n and pk+1 ∤ n, i.e.
+if k is the greatest exponent of p dividing n.
+Definition 2.3. We define the following:
+     • δ = {αk mod p | k ∈ Z}, i.e. δ is the set of residues generated by α modulo p.
+     • θ = #{a ∈ δ | 0 ≤ a < p2 }, i.e. θ is the number of small residues in δ.
+     • γ = ordp (α) = |δ|.
+Definition 2.4. Let n ∈ N0 . We let Λn denote the set of sequences of the form
+                                      ⟨σn , σn−1 , . . . , σ1 , σ0 ⟩,
+where σ0 ∈ δ and 0 ≤ σi < p for 1 ≤ i ≤ n.
+Definition 2.5. Let m ∈ N be represented in base p as m = i≥0 ai pi , where 0 ≤ aj < p.
+                                                                 P
+
+To pinpoint specific digits we make the following definitions: ak = (m)p [k] and ⟨ak , · · · , al ⟩ =
+(m)p [k : l], k ≥ l.
+       POWERS IN PRIME BASES AND A PROBLEM ON CENTRAL BINOMIAL COEFFICIENTS                             3
+
+2.2. Sequences
+We will now consider the representations (αs )p when s varies to show how members of Λk
+occur as subsequences of these representations.
+  First, we need a couple of lemmas.
+Lemma 2.6. Let p be an odd prime and α > 1 be given such that (p, α) = 1. Let further
+         k                                               k+1
+pt || αγp − 1 for some t > 0 and k ≥ 0. Then pt+1 || αγp     − 1.
+               k
+Proof. Let αγp = upt + 1 with (u, p) = 1. Then
+                                                                                  
+                            k+1                     p                            p
+                      αγp         = upt + 1              = 1 + upt+1 + u2 p2t        + R,
+                                                                                  2
+                                                                                                   p
+                       by p3t and thus divisible by pt+2 since t > 0. Further, p |
+                                                                                                    
+where R is divisible                                                                               2 , so
+pt+2 | u2 p2t p2 and we get
+                
+
+                                          k+1
+                                    αγp         ≡ 1 + upt+1        (mod pt+2 )
+                           k+1
+showing that pt+1 || αγp         − 1.                                                                   □
+Lemma 2.7. Let p be an odd prime and α > 1 be given such that (p, α) = 1. Assume that
+pτ || αγ − 1. Then
+                                                k
+                                 pτ +k || αγp − 1 and ordpτ +k (α) = γpk
+for every k ≥ 0.
+Proof. The first part follows easily by induction on k using Lemma 2.6.
+For the second part note that
+                        γ = ordp (α) | ordpτ +k (α) and ordpτ +k (α) | γpk .
+                                                                                            k−1
+Thus, ordpτ +k (α) = γpr for some r ≤ k. By the first part, we have pτ +k−1 || αγp                − 1, so
+            k−1
+pτ +k ∤ αγp     − 1 and we must have ordpτ +k (α) = γpk .                                              □
+
+  With these lemmas at hand we are ready to analyse the base p representation (αs )p . To
+do so, we use the following definition.
+Definition 2.8. Let a = . . . a2 a1 a0 be any integer represented by an infinite sequence (ai )i∈N0
+in some base. Then we define
+                                  cτ,k (a) = ⟨aτ +k−1 , . . . , aτ +1 , aτ , a0 ⟩.
+  We make this definition since our interest lies in the digits underlined here:
+                                          . . . aτ +k−1 . . . aτ . . . a1 a0 ,
+because all the elements of Λn will appear periodically as subsequences of (αs )p on these
+positions, when s changes. This is captured in the main theorem of the section.
+Theorem 2.9. Let p be an odd prime and α > 1 be given such that (p, α) = 1. Further, let
+τ > 0 be the integer satisfying pτ || αγ − 1. Then for any k ≥ 0
+                               n                            o
+                                cτ,k ((αb )p ) | 0 ≤ b < γpk = Λk .
+4
+SEBASTIAN TIM HOLDUM, FREDERIK RAVN KLAUSEN, AND PETER MICHAEL REICHSTEIN RASMUSSEN
+
+Proof. Let T := cτ,k ((αb )p ) | 0 ≤ b < γpk .
+                
+  Clearly, T ⊆ Λk since every member of T is of the form
+                                        ⟨σk , σk−1 , . . . , σ1 , σ0 ⟩,
+where 0 ≤ σi < p for 1 ≤ i ≤ k and σ0 ∈ δ, because (αb )p [0] ∈ δ for any b ≥ 0.
+   We now prove T = Λk , by showing |T | = γpk = |Λk |, where the last equality already
+follows from the definition of Λk .
+   Since pτ || αγ − 1 both (αb )p [τ − 1 : 0] and (αb )p [0] are periodic with respect to b with
+least period γ and no repetitions in the period. This means that for b, c ≥ 0 we have
+(αb )p [τ − 1 : 0] = (αc )p [τ − 1 : 0] if and only if (αb )p [0] = (αc )p [0].
+   Now, assume for contradiction that cτ,k ((αb )p ) = cτ,k ((αc )p ) for some 0 ≤ b < c < γpk .
+Since (αb )p [0] = (αc )p [0] we have (αb )p [τ − 1 : 0] = (αc )p [τ − 1 : 0], so (αb )p [τ + k − 1 : 0] =
+(αc )p [τ + k − 1 : 0], i.e. αb ≡ αc (mod pτ +k ). Therefore, pτ +k | αb (αc−b − 1), but this means
+that pτ +k | αc−b − 1 contradicting Lemma 2.7 since 0 < c − b < γpk .
+   Thus, all the elements in the definition of T are different, and |T | = γpk .                         □
+
+2.2.1. Wieferich primes. The main result of the section has a curious corollary related to
+the Wieferich primes.
+Definition 2.10. Let p be a prime and α > 1 be given such that (α, p) = 1. Then p is a
+Wieferich prime base α if p2 | αγ − 1.
+   Since numerics [6] indicate that for any α > 1 the Wieferich primes base α are somewhat
+scarce, it is interesting that the following elegant property holds for any (p, α) such that p is
+not a Wieferich prime base α.
+Corollary 2.11. Let p be a prime which is not a Wieferich prime base α. Then
+                           n                             o
+                             (αb )p [k : 0] | 0 ≤ b < γpk = Λk .
+
+Proof. Since p is not a Wieferich prime base α, we have p1 || αγ . Noticing that c1,k (a) = a[k :
+0] the corollary follows directly from Theorem 2.9.                                            □
+
+   Thus, p not being a Wieferich prime base α implies that the first k + 1 digits of (αs )p will
+form all sequences of Λk periodically as s varies.
+
+2.3. Bounds on Spn
+The findings of the previous section allow us to obtain various bounds on the function Spn .
+First we introduce a lemma, which is a step on the way to bounding Spn for n = 1.
+Lemma 2.12. Let s, t ≥ 0, p be a prime, and γ = ordp (α). Then we have
+                                                 p+1 t
+                                                     
+                                  1    t
+                                Sp (sγp ) ≤ sθ          .
+                                                   2
+                                                                           t
+Proof. The number of sequences of Λt containing only small digits is θ p+12    . Thus, by
+                                     t
+Theorem 2.9 there are at most θ p+1 2     integers 0 ≤ h < γpt , such that (αh )p does not
+contain any large digits. Now, letting pτ || αγ − 1 we have by Lemma 2.7 that the last
+       POWERS IN PRIME BASES AND A PROBLEM ON CENTRAL BINOMIAL COEFFICIENTS                     5
+
+τ + t − 1 digits of (αh )p are periodic with respect to h with least period γpt and no repetition
+in the period. Thus,
+                  n                          o n                                       o
+            Λt = cτ,t ((αb )p ) | 0 ≤ b < γpt = cτ,t ((αb )p ) | rγpt ≤ b < (r + 1)γpt
+                                                                 t
+for every r ∈ N0 , and we can see that there are at most θ p+1  2    integers rγpt ≤ h < (r+1)γpt
+such that (αh )p does not contain any large digits.
+  This yields
+                                                    p+1 t
+                                                      
+                                   1     t
+                                  Sp (sγp ) ≤ sθ          .
+                                                     2
+                                                                                               □
+  Now, the following theorem improves a result by Narkiewicz [8] by a constant factor.
+Theorem 2.13. Let α ≡ 2 (mod 3) in the definition of S. For every a ∈ N we have
+                                       S31 (a) ≤ 1.3alog3 (2) .
+Proof. The theorem obviously holds for a = 1. Now consider an a ≥ 2, and let s, t be given
+such that s ∈ {1, 2} and
+                              s · 2 · 3t ≤ a ≤ (s + 1) · 2 · 3t .
+We now have
+                                    t ≤ log3 (a) − log3 (2s),
+           1
+and since S3 clearly is weakly increasing and by Lemma 2.12, we get
+                             S31 (a) ≤ S31 (s + 1) · 2 · 3t
+                                                                  
+
+                                    ≤ (s + 1) · 2t
+                                    ≤ (s + 1) · 2− log3 (2s) · 2log3 (a) .
+For s ∈ {1, 2} the constant (s + 1) · 2− log3 (2s) is maximised by s = 1, and so
+                                 S31 (a) ≤ 2 · 2− log3 (2) · 2log3 (a)
+                                         ≤ 1.3alog3 (2) .
+                                                                                               □
+The function Sm 1 for m > 2 is studied by R. E. Kennedy and C. Cooper [1], and if we consider
+
+only the cases when m is a prime, we get the following improvement of their results which
+replaces a factor increasing with m with a constant.
+Theorem 2.14. Let p be a prime and α arbitrary in the definition of S. Then for all a ∈ N
+                                                            p+1
+                                      Sp1 (a) ≤ 4alogp ( 2 ) .
+                                                     p+1
+Proof. The theorem holds for a < γ since a < 4alogp ( 2 ) for a < p.
+Now let a ≥ γ and s, t be integers with 0 < s < p such that
+                                    sγpt ≤ a < (s + 1)γpt .
+Now
+                                    t ≤ logp (a) − logp (sγ),
+6
+SEBASTIAN TIM HOLDUM, FREDERIK RAVN KLAUSEN, AND PETER MICHAEL REICHSTEIN RASMUSSEN
+                                
+                           p+1
+and letting µ = logp        2        we get, by Lemma 2.12,
+
+                                 Sp1 (a) ≤ Sp1 ((s + 1)γpt )
+                                                       p+1 t
+                                                            
+                                         ≤ (s + 1)θ
+                                                         2
+                                                       p + 1 logp (a)−logp (sγ)
+                                                            
+                                         ≤ (s + 1)θ
+                                                         2
+                                         = (s + 1)θ (sγ)−µ aµ .
+
+Since θ ≤ γ < p we get
+
+                                                  s + 1 1−µ µ
+                                           Sp1 (a) ≤   γ   a
+                                                    sµ
+                                                  s+1
+                                                 ≤ µ p1−µ aµ
+                                                    s
+                                                  s + 1 2p µ
+                                                 = µ        a .
+                                                    s p+1
+             s+1              d s+1
+                                      = s−µ−1 (s(1−µ)−µ),  and thus s+1
+                                    
+Considering
+       h      sµh we see that ds sµ           i       i              sµ is strictly decreasing
+            µ                                    µ
+for s ∈ 1, 1−µ and strictly increasing for s ∈ 1−µ , p and consequently attains its maximum
+                                                                p+1
+on [1, p] either at 1 or p. Since s = 1, s = p both yield 1+1
+                                                           1µ = pµ = 2, we get
+
+
+                                                Sp1 (a) ≤ 4aµ .
+
+                                                                                              □
+
+Finally we generalise our observations regarding Spn .
+
+Lemma 2.15. Let s ≥ 0, t ≥ 1, p be a prime, and γ = ordp (α). Then we have
+                                                                        t
+                                                                   p+1
+                                       Spn (sγpt ) ≤ 2sγtn−1                  .
+                                                                    2
+
+Proof. For t = 1 the result is clear. Now, assume t > 1.
+   First, we count the number of sequences η ∈ Λt such that η contains less than n large
+elements. This is done by counting for each i < n how many sequences η ∈ Λt that contain
+exactly i large elements.
+   For each i we split up into two cases:
+Case 1: The last element of η is large (which means i > 0). This element can then be
+                                        t
+                                            p−1 i−1  p+1 t+1−i
+chosen in γ − θ ways, and there are i−1        2          2         ways to choose the remaining
+t elements such that exactly i − 1 of them are large.
+Case 2: The last element of η is small. This element can then be chosen in θ ways, and
+                 i      t−i
+there are ti p−12
+                        p+1
+                         2       ways to choose the remaining t elements such that exactly i of
+them are large.
+         POWERS IN PRIME BASES AND A PROBLEM ON CENTRAL BINOMIAL COEFFICIENTS                     7
+
+     Thus, we can express the number of elements in Λt containing less than n large elements
+by
+        n−1                                           n−1   
+                            p − 1 i−1 p + 1 t+1−i X t            p − 1 i p + 1 t−i
+                                                                      
+        X             t
+             (γ − θ)                                +       θ
+                     i−1      2         2                      i   2       2
+         i=1                                           i=0
+                                                  n−1  
+                                           p+1 t X t
+                                        
+                                     ≤γ
+                                             2               i
+                                                     i=0
+                                                t n−1
+                                           p+1       X
+                                     ≤γ                  ti
+                                             2
+                                                     i=0
+                                                      t
+                                           n−1   p + 1
+                                     ≤ 2γt                 ,
+                                                   2
+since t > 1.
+   Now, as in the proof of Lemma 2.12 we can
+                                           conclude by Theorem 2.9 and Lemma 2.7 that
+                                                      t
+                                                 p+1
+for every r ∈ N0 there are at most 2γtn−1         2        integers rγpt ≤ k < (r + 1)γpt such that
+(αk )p contains less than n large digits. Thus, we have
+                                                        p+1 t
+                                                          
+                                Spn (sγpt ) ≤ 2sγtn−1         .
+                                                         2
+                                                                                                 □
+Theorem 2.16. Let p be a prime and α arbitrary in the definition of S. Then for all a, n ∈ N,
+where a ≥ γp, we have
+                                                          p+1
+                            S n (a) ≤ 8 log (a)n−1 alogp ( 2 ) .
+                                   p             p
+
+Proof. Let a ≥ γp be given, and s, t be integers with 0 < s < p and t ≥ 1 such that
+                                       sγpt ≤ a < (s + 1)γpt .
+Now
+                                       t ≤ logp (a) − logp (sγ),
+                          
+and letting µ = logp p+1 2   we use Lemma 2.15 and the fact that s+1sµ γ
+                                                                         1−µ ≤ 4 from the the
+
+proof of Theorem 2.14 to get
+              Spn (a) ≤ Spn (s + 1)γpt
+                                       
+                                             t
+                                  n−1 p + 1
+                      ≤ 2(s + 1)γt
+                                          2
+                                                      n−1 p + 1 logp (a)−logp (sγ)
+                                                               
+                      ≤ 2(s + 1)γ logp (a) − logp (sγ)
+                                                             2
+                      ≤ 2(s + 1)γ(sγ)−µ logp (a)n−1 aµ
+                          s+1
+                      = 2 µ γ 1−µ logp (a)n−1 aµ
+                            s
+                                            p+1
+                      ≤ 8 log (a)n−1 alogp ( 2 ) .
+                               p
+
+                                                                                                 □
+8
+SEBASTIAN TIM HOLDUM, FREDERIK RAVN KLAUSEN, AND PETER MICHAEL REICHSTEIN RASMUSSEN
+
+3. Application to central binomial coefficients
+
+This section will apply the bounds on S to a generalisation of Conjecture 1.1 in order to
+show that the set of numbers not satisfying the conjecture restricted to the case n = 2s has
+asymptotic density 0.
+  For this we need the following theorem by Kummer.
+Theorem 3.1 (Kummer      [7]). Let n, m ≥ 0 and p be a prime. Then the greatest exponent of
+p dividing n+m
+              
+            m   is equal to the number of carries, when n is added to m in base p.
+Further we define the following function:
+Definition 3.2. Let m ∈ N be odd. Then we define
+                                                 s+1  
+                                                  2
+                        Tm (a) = # 0 ≤ s < a m ∤           .
+                                                   2s
+It is clear, that to show Conjecture 1.1 we would have to bound T9 by T9 (a) ≤ 5 for all a.
+Instead we can get a partial result by connecting T and S in the following way:
+Lemma 3.3. Let a, n ∈ N, α = 2 in the definition of S, and p be an odd prime. Then
+                                                 Tpn (a) ≤ Spn (a).
+Proof. Adding 2s to itself in base p will yield at least one carry for every large digit in (2s )p .
+Thus, by Kummer’s theorem, we must have
+                                                 Tpn (a) ≤ Spn (a).
+                                                                                                    □
+With this at hand it is possible to give an asymptotic upper bound on Tm for every odd m.
+Theorem 3.4. Let m > 1 be odd and let p be the greatest prime dividing m. Then
+                                              p+1
+                                                      
+                             Tm (a) = o alogp ( 2 )+ϵ
+for any ϵ > 0.
+Proof. Assume
+            m has prime factorisation
+                                
+                                       m = pβ1 1 pβ2 2 · · · pβk k with p1 < p2 < · · · < pk . Then
+                                       pk +1
+                             logp
+Spβii (a) = O logpk (a)βk −1 a     k     2
+                                                     for all 1 ≤ i ≤ k, since pi ≤ pk , and thus,
+
+                                            k
+                                            X
+                                 Tm (a) ≤            Spβii (a)
+                                               i=1
+                                                                   
+                                                                      pk +1
+                                                                            
+                                                        βk −1 logpk
+                                        = O logpk (a)        a          2
+
+
+                                                  
+                                                     pk +1
+                                                            
+                                             logp           +ϵ
+                                        =o a     k     2
+
+
+
+for any ϵ > 0.                                                                                      □
+Although we still cannot give a definite answer to Conjecture 1.1, we do get the following
+corollary.
+                                                                      s+1 
+Corollary 3.5. For every odd m the set of integers s such that m ∤ 2 2s has asymptotic
+density 0.
+        POWERS IN PRIME BASES AND A PROBLEM ON CENTRAL BINOMIAL COEFFICIENTS                               9
+
+Proof. By Theorem 3.4 we have Tm (a) = o (a).                                                             □
+Since the case m = 9 is not special in this corollary, it seems natural to pose the following
+conjecture, which strengthens Conjecture 1.1.
+                                                                       k+1 
+Conjecture 3.6. For every odd m there is an N ∈ N such that m | 2 2k for every k ≥ N .
+It seems by Theorem 2.9 and by computer heuristics that the digits of (2s )p are uniformly
+distributed for large s in the sense that for any 0 ≤ a < p most digits in the representation
+have probability roughly 1/p of being a.
+   Assuming such a random distribution of the digits in the representation and considering
+computer experiments on a selection of primes p < 200 has lead to the following conjecture.
+Conjecture 3.7. For an odd prime, p, let ϵp (a) be the function satisfying pϵp (a) || a for every
+a. Then
+                                                             √
+                            k+1 
+                              2             log(2)
+                        ϵp      k
+                                       =            · k + O( k).
+                               2           2 log(p)
+
+
+
+Acknowledgement. The authors wish to thank prof. Søren Eilers for his helpful guidance and
+suggestions in the writing process; prof. Carl Pomerance for his encouragement and support;
+and the anonymous referee for his/her suggestions that significantly improved some of the
+proofs of this paper.
+
+
+References
+[1] Cooper, C., Kennedy, R. E., A Generalization of a Result by Narkiewicz Concerning Large Digits of Powers,
+    Publ. Elektroteh. Fak., Univ. Beogr., Ser. Mat. 11 (2000), pp. 36–40.
+[2] Erdős, P., Some Unconventional Problems in Number Theory, Math. Mag. 52 (1979), pp. 67–70.
+[3] Goetgheluck, P., On prime divisors of binomial coefficients, Math. Comp. 51 (1988), 325–329.
+[4] Graham, R. L., Knuth, D., Patashnik, O., Concrete Mathematics, Addison-Wesley 2nd ed. (1998).
+[5] Granville, A., Ramaré, O., Explicit bounds on exponential sums and the scarcity of squarefree binomial
+    coefficients, Mathematika 43 (1996), pp. 73–107.
+[6] Keller, W., Richstein, J., Solutions of the Congruence ap−1 ≡ 1 (mod pr ), Math. Comp. 74 (2004), pp.
+    927–936.
+[7] Kummer, E. E., Über die Ergänzungssätze zu den allgemeinen Reciprocitätsgesetzen, J. Reine Angew.
+    Math. 44 (1852), 93–146.
+[8] Narkiewicz, W., A note on a paper of H. Gupta concerning powers of two and three, Univ. Beograd. Publ.
+    Elektrotechn. Fak. Ser. Mat. 678–715 (1980), pp. 173–174.
+
+
+
+Appendix A. Source code
+
+The following code checks that the central binomial coefficient 2n
+                                                                   
+                                                                  n is divisible by 4 or 9 for
+                               13
+every n such that 4 < n ≤ 210 except for n = 64 and n = 256.
+  The Java-code checks the first 35 digits of the base 3 representation of 2k for every k such
+that 0 < k < 1013 . Every k such that the first 35 digits of 2k do not contain two 2’s is
+written to a file containing special cases. These cases are then checked individually by the
+Python-code.
+JAVA source
+
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.File;
+
+class NewSearcher {
+    private static int[] number = new int[35];
+    private static int size = 0;
+    private static final int MAX_SIZE = 35;
+
+   private static final String ERROR_FILE = "Check_needed.txt";
+
+   public static void main(String[] args) {
+       deleteFile(ERROR_FILE);
+
+       addNum(1);
+
+       for (int a=0; a<10000000; a++) {
+           for (int b=0; b<1000000; b++) {
+               if (doubleIt()) {
+                   String output = String.format("%d%06d", a, b);
+                   System.out.println(output);
+                   writeNumberToFile(ERROR_FILE, output);
+               }
+           }
+       }
+   }
+
+   private static void addNum(int num) {
+       if (size < MAX_SIZE) {
+           number[size] = num;
+           size ++;
+       }
+   }
+
+   public static boolean doubleIt() {
+       int totalCarry = 0;
+       int carry = 0;
+       int i=0;
+
+       while (totalCarry < 2 && i<size) {
+           int res = (number[i]*2 + carry);
+           carry = (res>=3) ? 1 : 0;
+           number[i] = (res % 3);
+           if (carry==1) totalCarry ++;
+           i++;
+       }
+
+       while (i<size) {
+           int res = (number[i]*2 + carry);
+        POWERS IN PRIME BASES AND A PROBLEM ON CENTRAL BINOMIAL COEFFICIENTS   11
+
+            carry = (res>=3) ? 1 : 0;
+            number[i] = (res % 3);
+            i++;
+        }
+
+        if (carry == 1) {
+            addNum(1);
+        }
+        return (totalCarry<2);
+    }
+
+    public static void writeNumberToFile(String filename, String number) {
+        try
+        {
+            FileWriter fw = new FileWriter(filename, true);
+            fw.write(number + "\r\n");
+            fw.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("IOException: " + e.getMessage());
+        }
+    }
+
+    public static void deleteFile(String filename) {
+        try {
+            File toDelete = new File(filename);
+            toDelete.delete();
+        } catch (Exception e) {
+
+        }
+    }
+}
+Python source
+
+
+def mod(n, md):
+    if n < 10:
+        return 2**n%md
+
+   return 2**(n%2)*mod(n/2, md)**2%md
+
+def checkCarry(n):
+    tmp = n
+    count = 0
+    while tmp and count<2:
+        if tmp%3 == 2:
+            count += 1
+        tmp /= 3
+
+   return count<2
+
+fil = file("Check_needed.txt", "r")
+
+nls = []
+
+while True:
+    try:
+        next = int(fil.readline())
+        if checkCarry(mod(next, 3**50)):
+            nls.append(next)
+    except ValueError:
+        break
+
+for i in nls:
+    if checkCarry(mod(i, 3**80)):
+        print i
+
+
+  Sebastian Tim Holdum,Niels Bohr Institute, University of Copenhagen, Denmark
+  Email address: sebastian.holdum@nbi.dk
+
+  Frederik Ravn Klausen,Department of Mathematics, University of Copenhagen, Denmark
+  Email address: tlk870@alumni.ku.dk
+
+  Peter Michael Reichstein Rasmussen, Department of Mathematics, University of Copen-
+hagen, Denmark
+  Email address: nmq584@alumni.ku.dk
+

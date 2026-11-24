@@ -1,0 +1,656 @@
+                                                   NON-WIEFERICH PROPERTY OF PRIME IDEALS AND A
+                                                               CONJECTURE OF ERDÖS
+
+                                                                           RUOFAN LI AND JIUZHOU ZHAO∗
+
+
+                                                    Abstract. Let K be a number field with ring of integers O and α ∈ O. For
+                                                    any prime ideal p of O, we obtain its higher α-Wieferich property, which implies
+                                                    a nonexistence theorem for higher Wieferich unramified prime ideals. If β ∈ O is
+arXiv:2601.12753v1 [math.NT] 19 Jan 2026
+
+
+
+
+                                                    relatively prime to α and all prime ideal factors of (β) are unramified and have
+                                                    residue degree 1, we apply our higher α-Wieferich property to establish the asymp-
+                                                    totic equidistribution of digits in β-adic expansions of αn , which is a generalization
+                                                    of the Dupuy-Weirich theorem. When (β) have ramified prime ideal factors, we also
+                                                    obtain a result on the block complexity of β-adic expansions of αn .
+
+
+
+
+                                                                                   1. Introduction
+
+                                           1.1. A conjecture of Erdös and Dupuy-Weirich theorem. For positive integers
+                                           m and q, if
+                                                                               Xk
+                                                                           m=     ai q i
+                                                                                              i=0
+                                           for some integers ai between 0 and q − 1, then we write (m)q = ak · · · a0 and call it
+                                           the q-ary expansion of m. An interesting fact is that, other than (20 )3 = 1, (22 )3 = 11
+                                           and (28 )3 = 100111, no other values of n such that (2n )3 omits the digit 2 is known.
+                                           In [4], Erdös proposed the following conjecture:
+
+                                           Conjecture 1.1. There are only finitely many powers of 2 whose ternary expansion
+                                           omits the digit 2.
+
+                                             Most progress towards Conjecture 1.1 has been in the form of upper bounds on
+                                                              M (N ) := #{n ∈ Z ∩ [1, N ] : (2n )3 omits the digit 2},
+                                           where the symbol # denote cardinality. The best known bound on M (N ) is due to
+                                           Narkiewicz [11] who proved that
+                                           (1.1)                M (N ) ≤ 1.62N σ ,        where σ := log3 2 ≈ 0.63092.
+                                           We refer the reader to [3, 6, 8, 9, 15] for more results related to Narkiewicz’s result.
+                                           Recently, Dimitrov and Howe [2, Theorem 1.2] have demonstrated that if n ∈  / {0, 2, 8},
+
+                                             2020 Mathematics Subject Classification. 11A63,11A41.
+                                             Key words and phrases. Radix representation, Digital problems, Wieferich primes.
+                                             ∗
+                                               Corresponding author.
+                                                                                              1
+2                             RUOFAN LI AND JIUZHOU ZHAO∗
+
+then the ternary expansion of 2n either contains the digit 2 or includes at least twenty-
+six 1’s.
+  Based on computer experiments, Dupuy and Weirich [3] believe that a stronger
+version of Conjecture 1.1 holds.
+Conjecture 1.2. Let p and q be distinct primes and b ∈ {0, 1, . . . , q − 1}. Denote by
+dn (b) the number of b’s appearing in (pn )q . Then
+                                           dn (b)     1
+(1.2)                                lim            =
+                                     n→∞ n logq (p)   q
+Remark 1.1. (i) Note that the denominator n logq (p) in (1.2) is the length of the q-ary
+expansion of pn , this limit means that the proportion of digits b’s in (pn )q tends to
+1/q as n → ∞.
+(ii) Take p = 2 and q = 3, (1.2) implies that dn (2) > 0 for n large enough, which
+implies Conjecture 1.1.
+
+  The following theorem is the first progress on Conjecture 1.2, which considers the
+average proportion of b’s in (pn )q . Given the q-ary expansion
+                               pn = a0 + a1 q + · · · + aN q N ,
+where N = ⌊logq (pn )⌋ and ai ∈ {0, 1, . . . , q − 1}. Let (pn )q,i := ai . Denote
+                                     #{i ∈ Z ∩ [0, m − 1] : (pn )q,i = b}
+                     fp,n,m (b) :=                                        ,
+                                                      m
+for b ∈ {0, 1, . . . , q − 1}. Let Lm := {pn + q m Z : n ∈ Z} ⊂ (Z/q m Z)× and lm := #Lm .
+It is clear that for each m ∈ Z≥1 , the average proportion of b’s in the first m digits
+satisfies
+                                      N                   lm
+                                   1 X                 1 X
+(1.3)              fp,m (b) := lim       fp,n,m (b) =        fp,n,m (b).
+                              N →∞ N                  lm n=1
+                                     n=1
+
+Theorem (Dupuy and Weirich [3, Theorem 3]). Let p and q be distinct primes and
+b ∈ {0, 1, . . . , q − 1}, then
+                                lim fp,m (b) = 1/q.
+                                     m→∞
+
+   In this paper, we are going to generalize the above Dupuy-Weirich theorem to
+general number fields. For this purpose, we also generalize their work [3, Theorem 6]
+on Wieferich primes. It is worth mentioning that we have observed new phenomena
+in the setting of general number fields.
+
+1.2. Wieferich primes. Let p be a rational prime. For any k ∈ Z≥1 , we denote
+                            ⟨2⟩pk := {2n (mod pk ) : n ∈ Z≥1 }
+as the multiplicative group generated by 2 modulo pk . The prime p is called (classical)
+Wieferich if ⟨2⟩p is isomorphic to ⟨2⟩p2 .
+    NON-WIEFERICH PROPERTY OF PRIME IDEALS AND A CONJECTURE OF ERDÖS                  3
+
+   Such primes were initially investigated in [14] in relation to the Fermat’s Last
+Theorem. In that work, the author demonstrated that if xq + y q = z q forms a
+Fermat triple, then q must be a Wieferich prime. Whether there exist infinitely many
+Wieferich primes remains an open problem, even assuming the validity of the ABC
+conjecture. For an extensive discussion of Wieferich primes, we refer the reader to
+[1, 7, 10, 13].
+  From now on, fix a number field K and let O be its ring of integers.
+Definition 1.1. Let p be a prime ideal of the ring O, r ∈ Z≥1 and α ∈ O\p. We say
+that the prime ideal p is α-Wieferich at r if the multiplicative group generated by α
+modulo pr is isomorphic to the multiplicative group generated by α modulo pr−1 .
+
+   We now establish a higher α-Wieferich property of prime ideals when the integer
+r is large enough. Let Gk = ⟨α⟩pk = {αn (mod pk ) : n ∈ Z≥1 } be the multiplicative
+group generated by α modulo pk . There is a natural homomorphism from Gr to Gr−1 ,
+and we denote the kernel of it by Ker(Gr → Gr−1 ). It is clear that p is α-Wieferich
+at r if and only if # Ker(Gr → Gr−1 ) = 1.
+Theorem 1.1. Let p be a prime ideal of the ring O. Assume that α ∈ O\p is not a
+root of unity, then there is a positive integer v such that
+                                        (
+                                          1,      if r − v ̸≡ 1 (mod e)
+                 # Ker(Gr → Gr−1 ) =
+                                          p,      if r − v ≡ 1 (mod e)
+holds for all r > v, where e is the ramification index of p and p is the rational prime
+lying below p. In particular, if p is unramified, then p is not α-Wieferich at r for all
+r > v.
+Remark 1.2. The condition that α is not a root of unity is necessary. If α is a m-th
+root of unity, then ⟨α⟩ = {α, α2 , . . . , αm = 1} ⊆ O is a finite set. Take
+                   n                                                           o
+         N = max l ∈ Z≥1 : αi − αj ∈ pl \pl+1 for some i, j ∈ {1, 2, . . . , m} .
+For any r > N , the multiplicative group generated by α modulo pr is isomorphic to
+{α, α2 , . . . , αm }. Hence p is α-Wieferich at r for all r > N + 1.
+
+1.3. Asymptotic equidistribution of digits. Theorem 1.1 enables us to generalize
+the Dupuy-Weirich [3] theorem to general number fields.
+   We first recall the concept of β-adic expansions, which is a natural generalization
+of q-ary expansions. Denote N (β) := #(O/βO) for every nonzero β ∈ O.
+Definition 1.2. Fix β ∈ O with norm N (β) > 1 and a set of representatives D of
+the quotient group O/βO with 0 ∈ D. For every x ∈ O, the β-adic expansion of x
+(with respect to D) is the unique sequence (bi )i∈N ∈ DN such that
+(1.4)                        x = lim b0 + b1 β + · · · + bi β i
+                                  i→∞
+
+with respect to p-adic topology for any prime ideal p in O dividing β.
+4                             RUOFAN LI AND JIUZHOU ZHAO∗
+
+  The existence and uniqueness of β-adic expansions were proved in [15, Section 2].
+  We define the i-th digit function (x)β,i := bi for x ∈ O with x = ∞           i
+                                                                     P
+                                                                        i=0 bi β . Given
+an algebraic integer α ∈ O, we denote the frequency of digit b ∈ D in the m-truncated
+expansion of αn by
+                                #{i : 0 ≤ i < m, (αn )β,i = b}
+(1.5)                   fα,n,m (b) :=                            .
+                                               m
+Consider the Cesàro average N1 N
+                               P
+                                n=1 fα,n,m (b), it is clear that
+
+                                       N                  hm
+                                    1 X                 1 X
+(1.6)            fα,m (b) := lim          fα,n,m (b) =        fα,n,m (b),
+                               N →∞ N                  hm
+                                      n=1                 n=1
+
+where hm := #Hm and Hm := ⟨α + β m O⟩ ⊂ (O/β m O)× .
+   We establish the asymptotic equidistribution of digits. Denote N (a) := #(O/a)
+for any ideal a ⊆ O.
+
+Theorem 1.2. Let (β) = pg11 · · · pghh satisfy that pi is unramified and N (pi ) = pi for
+all i, where pi is the rational prime lying below pi . If α is relatively prime to β and
+is not a root of unity, then
+
+(1.7)                                lim fα,m (b) = 1/#D
+                                     m→∞
+
+holds for all b ∈ D.
+
+  When the prime ideal factorization of (β) contains a ramified prime ideal p, despite
+that its α-Wieferich property (as in Theorem 1.1) is not sufficient for the proof of the
+asymptotic equidistribution of digits, we are still able to obtain a result on the block
+complexity of β-adic expansions of αn .
+    Denote the number of m-truncated blocks by
+                n                               m−1
+                                                X                            o
+                                         m   n          i      m
+     Cm (α) := # (b0 , . . . , bm−1 ) ∈ D : α ≡     bi β (mod β O) for some n ,
+                                                   i=0
+
+we define the block complexity as
+                                   log Cm (α)
+                       C(α) := lim             ,     if the limit exists.
+                               m→∞ m log N (β)
+
+
+Theorem 1.3. Let (β) = pg11 · · · pghh . If α is not a root of unity and relatively prime
+to β, then
+                                         Ph        −1
+                                           j=1 gj ej log pj
+(1.8)                      C(α) = Ph                         ,
+                                            j=1 gj fj log pj
+
+where pj is the rational prime lying below pj , ej is the ramification index of pj and fj
+is the residue degree of pj .
+    NON-WIEFERICH PROPERTY OF PRIME IDEALS AND A CONJECTURE OF ERDÖS               5
+
+                2. The valuation ring and Teichmuller map
+
+  Note that Theorem 1.1 concerns only a single prime ideal p, so it is convenient to
+consider the localization of O at p. Let Kp be the completion of the number field K
+with respect to the p-adic valuation vp . The p-adic integer ring
+
+                              Op := {x ∈ Kp : vp (x) ≥ 0}
+
+contains the group of units
+
+                              Op× := {x ∈ Kp : vp (x) = 0}
+
+and the unique maximal ideal
+
+                              P := {x ∈ Kp : vp (x) > 0}.
+
+  Note that O/pk ∼ = Op /P k holds for any k ∈ Z≥1 . For convenience, we still denote
+the cyclic subgroup ⟨α + P k ⟩ ⊆ (Op /P k )× as Gk .
+  Before studying Ker(Gk → Gk−1 ), we need to recall some basic facts about Op . Fix
+a prime element π ∈ Op , i.e. an element satisfying vp (π) = 1, we have the following
+properties (see [12, Chapter II, Section 3 and 4] for details).
+
+Proposition 2.1. (i) Any x ∈ Op has a prime factorization
+
+                                          x = επ i ,
+
+where ε ∈ Op× is a unit and i = vp (x).
+(ii) The nonzero proper ideals in Op are the following principal ideals:
+
+                      P = (π), P 2 = (π 2 ), . . . , P k = (π k ), . . .
+
+(iii) Fix a set of representatives R for Op /P, containing 0. Then any x ∈ Op has a
+p-adic expansion
+                       x = a0 + a1 π + a2 π 2 + · · · + ak π k + · · ·
+where ak ∈ R for all k ∈ Z≥0 .
+
+  The following lemma is rather elementary but plays a key role in our proof. Recall
+that p is the rational prime lying below p, and e is the ramification index of p.
+
+Lemma 2.1. Let a, b ∈ Op× , if a ≡ b (mod P v ) but a ̸≡ b (mod P v+1 ) for some
+v ∈ Z≥1 , then
+
+(2.1)                         ap ≡ bp (mod P min{e+v,pv} ).
+
+Moreover, if pv > e + v, then
+
+(2.2)             ap ≡ bp (mod P e+v ) but ap ̸≡ bp (mod P e+v+1 ).
+6                                   RUOFAN LI AND JIUZHOU ZHAO∗
+
+Proof. Since a ≡ b (mod P v ) but a ̸≡ b (mod P v+1 ), we have a = b + επ v for some
+ε ∈ Op× . Raise both sides to the p-th power, we obtain that
+                      ap − bp = (b + επ v )p − bp
+(2.3)
+                                                 
+                                  p p−1 v          p p−2 2 2v
+                              =      b επ +          b ε π + · · · + εp π pv .
+                                  1                2
+             p
+                 
+Note that    j
+                     is divisible by p but not p2 for all 1 ≤ j ≤ p − 1, so
+                                            
+                                    p p−j j jv
+                              vp       b επ       = e + jv, for j ̸= p.
+                                    j
+Hence vp (ap − bp ) ≥ min{e + v, pv}, which implies (2.1).
+                                           
+  Moreover, if pv > e + v, vp pj bp−j εj π jv = e + v only when j = 1, thus (2.2)
+holds.                                                                         □
+
+    We conclude this section by defining the Teichmuller map in the standard way.
+
+Definition 2.1. The Teichmuller map τ : Op× → Op× is defined by
+                                                            fn
+(2.4)                                        τ (x) = lim xp ,
+                                                      n→∞
+
+where f is the residual degree of p and p is the rational prime lying below p.
+
+   Recall that the p-adic absolute value is defined as |x|p := c−vp (x) for x ∈ Kp , where
+c is some constant strictly greater than 1.
+
+Lemma 2.2. For any x ∈ Op× , τ (x) is well-defined and we have
+                                        pf
+  (i) τ (x) satisfies the equation τ (x)    = τ (x);
+ (ii) we have τ (x) ≡ x (mod P).
+                                                       fn
+Proof. We first show that the sequence (xp )n≥1 is a Cauchy sequence with respect
+to the p-adic metric, hence the limit (2.4) exists.
+                                                                     f
+  For each x ∈ Op× , since #(Op /P)× = pf − 1, we have xp −1 ≡ 1 (mod P). Apply
+                        f                       f
+Lemma 2.1 with a = xp −1 and b = 1, we have x(p −1)p ≡ 1 (mod P 2 ). Apply Lemma
+2.1 repeatedly, we obtain that
+                               f   fm
+(2.5)                    x(p −1)p       ≡ 1 (mod P 1+f m ) for all m ∈ Z≥0 .
+          f (m+1)         fm            fm        f    fm
+Thus xp             − xp p = xp p · x(p −1)p − 1 p ≤ c−1−f m for all m ∈ Z≥0 , where
+| · |p := c−vp (·) for some constant c > 1. Using this inequality, we obtain that for any
+integers n > m ≥ 1,
+                   fn     fm          fn      f (n−1)                  f (m+1)     fm
+              |xp − xp |p ≤ max |xp − xp               |p , . . . , |xp         − xp |p
+                                   ≤ c−1−f m → 0 (as m → ∞),
+                                             fn
+which shows that the sequence (xp )n≥1 is a Cauchy sequence.
+    NON-WIEFERICH PROPERTY OF PRIME IDEALS AND A CONJECTURE OF ERDÖS                   7
+                                                                      fm
+  For all m ∈ Z≥0 , multiply both sides of (2.5) by xp , we have
+                                   f (m+1)             fm
+                              xp              ≡ xp          (mod P 1+f m ).
+Hence
+                              fm             f (m−1)
+                         xp         ≡ xp               ≡ ··· ≡ x    (mod P)
+for all m ∈ Z≥1 . Letting m → ∞, we obtain Lemma 2.2 (ii).
+                                                             f
+  To see Lemma 2.2 (i), we note that y 7→ y p is a continuous map on Kp , so
+                        f           f n pf          f (n+1)
+                (τ (x))p = lim xp           = lim xp         = τ (x).                   □
+                                      n→∞                     n→∞
+
+                               3. Proof of Theorem 1.1
+
+  Let us start with the direct product decomposition of (Op /P k )× for each k ∈ Z≥1 .
+Denote the multiplicative group of principal units modulo P k
+                                   {x + P k : x ≡ 1 (mod P)}
+    (k)
+as U1 . Consider the following short exact sequence
+                              (k)                             φ
+                   1 −→ U1          −→ (Op /P k )× −−→
+                                                     k
+                                                       (Op /P)× −→ 1,
+
+where φk : x mod P k 7→ x mod P. Note that this short exact sequence splits, because
+there exists a homomorphism
+                              ψk : (Op /P)× −→ (Op /P k )×
+                                       a+P              7−→ τ (a) + P k ,
+where a ∈ R (the set of representatives as in Proposition 2.1 (iii)) and τ is the
+Teichmüller map; and one can check that
+                                       φk ◦ ψk = id(Op /P)× .
+Hence
+                               (Op /P k )× ∼
+                                                                      (k)
+(3.1)                                      = (Op /P)× × U1 .
+  Suppose α ∈ (Op )× is not a root of unity and its p-adic expansion is
+                       α = a0 + a1 π + a2 π 2 + · · · + ak π k + · · · .
+Note that
+                           −1
+                               + P k = φk (α + P k ) · φk τ (a0 )−1 + P k
+                                                                         
+               φk α τ (a0 )
+                                                = (a0 + P) · (a0 + P)−1
+                                                = 1 + P,
+                           (k)
+thus α(τ (a0 ))−1 + P k ∈ U1 . Therefore, the isomorphism in (3.1) applies to α as:
+    α + P k = (τ (a0 ) + P k ) α(τ (a0 ))−1 + P k 7−→ (a0 + P) × α(τ (a0 ))−1 + P k .
+                                                                                  
+
+Hence we obtain the isomorphism
+(3.2)            Gk = ⟨α + P k ⟩ ∼
+                                 = ⟨a0 + P⟩ × ⟨α(τ (a0 ))−1 + P k ⟩.
+8                                 RUOFAN LI AND JIUZHOU ZHAO∗
+
+Let η = α(τ (a0 ))−1 , by (3.2), we have
+
+                    # Ker(Gk → Gk−1 ) = # Ker ⟨η + P k ⟩ → ⟨η + P k−1 ⟩ .
+                                                                       
+(3.3)
+
+                                                                 (k)
+  We proceed to calculate the order of η + P k in U1 , which is denoted by Ordk (η).
+By [5, Theorem 80], we obtain that
+                                                        
+                               k ×        k          1
+                       #(Op /P ) = N (p ) 1 −
+                                                   N (p)
+                                           = pf (k−1) (pf − 1),            and
+                                #(Op /P)× = pf − 1,
+                                               (k)
+Combining this with (3.1), we have #U1               = pf (k−1) , hence Ordk (η) must be a power
+of p.
+                            j                                          j                   j
+  Denote v(j) = vp (η p − 1) for each j ∈ Z≥0 . Since η p ≡ 1 (mod P v(j) ) but η p ̸≡ 1
+                                                     j
+(mod P v(j)+1 ), we can apply Lemma 2.1 with a = η p and b = 1, and obtain
+
+                            v(j + 1) ≥ min{e + v(j), pv(j)} > v(j).
+          
+Since v(j) j≥1 is strictly increasing, there exists l ∈ Z≥0 such that v(l) > e. When
+                                                                                    j
+j ≥ l, since pv(j) > e + v(j), we can apply (2.2) in Lemma 2.1 with a = η p and b = 1
+to deduce
+
+(3.4)                                  v(j + 1) = v(j) + e.
+
+                          k = ⌈(k − v(l))e−1 ⌉, where ⌈x⌉ is the smallest integer not
+   For each k > v(l), let e
+less than x. Using (3.4) repeatedly, we have
+
+                                 v(l + k̃) = v(l) + ee
+                                                     k
+                                         ≥ v(l) + (k − v(l)) = k.
+            l+k
+Hence η p         ≡ 1 (mod P k ). Moreover, by using (3.4) e
+              e
+                                                           k − 1 times, we have
+
+                                      k − 1) = v(l) + e(e
+                                v(l + e                 k − 1)
+                                             < v(l) + k − v(l) = k,
+         l+k−1
+thus η p          ̸≡ 1 (mod P k ). Therefore
+           e
+
+
+
+
+(3.5)                                    Ordk (η) = pl+k .
+                                                             e
+
+
+
+        • If k − v(l) ≡ 1 (mod e), we can write k − v(l) = he + 1, then
+
+                                   Ordk (η) = pl+⌈ e ⌉ = pl+h+1 ,
+                                                      he+1
+
+
+
+
+                                 Ordk−1 (η) = pl+⌈ e ⌉ = pl+h .
+                                                      he
+     NON-WIEFERICH PROPERTY OF PRIME IDEALS AND A CONJECTURE OF ERDÖS                              9
+
+        • If k − v(l) ̸≡ 1 (mod e), we can write k − v(l) = he + r with r ∈ {2, 3, . . . , e},
+          then
+                               Ord (η) = pl+⌈ e ⌉ = pl+h+1 ,
+                                              he+r
+                                           k
+
+                                   Ordk−1 (η) = pl+⌈                       ⌉ = pl+h+1 .
+                                                                  he+r−1
+                                                                     e
+
+
+
+Combining this with (3.3),
+                   # Ker(Gk → Gk−1 ) = # Ker ⟨η + P k ⟩ → ⟨η + P k−1 ⟩
+                                                                                                
+                                   (
+                     #⟨η + P k ⟩    p,   if k − v(l) ≡ 1 (mod e),
+                  =        k−1
+                                 =
+                    #⟨η + P ⟩       1,   if k − v(l) ̸≡ 1 (mod e),
+which completes the proof of Theorem 1.1.
+
+                     4. Proof of Theorem 1.2 and Theorem 1.3
+
+  Let α, β ∈ O be as in Theorem 1.2 and recall that
+                                   Hm = ⟨α + β m O ⟩ ⊆ (O/β m O)× ,
+is the multiplicative subgroup generated by α modulo β m O.
+  Since (β) = pg11 · · · pghh , by the Chinese remainder theorem, there exists an isomor-
+phism
+               αn (mod β m ) 7→ (αn (mod pg11 m ), . . . , αn (mod pghh m ))
+such that
+(4.1)                              Hm ∼
+                                      = G(1)     (2)             (h)
+                                         g1 m × Gg2 m × · · · × Ggh m ,
+           (j)
+where Gk := ⟨α + pkj ⟩ ⊆ (O/pkj )× for all j ∈ {1, 2, . . . , h}.
+
+4.1. Proof of Theorem 1.2. Since pj is unramified for all j ∈ {1, 2, . . . , h}, by
+Theorem 1.1, there exists an positive integer M such that
+                           (j)                  (j)           (j)            (j)          (j)
+                     #Gk = # Ker(Gk → Gk−1 ) · #Gk−1 = pj · #Gk−1 ,
+for all k ≥ M and j ∈ {1, 2, . . . , h}, where pj is the rational prime lying below pj .
+Combining this with (4.1), we have
+                                   h                        h               
+                                                                gj
+                                   Y                        Y       (j)
+             hm := #Hm =                 #G(j)
+                                           gj m =              pj #Ggj (m−1)
+                                   j=1                      j=1
+(4.2)
+                     h
+                     Y                   h
+                                         Y            (j)
+                 =         N (pj )gj ·         #Ggj (m−1) = N (β) · #Hm−1 = N (β)hm−1 ,
+                     j=1                 j=1
+
+for all m ≥ M + 1.
+  Recall that (αn )β,i is the i-th digit in the β-adic expansion of αn , we define
+                                 Dn,m (b) := #{0 ≤ i < m : (αn )β,i = b},
+10                                   RUOFAN LI AND JIUZHOU ZHAO∗
+
+and
+                                                            hm
+                                                            X
+                                           Dm (b) :=              Dn,m (b),
+                                                            n=1
+for each digit b ∈ D.
+                                             Pm−1
+     Denote (a0 , a1 , · · · , am−1 )β :=         j=0     aj β j for (a0 , a1 , · · · , am−1 ) ∈ Dm , we have
+                              hm
+                              X
+                 Dm (b) =           #{0 ≤ i < m : (αn )β,i = b}
+                              n=1
+                                        X
+                          =                               #{0 ≤ i < m : ai = b}
+                              (a0 ,a1 ,··· ,am−1 )β ∈Hm
+                                         X                     X
+                          =                                           #{0 ≤ i < m : ai = b},
+                              (a0 ,a1 ,··· ,am−2 )β ∈Hm−1 am−1 ∈D
+
+where we use (4.2) in the last equality. Note that if am−1 = b, then
+                   #{0 ≤ i < m : ai = b} = 1 + #{0 ≤ i < m − 1 : ai = b},
+otherwise,
+                     #{0 ≤ i < m : ai = b} = #{0 ≤ i < m − 1 : ai = b}.
+Thus
+                                    X
+            Dm (b) =                                  (N (β) · #{0 ≤ i < m − 1 : ai = b} + 1)
+                        (a0 ,a1 ,··· ,am−2 )β ∈Hm−1
+
+                     = N (β)Dm−1 (b) + hm−1 .
+Repeating the process above, we have
+                            2
+           Dm (b) = N (β) Dm−2 (b) + N (β)hm−2 + hm−1
+                 ..
+                  .
+(4.3)
+                    = (N (β))m−M DM (b) + (N (β))m−M −1 hM + · · · + hm−1
+                         = (N (β))m−M DM (b) + (m − M )(N (β))m−M −1 hM ,
+where we use (4.2) in the last equality. Therefore, by (1.5), (1.6), (4.3) and
+                                            hm = (N (β))m−M hM ,
+we have
+                                       m      h
+                                    1 X
+                        fα,m (b) =        fα,n,m (b)
+                                   hm n=1
+                                        Dm (b)   DM (b) m − M
+                                    =          =       +      (N (β))−1 .
+                                        mhm      mhM      m
+Letting m → ∞, we obtain
+                                    lim fm (b) = (N (β))−1 = 1/#D,
+                                    m→∞
+
+which completes the proof of Theorem 1.2.
+     NON-WIEFERICH PROPERTY OF PRIME IDEALS AND A CONJECTURE OF ERDÖS                                             11
+
+4.2. Proof of Theorem 1.3. Since the ramification index of pj is ej , by Theorem
+1.1, there exists an positive integer M such that for all k ≥ M and j ∈ {1, 2, . . . , h},
+                  (j)                     (j)          (j)         (j)
+             #Gk = # Ker(Gk → Gk−1 ) · #Gk−1
+                                          (j)          (j)                   (j)              (j)            (j)
+                        = # Ker(Gk → Gk−1 ) · # Ker(Gk−1 → Gk−2 ) · #Gk−2
+                                                 (j)
+(4.4)                   = · · · = pj · #Gk−ej ,
+where pj is the rational prime lying below pj . Applying (4.4) repeatedly, we have
+                                                   
+                                k−M                                      k−M
+                                                                                   +1
+                                 ej     (j)   (j)                         ej                  (j)
+(4.5)                      pj         #GM ≤ #Gk ≤ pj                                    #GM .
+Combining this with (4.1), we have
+                                      h                      h 
+                                                                      g m−M 
+                                                                         j
+                                      Y                      Y                          +1           
+                                                                             ej                (j)
+             Cm (α) = #Hm =                     #G(j)
+                                                  gj m ≤           pj                        #GM         ,   and
+                                          j=1                j=1
+(4.6)
+                          h 
+                                   g m−M 
+                          Y           j                
+                                          ej       (j)
+             Cm (α) ≥            pj              #GM ,
+                          j=1
+
+                                                    (j)
+for all m ≥ M . Hence, setting CM := log( hj=1 #GM ),
+                                           Q
+
+                                 g m−M
+                    CM + hj=1 ( j ej − 1) log pj
+                           P
+                                                        log Cm (α)
+                             Ph                      ≤
+                           m j=1 fj gj log pj           m log N (β)
+                            Ph gj m−M
+                     CM + j=1 ( ej + 1) log pj
+                  ≤                                  ,
+                            m hj=1 fj gj log pj
+                              P
+
+                                                f g
+where we use N (β) = hj=1 N (p)gj = hj=1 pj j j . Letting m → ∞, we obtain (1.8),
+                      Q                Q
+
+which completes the proof of Theorem 1.3.
+
+                                           Acknowledgements
+
+  R. Li was supported by NSFC No. 12401006 and Guangdong Basic and Applied
+Basic Research Foundation No. 2023A1515110272. J. Zhao was supported by NSFC
+No. 12471085 and Science and Technology Commission of Shanghai Municipality
+(STCSM) No. 22DZ2229014.
+
+                                                   References
+ [1] R. Crandall, K. Dilcher and C. Pomerance. A search for Wieferich and Wilson primes. Math.
+     Comp., 66(217):433–449, 1997. 3
+ [2] V. S. Dimitrov and E. W. Howe. Powers of 3 with few nonzero bits and a conjecture of Erdős.
+     Rocky Mountain J. Math., 55(1):45–61, 2025. 1
+ [3] T. Dupuy and D. E. Weirich. Bits of 3n in binary, Wieferich primes and a conjecture of Erdös.
+     J. Number Theory, 158:268–280, 2016. 1, 2, 3
+ [4] P. Erdös. Some unconventional problems in number theory. Math. Mag. 52(2):67–70, 1979. 1
+12                              RUOFAN LI AND JIUZHOU ZHAO∗
+
+ [5] E. Hecke. Lectures on the theory of algebraic numbers. Springer-Verlag, New York-Berlin,
+     Graduate Texts in Mathematics 77, 1981. 8
+ [6] S. T. Holdum, F. R. Klausen, and P. M. Reichstein Rasmussen. Powers in prime bases and a
+     problem on central binomial coefficients. Integers, 15:Paper No. A43, 13, 2015. 1
+ [7] N. M. Katz. Wieferich past and future. Topics in finite fields. Amer. Math. Soc., Providence,
+     RI., Contemp. Math. 632:253–270, 2015. 3
+ [8] R. E. Kennedy and C. Cooper. A generalization of a result by Narkiewicz concerning large
+     digits of powers. Univ. Beograd. Publ. Elektrotehn. Fak. Ser. Mat., 11:36–40, 2000. 1
+ [9] J. C. Lagarias. Ternary expansions of powers of 2. J. Lond. Math. Soc. (2), 79(3):562–588, 2009.
+     1
+[10] S. Lang. Old and new conjectured Diophantine inequalities. Bull. Amer. Math. Soc. (N.S.),
+     23(1):37–75, 1990. 3
+[11] W. Narkiewicz. A note on a paper of H. Gupta concerning powers of two and three: “Powers of
+     2 and sums of distinct powers of 3” [Univ. Beograd. Publ. Elektrotehn. Fak. Ser. Mat. Fiz. No.
+     602-633 (1978), 151–158 (1979); MR 81g:10016]. Univ. Beograd. Publ. Elektrotehn. Fak. Ser.
+     Mat. Fiz., (678-715):173–174, 1980. 1
+[12] J. Neukirch. Algebraic number theory. Springer-Verlag, Berlin. Grundlehren der mathematis-
+     chen Wissenschaften 322, 1999. 5
+[13] J. H. Silverman. Wieferich’s criterion and the abc-conjecture. J. Number Theory., 30(2):226–237,
+     1988. 3
+[14] A. P. Wieferich. Zum letzten Fermatschen Theorem. J. Reine Angew. Math., 136(1909):293–302.
+     3
+[15] J. Zhao, and R. Li. On β-adic expansions of powers of an algebraic integer ommitting a digit.
+     Quaest. Math., 48(8):1247–1260, 2025. 1, 4
+
+     Department of Mathematics, Jinan University, Guangzhou, 510632, China
+     Email address: liruofan@jnu.edu.cn
+
+  School of Mathematics and Statistics, Key Laboratory of Engineering Modeling
+and Statistical Computation of Hainan Province, Hainan University, Haikou 570228,
+China
+     Email address: zhao9zone@gmail.com
+
