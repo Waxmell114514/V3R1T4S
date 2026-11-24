@@ -1,0 +1,6 @@
+[
+ {"id": "g001-e01", "track": "C", "hypothesis": "把 g0 的 DFS 移植到 C：2^r mod 3^L 用定长 base-3^40 多肢算术（L 按需），子节点用通用乘模", "prediction": {"metric": "T1.events_per_s_1core", "delta": "x100 (约 1.5e7)"}, "parent": "g000-e00", "touched": ["search/run.py", "search/c1/"], "spec_needed": false, "targets_bottleneck": true},
+ {"id": "g001-e02", "track": "C", "hypothesis": "利用 2^(P_k) = 1 + 3^k·e_k：乘以 g_k^j 改为 v + 3^k·(v·e_kj mod 3^(L-k))，只做短乘法和移位加，再移植到 C", "prediction": {"metric": "T1.events_per_s_1core", "delta": "x300 (约 4.5e7)"}, "parent": "g000-e00", "touched": ["search/run.py", "search/c2/"], "spec_needed": false, "targets_bottleneck": true},
+ {"id": "g001-r03", "track": "C", "hypothesis": "Researcher：读 Saye 2022 全文，写出其递归构造算法、复杂度、所用算力与可借鉴的技巧", "prediction": {"metric": "specs", "delta": "specs/saye2022.md，含可实现的算法描述"}, "parent": null, "touched": ["specs/saye2022.md"], "spec_needed": true, "exploratory": true},
+ {"id": "g001-r04", "track": "P", "hypothesis": "Researcher：核实部分结果文献（Narkiewicz 计数上界、Lagarias 3-adic 框架、Dupuy–Weirich 等，近 24 个月 arXiv），列出可做出新命题的子问题", "prediction": {"metric": "specs", "delta": "specs/literature.md，至少 3 个带出处的候选子问题"}, "parent": "g000-p00", "touched": ["specs/literature.md"], "spec_needed": true, "targets_bottleneck": true}
+]

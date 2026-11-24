@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/2jGb+hjCgiBNTyZ99fKWVIA2Jgc</id>
+  <title>arXiv Query: search_query=all:"ternary" AND all:"powers of 2"&amp;id_list=&amp;start=0&amp;max_results=50</title>
+  <updated>2026-11-24T10:11:32Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22ternary%22+AND+all:%22powers+of+2%22&amp;start=0&amp;max_results=50&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+  <opensearch:totalResults>8</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2605.21819v1</id>
+    <title>Graph Structure of Chebyshev Permutation Polynomials over Binary and Ternary Adic Rings</title>
+    <updated>2026-05-20T23:39:55Z</updated>
+    <link href="https://arxiv.org/abs/2605.21819v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.21819v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Understanding the functional graph of a nonlinear map over a finite domain is crucial for analyzing its dynamical complexity and potential applications in cryptography and pseudorandom generation. In this paper, we investigate the graph structure of Chebyshev permutation polynomials over the ring $\mathbb{Z}_{2^{k_1}3^{k_2}}$, where $k_1$ and $k_2$ are positive integers and $0\in\{k_1, k_2\}$. Each element of the ring is regarded as a vertex, and the mapping relation defined by the polynomial corresponds to a directed edge. Building on new properties of Chebyshev polynomials modulo powers of $2$ and $3$, we provide an explicit characterization of path lengths and cycle structures in the functional graph. We show that, despite the complexities introduced by the binary and ternary components, the graph exhibits strong regularities, including a constant number of cycles of a given length and predictable branching patterns as $k_1$ and $k_2$ increase. Our results extend previous studies over prime-power rings, offering insights into the emergence of complexity in digital nonlinear maps and supporting the security analysis of their cryptographic applications.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-20T23:39:55Z</published>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Xiaoxiong Lu</name>
+    </author>
+    <author>
+      <name>Yuling Dai</name>
+    </author>
+    <author>
+      <name>Chengqing Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2305.04257v1</id>
+    <title>Unrolled Architectures for High-Throughput Encoding of Multi-Kernel Polar Codes</title>
+    <updated>2023-05-07T12:13:16Z</updated>
+    <link href="https://arxiv.org/abs/2305.04257v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2305.04257v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Over the past decade, polar codes have received significant traction and have been selected as the coding method for the control channel in fifth-generation (5G) wireless communication systems. However, conventional polar codes are reliant solely on binary (2x2) kernels, which restricts their block length to being only powers of 2. In response, multi-kernel (MK) polar codes have been proposed as a viable solution to attain greater code length flexibility. This paper proposes an unrolled architecture for encoding both systematic and non-systematic MK polar codes, capable of high-throughput encoding of codes constructed with binary, ternary (3x3), or binary-ternary mixed kernels. The proposed scheme exhibits an unprecedented level of flexibility by supporting 83 different codes and offering various architectures that provide trade-offs between throughput and resource consumption. The FPGA implementation results demonstrate that a partially-pipelined polar encoder of size N=4096 operating at a frequency of 270 MHz gives a throughput of 1080 Gbps. Additionally, a new compiler implemented in Python is given to automatically generate HDL modules for the desired encoders. By inserting the desired parameters, a designer can simply obtain all the necessary VHDL files for FPGA implementation.</summary>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-05-07T12:13:16Z</published>
+    <arxiv:primary_category term="cs.IT"/>
+    <author>
+      <name>Hossein Rezaei</name>
+    </author>
+    <author>
+      <name>Elham Abbasi</name>
+    </author>
+    <author>
+      <name>Nandana Rajatheva</name>
+    </author>
+    <author>
+      <name>Matti Latva-aho</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2301.10445v1</id>
+    <title>High-Throughput Rate-Flexible Combinational Decoders for Multi-Kernel Polar Codes</title>
+    <updated>2023-01-25T07:45:51Z</updated>
+    <link href="https://arxiv.org/abs/2301.10445v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2301.10445v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Polar codes have received growing attention in the past decade and have been selected as the coding scheme for the control channel in the fifth generation (5G) wireless communication systems. However, the conventional polar codes have only been constructed by binary (2x2) kernel which poses block length limitation to powers of 2. To attain more flexible block lengths, multi-kernel polar codes are proposed. In this paper, a combinational architecture for multi-kernel polar codes with high throughput is proposed based on successive cancellation decoding algorithm. The proposed scheme can decode pure-binary, pure-ternary (3x3), and binary-ternary mixed polar codes. The decoder's architecture is rate-flexible meaning that a new code rate can be assigned to the decoder at every clock cycle. The proposed architecture is validated by FPGA implementation and the results reveal that a code of size N=81 gains the coded throughput of 1664.5 Mbps. A novel Python-based polar compiler is also proposed to automatically generate the HDL modules for target decoders. A designer can input the target block length and kernel ordering of a polar code, and get the required VHDL files automatically. Based on our simulations, the majority of the required HDL files can be generated in less than 0.4 seconds.</summary>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-01-25T07:45:51Z</published>
+    <arxiv:primary_category term="cs.IT"/>
+    <author>
+      <name>Hossein Rezaei</name>
+    </author>
+    <author>
+      <name>Nandana Rajatheva</name>
+    </author>
+    <author>
+      <name>Matti Latva-aho</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2211.08778v5</id>
+    <title>A Combinational Multi-Kernel Decoder for Polar Codes</title>
+    <updated>2023-05-13T18:08:08Z</updated>
+    <link href="https://arxiv.org/abs/2211.08778v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2211.08778v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Polar codes have been selected as the channel coding scheme for control channel in the fifth generation (5G) communication system thanks to their capacity achieving characteristics. However, the traditional polar codes support only codes constructed by binary (2x2) kernel which limits the code lengths to powers of 2. Multi-kernel polar codes are proposed to achieve flexible block length. In this paper, the first combinational decoder for multi-kernel polar codes based on successive cancellation algorithm is proposed. The proposed decoder can decode pure-binary and binary-ternary (3x3) mixed polar codes. The architecture is rate-flexible with the capability of online rate assignment and supports any kernel sequences. The FPGA implementation results reveal that for a code of length N = 48, the coded throughput of 812.1 Mbps can be achieved.</summary>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-11-16T09:09:06Z</published>
+    <arxiv:primary_category term="cs.IT"/>
+    <author>
+      <name>Hossein Rezaei</name>
+    </author>
+    <author>
+      <name>Nandana Rajatheva</name>
+    </author>
+    <author>
+      <name>Matti Latva-aho</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1909.05564v1</id>
+    <title>Magneto-transport and Shubnikov-de Haas oscillations in the layered ternary telluride Ta3SiTe6 topological semimetal</title>
+    <updated>2019-09-12T11:12:46Z</updated>
+    <link href="https://arxiv.org/abs/1909.05564v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1909.05564v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Topological semimetals characterize a novel class of quantum materials hosting Dirac/Weyl fermions. The important features of topological fermions can be exhibited by quantum oscillations. Here we report the magnetoresistance and Shubnikov-de Haas (SdH) quantum oscillation of longitudinal resistance in the single crystal of topological semimetal Ta3SiTe6 with the magnetic field up to 38 T. Periodic amplitude of the oscillations reveals related information about the Fermi surface. The fast Fourier transformation spectra represent a single oscillatory frequency. The analysis of the oscillations shows the Fermi pocket with a cross-section area of 0.13 angstrom power minus 2. Combining magneto-transport measurements and the first-principles calculation, we find that these oscillations come from the hole pocket. Hall resistivity and the SdH oscillations recommend that Ta3SiTe6 is a hole dominated system.</summary>
+    <category term="cond-mat.mes-hall" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-09-12T11:12:46Z</published>
+    <arxiv:comment>18 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="cond-mat.mes-hall"/>
+    <author>
+      <name>Muhammad Naveed</name>
+    </author>
+    <author>
+      <name>Fucong Fei</name>
+    </author>
+    <author>
+      <name>Haijun Bu</name>
+    </author>
+    <author>
+      <name>Xiangyan Bo</name>
+    </author>
+    <author>
+      <name>Syed Adil Shah</name>
+    </author>
+    <author>
+      <name>Bo Chen</name>
+    </author>
+    <author>
+      <name>Yong Zhang</name>
+    </author>
+    <author>
+      <name>Qianqian Liu</name>
+    </author>
+    <author>
+      <name>Boyuan Wei</name>
+    </author>
+    <author>
+      <name>Shuai Zhang</name>
+    </author>
+    <author>
+      <name>Chuanying Xi</name>
+    </author>
+    <author>
+      <name>Xiangang Wan</name>
+    </author>
+    <author>
+      <name>Fengqi Song</name>
+    </author>
+    <arxiv:doi>10.1063/1.5131618</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1063/1.5131618" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1902.01922v1</id>
+    <title>Fast Decoding of Multi-Kernel Polar Codes</title>
+    <updated>2019-02-05T21:45:21Z</updated>
+    <link href="https://arxiv.org/abs/1902.01922v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1902.01922v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Polar codes are a class of linear error correction codes which provably attain channel capacity with infinite codeword lengths. Finite length polar codes have been adopted into the 5th Generation 3GPP standard for New Radio, though their native length is limited to powers of 2. Utilizing multiple polarizing matrices increases the length flexibility of polar codes at the expense of a more complicated decoding process. Successive cancellation (SC) is the standard polar decoder and has time complexity $\mathcal{O}(N \log N)$ due to its sequential nature. However, some patterns in the frozen set mirror simple linear codes with low latency decoders, which allows for a significant reduction in SC latency by pruning the decoding schedule. Such fast decoding techniques have only previously been used for traditional Arikan polar codes, causing multi-kernel polar codes to be an impractical length-compatibility technique with no fast decoders available. We propose fast simplified successive cancellation decoding node patterns, which are compatible with polar codes constructed with both the Arikan and ternary kernels, and generalization techniques. We outline efficient implementations, made possible by imposing constraints on ternary node parameters. We show that fast decoding of multi-kernel polar codes has at least 72% reduced latency compared with an SC decoder in all cases considered where codeword lengths are (96, 432, 768, 2304).</summary>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-02-05T21:45:21Z</published>
+    <arxiv:comment>To appear in IEEE WCNC 2019 (Submitted September 25, 2018), 6 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.IT"/>
+    <author>
+      <name>Adam Cavatassi</name>
+    </author>
+    <author>
+      <name>Thibaud Tonnellier</name>
+    </author>
+    <author>
+      <name>Warren J. Gross</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1802.00580v1</id>
+    <title>A Multi-Kernel Multi-Code Polar Decoder Architecture</title>
+    <updated>2018-02-02T07:02:19Z</updated>
+    <link href="https://arxiv.org/abs/1802.00580v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1802.00580v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Polar codes have received increasing attention in the past decade, and have been selected for the next generation of wireless communication standard. Most research on polar codes has focused on codes constructed from a $2\times2$ polarization matrix, called binary kernel: codes constructed from binary kernels have code lengths that are bound to powers of $2$. A few recent works have proposed construction methods based on multiple kernels of different dimensions, not only binary ones, allowing code lengths different from powers of $2$. In this work, we design and implement the first multi-kernel successive cancellation polar code decoder in literature. It can decode any code constructed with binary and ternary kernels: the architecture, sized for a maximum code length $N_{max}$, is fully flexible in terms of code length, code rate and kernel sequence. The decoder can achieve frequency of more than $1$ GHz in $65$ nm CMOS technology, and a throughput of $615$ Mb/s. The area occupation ranges between $0.11$ mm$^2$ for $N_{max}=256$ and $2.01$ mm$^2$ for $N_{max}=4096$. Implementation results show an unprecedented degree of flexibility: with $N_{max}=4096$, up to $55$ code lengths can be decoded with the same hardware, along with any kernel sequence and code rate.</summary>
+    <category term="cs.AR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-02-02T07:02:19Z</published>
+    <arxiv:primary_category term="cs.AR"/>
+    <author>
+      <name>Gabriele Coppolino</name>
+    </author>
+    <author>
+      <name>Carlo Condo</name>
+    </author>
+    <author>
+      <name>Guido Masera</name>
+    </author>
+    <author>
+      <name>Warren J. Gross</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0512006v4</id>
+    <title>Ternary expansions of powers of 2</title>
+    <updated>2008-07-11T20:54:18Z</updated>
+    <link href="https://arxiv.org/abs/math/0512006v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0512006v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  Paul Erdos asked how frequently the ternary expansion of 2^n omits the digit 2. He conjectured this happens only for finitely many values of n. We generalize this question to consider iterates of two discrete dynamical systems. The first is over the real numbers, and considers the integer part of lambda 2^n for a real input lambda. The second is over the 3-adic integers, and considers the sequence lambda 2^n for a 3-adic integer input lambda.
+  We show that the number of input values that have infinitely many iterates omitting the digit 2 in their ternary expansion is small in a suitable sense. For each nonzero input we give an asymptotic upper bound on the number of the first k iterates that omit the digit 2, as k goes to infinity. We also study auxiliary problems concerning the Hausdorff dimension of intersections of multiplicative translates of 3-adic Cantor sets.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2005-12-01T05:06:13Z</published>
+    <arxiv:comment>28 pages latex; v4 major revision, much more detail to proofs, added material on intersections of Cantor sets</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <arxiv:journal_ref>J. London Math. Soc. 79 (2009), 562--588</arxiv:journal_ref>
+    <author>
+      <name>Jeffrey C. Lagarias</name>
+    </author>
+    <arxiv:doi>10.1112/jlms/jdn080</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/jlms/jdn080" title="doi"/>
+  </entry>
+</feed>
