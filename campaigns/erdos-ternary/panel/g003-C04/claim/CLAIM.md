@@ -17,3 +17,16 @@ Not claimed: anything new mathematically. 2*3^20 is Vardi's known bound; M1 was 
 How to rerun: `cd campaigns/erdos-ternary/lean && lake build ErdosTernary.Records.CheckerKernelUpTo20`
 (about 15 min of kernel time; Records modules are not in the default build), then from campaigns/erdos-ternary:
 `python3 verify/lean_audit.py ErdosTernary.Records.CheckerKernelUpTo20 ErdosTernary.upToK_20 --expect UpTo:2*3^20`.
+
+## Revision 2 (after the CRITERION skeptic, panel/g003-C04/criterion.md) — scope narrowed
+- Dropped from the claim: upToK_16 and upToK_18 (not covered by the rerun steps or the sha256 list).
+- Trust stated fully: the Lean compiler is not trusted; the Lean kernel (including its GMP-accelerated Nat
+  arithmetic, used here on 31-digit moduli across ~1024 declarations), Mathlib's Nat.digits, verify/lean_audit.py
+  and the toolchain are. The generator also writes the final theorem statement, so correctness additionally rests
+  on `lean_audit --expect UpTo:2*3^20` and the independent auditor. Node and subtree counts in file headers are
+  unverified generator output and affect only performance.
+- Allowed one-sentence scope: "In campaigns/erdos-ternary/lean, using the frozen ErdosTernary.UpTo,
+  CheckerKernel.checkK_sound : checkK N K = true → UpTo N (all N, K) and upToK_20 : UpTo (2*3^20)
+  (= 6973568802, Vardi's known bound, nothing new) are proved at tier A (only propext, Classical.choice,
+  Quot.sound), with the instance checked by decide +kernel, so the Lean compiler is not trusted but the Lean
+  kernel, including its GMP-accelerated Nat arithmetic, is."

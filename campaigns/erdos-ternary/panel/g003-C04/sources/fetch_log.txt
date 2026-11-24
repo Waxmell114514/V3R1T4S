@@ -1,0 +1,14 @@
+2026-11-24T15:15:46Z | 200 | https://www.erdosproblems.com/406 | erdosproblems_406.html | sha256=05dac881bb76fc51e66e56737cc31194cfab5ebfbaadc8b92681bb79fac96e95
+2026-11-24T15:15:47Z | 200 | https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/406.lean | fc_406.lean | sha256=c46c2984a3ce4d88c2c51c48c781056e10bc38c0662f16b8797a84163b48a5c1
+2026-11-24T15:15:47Z | 200 | https://oeis.org/A102483/internal | oeis_A102483.txt | sha256=04db52e41f624e8f9b34f4ad70a09cddb198ae87f810890ee387e98aaaa70e62
+2026-11-24T15:15:48Z | 200 | https://oeis.org/search?q=erdos+ternary+2%5En+digit+2&fmt=text | oeis_A024720_search.txt | sha256=3a0ea69cdda935dea2498c5db9ea2a49f261e867a445db9e8f9c5139622854b5
+2026-11-24T15:16:04Z | 200 | https://arxiv.org/abs/2202.13256 | arxiv_2202.13256.html | sha256=4254f10b99bb5abde709f0dde060d34f636bed8d0a592b1067932d83f3187ee1
+2026-11-24T15:16:04Z | 200 | https://oeis.org/search?q=id:A102483&fmt=text | oeis_A102483.txt.fmt | sha256=aa587c271de8c3cc22a15b16a61c1b98315e9fab28cbbb6df2c8b3257014b982
+2026-11-24T15:16:14Z | 200 | https://mathworld.wolfram.com/Ternary.html | mathworld_Ternary.html | sha256=00e8545c5e48adcfe7ba5e9bf98f2b42612f7dd7c71ce099e9a20538f1e696b3
+2026-11-24T15:16:14Z | 200 | https://arxiv.org/pdf/math/0512006 | lagarias_math0512006.pdf | sha256=565446e1a1ad3a57f5adb20d500997fb45a2716c98b517c34f8f2d354587370c
+2026-11-24T15:16:45Z | 200 | https://raw.githubusercontent.com/google-deepmind/cryptids/main/Cryptids/Semantics/ErdosTernary15.lean | cryptids_ErdosTernary15.lean | sha256=382368e9f5b7b1fe856d0cd8860ccec08a1825a2c43f18f639064068f8ab3854
+2026-11-24T15:16:45Z | 200 | https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/OEIS/104320.lean | fc_OEIS_104320.lean | sha256=4d04c9835d0b5561d86333547d20d0bddc69c19a3b8bfd057154d0654d6e39a8
+2026-11-24T15:16:46Z | 200 | https://raw.githubusercontent.com/competemath/tengoku/main/Tengoku/LeanPool/LeanPool/GKPCarry/DensityOne.lean | tengoku_DensityOne.lean | sha256=30f8e905b0a8e34b43c5d0251f395ed88b4fee5e0b21830a651bbb6eba742c4b
+2026-11-24T15:17:14Z | 200 | https://raw.githubusercontent.com/google-deepmind/cryptids/main/RELATED_WORK.md | cryptids_RELATED_WORK.md | sha256=c56a8829d2da5d56b4e79e53376911e99e72578f4bfda3a607f0a13d878b6c42
+2026-11-24T15:17:15Z | 200 | https://raw.githubusercontent.com/google-deepmind/cryptids/main/artifacts/erdos_ternary_14/README.md | cryptids_erdos_ternary_14_README.md | sha256=ec50573787fea976e36aa8db0e8c1f55a9fb17dae0b71211149e6b9655b9f656
+2026-11-24T15:17:15Z | 200 | https://raw.githubusercontent.com/kyo-oo/erdosternary2/main/README.md | kyo-oo_erdosternary2_README.md | sha256=4c06d262b2cbbb1b3635e36aa7217fc84b6301bf9874dcc169960bc46bf3d6cc
