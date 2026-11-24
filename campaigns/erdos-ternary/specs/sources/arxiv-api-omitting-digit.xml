@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/18SjDG3CoZRMzw7YWVCOGtefofI</id>
+  <title>arXiv Query: search_query=ti:"omitting a digit"&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-11-24T11:38:00Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=ti:%22omitting+a+digit%22&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2405.06220v2</id>
+    <title>On $β$-adic expansions of powers of algebraic integer omitting a digit</title>
+    <updated>2025-12-04T06:11:53Z</updated>
+    <link href="https://arxiv.org/abs/2405.06220v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2405.06220v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $α, β$ be two relatively prime algebraic integers in a number field $K$ and $N$ be a positive integer. We show that the number of $n\in\{1,2,\dots,N\}$ such that the $β$-adic expansion of $α^n$ omits a given digit is less than $C_1 N^{σ(β)}$, where $σ(β):=\frac{\log(|N(β)|-1)}{\log|N(β)|}$ and $C_1$ is an absolute constant, if all prime ideal factors of $β$ are unramified and their norms are integer primes.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-05-10T03:08:54Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jiuzhou Zhao</name>
+    </author>
+    <author>
+      <name>Ruofan Li</name>
+    </author>
+  </entry>
+</feed>
