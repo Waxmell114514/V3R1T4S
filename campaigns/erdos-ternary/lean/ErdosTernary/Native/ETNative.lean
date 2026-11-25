@@ -191,4 +191,135 @@ def checkWord (N s m : Nat) : Bool :=
 
 end CheckerWord
 
+/-! ### g006-C01: two-word state (`CheckerWord2`)
+
+Same tree and shape as `CheckerWord`, but the state is `2^r % 3^76` held as two words base `3^38`:
+`lo = 2^r % 3^38` and `hi = 2^r % 3^76 / 3^38` (both `< 3^38 < 2^63`). A child's state is the product with
+`g = 2^(2 * 3^j) % 3^76`, stored in the table as four 19-trit pieces `g0 + 3^19 g1 + 3^38 h0 + 3^57 h1`.
+`mulLo` / `mulHi` compute the low / high word of the product mod `3^76` by schoolbook multiplication in base
+`3^19 = 1162261467` with carries: every partial product is `< 3^38`, every column sum `< 4 * 3^38 + 4 * 3^19 < 2^63`,
+so all values are scalar `Nat`s at run time. The table covers levels `wordDepth .. 74` in two parts: `tblL`
+(levels `.. 36`, the child trit `j+1 ≤ 37` is read from `lo`) and `tblH` (levels `37 .. 74`, trits `38 .. 75` read
+from `hi`). There is no bignum step below the shard level for `N < 2 * 3^75`; a node that still has several members
+at level 75 falls back to `Checker.explore`, and a single-member tail that passes trit 75 falls back to
+`Checker.explore` at level 76. Soundness: `ErdosTernary/CheckerWord2.lean`. -/
+
+namespace CheckerWord2
+
+open Checker
+
+/-- Low word (`mod 3^38`) of `(lo + 3^38 hi) * (g0 + 3^19 g1 + …) mod 3^76`: digits 0 and 1 base `3^19`. -/
+def mulLo (lo g0 g1 : Nat) : Nat :=
+  let a0 := lo % 1162261467
+  let a1 := lo / 1162261467
+  let t0 := a0 * g0
+  let t1 := a1 * g0 + a0 * g1 + t0 / 1162261467
+  t1 % 1162261467 * 1162261467 + t0 % 1162261467
+
+/-- High word (`/ 3^38`) of `(lo + 3^38 hi) * (g0 + 3^19 g1 + 3^38 h0 + 3^57 h1) mod 3^76`: digits 2 and 3. -/
+def mulHi (lo hi g0 g1 h0 h1 : Nat) : Nat :=
+  let a0 := lo % 1162261467
+  let a1 := lo / 1162261467
+  let c0 := hi % 1162261467
+  let c1 := hi / 1162261467
+  let t0 := a0 * g0
+  let t1 := a1 * g0 + a0 * g1 + t0 / 1162261467
+  let t2 := a1 * g1 + a0 * h0 + c0 * g0 + t1 / 1162261467
+  let t3 := a0 * h1 + a1 * h0 + c0 * g1 + c1 * g0 + t2 / 1162261467
+  t3 % 1162261467 * 1162261467 + t2 % 1162261467
+
+/-- Per-level constants for level `j`: the four base-`3^19` pieces of `2^(2 * 3^j) % 3^76`, the periods, and the
+divisor `q` that reads trit `j+1` from the word holding it (`3^(j+1)` for `lo`, `3^(j+1-38)` for `hi`). -/
+structure Lv2 where
+  g0 : Nat
+  g1 : Nat
+  h0 : Nat
+  h1 : Nat
+  /-- `2 * 3^j` -/
+  p : Nat
+  /-- `2 * (2 * 3^j)` -/
+  p2 : Nat
+  q : Nat
+
+/-- Single-member tail reading trits from `hi` (one per remaining entry, then trit 75), then `explore` at 76. -/
+def scanH (N F r : Nat) : Nat → List Lv2 → Bool
+  | x, [] => x % 3 == 2 || explore N F 76 r
+  | x, _ :: es => if x % 3 == 2 then true else scanH N F r (x / 3) es
+
+/-- Single-member tail reading trits from `lo` (one per remaining entry, then trit 37), then the 38 trits of `hi`
+(`CheckerWord.scanT`), then `explore` at 76. -/
+def scanL (N F r hi : Nat) : Nat → List Lv2 → Bool
+  | x, [] => x % 3 == 2 || CheckerWord.scanT N F r 38 hi 38
+  | x, _ :: es => if x % 3 == 2 then true else scanL N F r hi (x / 3) es
+
+/-- Exploration of node `(i, r)` for `37 ≤ i`, state `lo, hi`, `es` the table for levels `i, …, 74`. -/
+def fastH (N F : Nat) : Nat → Nat → Nat → List Lv2 → Bool
+  | r, _, _, [] => explore N F 75 r
+  | r, lo, hi, e :: es =>
+    if N < r + e.p then (r ≤ 8 || scanH N F r (hi / e.q) es)
+    else
+      let q := e.q
+      let lo1 := mulLo lo e.g0 e.g1
+      let hi1 := mulHi lo hi e.g0 e.g1 e.h0 e.h1
+      let lo2 := mulLo lo1 e.g0 e.g1
+      let hi2 := mulHi lo1 hi1 e.g0 e.g1 e.h0 e.h1
+      let r2 := r + e.p2
+      (hi / q % 3 == 2 || fastH N F r lo hi es) &&
+      (hi1 / q % 3 == 2 || fastH N F (r + e.p) lo1 hi1 es) &&
+      (N < r2 || hi2 / q % 3 == 2 || fastH N F r2 lo2 hi2 es)
+
+/-- Exploration of node `(i, r)` for `i ≤ 37`, state `lo, hi`, `es` the table for levels `i, …, 36`,
+`th` the table for levels `37, …, 74`. -/
+def fastL (N F : Nat) (th : List Lv2) : Nat → Nat → Nat → List Lv2 → Bool
+  | r, lo, hi, [] => fastH N F r lo hi th
+  | r, lo, hi, e :: es =>
+    if N < r + e.p then (r ≤ 8 || scanL N F r hi (lo / e.q) es)
+    else
+      let q := e.q
+      let lo1 := mulLo lo e.g0 e.g1
+      let hi1 := mulHi lo hi e.g0 e.g1 e.h0 e.h1
+      let lo2 := mulLo lo1 e.g0 e.g1
+      let hi2 := mulHi lo1 hi1 e.g0 e.g1 e.h0 e.h1
+      let r2 := r + e.p2
+      (lo / q % 3 == 2 || fastL N F th r lo hi es) &&
+      (lo1 / q % 3 == 2 || fastL N F th (r + e.p) lo1 hi1 es) &&
+      (N < r2 || lo2 / q % 3 == 2 || fastL N F th r2 lo2 hi2 es)
+
+/-- The entry for level `j` with trit divisor `q`. -/
+def entry (j q : Nat) : Lv2 :=
+  let g := Nat.powMod 2 (2 * 3 ^ j) (3 ^ 76)
+  let g' := g / 1162261467
+  let g'' := g' / 1162261467
+  ⟨g % 1162261467, g' % 1162261467, g'' % 1162261467, g'' / 1162261467, 2 * 3 ^ j, 2 * (2 * 3 ^ j), q⟩
+
+/-- Table for levels `i, …, i+n-1` reading trits from `lo` (`q = 3^(j+1)`). -/
+def tableL (i n : Nat) : List Lv2 := (List.range' i n).map fun j => entry j (3 ^ (j + 1))
+
+/-- Table for levels `i, …, i+n-1` reading trits from `hi` (`q = 3^(j+1-38)`). -/
+def tableH (i n : Nat) : List Lv2 := (List.range' i n).map fun j => entry j (3 ^ (j + 1 - 38))
+
+/-- The top of the tree down to level `d`; node `(d, r)` goes to `fastL` only in shard `r / 2 % m = s`. -/
+def top (N d F m s : Nat) (tl th : List Lv2) : Nat → Nat → Nat → Bool
+  | 0, _, _ => false
+  | fuel + 1, i, r =>
+    let q := 3 ^ i
+    if N < r then true
+    else if Nat.powMod 2 r (3 * q) / q = 2 then true
+    else if N < r + 2 * q ∧ r ≤ 8 then true
+    else if i = d then
+      (if r / 2 % m = s then
+        (let x := Nat.powMod 2 r (3 ^ 76); fastL N F th r (x % 3 ^ 38) (x / 3 ^ 38) tl)
+      else true)
+    else top N d F m s tl th fuel (i + 1) r && top N d F m s tl th fuel (i + 1) (r + 2 * q) &&
+      top N d F m s tl th fuel (i + 1) (r + 2 * (2 * q))
+
+/-- Shard `s` of `m` (two-word state mod `3^76`, shard level `CheckerWord.wordDepth = 10`). -/
+def checkWord2 (N s m : Nat) : Bool :=
+  let d := CheckerWord.wordDepth
+  let tl := tableL d (37 - d)
+  let th := tableH 37 38
+  top N d (N + 64) m s tl th (d + 1) 0 0 && top N d (N + 64) m s tl th (d + 1) 0 1
+
+end CheckerWord2
+
 end ErdosTernary
