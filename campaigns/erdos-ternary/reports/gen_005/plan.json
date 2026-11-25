@@ -1,0 +1,4 @@
+[
+ {"id": "g005-R01", "track": "C", "hypothesis": "Researcher + 可行性分析：找能大幅减少残余类树节点数的剪枝（高位数字/阿基米德侧信息、Saye 的做法、对数线性形式、按多个 λ 联合约束等），对每个候选给出节点数的定量估计（小 N 上实测）与 Lean 中可靠性证明的难度", "prediction": {"metric": "specs", "delta": "specs/node-reduction.md；至少 1 个候选在 N=2·3^20 上实测节点数减少 ≥10 倍，否则如实报告没有"}, "parent": "g004-C02", "touched": ["specs/node-reduction.md", "search/g005-R01/"], "spec_needed": true, "targets_bottleneck": true},
+ {"id": "g005-C02", "track": "C", "hypothesis": "机器字运算：检查器状态改为模 3^20（< 2^63）的 UInt64 或 Nat 小数，在第 20 层用一次 powMod 重新播种，去掉热循环中的 GMP 大数运算；可靠性定理照旧 A 级", "prediction": {"metric": "Lean.checker_speed", "delta": "在 C02 预编译基础上单节点再快 3–5 倍；UpTo(2·3^32) B 级 ≤ 1.5 小时"}, "parent": "g004-C02", "touched": ["lean/ErdosTernary/Native/ETNative.lean 新增函数", "lean/ErdosTernary/CheckerWord.lean", "lean/ErdosTernary/Records/UpTo32*"], "spec_needed": false, "targets_bottleneck": true}
+]
