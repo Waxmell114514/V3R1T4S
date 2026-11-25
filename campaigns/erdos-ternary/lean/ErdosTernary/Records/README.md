@@ -6,6 +6,8 @@ A green `lake build` does NOT check these. Build and audit each one explicitly, 
 
 | module | theorem | tier | cost (one run) |
 |---|---|---|---|
+| UpTo36 (+ UpTo36/Shard0..15) | upTo_36 : UpTo (2*3^36) | B (native_decide, 16 shard modules, `CheckerWord2.checkWord2`, same trust base as below) | ~6260 s CPU, ~38 min wall with 3 shards at a time; see proofs/g006-C01.md |
+| UpTo34 (+ UpTo34/Shard0..7) | upTo_34 : UpTo (2*3^34) | B (native_decide, 8 shard modules, precompiled two-word-state checker `CheckerWord2.checkWord2`, same trust base as below) | ~1572 s CPU, ~10 min wall with 3 shards at a time; see proofs/g006-C01.md |
 | UpTo32 (+ UpTo32/Shard0..7) | upTo_32 : UpTo (2*3^32) | B (native_decide, 8 shard modules, precompiled word-state checker `CheckerWord.checkWord`, same trust base as below) | ~1020 s CPU, ~8.5 min wall with 2 shards at a time; see proofs/g005-C02.md |
 | UpTo30 (+ UpTo30/Shard0..7) | upTo_30 : UpTo (2*3^30) | B (native_decide, 8 shard modules, precompiled checker) | see proofs/g004-C02.md |
 | UpTo28 | upTo_28 : UpTo (2*3^28) | B (native_decide, 8 shards) | ~8-11 min |
@@ -18,8 +20,12 @@ and moved here unchanged from ErdosTernary/ (Critic, reports/gen_003/critic_C04.
 ## What tier B trusts since g004-C02 (human decision 2026-11-25: accepted, trust base stated)
 The executable checker definitions live in lean/ErdosTernary/Native/ETNative.lean, a Mathlib-free lean_lib with
 `precompileModules = true` (lean/lakefile.toml). Every native_decide result (upTo_vardi, upTo_26, upTo_28,
-upTo_30, upTo_32) therefore trusts, beyond the Lean kernel: the Lean compiler's C output for ETNative, the bundled
+upTo_30, upTo_32, upTo_34, upTo_36) therefore trusts, beyond the Lean kernel: the Lean compiler's C output for ETNative, the bundled
 leanc/clang and linker that built `.lake/build/lib/libErdosTernary_ETNative.so`, the Lean runtime and GMP, and
 Lake loading that .so as a plugin. The kernel would not notice a stale or swapped .so, so every audit of a tier-B
 record must rebuild ETNative from source (delete its build outputs first). verify/lean_audit.py does not scan the
 lakefile; auditors check it by hand. Tier-A results (checkK_sound, upToK_20, Counting*, E3Count) are unaffected.
+Since g006-C01 (upTo_34, upTo_36) the same trust base also covers `CheckerWord2` (two-word state, definitions in
+ETNative.lean, soundness `checkWord2_sound` tier A). Note: `lake build ETNative` alone refreshes ETNative's .olean
+but not `libErdosTernary_ETNative.so`; after deleting the build outputs, rebuild via the record module itself (or
+`lake build ETNative:shared`) and check the .so exports the checker's symbols before timing or auditing.
