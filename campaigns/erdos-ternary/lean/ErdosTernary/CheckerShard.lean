@@ -20,65 +20,8 @@ namespace CheckerShard
 
 open Checker
 
-/-- Per-level constants for level `j` (invariant `LV` below). -/
-structure Lvl where
-  /-- `2^(2 * 3^j) % 3^L` -/
-  g : ℕ
-  /-- `2 * 3^j`, the period at level `j` -/
-  p : ℕ
-  /-- `2 * (2 * 3^j)` -/
-  p2 : ℕ
-  /-- `3^(j+1)` -/
-  q3 : ℕ
-
-/-- Trits `i, i+1, …` of `2^r` (one per remaining table entry), given `x = 2^r % 3^L / 3^i`;
-then `Checker.explore` at level `L`. -/
-def scan (N F L r : ℕ) : ℕ → List Lvl → Bool
-  | _, [] => explore N F L r
-  | x, _ :: es => if x % 3 == 2 then true else scan N F L r (x / 3) es
-
-/-- Exploration of node `(i, r)` below the shard level, with `M = 3^L`, `v = 2^r % M` and `es` the table for
-levels `i, i+1, …, L-1` (see `LV`); the level `i` itself is implicit. `F` is the fuel of the fallback. -/
-def fast (N M L F : ℕ) : ℕ → ℕ → List Lvl → Bool
-  | r, _, [] => explore N F L r
-  | r, v, e :: es =>
-    if N < r + e.p then (r ≤ 8 || scan N F L r (v / e.q3) es)
-    else
-      let q3 := e.q3
-      let v1 := v * e.g % M
-      let v2 := v1 * e.g % M
-      let r2 := r + e.p2
-      (v / q3 % 3 == 2 || fast N M L F r v es) &&
-      (v1 / q3 % 3 == 2 || fast N M L F (r + e.p) v1 es) &&
-      (N < r2 || v2 / q3 % 3 == 2 || fast N M L F r2 v2 es)
-
-/-- The table for levels `i, i+1, …, i+n-1`. -/
-def table (M i n : ℕ) : List Lvl :=
-  (List.range' i n).map fun j => ⟨Nat.powMod 2 (2 * 3 ^ j) M, 2 * 3 ^ j, 2 * (2 * 3 ^ j), 3 ^ (j + 1)⟩
-
-/-- The top of the tree down to level `d`, where node `(d, r)` goes to `fast` only in shard `r / 2 % m = s`.
-`tbl` is the table for levels `d, …, L-1`. -/
-def top (N d L M F m s : ℕ) (tbl : List Lvl) : ℕ → ℕ → ℕ → Bool
-  | 0, _, _ => false
-  | fuel + 1, i, r =>
-    let q := 3 ^ i
-    if N < r then true
-    else if Nat.powMod 2 r (3 * q) / q = 2 then true
-    else if N < r + 2 * q ∧ r ≤ 8 then true
-    else if i = d then (if r / 2 % m = s then fast N M L F r (Nat.powMod 2 r M) tbl else true)
-    else top N d L M F m s tbl fuel (i + 1) r && top N d L M F m s tbl fuel (i + 1) (r + 2 * q) &&
-      top N d L M F m s tbl fuel (i + 1) (r + 2 * (2 * q))
-
-/-- Shard level and modulus exponent used by `checkShard`. -/
-def shardDepth : ℕ := 10
-def modExp : ℕ := 40
-
-/-- Shard `s` of `m`: the two level-0 classes `n ≡ 0, 1 (mod 2)`, restricted to shard `s` at level `shardDepth`. -/
-def checkShard (N s m : ℕ) : Bool :=
-  let M := 3 ^ modExp
-  let tbl := table M shardDepth (modExp - shardDepth)
-  top N shardDepth modExp M (N + 64) m s tbl (shardDepth + 1) 0 0 &&
-    top N shardDepth modExp M (N + 64) m s tbl (shardDepth + 1) 0 1
+-- `Lvl`, `scan`, `fast`, `table`, `top`, `shardDepth`, `modExp` and `checkShard` are defined in
+-- `ErdosTernary/Native/ETNative.lean` (precompiled, g004-C02).
 
 /-! ### Soundness -/
 
