@@ -1,0 +1,4 @@
+[
+ {"id": "g006-C01", "track": "C", "hypothesis": "双字状态检查器：2^r mod 3^76 用两个 base-3^38 的小 Nat 字，表覆盖到第 75 层，去掉 deep 的大数 powMod 与 explore 回退（K ≤ 46）", "prediction": {"metric": "Lean.checker_speed", "delta": "≤ 60 ns/单位；UpTo(2·3^34) B 级 ≤ 45 分钟 CPU；每升两级 3 增长 ≤ 4.1 倍"}, "parent": "g005-C02", "touched": ["lean/ErdosTernary/Native/ETNative.lean 新增命名空间", "lean/ErdosTernary/CheckerWord2.lean", "lean/ErdosTernary/Records/UpTo34*"], "spec_needed": false, "targets_bottleneck": true},
+ {"id": "g006-D02", "track": "C", "hypothesis": "分布式试点：2 个云端会话各编译 UpTo(2·3^34) 的一半分片（用已接受的 checkWord），回报运行记录；检验 B′ 流程（proposals/0003）", "prediction": {"metric": "pipeline", "delta": "两个会话 2 小时内各自完成并回报；记录齐全；墙钟约为单机的一半加环境搭建开销"}, "parent": "g005-C02", "touched": ["certs/g006-D02/", "lean/ErdosTernary/Records/UpTo34W1*"], "spec_needed": false}
+]
